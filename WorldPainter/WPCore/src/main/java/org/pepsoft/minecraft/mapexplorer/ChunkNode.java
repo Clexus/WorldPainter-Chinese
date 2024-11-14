@@ -35,7 +35,7 @@ public class ChunkNode extends AbstractNode {
 
     @Override
     public String getName() {
-        return "Chunk " + x + ", " + z;
+        return "\u533A\u5757 " + x + ", " + z;
     }
 
     @Override

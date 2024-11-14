@@ -1035,9 +1035,9 @@ public class NewWorldDialog extends WorldPainterDialog {
         jLabel14.setText("jLabel14");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Create New World");
+        setTitle("\u521B\u5EFA\u65B0\u4E16\u754C");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);

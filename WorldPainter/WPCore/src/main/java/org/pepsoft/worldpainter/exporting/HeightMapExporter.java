@@ -106,7 +106,7 @@ public class HeightMapExporter {
                             params.setCompressionMode(MODE_EXPLICIT);
                             params.setCompressionType("LZW");
                             params.setCompressionQuality(0f);
-                            formatDescription = "in 32-bit unsigned integer grayscale compressed " + type + " format.";
+                            formatDescription = ",格式为32位无符号整形灰阶压缩的 " + type;
                             formatMax = Math.pow(2.0, 32.0);
                             dimensionMax = (format == INTEGER_LOW_RESOLUTION) ? (intHighestHeight - minHeight) : ((intHighestHeight - minHeight) << 8);
                         } else {
@@ -118,7 +118,7 @@ public class HeightMapExporter {
                         if (writers.hasNext()) {
                             writer = writers.next();
                             params = writer.getDefaultWriteParam();
-                            formatDescription = ((bitsRequired <= 8) ? "in 8-bit" : "in 16-bit") + " unsigned integer grayscale " + type + " format.";
+                            formatDescription = ((bitsRequired <= 8) ? ",格式为8位" : ",格式为16位") + "无符号整形灰阶压缩的 " + type;
                             formatMax = Math.pow(2.0, (bitsRequired <= 8) ? 8.0 : 16.0);
                             dimensionMax = (format == INTEGER_LOW_RESOLUTION) ? (intHighestHeight - minHeight) : ((intHighestHeight - minHeight) << 8);
                         } else {
@@ -138,7 +138,7 @@ public class HeightMapExporter {
                         params.setCompressionMode(MODE_EXPLICIT);
                         params.setCompressionType("LZW");
                         params.setCompressionQuality(0f);
-                        formatDescription = "in " + ((format == FLOAT_NORMALISED) ? "normalised " : "") + " floating point grayscale compressed " + type + " format.";
+                        formatDescription = ",格式为" + ((format == FLOAT_NORMALISED) ? "归一化的" : "") + "浮点数灰阶压缩的 " + type;
                     } else {
                         return false;
                     }
@@ -152,9 +152,8 @@ public class HeightMapExporter {
             }
             if (dimensionMax / formatMax < 0.2) {
                 formatDescription += "\n\n" +
-                        "PLEASE NOTE: this height map will appear very dark when displayed as\n" +
-                        "an image, because the exported values are very small compared to the\n" +
-                        "theoretical range of the image format.";
+                        "请注意: 高度图作为图片查看时会非常黑\n" +
+                        "因为导出值相比理论图片格式的理论范围来说非常小";
             }
             final WritableRaster raster = image.getRaster();
             for (Tile tile: dimension.getTiles()) {

@@ -21,7 +21,7 @@ public class CustomGenerator extends MapGenerator {
 
     @Override
     public String toString() {
-        return getType().name() + "(name=" + name + ((settings != null) ? (", " + settings) : "") + ")";
+        return getType().name() + "(\u540D\u79F0=" + name + ((settings != null) ? (", " + settings) : "") + ")";
     }
 
     private final String name;

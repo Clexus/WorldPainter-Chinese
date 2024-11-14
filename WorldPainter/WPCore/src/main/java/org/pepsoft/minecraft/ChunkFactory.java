@@ -69,37 +69,37 @@ public interface ChunkFactory {
         /**
          * Creating the chunk and generating terrain and water or lava (excluding border and wall chunks).
          */
-        TERRAIN_GENERATION("Terrain", "Generating terrain, water and lava"),
+        TERRAIN_GENERATION("\u5E73\u539F", "\u751F\u6210\u5E73\u539F\u3001\u6C34\u548C\u5CA9\u6D46"),
 
         /**
          * Post-processing the generated chunks (including border and wall chunks).
          */
-        POST_PROCESSING("Post processing", "Post-processing all chunks"),
+        POST_PROCESSING("\u540E\u5904\u7406", "\u540E\u5904\u7406\u6240\u6709\u533A\u5757"),
 
         /**
          * Creating border or wall chunks (including layers but excluding post-processing).
          */
-        BORDER_CHUNKS("Border chunks", "Creating border chunks"),
+        BORDER_CHUNKS("\u8FB9\u754C\u533A\u5757", "\u521B\u5EFA\u8FB9\u754C\u533A\u5757"),
 
         /**
          * Exporting the {@link Garden} seeds.
          */
-        SEEDS("Seeds", "Exporting seeds"),
+        SEEDS("\u79CD\u5B50", "\u5BFC\u51FA\u79CD\u5B50"),
 
         /**
          * Calculating and propagating block properties such as lighting and leaf distances.
          */
-        BLOCK_PROPERTIES( "Block properties", "Calculating light and/or leaf distances"),
+        BLOCK_PROPERTIES( "\u65B9\u5757\u5C5E\u6027", "\u8BA1\u7B97\u5149\u7167\u548C/\u6216\u6811\u53F6\u8DDD\u79BB"),
 
         /**
          * Saving the generated chunks to disk.
          */
-        DISK_WRITING ("Saving", "Saving chunks to disk"),
+        DISK_WRITING ("\u4FDD\u5B58", "\u5C06\u533A\u5757\u4FDD\u5B58\u5230\u786C\u76D8"),
 
         /**
          * Applying region-straddling layers along region boundaries, not differentiated by layer.
          */
-        FIXUPS("Fixups", "Fixing up region boundaries");
+        FIXUPS("\u4FEE\u590D", "\u4FEE\u590D\u533A\u57DF\u8FB9\u754C");
 
         private final String name, description;
 

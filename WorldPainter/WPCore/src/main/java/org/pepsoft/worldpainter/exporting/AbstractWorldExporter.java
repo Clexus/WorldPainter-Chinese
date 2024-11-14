@@ -111,7 +111,7 @@ public abstract class AbstractWorldExporter implements WorldExporter {
      */
     protected ChunkFactory.Stats parallelExportRegions(Dimension dimension, File worldDir, ProgressReceiver progressReceiver) throws OperationCancelled {
         if (progressReceiver != null) {
-            progressReceiver.setMessage("Exporting " + dimension.getName() + " dimension");
+            progressReceiver.setMessage("\u6B63\u5728\u5BFC\u51FA " + dimension.getName() + " \u7EF4\u5EA6");
         }
 
         long start = System.currentTimeMillis();
@@ -326,7 +326,7 @@ public abstract class AbstractWorldExporter implements WorldExporter {
                 synchronized (fixups) {
                     if (! fixups.isEmpty()) {
                         if (progressReceiver != null) {
-                            progressReceiver.setMessage("Doing remaining fixups for " + dimension.getName());
+                            progressReceiver.setMessage("\u6B63\u4E3A " + dimension.getName() + " \u5904\u7406\u5269\u4F59\u7684\u4FEE\u590D");
                             progressReceiver.reset();
                         }
                         performFixups(worldDir, combined, collectedStats, progressReceiver, fixups);
@@ -513,9 +513,9 @@ public abstract class AbstractWorldExporter implements WorldExporter {
         }
         if (progressReceiver != null) {
             if (ceiling) {
-                progressReceiver.setMessage("Generating ceiling");
+                progressReceiver.setMessage("\u751F\u6210\u4E0A\u8FB9\u754C");
             } else {
-                progressReceiver.setMessage("Generating landscape");
+                progressReceiver.setMessage("\u751F\u6210\u5730\u5F62");
             }
         }
         final int lowestChunkX = (regionCoords.x << 5) - 1;
@@ -688,7 +688,7 @@ public abstract class AbstractWorldExporter implements WorldExporter {
         }
         final String nouns = nounsBuilder.toString();
         if (progressReceiver != null) {
-            progressReceiver.setMessage("Calculating initial " + nouns);
+            progressReceiver.setMessage("\u6B63\u5728\u8BA1\u7B97\u521D\u59CB " + nouns);
         }
         BlockPropertiesCalculator calculator = new BlockPropertiesCalculator(minecraftWorld, platform, worldExportSettings, exportSettings);
 
@@ -719,7 +719,7 @@ public abstract class AbstractWorldExporter implements WorldExporter {
 
         if (lowMark != Integer.MAX_VALUE) {
             if (progressReceiver != null) {
-                progressReceiver.setMessage("Propagating " + nouns);
+                progressReceiver.setMessage("\u6B63\u5728\u4F20\u64AD " + nouns);
             }
 
             // Calculate secondary light
@@ -747,7 +747,7 @@ public abstract class AbstractWorldExporter implements WorldExporter {
                                          ProgressReceiver progressReceiver) {
         return doWithMdcContext(() -> {
             if (progressReceiver != null) {
-                progressReceiver.setMessage("Exporting region " + regionCoords.x + "," + regionCoords.y + " of " + dimension.getName());
+                progressReceiver.setMessage("\u6B63\u5728\u5BFC\u51FA\u533A\u57DF "+ dimension.getName() + " \u4E2D\u7684 " + regionCoords.x + "," + regionCoords.y );
             }
             final int lowestTileX = (regionCoords.x << 2) - 1;
             final int highestTileX = lowestTileX + 5;
@@ -953,11 +953,11 @@ public abstract class AbstractWorldExporter implements WorldExporter {
             final ExportSettings exportSettings = getExportSettings(dimension, platform);
             for (Entry<Point, List<Fixup>> entry: fixups.entrySet()) {
                 if (progressReceiver != null) {
-                    progressReceiver.setMessage("Performing fixups for region " + entry.getKey().x + "," + entry.getKey().y);
+                    progressReceiver.setMessage("\u6B63\u5728\u5904\u7406\u533A\u57DF " + entry.getKey().x + "," + entry.getKey().y + " \u7684\u4FEE\u590D");
                 }
                 final List<Fixup> regionFixups = entry.getValue();
                 if (logger.isDebugEnabled()) {
-                    logger.debug("Performing " + regionFixups.size() + " fixups for region " + entry.getKey().x + "," + entry.getKey().y);
+                    logger.debug("\u6B63\u5728\u5904\u7406\u533A\u57DF " + entry.getKey().x + "," + entry.getKey().y + " \u7684 " +regionFixups.size() + " \u4E2A\u4FEE\u590D" );
                 }
                 for (Fixup fixup: regionFixups) {
                     fixup.fixup(minecraftWorld, dimension, platform, worldExportSettings, exportSettings);
@@ -974,7 +974,7 @@ public abstract class AbstractWorldExporter implements WorldExporter {
             stats.timings.computeIfAbsent(DISK_WRITING, k -> new AtomicLong()).addAndGet(System.nanoTime() - start);
         }
         if (logger.isTraceEnabled()) {
-            logger.trace("Fixups for " + fixups.size() + " regions took " + (duration / 1_000_000) + " ms");
+            logger.trace("\u4E3A " + fixups.size() + " \u4E2A\u533A\u57DF\u7684\u4FEE\u590D\u4F7F\u7528\u4E86 " + (duration / 1_000_000) + " \u6BEB\u79D2");
         }
     }
 
