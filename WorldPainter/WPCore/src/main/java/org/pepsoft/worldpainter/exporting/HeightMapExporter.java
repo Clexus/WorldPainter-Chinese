@@ -106,7 +106,7 @@ public class HeightMapExporter {
                             params.setCompressionMode(MODE_EXPLICIT);
                             params.setCompressionType("LZW");
                             params.setCompressionQuality(0f);
-                            formatDescription = ",格式为32位无符号整形灰阶压缩的 " + type;
+                            formatDescription = ",\u683C\u5F0F\u4E3A32\u4F4D\u65E0\u7B26\u53F7\u6574\u5F62\u7070\u9636\u538B\u7F29\u7684 " + type;
                             formatMax = Math.pow(2.0, 32.0);
                             dimensionMax = (format == INTEGER_LOW_RESOLUTION) ? (intHighestHeight - minHeight) : ((intHighestHeight - minHeight) << 8);
                         } else {
@@ -118,7 +118,7 @@ public class HeightMapExporter {
                         if (writers.hasNext()) {
                             writer = writers.next();
                             params = writer.getDefaultWriteParam();
-                            formatDescription = ((bitsRequired <= 8) ? ",格式为8位" : ",格式为16位") + "无符号整形灰阶压缩的 " + type;
+                            formatDescription = ((bitsRequired <= 8) ? ",\u683C\u5F0F\u4E3A8\u4F4D" : ",\u683C\u5F0F\u4E3A16\u4F4D") + "\u65E0\u7B26\u53F7\u6574\u5F62\u7070\u9636\u538B\u7F29\u7684 " + type;
                             formatMax = Math.pow(2.0, (bitsRequired <= 8) ? 8.0 : 16.0);
                             dimensionMax = (format == INTEGER_LOW_RESOLUTION) ? (intHighestHeight - minHeight) : ((intHighestHeight - minHeight) << 8);
                         } else {
@@ -138,7 +138,7 @@ public class HeightMapExporter {
                         params.setCompressionMode(MODE_EXPLICIT);
                         params.setCompressionType("LZW");
                         params.setCompressionQuality(0f);
-                        formatDescription = ",格式为" + ((format == FLOAT_NORMALISED) ? "归一化的" : "") + "浮点数灰阶压缩的 " + type;
+                        formatDescription = ",\u683C\u5F0F\u4E3A" + ((format == FLOAT_NORMALISED) ? "\u5F52\u4E00\u5316\u7684" : "") + "\u6D6E\u70B9\u6570\u7070\u9636\u538B\u7F29\u7684 " + type;
                     } else {
                         return false;
                     }
@@ -152,8 +152,8 @@ public class HeightMapExporter {
             }
             if (dimensionMax / formatMax < 0.2) {
                 formatDescription += "\n\n" +
-                        "请注意: 高度图作为图片查看时会非常黑\n" +
-                        "因为导出值相比理论图片格式的理论范围来说非常小";
+                        "\u8BF7\u6CE8\u610F: \u9AD8\u5EA6\u56FE\u4F5C\u4E3A\u56FE\u7247\u67E5\u770B\u65F6\u4F1A\u975E\u5E38\u9ED1\n" +
+                        "\u56E0\u4E3A\u5BFC\u51FA\u503C\u76F8\u6BD4\u7406\u8BBA\u56FE\u7247\u683C\u5F0F\u7684\u7406\u8BBA\u8303\u56F4\u6765\u8BF4\u975E\u5E38\u5C0F";
             }
             final WritableRaster raster = image.getRaster();
             for (Tile tile: dimension.getTiles()) {

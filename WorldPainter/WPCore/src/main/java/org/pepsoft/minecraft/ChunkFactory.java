@@ -69,7 +69,7 @@ public interface ChunkFactory {
         /**
          * Creating the chunk and generating terrain and water or lava (excluding border and wall chunks).
          */
-        TERRAIN_GENERATION("\u5E73\u539F", "\u751F\u6210\u5E73\u539F\u3001\u6C34\u548C\u5CA9\u6D46"),
+        TERRAIN_GENERATION("\u65B9\u5757", "\u751F\u6210\u65B9\u5757\u3001\u6C34\u548C\u5CA9\u6D46"),
 
         /**
          * Post-processing the generated chunks (including border and wall chunks).

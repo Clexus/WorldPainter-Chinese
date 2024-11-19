@@ -226,7 +226,7 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
         }
         WPPluginManager.initialise(config.getUuid());
 
-        JFrame frame = new JFrame("DynMapPreviewerTest");
+        JFrame frame = new JFrame("DynMap\u9884\u89C8\u6D4B\u8BD5");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         DynmapPreviewer viewer = new DynmapPreviewer();
         WPObject object = CustomObjectManager.getInstance().loadObject(new File(args[0]));
@@ -239,14 +239,14 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
         frame.setVisible(true);
     }
 
-    private final Action zoomIn = new AbstractAction("Zoom In", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/magnifier_zoom_in.png")) {
+    private final Action zoomIn = new AbstractAction("\u653E\u5927", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/magnifier_zoom_in.png")) {
             public void actionPerformed(ActionEvent e) {
                 setZoom(getZoom() + 1);
                 setActionStates();
             }
         };
 
-    private final Action zoomOut = new AbstractAction("Zoom Out", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/magnifier_zoom_out.png")) {
+    private final Action zoomOut = new AbstractAction("\u7F29\u5C0F", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/magnifier_zoom_out.png")) {
             public void actionPerformed(ActionEvent e) {
                 if (getZoom() > -4) {
                     setZoom(getZoom() - 1);
@@ -255,7 +255,7 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
             }
         };
 
-    private final Action rotateLeft = new AbstractAction("Rotate Left", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_left.png")) {
+    private final Action rotateLeft = new AbstractAction("\u5411\u5DE6\u65CB\u8F6C", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_left.png")) {
             public void actionPerformed(ActionEvent e) {
                 azimuth = MathUtils.mod(azimuth - 15.0, 360.0);
                 tileProvider.setAzimuth(azimuth);
@@ -263,7 +263,7 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
             }
         };
 
-    private final Action rotateRight = new AbstractAction("Rotate Right", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_right.png")) {
+    private final Action rotateRight = new AbstractAction("\u5411\u53F3\u65CB\u8F6C", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_right.png")) {
             public void actionPerformed(ActionEvent e) {
                 azimuth = MathUtils.mod(azimuth + 15.0, 360.0);
                 tileProvider.setAzimuth(azimuth);
@@ -271,7 +271,7 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
             }
         };
 
-    private final Action rotateUp = new AbstractAction("Rotate Up", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_up.png")) {
+    private final Action rotateUp = new AbstractAction("\u5411\u4E0A\u65CB\u8F6C", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_up.png")) {
             public void actionPerformed(ActionEvent e) {
                 double oldInclination = inclination;
                 inclination = Math.max(inclination - 15.0, 30.0);
@@ -283,7 +283,7 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
             }
         };
 
-    private final Action rotateDown = new AbstractAction("Rotate Down", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_down.png")) {
+    private final Action rotateDown = new AbstractAction("\u5411\u4E0B\u65CB\u8F6C", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/arrow_down.png")) {
             public void actionPerformed(ActionEvent e) {
                 double oldInclination = inclination;
                 inclination = Math.min(inclination + 15.0, 90.0);
@@ -295,7 +295,7 @@ public class DynmapPreviewer extends TiledImageViewer implements ManagesScale {
             }
         };
 
-    private final Action reset = new AbstractAction("Reset") {
+    private final Action reset = new AbstractAction("\u91CD\u7F6E") {
             public void actionPerformed(ActionEvent e) {
                 if ((azimuth != initialAzimuth) || (inclination != initialInclination) || (getZoom() != initialZoom)) {
                     if (azimuth != initialAzimuth) {

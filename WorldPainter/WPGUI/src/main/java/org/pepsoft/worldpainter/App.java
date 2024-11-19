@@ -776,7 +776,7 @@ public final class App extends JFrame implements RadiusControl,
         }
         final int height = tile.getIntHeight(xInTile, yInTile);
         setTextIfDifferent(heightLabel, MessageFormat.format(strings.getString("height.0.of.1"), height, (height >= 0) ? dimension.getMaxHeight() - 1 : dimension.getMinHeight()));
-        setTextIfDifferent(slopeLabel, MessageFormat.format("Slope: {0}°", (int) round(Math.atan(dimension.getSlope(x, y)) * 180 / Math.PI)));
+        setTextIfDifferent(slopeLabel, MessageFormat.format("Slope: {0}\u00B0", (int) round(Math.atan(dimension.getSlope(x, y)) * 180 / Math.PI)));
         if ((activeOperation instanceof PaintOperation) && (paint instanceof LayerPaint)) {
             final Layer layer = ((LayerPaint) paint).getLayer();
             final Layer.DataSize dataSize = layer.getDataSize();
@@ -822,7 +822,7 @@ public final class App extends JFrame implements RadiusControl,
             if (biome == 255) {
                 biome = dimension.getAutoBiome(x, y);
                 if (biome != -1) {
-                    setTextIfDifferent(biomeLabel, "Auto biome: " + biomeHelper.getBiomeName(biome));
+                    setTextIfDifferent(biomeLabel, "\u81EA\u52A8\u83B7\u53D6\u5230\u7684\u751F\u7269\u7FA4\u7CFB: " + biomeHelper.getBiomeName(biome));
                 }
             } else if (biome != -1) {
                 setTextIfDifferent(biomeLabel, MessageFormat.format(strings.getString("biome.0"), biomeHelper.getBiomeName(biome)));
@@ -902,7 +902,7 @@ public final class App extends JFrame implements RadiusControl,
         }
         open(file);
     }
-    
+
     public void open(final File file) {
         logger.info("Loading world " + file.getAbsolutePath());
         clearWorld(); // Free up memory of the world and the undo buffer
@@ -1017,14 +1017,14 @@ public final class App extends JFrame implements RadiusControl,
                 if (newWorld.getPlatform() != null) {
                     newWorld.setPlatform(DefaultPlugin.JAVA_ANVIL);
                 }
-                
+
                 // Log event
                 config.logEvent(new EventVO(EVENT_KEY_ACTION_MIGRATE_HEIGHT).addTimestamp());
             }
             // Don't ask again, no matter what the user answered
             newWorld.setAskToConvertToAnvil(false);
         }
-        
+
         if (newWorld.isAskToRotate() && (newWorld.getUpIs() == Direction.WEST) && (newWorld.getImportedFrom() == null)) {
             if (showConfirmDialog(this, strings.getString("this.world.was.created.when.north.was.to.the.right"), strings.getString("rotate.world"), YES_NO_OPTION) == YES_OPTION) {
                 ProgressDialog.executeTask(this, new ProgressTask<java.lang.Void>() {
@@ -1042,7 +1042,7 @@ public final class App extends JFrame implements RadiusControl,
                         return null;
                     }
                 }, NOT_CANCELABLE);
-                
+
                 // Log event
                 config.logEvent(new EventVO(EVENT_KEY_ACTION_MIGRATE_ROTATION).addTimestamp());
             }
@@ -1201,7 +1201,7 @@ public final class App extends JFrame implements RadiusControl,
             view.setInhibitUpdates(false);
         }
     }
-    
+
     void scaleWorld(Window parent) {
         if ((world == null) || (dimension == null)) {
             DesktopUtils.beep();
@@ -1394,7 +1394,7 @@ public final class App extends JFrame implements RadiusControl,
             updateRadiusLabel();
         }
     }
-    
+
     @Override
     public void decreaseRadius(int amount) {
         if (radius > 0) {
@@ -1429,9 +1429,9 @@ public final class App extends JFrame implements RadiusControl,
             updateRadiusLabel();
         }
     }
-    
+
     // SeedListener
-    
+
     @Override
     public void setSeed(long seed, Generator generator) {
         if (world != null) {
@@ -1478,7 +1478,7 @@ public final class App extends JFrame implements RadiusControl,
 
     /**
      * Offer to save the current world, but only if is dirty.
-     * 
+     *
      * @return {@code true} if there are no unsaved changes, the user saved the changes, or the user indicated that
      * unsaved changes may be discarded (in other words, a destructive operation may proceed), {@code false} if there
      * were unsaved changes and the user did not save them or indicate that they may be discarded (in other words, a
@@ -1766,7 +1766,7 @@ public final class App extends JFrame implements RadiusControl,
     }
 
     // CustomBiomeListener
-    
+
     @Override
     public void customBiomeAdded(CustomBiome customBiome) {
         if ((! programmaticChange) && (dimension != null)) {
@@ -1832,7 +1832,7 @@ public final class App extends JFrame implements RadiusControl,
             }, NOT_CANCELABLE);
         }
     }
-    
+
     // DockableHolder
 
     @Override
@@ -1950,7 +1950,7 @@ public final class App extends JFrame implements RadiusControl,
             logger.info("[SAFE MODE] Not loading custom brushes");
         }
     }
-    
+
     private void loadCustomBrushes(String category, File brushesDir) {
         final File[] files = brushesDir.listFiles(new java.io.FileFilter() {
             @Override
@@ -2001,7 +2001,7 @@ public final class App extends JFrame implements RadiusControl,
             customBrushes.put(category, new BrushGroup(category, icon, brushes));
         }
     }
-    
+
     private void maybePing() {
         Configuration config = Configuration.getInstance();
         if (config.getPingAllowed() == null) {
@@ -2020,7 +2020,7 @@ public final class App extends JFrame implements RadiusControl,
             ping();
         }
     }
-    
+
     private void ping() {
         final UsageVO usageVO = new UsageVO();
         Configuration config = Configuration.getInstance();
@@ -2127,13 +2127,13 @@ public final class App extends JFrame implements RadiusControl,
             }
         }
     }
-    
+
     /**
      * If the world was loaded from an existing file, and/or was previously
      * saved, save the world to the same file, without asking for confirmation.
      * Otherwise do the same thing as {@link #saveAs()}. Shows a progress
      * indicator while saving.
-     * 
+     *
      * @return {@code true} if the file was saved.
      */
     private boolean save() {
@@ -2143,12 +2143,12 @@ public final class App extends JFrame implements RadiusControl,
             return save(lastSelectedFile);
         }
     }
-    
+
     /**
      * Ask for a filename and save the world with that name. If a file exists
      * with the name, ask for confirmation to overwrite it. Shows a progress
      * indicator while saving, and a confirmation when it is saved.
-     * 
+     *
      * @return {@code true} if the file was saved.
      */
     private boolean saveAs() {
@@ -2201,11 +2201,11 @@ public final class App extends JFrame implements RadiusControl,
             resumeAutosave();
         }
     }
-    
+
     /**
      * Save the world to the specified file, overwriting it if it already exists
      * without asking for confirmation. Shows a progress indicator while saving.
-     * 
+     *
      * @param file The file to which to save the world.
      */
     private boolean save(File file) {
@@ -2495,7 +2495,7 @@ public final class App extends JFrame implements RadiusControl,
         // there is one
         return (p > 0) && (p < (filename.length() - 1)) && (filename.charAt(p) == '.');
     }
-    
+
     private File getOriginalFile(File backupFile) {
         String extension = "";
         String filename = backupFile.getName();
@@ -2510,7 +2510,7 @@ public final class App extends JFrame implements RadiusControl,
         // At this point p points to the dot in front of the backup number
         return new File(backupFile.getParentFile(), filename.substring(0, p) + extension);
     }
-    
+
     private void addRemoveTiles() {
         TileEditor tileEditor = new TileEditor(this, dimension, selectedColourScheme, customBiomeManager, hiddenLayers, false, 10, view.getLightOrigin());
         tileEditor.moveTo(view.getViewLocation());
@@ -2520,7 +2520,7 @@ public final class App extends JFrame implements RadiusControl,
             }
         });
     }
-    
+
     private void importWorld() {
         if (! saveIfNecessary()) {
             return;
@@ -2538,7 +2538,7 @@ public final class App extends JFrame implements RadiusControl,
             config.setMessageDisplayed(IMPORT_WARNING_KEY);
         }
     }
-    
+
     public void importHeightMap(File preselectedFile) {
         if (! saveIfNecessary()) {
             return;
@@ -2579,7 +2579,7 @@ public final class App extends JFrame implements RadiusControl,
         final ImportMaskDialog dialog = new ImportMaskDialog(this, dimension, selectedColourScheme, allLayers, customBiomeManager, preselectedFile);
         dialog.setVisible(true);
     }
-    
+
     private void merge() {
         pauseAutosave();
         try {
@@ -2679,7 +2679,7 @@ public final class App extends JFrame implements RadiusControl,
         workspace.add(viewContainer, BorderLayout.CENTER);
 
         setJMenuBar(createMenuBar());
-        
+
         getContentPane().add(createToolBar(), BorderLayout.NORTH);
 
         getContentPane().add(createStatusBar(), BorderLayout.SOUTH);
@@ -2710,7 +2710,7 @@ public final class App extends JFrame implements RadiusControl,
             }
             dockingManager.addFrame(new DockableFrameBuilder(createCustomBrushPanel(entry.getKey(), entry.getValue()), entry.getKey(), DOCK_SIDE_EAST, 1).withId("customBrushes." + entry.getKey()).build());
         }
-        
+
         dockingManager.addFrame(new DockableFrameBuilder(createBrushSettingsPanel(), "Brush Settings", DOCK_SIDE_EAST, 2).withId("brushSettings").build());
 
         infoPanel = createInfoPanel();
@@ -2965,7 +2965,7 @@ public final class App extends JFrame implements RadiusControl,
         heightLabel = new JLabel(MessageFormat.format(strings.getString("height.0.of.1"), "-9,999", "9,999"));
         heightLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
         statusBar.add(heightLabel);
-        slopeLabel = new JLabel("Slope: 90°");
+        slopeLabel = new JLabel("Slope: 90\u00B0");
         slopeLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
         statusBar.add(slopeLabel);
         materialLabel = new JLabel(MessageFormat.format(strings.getString("material.0"), Material.MOSSY_COBBLESTONE.toString()));
@@ -3011,7 +3011,7 @@ public final class App extends JFrame implements RadiusControl,
                 int maxMB = (int) (max / ONE_MEGABYTE);
                 memoryBar.setToolTipText(MessageFormat.format(strings.getString("memory.usage.0.mb.of.1.mb"), inUseMB, maxMB));
             }
-            
+
             private final Runtime runtime = Runtime.getRuntime();
         }).start();
         return statusBar;
@@ -3136,7 +3136,7 @@ public final class App extends JFrame implements RadiusControl,
         toolSettingsPanel = new JPanel(new BorderLayout());
         return toolSettingsPanel;
     }
-    
+
     private JPanel createLayerPanel() {
         final JPanel layerPanel = new JPanel();
         layerPanel.setLayout(new GridBagLayout());
@@ -3157,7 +3157,7 @@ public final class App extends JFrame implements RadiusControl,
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         constraints.weightx = 1.0;
         layerPanel.add(new JLabel(), constraints);
-        
+
         Configuration config = Configuration.getInstance();
         constraints.anchor = GridBagConstraints.WEST;
         constraints.weightx = 0.0;
@@ -3535,7 +3535,7 @@ public final class App extends JFrame implements RadiusControl,
 
         return terrainPanel;
     }
-    
+
     private JPanel createCustomTerrainPanel() {
         customTerrainPanel = new JPanel();
         customTerrainPanel.setLayout(new GridLayout(0, 4));
@@ -3546,7 +3546,7 @@ public final class App extends JFrame implements RadiusControl,
 
         return customTerrainPanel;
     }
-    
+
     private JPanel createBrushPanel() {
         JPanel optionsPanel = new JPanel();
         optionsPanel.setLayout(new GridBagLayout());
@@ -3558,7 +3558,7 @@ public final class App extends JFrame implements RadiusControl,
         brushPanel.add(createBrushButton(SymmetricBrush.LINEAR_CIRCLE));
         brushPanel.add(createBrushButton(SymmetricBrush.LINEAR_SQUARE));
         brushPanel.add(createBrushButton(new BitmapBrush(App.class.getResourceAsStream("resources/brush_cracked_earth.png"), strings.getString("cracks"))));
-        
+
         brushPanel.add(createBrushButton(SymmetricBrush.COSINE_CIRCLE));
         brushPanel.add(createBrushButton(SymmetricBrush.COSINE_SQUARE));
         brushPanel.add(createBrushButton(SymmetricBrush.CONSTANT_CIRCLE));
@@ -3566,10 +3566,10 @@ public final class App extends JFrame implements RadiusControl,
         brushPanel.add(createBrushButton(SymmetricBrush.PLATEAU_CIRCLE));
         brushPanel.add(createBrushButton(SymmetricBrush.PLATEAU_SQUARE));
         brushPanel.add(createBrushButton(SymmetricBrush.CONSTANT_SQUARE));
-        
+
         brushPanel.add(createBrushButton(SymmetricBrush.DOME_CIRCLE));
         brushPanel.add(createBrushButton(SymmetricBrush.DOME_SQUARE));
-        
+
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         constraints.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -3589,7 +3589,7 @@ public final class App extends JFrame implements RadiusControl,
         for (Brush customBrush: brushGroup.brushes) {
             customBrushPanel.add(createBrushButton(customBrush));
         }
-        
+
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         constraints.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -3605,11 +3605,11 @@ public final class App extends JFrame implements RadiusControl,
 
         return customBrushesPanel;
     }
-    
+
     private JPanel createBrushSettingsPanel() {
         JPanel brushSettingsPanel = new JPanel();
         brushSettingsPanel.setLayout(new GridBagLayout());
-        
+
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         constraints.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -3639,7 +3639,7 @@ public final class App extends JFrame implements RadiusControl,
                 brush.setLevel(newLevel);
             }
         });
-        
+
         brushRotationSlider = new JSlider(-180, 180);
         brushRotationSlider.setMajorTickSpacing(45);
         brushRotationSlider.setMinorTickSpacing(15);
@@ -3648,7 +3648,7 @@ public final class App extends JFrame implements RadiusControl,
         brushRotationSlider.setPaintLabels(false);
         brushRotationSlider.addChangeListener(e -> {
             int value = brushRotationSlider.getValue();
-            brushRotationLabel.setText("Rotation: " + ((value < 0) ? (((value - 7) / 15) * 15) : (((value + 7) / 15) * 15)) + "°");
+            brushRotationLabel.setText("Rotation: " + ((value < 0) ? (((value - 7) / 15) * 15) : (((value + 7) / 15) * 15)) + "\u00B0");
             if ((! programmaticChange) && (! brushRotationSlider.getValueIsAdjusting())) {
                 if (activeOperation instanceof PaintOperation) {
                     brushRotation = value;
@@ -3658,11 +3658,11 @@ public final class App extends JFrame implements RadiusControl,
                 updateBrushRotation();
             }
         });
-        
+
         constraints.insets = new Insets(3, 1, 1, 1);
-        brushRotationLabel = new JLabel("Rotation: 0°");
+        brushRotationLabel = new JLabel("Rotation: 0\u00B0");
         brushSettingsPanel.add(brushRotationLabel, constraints);
-        
+
         constraints.fill = HORIZONTAL;
         constraints.insets = new Insets(1, 1, 1, 1);
         // The preferred width of the slider is way too much. Make it smaller, and
@@ -3676,7 +3676,7 @@ public final class App extends JFrame implements RadiusControl,
         constraints.insets = new Insets(3, 1, 1, 1);
         levelLabel = new JLabel("Intensity: 50 %");
         brushSettingsPanel.add(levelLabel, constraints);
-        
+
         constraints.fill = HORIZONTAL;
         constraints.insets = new Insets(1, 1, 1, 1);
         // The preferred width of the slider is way too much. Make it smaller, and
@@ -3685,11 +3685,11 @@ public final class App extends JFrame implements RadiusControl,
         preferredSize.width = 1;
         levelSlider.setPreferredSize(preferredSize);
         brushSettingsPanel.add(levelSlider, constraints);
-        
+
         constraints.fill = GridBagConstraints.NONE;
         constraints.insets = new Insets(3, 1, 1, 1);
         brushSettingsPanel.add(new JLabel("Options"), constraints);
-        
+
         constraints.insets = new Insets(1, 1, 1, 1);
         brushSettingsPanel.add(brushOptions, constraints);
 
@@ -3759,7 +3759,7 @@ public final class App extends JFrame implements RadiusControl,
         addStatisticsTo(menuBar, "menu", config);
         return menuBar;
     }
-    
+
     private JMenu createFileMenu() {
         JMenuItem menuItem = new JMenuItem(ACTION_NEW_WORLD);
         menuItem.setMnemonic('n');
@@ -3783,7 +3783,7 @@ public final class App extends JFrame implements RadiusControl,
         if (! config.isEasyMode()) {
             menuItem = new JMenuItem(ACTION_IMPORT_MAP);
             menuItem.setMnemonic('m');
-            menuItem.setText("From Minecraft map...");
+            menuItem.setText("\u7531Minecraft\u5730\u56FE\u5BFC\u5165...");
             JMenu subMenu = new JMenu(strings.getString("import"));
             subMenu.setMnemonic('i');
             subMenu.add(menuItem);
@@ -3850,7 +3850,7 @@ public final class App extends JFrame implements RadiusControl,
         menu.putClientProperty(KEY_HELP_KEY, "Menu/File");
         return menu;
     }
-    
+
     private JMenu createEditMenu() {
         JMenuItem menuItem = new JMenuItem(ACTION_UNDO);
         menuItem.setMnemonic('u');
@@ -3877,7 +3877,7 @@ public final class App extends JFrame implements RadiusControl,
             }
         });
         menu.add(extendedBlockIdsMenuItem);
-        
+
         menuItem = new JMenuItem(ACTION_DIMENSION_PROPERTIES);
         menuItem.setMnemonic('p');
         menu.add(menuItem);
@@ -3978,7 +3978,7 @@ public final class App extends JFrame implements RadiusControl,
         menuItem.setMnemonic('g');
         menuItem.setAccelerator(getKeyStroke(VK_G, PLATFORM_COMMAND_MASK));
         menu.add(menuItem);
-        
+
         menuItem = new JMenuItem(ACTION_EDIT_TILES);
         menuItem.setMnemonic('t');
         menu.add(menuItem);
@@ -4083,9 +4083,9 @@ public final class App extends JFrame implements RadiusControl,
         menuItem = new JMenuItem(ACTION_ZOOM_RESET);
         menuItem.setMnemonic('r');
         menu.add(menuItem);
-        
+
         menu.addSeparator();
-        
+
         viewSurfaceMenuItem = new JCheckBoxMenuItem(strings.getString("view.surface"), true);
         viewSurfaceMenuItem.addActionListener(e -> viewDimension(NORMAL_DETAIL));
         viewSurfaceMenuItem.setMnemonic('s');
@@ -4110,7 +4110,7 @@ public final class App extends JFrame implements RadiusControl,
         menu.add(ACTION_SWITCH_TO_FROM_CEILING);
 
         menu.addSeparator();
-        
+
         final JMenu colourSchemeMenu = new JMenu(strings.getString("change.colour.scheme"));
         // This array must correspond 1:1 with App.colourSchemes as initialised in the constructor:
         final String[] colourSchemeNames = {strings.getString("default"), null, null, null, "DokuDark", "DokuHigh", "DokuLight", "Misa", "Sphax"};
@@ -4151,7 +4151,7 @@ public final class App extends JFrame implements RadiusControl,
         menuItem.setMnemonic('c');
         menuItem.setAccelerator(getKeyStroke(VK_V, PLATFORM_COMMAND_MASK));
         menu.add(menuItem);
-        
+
         menu.addSeparator();
 
         JMenu workspaceLayoutMenu = new JMenu("Workspace layout");
@@ -4175,7 +4175,7 @@ public final class App extends JFrame implements RadiusControl,
         menu.add(workspaceLayoutMenu);
 
         menu.addSeparator();
-        
+
         menuItem = new JMenuItem(strings.getString("show.3d.view") + "...");
         menuItem.addActionListener(e -> {
             Point focusPoint = view.getViewCentreInWorldCoords();
@@ -4590,7 +4590,7 @@ public final class App extends JFrame implements RadiusControl,
 //        toolBar.add(ACTION_SHOW_HELP_PICKER);
         return toolBar;
     }
-    
+
     private void addStatisticsTo(MenuElement menuElement, @NonNls final String key, final EventLogger eventLogger) {
         if ((menuElement instanceof JMenuItem) && (! (menuElement instanceof JMenu))) {
             JMenuItem menuItem = (JMenuItem) menuElement;
@@ -4612,7 +4612,7 @@ public final class App extends JFrame implements RadiusControl,
             }
         }
     }
-    
+
     private void addNether() {
         final Dimension surface = world.getDimension(NORMAL_DETAIL);
         final NewWorldDialog dialog = new NewWorldDialog(this, selectedColourScheme, world.getName(), surface.getSeed() + 1, world.getPlatform(), NETHER_DETAIL, Math.max(world.getMinHeight(), 0), Math.min(world.getMaxHeight(), DEFAULT_MAX_HEIGHT_NETHER), surface);
@@ -4657,7 +4657,7 @@ public final class App extends JFrame implements RadiusControl,
             showInfo(this, "The Nether dimension was successfully deleted", "Success");
         }
     }
-    
+
     private void addEnd() {
         final Dimension surface = world.getDimension(NORMAL_DETAIL);
         final NewWorldDialog dialog = new NewWorldDialog(this, selectedColourScheme, world.getName(), surface.getSeed() + 2, world.getPlatform(), END_DETAIL, Math.max(world.getMinHeight(), 0), Math.min(world.getMaxHeight(), DEFAULT_MAX_HEIGHT_END), surface);
@@ -4769,7 +4769,7 @@ public final class App extends JFrame implements RadiusControl,
             setDimension(world.getDimension(anchor));
         }
     }
-    
+
     private void fixLabelSizes() {
         locationLabel.setMinimumSize(locationLabel.getSize());
         locationLabel.setPreferredSize(locationLabel.getSize());
@@ -5174,7 +5174,7 @@ public final class App extends JFrame implements RadiusControl,
         glassPane.setHiddenLayers(hiddenLayers);
         glassPane.setSoloLayer(soloLayer);
     }
-    
+
     private void selectBrushButton(Brush selectedBrush) {
         if (! brushButtons.get(selectedBrush).isSelected()) {
             for (Map.Entry<Brush, JToggleButton> entry: brushButtons.entrySet()) {
@@ -5230,7 +5230,7 @@ public final class App extends JFrame implements RadiusControl,
         updateBrushRotation(brush, button);
         return thumbnail;
     }
-    
+
     private Icon createBrushThumbnail(Brush brush, int size) {
         final int radius = size / 2;
         brush.setRadius(radius - 1);
@@ -5502,7 +5502,7 @@ public final class App extends JFrame implements RadiusControl,
             dimension.setCustomBiomes(customBiomeManager.getCustomBiomes());
         }
     }
-    
+
     private void installMacCustomisations() {
         hideExit = MacUtils.installQuitHandler(() -> {
             exit();
@@ -5520,7 +5520,7 @@ public final class App extends JFrame implements RadiusControl,
         });
         hidePreferences = MacUtils.installPreferencesHandler(this::openPreferences);
     }
-    
+
     private void showGlobalOperations() {
         if ((world == null) || (dimension == null)) {
             DesktopUtils.beep();
@@ -5621,7 +5621,7 @@ public final class App extends JFrame implements RadiusControl,
             }
         }
     }
-    
+
     private void exportHeightMap(HeightMapExporter.Format format) {
         if (dimension == null) {
             DesktopUtils.beep();
@@ -5994,13 +5994,13 @@ public final class App extends JFrame implements RadiusControl,
     public final IntensityAction ACTION_INTENSITY_80_PERCENT  = new IntensityAction( 79, VK_8);
     public final IntensityAction ACTION_INTENSITY_90_PERCENT  = new IntensityAction( 86, VK_9);
     public final IntensityAction ACTION_INTENSITY_100_PERCENT = new IntensityAction(100, VK_0);
-    
+
     private final BetterAction ACTION_NEW_WORLD = new BetterAction("newWorld", strings.getString("new.world") + "...", ICON_NEW_WORLD, false) {
         {
             setAcceleratorKey(getKeyStroke(VK_N, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("create.a.new.world"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             newWorld();
@@ -6014,7 +6014,7 @@ public final class App extends JFrame implements RadiusControl,
             setAcceleratorKey(getKeyStroke(VK_O, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("open.an.existing.worldpainter.world"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             open();
@@ -6022,13 +6022,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_SAVE_WORLD = new BetterAction("saveWorld", strings.getString("save.world") + "...", ICON_SAVE_WORLD, false) {
         {
             setAcceleratorKey(getKeyStroke(VK_S, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("save.the.world.as.a.worldpainter.file.to.the.previously.used.file"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             save();
@@ -6042,7 +6042,7 @@ public final class App extends JFrame implements RadiusControl,
             setAcceleratorKey(getKeyStroke(VK_S, PLATFORM_COMMAND_MASK | SHIFT_DOWN_MASK));
             setShortDescription(strings.getString("save.the.world.as.a.worldpainter.file"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             saveAs();
@@ -6050,13 +6050,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_EXPORT_WORLD = new BetterAction("exportAsMinecraftMap", strings.getString("export.as.minecraft.map") + "...", ICON_EXPORT_WORLD, false) {
         {
             setAcceleratorKey(getKeyStroke(VK_E, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("export.the.world.to.a.minecraft.map"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if (world == null) {
@@ -6087,7 +6087,7 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_IMPORT_MAP = new BetterAction("importMinecraftMap", strings.getString("existing.minecraft.map") + "...", false) {
         {
             setAcceleratorKey(getKeyStroke(VK_I, PLATFORM_COMMAND_MASK));
@@ -6124,7 +6124,7 @@ public final class App extends JFrame implements RadiusControl,
         {
             setShortDescription(strings.getString("shut.down.worldpainter"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             exit();
@@ -6138,7 +6138,7 @@ public final class App extends JFrame implements RadiusControl,
             setAcceleratorKey(getKeyStroke(VK_ADD, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("zoom.in"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
 //            Point location = view.getViewCentreInWorldCoords();
@@ -6162,7 +6162,7 @@ public final class App extends JFrame implements RadiusControl,
             setShortDescription(strings.getString("reset.the.zoom.level.to.1.1"));
             setEnabled(false);
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
 //            int oldZoom = zoom;
@@ -6195,13 +6195,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_ZOOM_OUT = new BetterAction("zoomOut", strings.getString("zoom.out"), ICON_ZOOM_OUT) {
         {
             setAcceleratorKey(getKeyStroke(VK_SUBTRACT, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("zoom.out"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
 //            Point location = view.getViewCentreInWorldCoords();
@@ -6224,7 +6224,7 @@ public final class App extends JFrame implements RadiusControl,
             setShortDescription(strings.getString("enable.or.disable.the.grid"));
             setSelected(false);
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if (dimension == null) {
@@ -6238,13 +6238,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_CONTOURS = new BetterAction("contours", strings.getString("contours"), ICON_CONTOURS) {
         {
             setShortDescription(strings.getString("enable.or.disable.height.contours"));
             setSelected(false);
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if (dimension == null) {
@@ -6258,7 +6258,7 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_OVERLAYS = new BetterAction("overlay", strings.getString("overlay"), ICON_OVERLAY) {
         {
             setShortDescription(strings.getString("enable.or.disable.image.overlay"));
@@ -6295,13 +6295,13 @@ public final class App extends JFrame implements RadiusControl,
         }
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_UNDO = new BetterAction("undo", strings.getString("undo"), ICON_UNDO) {
         {
             setAcceleratorKey(getKeyStroke(VK_Z, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("undo.the.most.recent.action"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if ((currentUndoManager != null) && currentUndoManager.undo()) {
@@ -6313,13 +6313,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_REDO = new BetterAction("redo", strings.getString("redo"), ICON_REDO) {
         {
             setAcceleratorKey(getKeyStroke(VK_Y, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("redo.the.most.recent.action"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if ((currentUndoManager != null) && currentUndoManager.redo()) {
@@ -6331,13 +6331,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_EDIT_TILES = new BetterAction("editTiles", strings.getString("add.remove.tiles") + "...", ICON_EDIT_TILES) {
         {
             setAcceleratorKey(getKeyStroke(VK_T, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("add.or.remove.tiles"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if (dimension == null) {
@@ -6349,12 +6349,12 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_CHANGE_HEIGHT = new BetterAction("changeHeight", strings.getString("change.height") + "...", ICON_CHANGE_HEIGHT) {
         {
             setShortDescription(strings.getString("raise.or.lower.the.entire.map"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             changeWorldHeight(App.this);
@@ -6367,7 +6367,7 @@ public final class App extends JFrame implements RadiusControl,
         {
             setShortDescription(strings.getString("rotate.the.entire.map.by.quarter.turns"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             rotateWorld(App.this);
@@ -6407,7 +6407,7 @@ public final class App extends JFrame implements RadiusControl,
             setAcceleratorKey(getKeyStroke(VK_P, PLATFORM_COMMAND_MASK));
             setShortDescription(strings.getString("edit.the.properties.of.this.dimension"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if (dimension == null) {
@@ -6454,13 +6454,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_VIEW_DISTANCE = new BetterAction("viewDistance", strings.getString("view.distance"), ICON_VIEW_DISTANCE) {
         {
             setShortDescription(strings.getString("enable.or.disable.showing.the.maximum.far.view.distance"));
             setSelected(false);
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             view.setDrawViewDistance(! view.isDrawViewDistance());
@@ -6475,7 +6475,7 @@ public final class App extends JFrame implements RadiusControl,
             setShortDescription(strings.getString("enable.or.disable.showing.the.walking.distances"));
             setSelected(false);
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             view.setDrawWalkingDistance(! view.isDrawWalkingDistance());
@@ -6490,7 +6490,7 @@ public final class App extends JFrame implements RadiusControl,
             setAcceleratorKey(getKeyStroke(VK_R, 0));
             setShortDescription(strings.getString("rotate.the.direction.the.light.comes.from.clockwise"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             view.rotateLightRight();
@@ -6498,13 +6498,13 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_ROTATE_LIGHT_LEFT = new BetterAction("rotateLightAnticlockwise", strings.getString("rotate.light.anticlockwise"), ICON_ROTATE_LIGHT_LEFT) {
         {
             setAcceleratorKey(getKeyStroke(VK_L, 0));
             setShortDescription(strings.getString("rotate.the.direction.the.light.comes.from.anticlockwise"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             view.rotateLightLeft();
@@ -6512,12 +6512,12 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_MOVE_TO_SPAWN = new BetterAction("moveToSpawn", strings.getString("move.to.spawn"), ICON_MOVE_TO_SPAWN) {
         {
             setShortDescription(strings.getString("move.the.view.to.the.spawn.point"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             view.moveToSpawn();
@@ -6525,12 +6525,12 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_MOVE_TO_ORIGIN = new BetterAction("moveToOrigin", strings.getString("move.to.origin"), ICON_MOVE_TO_ORIGIN) {
         {
             setShortDescription(strings.getString("move.the.view.to.the.origin.coordinates.0.0"));
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             view.moveToOrigin();
@@ -6538,12 +6538,12 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_OPEN_DOCUMENTATION = new BetterAction("browseDocumentation", strings.getString("browse.documentation")) {
         {
             setAcceleratorKey(getKeyStroke(VK_F1, 0));
         }
-        
+
         @Override
         public void performAction(ActionEvent event) {
             try {
@@ -6555,7 +6555,7 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_IMPORT_LAYER = new BetterAction("importLayer", "Import custom layer(s)") {
         @Override
         protected void performAction(ActionEvent e) {
@@ -6564,7 +6564,7 @@ public final class App extends JFrame implements RadiusControl,
 
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final BetterAction ACTION_ROTATE_BRUSH_LEFT = new BetterAction("rotateBrushLeft", "Rotate brush counterclockwise fifteen degrees") {
         @Override
         protected void performAction(ActionEvent e) {
@@ -6581,7 +6581,7 @@ public final class App extends JFrame implements RadiusControl,
             updateBrushRotation();
         }
     };
-    
+
     private final BetterAction ACTION_ROTATE_BRUSH_RIGHT = new BetterAction("rotateBrushRight", "Rotate brush clockwise fifteen degrees") {
         @Override
         protected void performAction(ActionEvent e) {
@@ -6598,7 +6598,7 @@ public final class App extends JFrame implements RadiusControl,
             updateBrushRotation();
         }
     };
-    
+
     private final BetterAction ACTION_ROTATE_BRUSH_RESET = new BetterAction("rotateBrushReset", "Reset brush rotation to zero degrees") {
         @Override
         protected void performAction(ActionEvent e) {
@@ -6647,7 +6647,7 @@ public final class App extends JFrame implements RadiusControl,
             updateBrushRotation();
         }
     };
-    
+
     private final BetterAction ACTION_ROTATE_BRUSH_RIGHT_90_DEGREES = new BetterAction("rotateBrushRight90Degrees", "Rotate brush clockwise 90 degrees") {
         @Override
         protected void performAction(ActionEvent e) {
@@ -6664,12 +6664,12 @@ public final class App extends JFrame implements RadiusControl,
             updateBrushRotation();
         }
     };
-    
-    private final BetterAction ACTION_RESET_DOCKS = new BetterAction("resetDockLayout", "Reset current and default") {
+
+    private final BetterAction ACTION_RESET_DOCKS = new BetterAction("resetDockLayout", "\u91CD\u7F6E\u5F53\u524D\u548C\u9ED8\u8BA4\u4E16\u754C") {
         @Override
         protected void performAction(ActionEvent e) {
             DesktopUtils.beep();
-            if (JOptionPane.showConfirmDialog(App.this, "Are you sure you want to reset the workspace?", "Confirm Workspace Reset", YES_NO_OPTION) == YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(App.this, "\u4F60\u786E\u5B9A\u8981\u91CD\u7F6E\u5DE5\u4F5C\u533A\u5417?", "\u786E\u8BA4\u5DE5\u4F5C\u533A\u91CD\u7F6E", YES_NO_OPTION) == YES_OPTION) {
                 dockingManager.resetToDefault();
                 Configuration config = Configuration.getInstance();
                 config.setDefaultJideLayoutData(null);
@@ -6678,11 +6678,11 @@ public final class App extends JFrame implements RadiusControl,
         }
     };
 
-    private final BetterAction ACTION_RESET_ALL_DOCKS = new BetterAction("resetAllDockLayout", "Reset current, default and all saved worlds") {
+    private final BetterAction ACTION_RESET_ALL_DOCKS = new BetterAction("resetAllDockLayout", "\u91CD\u7F6E\u5F53\u524D\u3001\u9ED8\u8BA4\u4EE5\u53CA\u6240\u6709\u5DF2\u4E16\u754C") {
         @Override
         protected void performAction(ActionEvent e) {
             DesktopUtils.beep();
-            if (JOptionPane.showConfirmDialog(App.this, "Are you sure you want to reset the workspace for all worlds?", "Confirm Workspace Reset", YES_NO_OPTION) == YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(App.this, "\u4F60\u786E\u5B9A\u8981\u4E3A\u6240\u6709\u4E16\u754C\u91CD\u7F6E\u5DE5\u4F5C\u533A\u5417?", "\u786E\u8BA4\u5DE5\u4F5C\u533A\u91CD\u7F6E", YES_NO_OPTION) == YES_OPTION) {
                 dockingManager.resetToDefault();
                 Configuration config = Configuration.getInstance();
                 config.setDefaultJideLayoutData(null);
@@ -6692,7 +6692,7 @@ public final class App extends JFrame implements RadiusControl,
         }
     };
 
-    private final BetterAction ACTION_LOAD_LAYOUT = new BetterAction("loadDockLayout", "Load workspace layout") {
+    private final BetterAction ACTION_LOAD_LAYOUT = new BetterAction("loadDockLayout", "\u52A0\u8F7D\u5DE5\u4F5C\u533A\u5E03\u5C40") {
         @Override
         protected void performAction(ActionEvent e) {
             Configuration config = Configuration.getInstance();
@@ -6702,17 +6702,17 @@ public final class App extends JFrame implements RadiusControl,
         }
     };
 
-    private final BetterAction ACTION_SAVE_LAYOUT = new BetterAction("resetDocks", "Save workspace layout") {
+    private final BetterAction ACTION_SAVE_LAYOUT = new BetterAction("resetDocks", "\u4FDD\u5B58\u5DE5\u4F5C\u533A\u5E03\u5C40") {
         @Override
         protected void performAction(ActionEvent e) {
             Configuration config = Configuration.getInstance();
             config.setDefaultJideLayoutData(dockingManager.getLayoutRawData());
             ACTION_LOAD_LAYOUT.setEnabled(true);
-            showInfo(App.this, "Workspace layout saved", "Workspace layout saved");
+            showInfo(App.this, "\u5DE5\u4F5C\u533A\u5E03\u5C40\u5DF2\u4FDD\u5B58", "\u5DE5\u4F5C\u533A\u5E03\u5C40\u5DF2\u4FDD\u5B58");
         }
     };
 
-    private final BetterAction ACTION_SWITCH_TO_FROM_CEILING = new BetterAction("switchCeiling", "Switch to/from Ceiling") {
+    private final BetterAction ACTION_SWITCH_TO_FROM_CEILING = new BetterAction("switchCeiling", "\u5207\u6362\u81F3\u9876\u5C42\u89C6\u56FE/\u5207\u6362\u56DE\u4E3B\u89C6\u56FE") {
         {
             setAcceleratorKey(getKeyStroke(VK_C, PLATFORM_COMMAND_MASK));
         }
@@ -6733,7 +6733,7 @@ public final class App extends JFrame implements RadiusControl,
         private static final long serialVersionUID = 1L;
     };
 
-    private final BetterAction ACTION_SWITCH_TO_FROM_MASTER = new BetterAction("switchMaster", "Switch to/from Master") {
+    private final BetterAction ACTION_SWITCH_TO_FROM_MASTER = new BetterAction("switchMaster", "\u5207\u6362\u81F3\u6269\u5C55\u533A\u89C6\u56FE/\u5207\u6362\u56DE\u4E3B\u89C6\u56FE") {
         {
             setAcceleratorKey(getKeyStroke(VK_M, PLATFORM_COMMAND_MASK));
         }
@@ -6756,7 +6756,7 @@ public final class App extends JFrame implements RadiusControl,
 
     private final BetterAction ACTION_SHOW_CUSTOM_TERRAIN_POPUP = new BetterAction("showCustomTerrainMenu", null, loadScaledIcon("plus")) {
         {
-            setShortDescription("Add a new Custom Terrain");
+            setShortDescription("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u65B0\u65B9\u5757");
         }
 
         @Override
@@ -6769,9 +6769,9 @@ public final class App extends JFrame implements RadiusControl,
         }
     };
 
-    private final BetterAction ACTION_SHOW_HELP_PICKER = new BetterAction("showHelpPicker", "Help for control", loadScaledIcon("information")) {
+    private final BetterAction ACTION_SHOW_HELP_PICKER = new BetterAction("showHelpPicker", "\u64CD\u4F5C\u5E2E\u52A9", loadScaledIcon("information")) {
         {
-            setShortDescription("Show help information for a specific control");
+            setShortDescription("\u663E\u793A\u5177\u4F53\u64CD\u4F5C\u7684\u5E2E\u52A9\u4FE1\u606F");
         }
 
         @Override
@@ -6780,7 +6780,7 @@ public final class App extends JFrame implements RadiusControl,
         }
     };
 
-    private final BetterAction ACTION_ESCAPE = new BetterAction("exitDimension", "Leave the current operation") {
+    private final BetterAction ACTION_ESCAPE = new BetterAction("exitDimension", "\u653E\u5F03\u5F53\u524D\u64CD\u4F5C") {
         {
             setAcceleratorKey(getKeyStroke(VK_ESCAPE, 0));
         }
@@ -6862,7 +6862,7 @@ public final class App extends JFrame implements RadiusControl,
     private TerrainMode terrainMode = SHOW_TERRAIN;
 
     public static final Image ICON = IconUtils.loadScaledImage("org/pepsoft/worldpainter/icons/shovel-icon.png");
-    
+
     public static final int DEFAULT_MAX_RADIUS = 300;
 
     public static final String KEY_HELP_KEY = "org.pepsoft.worldpainter.helpKey";
@@ -6881,7 +6881,7 @@ public final class App extends JFrame implements RadiusControl,
     public static final NumberFormat FLOAT_NUMBER_FORMAT = NumberFormat.getNumberInstance();
 
     private static final int PLATFORM_COMMAND_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
-    static final String COMMAND_KEY_NAME = (PLATFORM_COMMAND_MASK == META_DOWN_MASK) ? "⌘" : "Ctrl";
+    static final String COMMAND_KEY_NAME = (PLATFORM_COMMAND_MASK == META_DOWN_MASK) ? "\u2318" : "Ctrl";
 
     private static Mode mode = Mode.WORLDPAINTER;
 

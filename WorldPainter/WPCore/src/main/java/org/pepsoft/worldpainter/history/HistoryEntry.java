@@ -18,59 +18,59 @@ public class HistoryEntry implements Serializable {
     public String getText() {
         switch (key) {
             case WORLD_LEGACY_PRE_0_2:
-                return "World created with WorldPainter older than 0.2";
+                return "\u4E16\u754C\u521B\u5EFA\u4E8E WorldPainter 0.2 \u4E4B\u524D";
             case WORLD_LEGACY_PRE_2_0_0:
-                return "World created with WorldPainter older than 2.0.0";
+                return "\u4E16\u754C\u521B\u5EFA\u4E8E WorldPainter 2.0.0 \u4E4B\u524D";
             case WORLD_CREATED:
-                return MessageFormat.format("World created with WorldPainter {0}", wpVersion);
+                return MessageFormat.format("\u4E16\u754C\u7531 WorldPainter {0} \u521B\u5EFA", wpVersion);
             case WORLD_IMPORTED_FROM_MINECRAFT_MAP:
-                return MessageFormat.format("World imported from Minecraft map {0} at {1} with WorldPainter {2}", args[0], args[1], wpVersion);
+                return MessageFormat.format("\u4F4D\u4E8E{1}\u7684\u4E16\u754C{0}\u7531 WorldPainter {2} \u5BFC\u5165", args[0], args[1], wpVersion);
             case WORLD_IMPORTED_FROM_HEIGHT_MAP:
-                return MessageFormat.format("World imported from height map {0} with WorldPainter {1}", args[0], wpVersion);
+                return MessageFormat.format("\u6765\u6E90\u4E8E\u9AD8\u5EA6\u56FE\u7684\u4E16\u754C{0}\u7531 WorldPainter {1} \u5BFC\u5165", args[0], wpVersion);
             case WORLD_RECOVERED:
-                return MessageFormat.format("World recovered from corrupted file with WorldPainter {0}", wpVersion);
+                return MessageFormat.format("\u5D29\u6E83\u7684\u4E16\u754C\u88AB WorldPainter {0} \u6062\u590D", wpVersion);
             case WORLD_LOADED:
-                return MessageFormat.format("World loaded from file {0}", args[0]);
+                return MessageFormat.format("\u4ECE {0} \u4E2D\u52A0\u8F7D\u4E86\u4E16\u754C", args[0]);
             case WORLD_SAVED:
-                return MessageFormat.format("World saved to file {0}", args[0]);
+                return MessageFormat.format("\u4E16\u754C\u88AB\u4FDD\u5B58\u5230 {0}", args[0]);
             case WORLD_EXPORTED_FULL:
-                return MessageFormat.format("World fully exported as Minecraft map named {0} at {1} with WorldPainter {2}", args[0], args[1], wpVersion);
+                return MessageFormat.format("\u4E16\u754C {0} \u88AB WorldPainter {2} \u5B8C\u6574\u5BFC\u51FA\u5230 {1}", args[0], args[1], wpVersion);
             case WORLD_EXPORTED_PARTIAL:
-                return MessageFormat.format("World partially exported as Minecraft map named {0} at {1} with WorldPainter {2}", args[0], args[1], wpVersion);
+                return MessageFormat.format("\u4E16\u754C {0} \u88AB WorldPainter {2} \u90E8\u5206\u5BFC\u51FA\u5230 {1}", args[0], args[1], wpVersion);
             case WORLD_MERGED_FULL:
-                return MessageFormat.format("World fully merged with Minecraft map named {0} at {1} with WorldPainter {2}", args[0], args[1], wpVersion);
+                return MessageFormat.format("\u4E16\u754C\u4E0E\u6765\u81EA\u4E8E {1} \u7684\u4E16\u754C {0} \u7531 WorldPainter {2} \u5B8C\u6574\u5408\u5E76", args[0], args[1], wpVersion);
             case WORLD_MERGED_PARTIAL:
-                return MessageFormat.format("World partially merged with Minecraft map named {0} at {1} with WorldPainter {2}", args[0], args[1], wpVersion);
+                return MessageFormat.format("\u4E16\u754C\u4E0E\u6765\u81EA\u4E8E {1} \u7684\u4E16\u754C {0} \u7531 WorldPainter {2} \u90E8\u5206\u5408\u5E76", args[0], args[1], wpVersion);
             case WORLD_DIMENSION_ADDED:
-                return MessageFormat.format("Dimension {0} added to world", args[0]);
+                return MessageFormat.format("\u7EF4\u5EA6 {0} \u88AB\u6DFB\u52A0\u5230\u4E16\u754C", args[0]);
             case WORLD_DIMENSION_REMOVED:
-                return MessageFormat.format("Dimension {0} removed from world", args[0]);
+                return MessageFormat.format("\u7EF4\u5EA6 {0} \u4ECE\u4E16\u754C\u4E2D\u79FB\u9664", args[0]);
             case WORLD_TILES_ADDED:
-                return MessageFormat.format("{0} tiles added to dimension {1}", args[1], args[0]);
+                return MessageFormat.format("{0} \u4E2A\u65B9\u5757\u5B9E\u4F53\u88AB\u6DFB\u52A0\u5230\u4E86\u7EF4\u5EA6 {1}", args[1], args[0]);
             case WORLD_TILES_REMOVED:
-                return MessageFormat.format("{0} tiles removed from dimension {1}", args[1], args[0]);
+                return MessageFormat.format("\u4ECE\u7EF4\u5EA6 {1} \u4E2D\u79FB\u9664\u4E86 {0} \u4E2A\u5206\u533A", args[1], args[0]);
             case WORLD_DIMENSION_SHIFTED_HORIZONTALLY:
-                return MessageFormat.format("Dimension {0} shifted {1} blocks east and {2} blocks south", args[0], args[1], args[2]);
+                return MessageFormat.format("\u7EF4\u5EA6 {0} \u5411\u4E1C\u79FB\u52A8\u4E86 {1} \u683C\uFF0C\u5411\u5357\u79FB\u52A8\u4E86 {2} \u683C", args[0], args[1], args[2]);
             case WORLD_DIMENSION_SHIFTED_VERTICALLY:
-                return MessageFormat.format("Dimension {0} shifted {1} blocks up", args[0], args[1]);
+                return MessageFormat.format("\u7EF4\u5EA6 {0} \u5411\u4E0A\u79FB\u52A8\u4E86 {1} \u683C", args[0], args[1]);
             case WORLD_DIMENSION_ROTATED:
-                return MessageFormat.format("Dimension {0} rotated {1} degrees", args[0], args[1]);
+                return MessageFormat.format("\u7EF4\u5EA6 {0} \u65CB\u8F6C\u4E86 {1} \u5EA6", args[0], args[1]);
             case WORLD_MIN_HEIGHT_CHANGED:
-                return MessageFormat.format("Minimum height of world changed to {0}", args[0]);
+                return MessageFormat.format("\u4E16\u754C\u6700\u4F4E\u9AD8\u5EA6\u5DF2\u53D8\u4E3A {0}", args[0]);
             case WORLD_MAX_HEIGHT_CHANGED:
-                return MessageFormat.format("Maximum height of world changed to {0}", args[0]);
+                return MessageFormat.format("\u4E16\u754C\u6700\u9AD8\u9AD8\u5EA6\u5DF2\u53D8\u4E3A {0}", args[0]);
             case WORLD_HEIGHT_MAP_IMPORTED_TO_DIMENSION:
-                return MessageFormat.format("Height map {1} imported into dimension {0}", args[0], args[1]);
+                return MessageFormat.format("\u9AD8\u5EA6\u56FE {1} \u5DF2\u88AB\u5BFC\u5165\u7EF4\u5EA6 {0}", args[0], args[1]);
             case WORLD_MASK_IMPORTED_TO_DIMENSION:
-                return MessageFormat.format("Mask {1} imported into dimension {0} as layer {2}", args[0], args[1], args[2]);
+                return MessageFormat.format("\u906E\u7F69 {1} \u5DF2\u4EE5\u56FE\u5C42 {2} \u5BFC\u5165\u5230\u7EF4\u5EA6 {0}", args[0], args[1], args[2]);
             case WORLD_RECOVERED_FROM_AUTOSAVE:
-                return MessageFormat.format("World recovered from autosave with WorldPainter {0}", wpVersion);
+                return MessageFormat.format("WorldPainter {0} \u5DF2\u5C06\u4E16\u754C\u4ECE\u81EA\u52A8\u4FDD\u5B58\u7684\u5185\u5BB9\u4E2D\u6062\u590D", wpVersion);
             case WORLD_RETARGETED:
-                return MessageFormat.format("World retargeted from map format {0} to {1}", args[0], args[1]);
+                return MessageFormat.format("\u4E16\u754C\u5DF2\u4ECE\u5730\u56FE\u683C\u5F0F {0} \u91CD\u5B9A\u5411\u5230 {1}", args[0], args[1]);
             case WORLD_DIMENSION_SCALED:
-                return MessageFormat.format("Dimension {0} scaled by {1}%", args[0], args[1]);
+                return MessageFormat.format("\u7EF4\u5EA6 {0} \u5DF2\u7F29\u653E {1}%", args[0], args[1]);
             default:
-                return MessageFormat.format("Unknown event ID {0} by WorldPainter {0} ({1})", key, wpVersion, wpBuild);
+                return MessageFormat.format("WorldPainter {1} ({2}) \u4EA7\u751F\u4E86\u672A\u77E5\u7684\u4E8B\u4EF6ID {0} ", key, wpVersion, wpBuild);
         }
     }
 

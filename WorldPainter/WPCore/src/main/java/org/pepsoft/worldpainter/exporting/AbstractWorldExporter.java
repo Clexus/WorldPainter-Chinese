@@ -607,9 +607,9 @@ public abstract class AbstractWorldExporter implements WorldExporter {
                 }
                 if (progressReceiver != null) {
                     if (minecraftWorld instanceof InvertedWorld) {
-                        progressReceiver.setMessage("Exporting layer " + layer + " for ceiling (" + stage.name().toLowerCase() + " stage)");
+                        progressReceiver.setMessage("\u6B63\u5728\u4E3A\u9876\u5C42\u5BFC\u51FA\u8986\u76D6\u5C42 " + layer + " ( \u6B65\u9AA4" + stage.name().toLowerCase() + " )");
                     } else {
-                        progressReceiver.setMessage("Exporting layer " + layer + " (" + stage.name().toLowerCase() + " stage)");
+                        progressReceiver.setMessage("\u6B63\u5728\u5BFC\u51FA\u8986\u76D6\u5C42 " + layer + " ( \u6B65\u9AA4" + stage.name().toLowerCase() + " )");
                     }
                 }
                 final List<Fixup> layerFixups;
