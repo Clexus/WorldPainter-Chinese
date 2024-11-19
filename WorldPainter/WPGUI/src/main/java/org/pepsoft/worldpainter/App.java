@@ -6648,7 +6648,7 @@ public final class App extends JFrame implements RadiusControl,
         }
     };
 
-    private final BetterAction ACTION_ROTATE_BRUSH_RIGHT_90_DEGREES = new BetterAction("rotateBrushRight90Degrees", "Rotate brush clockwise 90 degrees") {
+    private final BetterAction ACTION_ROTATE_BRUSH_RIGHT_90_DEGREES = new BetterAction("rotateBrushRight90Degrees", "\u987A\u65F6\u948890\u5EA6\u65CB\u8F6C\u7B14\u5237") {
         @Override
         protected void performAction(ActionEvent e) {
             int rotation = brushRotationSlider.getValue() + 90;
