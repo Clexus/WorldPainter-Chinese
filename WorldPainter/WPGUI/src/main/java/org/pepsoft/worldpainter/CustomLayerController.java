@@ -90,7 +90,7 @@ public class CustomLayerController implements PropertyChangeListener {
     public List<Component> createCustomLayerButton(final CustomLayer layer) {
         final List<Component> buttonComponents = app.createLayerButton(layer, '\0');
         final JToggleButton button = (JToggleButton) buttonComponents.get(2);
-        button.setToolTipText(button.getToolTipText() + "; right-click for options");
+        button.setToolTipText(button.getToolTipText() + "; \u53F3\u952E\u67E5\u770B\u9009\u9879");
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -128,17 +128,17 @@ public class CustomLayerController implements PropertyChangeListener {
                         final String shortName, longName;
                         switch (tunnelLayer.getLayerMode()) {
                             case CAVE:
-                                shortName = "floor dimension";
-                                longName = "Custom Cave/Tunnel layer floor dimension";
+                                shortName = "\u5E95\u5C42\u7EF4\u5EA6";
+                                longName = "\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42\u5E95\u5C42\u7EF4\u5EA6";
                                 break;
                             case FLOATING:
-                                shortName = "floating dimension";
-                                longName = "Floating Dimension";
+                                shortName = "\u60AC\u6D6E\u7EF4\u5EA6";
+                                longName = "\u60AC\u6D6E\u7EF4\u5EA6";
                                 break;
                             default:
                                 throw new InternalError("Unknown layer mode " + tunnelLayer.getLayerMode());
                         }
-                        menuItem = new JMenuItem("Edit " + shortName);
+                        menuItem = new JMenuItem("\u7F16\u8F91 " + shortName);
                         if (dimension.containsOneOf(tunnelLayer)) {
                             menuItem.addActionListener(e1 -> {
                                 final Point viewPosition = app.view.getViewCentreInWorldCoords();
@@ -183,12 +183,12 @@ public class CustomLayerController implements PropertyChangeListener {
                                 final Configuration config = Configuration.getInstance();
                                 if (! config.isMessageDisplayedCountAtLeast(EDITING_FLOOR_DIMENSION_KEY, 3)) {
                                     doLaterOnEventThread(() -> JOptionPane.showMessageDialog(app,
-                                            "Press Esc to finish editing the " + longName + ",\n" +
-                                                    "or select the Surface dimension from the app.view menu or by pressing " + COMMAND_KEY_NAME + "+U", "Editing " + longName, JOptionPane.INFORMATION_MESSAGE));
+                                            "\u6309Esc\u7ED3\u675F " + longName + " \u7684\u7F16\u8F91,\n" +
+                                                    "\u6216\u4ECE\u201C\u89C6\u56FE\u201D\u83DC\u5355\u4E2D(\u6216\u4F7F\u7528 " + COMMAND_KEY_NAME + "+U \u5FEB\u6377\u952E)\u5207\u6362\u5230\u4E3B\u4E16\u754C\u89C6\u56FE", "\u7F16\u8F91" + longName, JOptionPane.INFORMATION_MESSAGE));
                                     config.setMessageDisplayed(EDITING_FLOOR_DIMENSION_KEY);
                                 }
 
-                                final JLabel label = new JLabel("<html><font size='+1'>Press Esc to leave the " + longName + ".</font></html>");
+                                final JLabel label = new JLabel("<html><font size='+1'>\u6309Esc\u653E\u5F03" + longName + "\u7684\u7F16\u8F91.</font></html>");
                                 label.setBorder(new CompoundBorder(new LineBorder(BLACK), new EmptyBorder(5, 5, 5, 5)));
                                 app.pushGlassPaneComponent(label);
                             });
@@ -199,16 +199,16 @@ public class CustomLayerController implements PropertyChangeListener {
                     }
                 }
 
-                menuItem = new JMenuItem("Find");
+                menuItem = new JMenuItem("\u67E5\u627E");
                 menuItem.addActionListener(e1 -> findLayer(layer));
                 popup.add(menuItem);
 
-                menuItem = new JMenuItem("Duplicate...");
+                menuItem = new JMenuItem("\u590D\u5236...");
                 if (layer.isExportableToFile()) {
                     menuItem.addActionListener(e1 -> duplicate());
                 } else {
                     menuItem.setEnabled(false);
-                    menuItem.setToolTipText("This layer cannot be duplicated.");
+                    menuItem.setToolTipText("\u8BE5\u8986\u76D6\u5C42\u4E0D\u53EF\u88AB\u590D\u5236.");
                 }
                 popup.add(menuItem);
 
@@ -216,16 +216,16 @@ public class CustomLayerController implements PropertyChangeListener {
                 menuItem.addActionListener(e1 -> remove());
                 popup.add(menuItem);
 
-                menuItem = new JMenuItem("Export to file...");
+                menuItem = new JMenuItem("\u5BFC\u51FA\u5230\u6587\u4EF6...");
                 if (layer.isExportableToFile()) {
                     menuItem.addActionListener(e1 -> exportLayer(layer));
                 } else {
                     menuItem.setEnabled(false);
-                    menuItem.setToolTipText("This layer cannot be exported to a file.");
+                    menuItem.setToolTipText("\u8BE5\u8986\u76D6\u5C42\u4E0D\u53EF\u5BFC\u51FA\u4E3A\u6587\u4EF6.");
                 }
                 popup.add(menuItem);
 
-                JMenu paletteMenu = new JMenu("Move to palette");
+                JMenu paletteMenu = new JMenu("\u79FB\u52A8\u81F3\u753B\u677F");
 
                 for (final Palette palette: paletteManager.getPalettes()) {
                     menuItem = new JMenuItem(palette.getName());
@@ -236,7 +236,7 @@ public class CustomLayerController implements PropertyChangeListener {
                     paletteMenu.add(menuItem);
                 }
 
-                menuItem = new JMenuItem("New palette...");
+                menuItem = new JMenuItem("\u65B0\u5EFA\u753B\u677F...");
                 menuItem.addActionListener(e1 -> createNewLayerPalette(layer));
                 paletteMenu.add(menuItem);
 
@@ -255,7 +255,7 @@ public class CustomLayerController implements PropertyChangeListener {
 
             private void duplicate() {
                 final CustomLayer duplicate = layer.clone();
-                duplicate.setName("Copy of " + layer.getName());
+                duplicate.setName(layer.getName()+"\u7684\u590D\u5236");
                 final Object paint = layer.getPaint();
                 if (paint instanceof Color) {
                     Color colour = (Color) paint;
@@ -402,9 +402,9 @@ public class CustomLayerController implements PropertyChangeListener {
         }
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("Add a custom cave/tunnel layer...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> {
-            final TunnelLayer layer = new TunnelLayer("Tunnels", CAVE, BLACK, world.getPlatform());
+            final TunnelLayer layer = new TunnelLayer("\u901A\u9053", CAVE, BLACK, world.getPlatform());
             final int baseHeight, waterLevel;
             final TileFactory tileFactory = dimension.getTileFactory();
             if (tileFactory instanceof HeightMapTileFactory) {
@@ -430,7 +430,7 @@ public class CustomLayerController implements PropertyChangeListener {
         }
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("Add a custom plants layer...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u690D\u88AB\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> {
             final EditLayerDialog<PlantLayer> dialog = new EditLayerDialog<>(app, world.getPlatform(), PlantLayer.class);
             dialog.setVisible(() -> {
@@ -443,7 +443,7 @@ public class CustomLayerController implements PropertyChangeListener {
         });
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("Add a combined layer...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u6DF7\u5408\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> {
             final EditLayerDialog<CombinedLayer> dialog = new EditLayerDialog<>(app, world.getPlatform(), CombinedLayer.class);
             dialog.setVisible(() -> {
@@ -457,9 +457,9 @@ public class CustomLayerController implements PropertyChangeListener {
         });
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("Add a custom annotations layer...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u8499\u7248\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> {
-            final CustomAnnotationLayerDialog dialog = new CustomAnnotationLayerDialog(app, new CustomAnnotationLayer("My Custom Annotation", "A custom annotations layer", YELLOW));
+            final CustomAnnotationLayerDialog dialog = new CustomAnnotationLayerDialog(app, new CustomAnnotationLayer("\u6211\u7684\u81EA\u5B9A\u4E49\u8499\u7248", "\u81EA\u5B9A\u4E49\u8499\u7248\u8986\u76D6\u5C42", YELLOW));
             dialog.setVisible(() -> {
                 final CustomAnnotationLayer layer = dialog.getLayer();
                 if (paletteName != null) {
@@ -470,9 +470,9 @@ public class CustomLayerController implements PropertyChangeListener {
         });
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("[PREVIEW] Add a floating dimension...");
+        menuItem = new JMenuItem("[\u9884\u89C8\u529F\u80FD]\u6DFB\u52A0\u4E00\u4E2A\u60AC\u6D6E\u7EF4\u5EA6...");
         menuItem.addActionListener(e -> {
-            final TunnelLayer layer = new TunnelLayer("Floating Dimension", FLOATING, CYAN, world.getPlatform());
+            final TunnelLayer layer = new TunnelLayer("\u60AC\u6D6E\u7EF4\u5EA6", FLOATING, CYAN, world.getPlatform());
             layer.setFloorMode(FIXED_HEIGHT_ABOVE_FLOOR);
             layer.setFloorLevel(16);
             final int baseHeight, waterLevel;
@@ -508,7 +508,7 @@ public class CustomLayerController implements PropertyChangeListener {
             customLayerMenu.addSeparator();
 
             for (Class<? extends CustomLayer> customLayerClass: allPluginLayers) {
-                menuItem = new JMenuItem("Add a " + customLayerClass.getSimpleName() + " layer..."); // TODO: introduce a proper display name for custom layers
+                menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A" + customLayerClass.getSimpleName() + "\u8986\u76D6\u5C42..."); // TODO: introduce a proper display name for custom layers
                 menuItem.addActionListener(e -> {
                     final EditLayerDialog<CustomLayer> dialog = new EditLayerDialog<>(app, world.getPlatform(), (Class<CustomLayer>) customLayerClass);
                     dialog.setVisible(() -> {
@@ -526,10 +526,10 @@ public class CustomLayerController implements PropertyChangeListener {
             customLayerMenu.addSeparator();
         }
 
-        menuItem = new JMenu("Copy layer from another dimension");
-        menuItem.setToolTipText("This will make a duplicate of the layer, with its own identity and separate settings");
+        menuItem = new JMenu("\u4ECE\u53E6\u4E00\u4E2A\u7EF4\u5EA6\u590D\u5236\u8986\u76D6\u5C42");
+        menuItem.setToolTipText("\u8FD9\u5C06\u4F1A\u590D\u5236\u4E00\u4E2A\u8986\u76D6\u5C42\uFF0C\u5B83\u4F1A\u6709\u81EA\u5DF1\u7684ID\u548C\u72EC\u7ACB\u7684\u8BBE\u7F6E\u9879");
         final Function<Layer, Boolean> filter = app.getLayerFilterForCurrentDimension();
-        List<JMenuItem> copyMenuItems = getCopyLayerMenuItems((paletteName != null) ? paletteName : "Custom Layers", filter);
+        List<JMenuItem> copyMenuItems = getCopyLayerMenuItems((paletteName != null) ? paletteName : "\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42", filter);
         if (! copyMenuItems.isEmpty()) {
             for (JMenuItem copyMenuItem: copyMenuItems) {
                 ((JMenu) menuItem).add(copyMenuItem);
@@ -539,11 +539,11 @@ public class CustomLayerController implements PropertyChangeListener {
         }
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("Import custom layer(s) from file...");
+        menuItem = new JMenuItem("\u7531\u6587\u4EF6\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> app.importLayers(paletteName, filter));
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("Import custom layer(s) from another world...");
+        menuItem = new JMenuItem("\u7531\u5176\u4ED6\u4E16\u754C\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> app.importCustomItemsFromWorld(CustomItemsTreeModel.ItemType.LAYER, filter));
         customLayerMenu.add(menuItem);
 
@@ -562,7 +562,7 @@ public class CustomLayerController implements PropertyChangeListener {
                 if (control instanceof AbstractButton) {
                     ((AbstractButton) control).setText(layer.getName());
                 }
-                control.setToolTipText(layer.getName() + ": " + layer.getDescription() + "; right-click for options");
+                control.setToolTipText(layer.getName() + ": " + layer.getDescription() + "; \u53F3\u952E\u67E5\u770B\u9009\u9879");
             }
             final Object newPaint = layer.getPaint();
             final float newOpacity = layer.getOpacity();
@@ -643,12 +643,12 @@ public class CustomLayerController implements PropertyChangeListener {
         final Set<Layer> layersInUse = dimension.getAllLayers(true);
         unusedLayers.removeAll(layersInUse);
         if (unusedLayers.isEmpty()) {
-            showInfo(app, "There are no unused layers in this dimension.", "No Unused Layers");
+            showInfo(app, "\u8BE5\u4E16\u754C\u6CA1\u6709\u672A\u4F7F\u7528\u7684\u8986\u76D6\u5C42.", "\u65E0\u672A\u4F7F\u7528\u8986\u76D6\u5C42");
         } else {
             final DeleteLayersDialog dialog = new DeleteLayersDialog(app, unusedLayers);
             dialog.setVisible(true);
             if (! dialog.isCancelled()) {
-                showInfo(app, "The selected layers have been deleted.", "Layers Deleted");
+                showInfo(app, "\u9009\u4E2D\u7684\u8986\u76D6\u5C42\u5DF2\u88AB\u5220\u9664.", "\u8986\u76D6\u5C42\u5DF2\u5220\u9664");
             }
         }
     }
@@ -694,7 +694,7 @@ public class CustomLayerController implements PropertyChangeListener {
             final CombinedLayer combinedLayer = (CombinedLayer) layer;
             importLayersFromCombinedLayer(combinedLayer);
             if (! combinedLayer.restoreCustomTerrain()) {
-                showWarning(app, "The layer contained a Custom Terrain which could not be restored. The terrain has been reset.", "Custom Terrain Not Restored");
+                showWarning(app, "\u8BE5\u8986\u76D6\u5C42\u5305\u542B\u4E86\u4E00\u4E2A\u4E0D\u53EF\u88AB\u6062\u590D\u7684\u81EA\u5B9A\u4E49\u65B9\u5757\uFF0C\u65B9\u5757\u5DF2\u91CD\u7F6E.", "\u81EA\u5B9A\u4E49\u65B9\u5757\u672A\u88AB\u6062\u590D");
             } else {
                 // Check for a custom terrain type and if necessary make sure it has a button
                 final Terrain terrain = combinedLayer.getTerrain();
@@ -770,7 +770,7 @@ public class CustomLayerController implements PropertyChangeListener {
                 });
         if (closestDistance.get() == Double.MAX_VALUE) {
             beep();
-            showInfo(view, "Layer " + layer + " is not in use in the current dimension", "Layer Not Present");
+            showInfo(view, "\u8986\u76D6\u5C42" + layer + "\u5728\u5F53\u524D\u7EF4\u5EA6\u672A\u88AB\u4F7F\u7528", "\u8986\u76D6\u5C42\u672A\u4F7F\u7528");
         } else {
             view.moveTo((closestTileX.get() << TILE_SIZE_BITS) + (TILE_SIZE / 2), (closestTileY.get() << TILE_SIZE_BITS) + (TILE_SIZE / 2));
         }
@@ -804,7 +804,7 @@ public class CustomLayerController implements PropertyChangeListener {
                 }
                 return false;
             default:
-                throw new IllegalArgumentException("Invalid data size " + layer.dataSize);
+                throw new IllegalArgumentException("\u65E0\u6548\u7684\u6570\u636E\u5927\u5C0F" + layer.dataSize);
         }
     }
 
@@ -818,7 +818,7 @@ public class CustomLayerController implements PropertyChangeListener {
         if ((layerDirectory == null) || (! layerDirectory.isDirectory())) {
             layerDirectory = DesktopUtils.getDocumentsFolder();
         }
-        File selectedFile = FileUtils.selectFileForSave(app, "Export WorldPainter layer file", new File(layerDirectory, org.pepsoft.util.FileUtils.sanitiseName(layer.getName()) + ".layer"), new FileFilter() {
+        File selectedFile = FileUtils.selectFileForSave(app, "\u5BFC\u51FAWorldPainter\u8986\u76D6\u5C42\u6587\u4EF6", new File(layerDirectory, org.pepsoft.util.FileUtils.sanitiseName(layer.getName()) + ".layer"), new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".layer");
@@ -826,7 +826,7 @@ public class CustomLayerController implements PropertyChangeListener {
 
             @Override
             public String getDescription() {
-                return "WorldPainter Custom Layers (*.layer)";
+                return "WorldPainter\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42 (*.layer)";
             }
 
             @Override
@@ -838,7 +838,7 @@ public class CustomLayerController implements PropertyChangeListener {
             if (!selectedFile.getName().toLowerCase().endsWith(".layer")) {
                 selectedFile = new File(selectedFile.getPath() + ".layer");
             }
-            if (selectedFile.isFile() && (showConfirmDialog(app, "The file " + selectedFile.getName() + " already exists.\nDo you want to overwrite it?", "Overwrite File", YES_NO_OPTION) == NO_OPTION)) {
+            if (selectedFile.isFile() && (showConfirmDialog(app, "\u6587\u4EF6" + selectedFile.getName() + "\u5DF2\u7ECF\u5B58\u5728.\n\u4F60\u8981\u8986\u76D6\u5B83\u5417?", "\u8986\u76D6\u6587\u4EF6", YES_NO_OPTION) == NO_OPTION)) {
                 return;
             }
             try {
@@ -849,7 +849,7 @@ public class CustomLayerController implements PropertyChangeListener {
                 throw new RuntimeException("I/O error while trying to write " + selectedFile, e);
             }
             config.setLayerDirectory(selectedFile.getParentFile());
-            showInfo(app, "Layer " + layer.getName() + " exported successfully", "Success");
+            showInfo(app, "\u8986\u76D6\u5C42" + layer.getName() + "\u6210\u529F\u5BFC\u51FA", "\u6210\u529F");
         }
     }
 
@@ -865,14 +865,14 @@ public class CustomLayerController implements PropertyChangeListener {
 
     private void createNewLayerPalette(CustomLayer layer) {
         String name;
-        if ((name = showInputDialog(app, "Enter a unique name for the new palette:", "New Palette", QUESTION_MESSAGE)) != null) {
+        if ((name = showInputDialog(app, "\u4E3A\u8BE5\u753B\u677F\u8F93\u5165\u4E00\u4E2A\u72EC\u7279\u7684\u547D\u540D:", "\u65B0\u5EFA\u753B\u677F", QUESTION_MESSAGE)) != null) {
             name = name.trim();
             if (name.isEmpty()) {
-                beepAndShowError(app, "Palette name cannot be empty", "Invalid Name");
+                beepAndShowError(app, "\u753B\u677F\u540D\u79F0\u4E0D\u80FD\u4E3A\u7A7A", "\u65E0\u6548\u540D\u79F0");
                 return;
             }
             if (paletteManager.getPalette(name) != null) {
-                showMessageDialog(app, "There is already a palette with that name!", "Duplicate Name", ERROR_MESSAGE);
+                showMessageDialog(app, "\u5DF2\u7ECF\u5B58\u5728\u6B64\u547D\u540D\u7684\u753B\u677F\u4E86!", "\u91CD\u590D\u540D\u79F0", ERROR_MESSAGE);
                 return;
             }
             Palette destPalette = paletteManager.create(name);

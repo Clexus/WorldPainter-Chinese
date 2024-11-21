@@ -59,8 +59,8 @@
             <groupId>com.jidesoft</groupId>
             <artifactId>jide-common</artifactId>
             <version>${jide.version}</version>
-            <scope>system</scope>
-            <systemPath>C:/Users/1111/Desktop/Development/Development/WorldPainter-Chinese/libs/jide-common.jar</systemPath>
+            <scope>compile</scope>
+<!--            <systemPath>C:/Users/1111/Desktop/Development/Development/WorldPainter-Chinese/libs/jide-common.jar</systemPath>-->
         </dependency>
         <dependency>
             <!-- Commercial product; you will need to download the evaluation version, or obtain a license to use JIDE
@@ -68,8 +68,8 @@
             <groupId>com.jidesoft</groupId>
             <artifactId>jide-dock</artifactId>
             <version>${jide.version}</version>
-            <scope>system</scope>
-            <systemPath>C:/Users/1111/Desktop/Development/Development/WorldPainter-Chinese/libs/jide-dock.jar</systemPath>
+            <scope>compile</scope>
+<!--            <systemPath>C:/Users/1111/Desktop/Development/Development/WorldPainter-Chinese/libs/jide-dock.jar</systemPath>-->
         </dependency>
         <dependency>
             <!-- Commercial product; you will need to download the evaluation version, or obtain a license to use JIDE

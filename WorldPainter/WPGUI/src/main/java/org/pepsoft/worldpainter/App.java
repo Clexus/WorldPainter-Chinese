@@ -373,12 +373,11 @@ public final class App extends JFrame implements RadiusControl,
                 setDimension(masterDimension);
 
                 doLaterOnEventThread(() -> JOptionPane.showMessageDialog(App.this,
-                        "You are now editing the Master Dimension. This will be exported\n" +
-                                "at sixteen times the horizontal size.\n" +
+                        "你正在编辑扩展区维度. 这将会使水平方向尺寸扩展16倍\n" +
                                 "\n" +
-                                "To add details at 1:1 scale, switch to the Surface Dimension by\n" +
-                                "pressing " + COMMAND_KEY_NAME + "+M or using the View menu and then add tiles by\n" +
-                                "pressing " + COMMAND_KEY_NAME + "+T or using the Edit menu.", "Editing Master Dimension", INFORMATION_MESSAGE));
+                                "要以1:1的比例添加细节, 你可以通过 "+ COMMAND_KEY_NAME +"+M 快捷键\n" +
+                                "或视图菜单切换回主世界视图，之后可以通过 "+COMMAND_KEY_NAME+"+T 快捷键\n" +
+                                "或编辑菜单添加分区.", "编辑扩展区", INFORMATION_MESSAGE));
             } else {
                 setDimension(surfaceDimension);
             }
@@ -402,9 +401,9 @@ public final class App extends JFrame implements RadiusControl,
             }
 
             if (! PlatformManager.getInstance().getAllPlatforms().contains(world.getPlatform())) {
-                beepAndShowWarning(this, "This world is set to a map format (\"" + world.getPlatform().displayName + "\") that is unknown and unsupported.\n" +
-                        "It cannot be Exported without first changing the format.\n" +
-                        "It is most likely supported by a plugin that is not installed or could not be loaded.", "Unknown Map Format");
+                beepAndShowWarning(this, "该世界被设置为一种未知且不受支持的地图类型(\"" + world.getPlatform().displayName + "\").\n" +
+                        "修改其格式之前你无法将其导出.\n" +
+                        "该格式有可能由一个未安装或无法加载的插件提供.", "未知的地图格式");
             }
         }
     }
@@ -527,14 +526,14 @@ public final class App extends JFrame implements RadiusControl,
             // Legacy: if this is an older world with an overlay enabled, warn the user that it may be incorrectly
             // located (we used to offer to fix this, but this should be exceedingly rare).
             if (dimension.isFixOverlayCoords()) {
-                beepAndShowWarning(this, "This world was created in an older version of WorldPainter\n" +
-                        "in which the overlay offsets were not stored correctly.\n" +
-                        "You may need to fix the position of your overlay.", "Check Overlay Positioning");
+                beepAndShowWarning(this, "该世界创建于更旧的WorldPainter\n" +
+                        "因此叠加层偏移未正确储存.\n" +
+                        "你需要手动修正偏移位置.", "检查叠加层偏移");
                 dimension.setFixOverlayCoords(false);
             }
 
             view.setDimension(dimension, false);
-            outsideDimensionLabel = "Minecraft Generated";
+            outsideDimensionLabel = "Minecraft生成";
             if (anchor.equals(NORMAL_DETAIL)) {
                 backgroundDimension = world.getDimension(new Anchor(DIM_NORMAL, MASTER, false, 0));
                 showBackgroundStatus = backgroundDimension != null;
@@ -544,7 +543,7 @@ public final class App extends JFrame implements RadiusControl,
                 backgroundDimension = world.getDimension(new Anchor(anchor.dim, DETAIL, anchor.invert, 0));
                 showBackgroundStatus = false;
                 backgroundZoom = 0;
-                outsideDimensionLabel = (anchor.role == CAVE_FLOOR) ? "Outside Cave/Tunnel" : "Outside Floating Dimension";
+                outsideDimensionLabel = (anchor.role == CAVE_FLOOR) ? "外界洞穴/通道维度" : "外界悬浮维度";
                 view.setBackgroundDimension(backgroundDimension, backgroundZoom, FADE_TO_TWENTYFIVE_PERCENT);
             } else {
                 backgroundDimension = null;
@@ -587,7 +586,7 @@ public final class App extends JFrame implements RadiusControl,
                 if (customLayer instanceof CombinedLayer) {
                     if (! ((CombinedLayer) customLayer).restoreCustomTerrain()) {
                         if (warnings.length() == 0) {
-                            warnings.append("The Custom Terrain for one or more Combined Layer could not be restored:\n\n");
+                            warnings.append("一个或多个组合覆盖层的自定义方块无法恢复:\n\n");
                         }
                         warnings.append(customLayer.getName()).append('\n');
                     } else {
@@ -600,8 +599,8 @@ public final class App extends JFrame implements RadiusControl,
                 }
             }
             if (warnings.length() > 0) {
-                warnings.append("\nThe Custom Terrain has been removed from the layer(s).");
-                showMessageDialog(this, warnings.toString(), "Custom Terrain(s) Not Restored", ERROR_MESSAGE);
+                warnings.append("\n自定义方块已从这些覆盖层中移除.");
+                showMessageDialog(this, warnings.toString(), "自定义方块恢复失败", ERROR_MESSAGE);
             }
 
             // Restore palette states
@@ -758,7 +757,7 @@ public final class App extends JFrame implements RadiusControl,
             setTextIfDifferent(slopeLabel, " ");
             setTextIfDifferent(waterLabel, " ");
             if (dimension.isBorderTile(x >> TILE_SIZE_BITS, y >> TILE_SIZE_BITS)) {
-                setTextIfDifferent(materialLabel, "Border");
+                setTextIfDifferent(materialLabel, "边界");
             } else {
                 setTextIfDifferent(materialLabel, outsideDimensionLabel);
             }
@@ -776,7 +775,7 @@ public final class App extends JFrame implements RadiusControl,
         }
         final int height = tile.getIntHeight(xInTile, yInTile);
         setTextIfDifferent(heightLabel, MessageFormat.format(strings.getString("height.0.of.1"), height, (height >= 0) ? dimension.getMaxHeight() - 1 : dimension.getMinHeight()));
-        setTextIfDifferent(slopeLabel, MessageFormat.format("Slope: {0}\u00B0", (int) round(Math.atan(dimension.getSlope(x, y)) * 180 / Math.PI)));
+        setTextIfDifferent(slopeLabel, MessageFormat.format("坡度: {0}\u00B0", (int) round(Math.atan(dimension.getSlope(x, y)) * 180 / Math.PI)));
         if ((activeOperation instanceof PaintOperation) && (paint instanceof LayerPaint)) {
             final Layer layer = ((LayerPaint) paint).getLayer();
             final Layer.DataSize dataSize = layer.getDataSize();
@@ -950,10 +949,9 @@ public final class App extends JFrame implements RadiusControl,
                 && (newWorld.getMetadata() != null)
                 && newWorld.getMetadata().containsKey(METADATA_KEY_WP_VERSION)
                 && (! ((String) newWorld.getMetadata().get(METADATA_KEY_WP_VERSION)).contains("SNAPSHOT"))) {
-            beepAndShowWarning(this, "You are running a snapshot version of WorldPainter.\n" +
-                    "This file was last saved by a regular version of WorldPainter.\n" +
-                    "If you save the file with this version, you may no longer be able to open it\n" +
-                    "using a regular version of WorldPainter!", "Loading Non-snapshot World");
+            beepAndShowWarning(this, "你正在运行快照版本的WorldPainter.\n" +
+                    "而该文件由一个正式版的 WorldPainter 保存.\n" +
+                    "如果你使用该快照版本保存文件, 你可能无法再使用正式版的WorldPainter打开它！", "尝试加载非快照地图");
         }
 
         Set<Warning> warnings = newWorld.getWarnings();
@@ -962,7 +960,7 @@ public final class App extends JFrame implements RadiusControl,
             for (Warning warning: warnings) {
                 switch (warning) {
                     case AUTO_BIOMES_DISABLED:
-                        if (showOptionDialog(this, "Automatic Biomes were previously enabled for this world but have been disabled.\nPress More Info for more information, including how to reenable it.", "Automatic Biomes Disabled", DEFAULT_OPTION, WARNING_MESSAGE, null, new Object[] {"More Info", "OK"}, "OK") == 0) {
+                        if (showOptionDialog(this, "自动群系识别曾于该世界开启，但是被关闭了.\n点击“更多信息”获取更多信息, 包括如何重新开启它.", "自动群系识别已关闭", DEFAULT_OPTION, WARNING_MESSAGE, null, new Object[] {"更多信息", "好"}, "好") == 0) {
                             try {
                                 DesktopUtils.open(new URL("https://www.worldpainter.net/doc/legacy/newautomaticbiomes"));
                             } catch (MalformedURLException e) {
@@ -971,7 +969,7 @@ public final class App extends JFrame implements RadiusControl,
                         }
                         break;
                     case AUTO_BIOMES_ENABLED:
-                        if (showOptionDialog(this, "Automatic Biomes were previously disabled for this world but have been enabled.\nPress More Info for more information, including how to disable it.", "Automatic Biomes Enabled", DEFAULT_OPTION, WARNING_MESSAGE, null, new Object[] {"More Info", "OK"}, "OK") == 0) {
+                        if (showOptionDialog(this, "自动群系识别曾于该世界关闭，但是被开启了.\n点击“更多信息”获取更多信息, 包括如何重新关闭它.", "自动群系识别已开启", DEFAULT_OPTION, WARNING_MESSAGE, null, new Object[] {"更多信息", "好"}, "好") == 0) {
                             try {
                                 DesktopUtils.open(new URL("https://www.worldpainter.net/doc/legacy/newautomaticbiomes"));
                             } catch (MalformedURLException e) {
@@ -2965,7 +2963,7 @@ public final class App extends JFrame implements RadiusControl,
         heightLabel = new JLabel(MessageFormat.format(strings.getString("height.0.of.1"), "-9,999", "9,999"));
         heightLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
         statusBar.add(heightLabel);
-        slopeLabel = new JLabel("Slope: 90\u00B0");
+        slopeLabel = new JLabel("坡度: 90\u00B0");
         slopeLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
         statusBar.add(slopeLabel);
         materialLabel = new JLabel(MessageFormat.format(strings.getString("material.0"), Material.MOSSY_COBBLESTONE.toString()));

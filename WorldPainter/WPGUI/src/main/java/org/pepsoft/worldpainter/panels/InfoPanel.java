@@ -107,7 +107,7 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
         } else {
             slope = dim.getSlope(worldCoords.x, worldCoords.y);
         }
-        setTextIfDifferent(labelSlope, (int) Math.round(Math.atan(slope) * 180 / Math.PI) + "°");
+        setTextIfDifferent(labelSlope, (int) Math.round(Math.atan(slope) * 180 / Math.PI) + "\u00B0");
         Terrain terrain = tile.getTerrain(x, y);
         if (terrain != currentTerrain) {
             labelTerrain.setText(terrain.getName());
@@ -187,7 +187,7 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
             fieldsClear = true;
         }
     }
-    
+
     /**
      * {@link JLabel#setText(String)} does not check whether the new value is
      * different. On the other hand {@link JLabel#getText()} is a very simple
@@ -256,35 +256,35 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
         jLabel4 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        jLabel1.setText("Slope:");
+        jLabel1.setText("\u5761\u5EA6:");
 
-        jLabel2.setText("Layers:");
+        jLabel2.setText("\u8986\u76D6\u5C42:");
 
         labelSlope.setText(" ");
 
-        jLabel5.setText("Coordinates:");
+        jLabel5.setText("\u5750\u6807:");
 
         labelCoords.setText(" ");
 
-        jLabel7.setText("Height:");
+        jLabel7.setText("\u9AD8\u5EA6:");
 
         labelHeight.setText(" ");
 
-        jLabel10.setText("m");
+        jLabel10.setText("\u7C73");
 
-        labelFluidType.setText("Fluid");
+        labelFluidType.setText("\u6DB2\u4F53");
 
-        jLabel12.setText("level:");
+        jLabel12.setText("\u6DB2\u4F53\u5E73\u9762\u9AD8\u5EA6:");
 
-        jLabel13.setText("depth:");
+        jLabel13.setText("\u6DF1\u5EA6:");
 
         labelWaterLevel.setText(" ");
 
-        jLabel15.setText("m");
+        jLabel15.setText("\u7C73");
 
         labelWaterDepth.setText(" ");
 
-        jLabel17.setText("m");
+        jLabel17.setText("\u7C73");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -299,12 +299,12 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        jLabel3.setText("Terrain:");
+        jLabel3.setText("\u65B9\u5757:");
 
         labelTerrain.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/transparent.png"))); // NOI18N
         labelTerrain.setText(" ");
 
-        jLabel6.setText("Biome:");
+        jLabel6.setText("\u7FA4\u7CFB:");
 
         labelBiome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/transparent.png"))); // NOI18N
         labelBiome.setText(" ");
@@ -318,9 +318,9 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
         checkBoxInSelection.setEnabled(false);
         checkBoxInSelection.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
-        jLabel4.setText("In selection:");
+        jLabel4.setText("\u5DF2\u9009\u4E2D:");
 
-        jLabel8.setText("automatic");
+        jLabel8.setText("\u81EA\u52A8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -615,7 +615,7 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
         private final Map<Layer, Integer> layerIndices = new HashMap<>();
         private final List<TableModelListener> listeners = new ArrayList<>();
 
-        private static final String[] COLUMN_NAMES = {"Layer", "Intensity"};
+        private static final String[] COLUMN_NAMES = {"\u8986\u76D6\u5C42", "\u786C\u5EA6"};
 
         static class InfoRow {
             InfoRow(Layer layer, int intensity) {

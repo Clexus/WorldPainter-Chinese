@@ -93,7 +93,7 @@ public class MapExplorer {
         WPPluginManager.initialise(config.getUuid());
 
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Minecraft Map Explorer");
+            JFrame frame = new JFrame("Minecraft\u5730\u56FE\u6D4F\u89C8\u5668");
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
             splitPane.setLeftComponent(createTreePanel(/*defaultDir*/));
@@ -112,13 +112,13 @@ public class MapExplorer {
         JToolBar toolBar = new JToolBar();
         wordSizeSpinner = new JSpinner(new SpinnerNumberModel(4, 4, 999, 1));
         wordSizeSpinner.addChangeListener(e -> updateBinaryData());
-        JLabel label = new JLabel("Word size:");
+        JLabel label = new JLabel("\u5B57\u4F53\u5927\u5C0F:");
         label.setLabelFor(wordSizeSpinner);
         toolBar.add(label);
         toolBar.add(wordSizeSpinner);
         lineLengthSpinner = new JSpinner(new SpinnerNumberModel(16, 1, 9999, 1));
         lineLengthSpinner.addChangeListener(e -> updateBinaryData());
-        label = new JLabel("Line length:");
+        label = new JLabel("\u884C\u957F\u5EA6:");
         label.setLabelFor(lineLengthSpinner);
         toolBar.add(label);
         toolBar.add(lineLengthSpinner);
