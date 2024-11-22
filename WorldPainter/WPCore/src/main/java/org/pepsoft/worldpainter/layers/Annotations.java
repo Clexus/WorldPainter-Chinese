@@ -36,7 +36,7 @@ import static org.pepsoft.minecraft.Constants.COLOUR_NAMES;
  */
 public class Annotations extends Layer {
     private Annotations() {
-        super("org.pepsoft.Annotations", "Annotations", "Coloured annotations on the world, which can optionally be exported with it", DataSize.NIBBLE, true, 65);
+        super("org.pepsoft.Annotations", "\u6807\u6CE8", "\u4E16\u754C\u4E0A\u7684\u5F69\u8272\u6807\u6CE8\uFF0C\u53EF\u9009\u62E9\u4E0E\u5730\u56FE\u4E00\u8D77\u5BFC\u51FA", DataSize.NIBBLE, true, 65);
     }
 
     /**

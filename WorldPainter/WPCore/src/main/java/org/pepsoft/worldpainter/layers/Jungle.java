@@ -17,7 +17,7 @@ import org.pepsoft.worldpainter.layers.trees.TreeType;
  */
 public class Jungle extends TreeLayer {
     private Jungle() {
-        super("Jungle", "a jungle", 43);
+        super("\u4E1B\u6797", "\u4E1B\u6797", 43);
     }
 
     @Override

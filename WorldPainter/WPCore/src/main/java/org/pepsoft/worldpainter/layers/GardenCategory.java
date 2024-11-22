@@ -12,9 +12,9 @@ import java.util.ResourceBundle;
  */
 public class GardenCategory extends Layer {
     public GardenCategory() {
-        super("Category", "Garden category", DataSize.NIBBLE, true, 80);
+        super("\u5206\u7C7B", "\u56ED\u827A\u5206\u7C7B", DataSize.NIBBLE, true, 80);
     }
-    
+
     public static String getLabel(ResourceBundle resourceBundle, int category) {
         switch(category) {
             case CATEGORY_BUILDING:
@@ -28,11 +28,11 @@ public class GardenCategory extends Layer {
             case CATEGORY_WATER:
                 return resourceBundle.getString("structure.water");
             case CATEGORY_TREE:
-                return "tree";
+                return "\u6811";
             case CATEGORY_OBJECT:
-                return "object";
+                return "\u5BF9\u8C61";
             default:
-                return "unknown";
+                return "\u672A\u77E5";
         }
     }
     

@@ -457,9 +457,9 @@ public class CustomLayerController implements PropertyChangeListener {
         });
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u8499\u7248\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u6807\u6CE8\u8986\u76D6\u5C42...");
         menuItem.addActionListener(e -> {
-            final CustomAnnotationLayerDialog dialog = new CustomAnnotationLayerDialog(app, new CustomAnnotationLayer("\u6211\u7684\u81EA\u5B9A\u4E49\u8499\u7248", "\u81EA\u5B9A\u4E49\u8499\u7248\u8986\u76D6\u5C42", YELLOW));
+            final CustomAnnotationLayerDialog dialog = new CustomAnnotationLayerDialog(app, new CustomAnnotationLayer("\u6211\u7684\u81EA\u5B9A\u4E49\u6807\u6CE8", "\u81EA\u5B9A\u4E49\u8499\u7248\u8986\u76D6\u5C42", YELLOW));
             dialog.setVisible(() -> {
                 final CustomAnnotationLayer layer = dialog.getLayer();
                 if (paletteName != null) {

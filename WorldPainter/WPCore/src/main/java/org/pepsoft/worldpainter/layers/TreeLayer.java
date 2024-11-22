@@ -23,11 +23,11 @@ import java.util.Random;
  */
 public abstract class TreeLayer extends Layer {
     protected TreeLayer(String treeName, String treeDescription, int priority, char mnemonic) {
-        super(treeName, "Generate " + treeDescription, DataSize.NIBBLE, false, priority, mnemonic);
+        super(treeName, "\u751F\u6210 " + treeDescription, DataSize.NIBBLE, false, priority, mnemonic);
     }
 
     protected TreeLayer(String treeName, String treeDescription, int priority) {
-        super(treeName, "Generate " + treeDescription, DataSize.NIBBLE, false, priority);
+        super(treeName, "\u751F\u6210 " + treeDescription, DataSize.NIBBLE, false, priority);
     }
 
     @Override

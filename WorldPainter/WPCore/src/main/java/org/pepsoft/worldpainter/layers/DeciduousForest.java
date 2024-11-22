@@ -16,7 +16,7 @@ import org.pepsoft.worldpainter.layers.trees.TreeType;
  */
 public class DeciduousForest extends TreeLayer {
     private DeciduousForest() {
-        super("Deciduous", "a deciduous forest", 40, 'd');
+        super("\u843D\u53F6\u6797", "\u843D\u53F6\u6797", 40, 'd');
     }
 
     @Override

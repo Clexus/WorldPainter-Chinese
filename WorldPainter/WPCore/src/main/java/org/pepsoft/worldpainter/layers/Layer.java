@@ -40,7 +40,7 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
     protected Layer(String id, String name, String description, DataSize dataSize, boolean discrete, int priority) {
         this(id, name, description, dataSize, discrete, priority, '\0');
     }
-    
+
     protected Layer(String id, String name, String description, DataSize dataSize, boolean discrete, int priority, char mnemonic) {
         if (id == null) {
             throw new NullPointerException("id");
@@ -57,7 +57,7 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
         this.mnemonic = mnemonic;
         init();
     }
-    
+
     public final DataSize getDataSize() {
         return dataSize;
     }
@@ -126,15 +126,15 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
             }
         }
     }
-    
+
     public LayerRenderer getRenderer() {
         return renderer;
     }
-    
+
     public BufferedImage getIcon() {
         return icon;
     }
-    
+
     public char getMnemonic() {
         return mnemonic;
     }
@@ -150,7 +150,7 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
     /**
      * The default value which will be returned wherever the layer has not been
      * set. By default this is zero (or false).
-     * 
+     *
      * @return The default value which will be returned where the layer value is
      *     not set.
      */
@@ -261,10 +261,10 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
         }
         icon = IconUtils.loadScaledImage(clazz.getClassLoader(), "org/pepsoft/worldpainter/icons/" + getClass().getSimpleName().toLowerCase() + ".png");
     }
-    
+
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
-        
+
         // Legacy
         if (id == null) {
             id = name;
@@ -292,7 +292,7 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
         BIT(1) {
             @Override
             public String toString(int value) {
-                return value == 0 ? "off" : "on";
+                return value == 0 ? "\u5173" : "\u5F00";
             }
         },
 
@@ -317,14 +317,14 @@ public abstract class Layer implements Serializable, Comparable<Layer> {
         BIT_PER_CHUNK(1) {
             @Override
             public String toString(int value) {
-                return value == 0 ? "off" : "on";
+                return value == 0 ? "\u5173" : "\u5F00";
             }
         },
 
         NONE(-1) {
             @Override
             public String toString(int value) {
-                return "N/A";
+                return "\u4E0D\u9002\u7528";
             }
         };
 

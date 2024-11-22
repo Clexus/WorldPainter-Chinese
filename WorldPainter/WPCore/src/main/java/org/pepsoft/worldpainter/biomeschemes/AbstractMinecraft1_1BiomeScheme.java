@@ -112,27 +112,27 @@ public abstract class AbstractMinecraft1_1BiomeScheme extends AbstractBiomeSchem
     public static final int BIOME_TAIGA_HILLS = 19;
     public static final int BIOME_EXTREME_HILLS_EDGE = 20;
     public static final String[] BIOME_NAMES = {
-        "Ocean",
-        "Plains",
-        "Desert",
-        "Extreme Hills",
-        "Forest",
-        "Taiga",
-        "Swampland",
-        "River",
-        "Hell",
-        "Sky",
-        "Frozen Ocean",
-        "Frozen River",
-        "Ice Plains",
-        "Ice Mountains",
-        "Mushroom Island",
-        "Mushroom Island Shore",
-        "Beach",
-        "Desert Hills",
-        "Forest Hills",
-        "Taiga Hills",
-        "Extreme Hills Edge"
+        "\u6d77\u6d0b",
+        "\u5e73\u539f",
+        "\u6c99\u6f20",
+        "\u5ced\u58c1",
+        "\u68ee\u6797",
+        "\u9488\u53f6\u6797",
+        "\u6cbc\u6cfd",
+        "\u6cb3\u6d41",
+        "\u4e0b\u754c",
+        "\u5929\u7a7a",
+        "\u51bb\u6d0b",
+        "\u51bb\u6cb3",
+        "\u51b0\u539f",
+        "\u51b0\u5c71",
+        "\u8611\u83c7\u5c9b",
+        "\u8611\u83c7\u5c9b\u6d77\u5cb8",
+        "\u6d77\u6ee9",
+        "\u6c99\u6f20\u4e18\u9675",
+        "\u68ee\u6797\u4e18\u9675",
+        "\u9488\u53f6\u6797\u4e18\u9675",
+        "\u5ced\u58c1\u8fb9\u7f18"
     };
 
     private static final boolean[][][] BIOME_PATTERNS = new boolean[21][][];

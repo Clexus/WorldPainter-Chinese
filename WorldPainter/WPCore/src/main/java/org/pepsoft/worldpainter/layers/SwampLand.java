@@ -23,7 +23,7 @@ import java.util.Random;
  */
 public class SwampLand extends TreeLayer {
     private SwampLand() {
-        super("Swamp", "swamp land", 42, 'w');
+        super("\u6CBC\u6CFD", "\u6CBC\u6CFD\u5730", 42, 'w');
     }
 
     @Override

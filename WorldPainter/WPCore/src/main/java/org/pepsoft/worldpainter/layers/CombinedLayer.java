@@ -123,7 +123,7 @@ public class CombinedLayer extends CustomLayer implements LayerContainer {
 
     @Override
     public String getType() {
-        return "Combined Layer";
+        return "\u6DF7\u5408\u8986\u76D6\u5C42";
     }
 
     public Terrain getTerrain() {
@@ -197,7 +197,7 @@ public class CombinedLayer extends CustomLayer implements LayerContainer {
         if (superActions != null) {
             actions.addAll(superActions);
         }
-        actions.add(new AbstractAction("Apply") {
+        actions.add(new AbstractAction("\u5E94\u7528") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Dimension dimension = (Dimension) getValue(KEY_DIMENSION);

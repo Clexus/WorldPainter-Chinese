@@ -35,8 +35,8 @@ public class Bo2Layer extends CustomLayer {
     public void setObjectProvider(Bo2ObjectProvider objectProvider) {
         this.objectProvider = objectProvider;
         setName(objectProvider.getName());
-        setDescription("Custom " + objectProvider.getName() + " objects");
-        
+        setDescription("\u81EA\u5B9A\u4E49 " + objectProvider.getName() + " \u5BF9\u8C61");
+
         // Legacy
         files = Collections.emptyList();
     }
@@ -89,7 +89,7 @@ public class Bo2Layer extends CustomLayer {
 
     @Override
     public String getType() {
-        return "Custom Objects";
+        return "\u81EA\u5B9A\u4E49\u5BF9\u8C61";
     }
 
     // Cloneable

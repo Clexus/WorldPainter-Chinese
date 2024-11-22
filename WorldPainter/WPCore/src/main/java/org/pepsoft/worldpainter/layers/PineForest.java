@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class PineForest extends TreeLayer {
     private PineForest() {
-        super("Pine", "a pine forest", 41, 'n');
+        super("\u677E\u6811", "\u677E\u6811", 41, 'n');
     }
 
     @Override
