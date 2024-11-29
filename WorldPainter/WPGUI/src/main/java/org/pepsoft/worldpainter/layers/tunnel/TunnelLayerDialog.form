@@ -11,7 +11,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Configure Cave/Tunnel Layer"/>
+    <Property name="title" type="java.lang.String" value="\u914D\u7F6E\u6D1E\u7A74/\u901A\u9053\u8986\u76d6\u5c42"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -96,7 +96,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -104,7 +104,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOKActionPerformed"/>
@@ -112,7 +112,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonReset">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reset"/>
+        <Property name="text" type="java.lang.String" value="\u91cd\u7f6e:"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetActionPerformed"/>
@@ -120,12 +120,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create underground tunnels and caves with the following properties:"/>
+        <Property name="text" type="java.lang.String" value="\u4F7F\u7528\u4EE5\u4E0B\u5C5E\u6027\u521B\u5EFA\u5730\u4E0B\u901A\u9053\u548C\u6D1E\u7A74:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="\u540d\u79f0:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldName">
@@ -136,7 +136,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Paint"/>
+        <Property name="text" type="java.lang.String" value="\u753b\u7b14:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
@@ -146,8 +146,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Caves/Tunnels Settings">
-                <Property name="tabTitle" type="java.lang.String" value="Caves/Tunnels Settings"/>
+              <JTabbedPaneConstraints tabName="\u6D1E\u7A74/\u901A\u9053\u8BBE\u7F6E">
+                <Property name="tabTitle" type="java.lang.String" value="\u6D1E\u7A74/\u901A\u9053\u8BBE\u7F6E"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -405,7 +405,7 @@
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="fixed level"/>
+                <Property name="text" type="java.lang.String" value="\u56FA\u5B9A\u9AD8\u5EA6"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFloorFixedLevelActionPerformed"/>
@@ -423,17 +423,17 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Walls:"/>
+                <Property name="text" type="java.lang.String" value="\u5899\u9762:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Variation:"/>
+                <Property name="text" type="java.lang.String" value="\u53d8\u79cd:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Variation:"/>
+                <Property name="text" type="java.lang.String" value="\u53d8\u79cd:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="spinnerFloorLevel">
@@ -448,7 +448,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Options:"/>
+                <Property name="text" type="java.lang.String" value="\u9009\u9879"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioButtonRoofFixedDepth">
@@ -456,7 +456,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="fixed depth"/>
+                <Property name="text" type="java.lang.String" value="\u56FA\u5B9A\u6DF1\u5EA6"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonRoofFixedDepthActionPerformed"/>
@@ -477,7 +477,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>
-                <Property name="text" type="java.lang.String" value=", max:"/>
+                <Property name="text" type="java.lang.String" value=", \u6700\u5927:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="spinnerRoofMin">
@@ -493,12 +493,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Absolute min:"/>
+                <Property name="text" type="java.lang.String" value="\u7edd\u5bf9\u6700\u5c0f\u503c:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Floor:"/>
+                <Property name="text" type="java.lang.String" value="\u5730\u9762:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="spinnerFloodLevel">
@@ -517,7 +517,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="fixed depth"/>
+                <Property name="text" type="java.lang.String" value="\u56FA\u5B9A\u6DF1\u5EA6"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFloorFixedDepthActionPerformed"/>
@@ -525,12 +525,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" value="\u6750\u8D28:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxFloodWithLava">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Flood with lava:"/>
+                <Property name="text" type="java.lang.String" value="\u7528\u5CA9\u6D46\u586B\u5145:"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
@@ -551,19 +551,19 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Bottom width:"/>
+                <Property name="text" type="java.lang.String" value="\u5E95\u90E8\u5BBD\u5EA6:"/>
               </Properties>
             </Component>
             <Component class="org.pepsoft.worldpainter.NoiseSettingsEditor" name="noiseSettingsEditorRoof">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Level:"/>
+                <Property name="text" type="java.lang.String" value="\u9ad8\u5ea6:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Absolute min:"/>
+                <Property name="text" type="java.lang.String" value="\u7edd\u5bf9\u6700\u5c0f\u503c:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="spinnerWallRoofDepth">
@@ -588,7 +588,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxRemoveWater">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove water or lava:"/>
+                <Property name="text" type="java.lang.String" value="\u79FB\u9664\u6C34\u6216\u5CA9\u6D46:"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 0, 2, 2]"/>
@@ -611,17 +611,17 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
-                <Property name="text" type="java.lang.String" value=", max:"/>
+                <Property name="text" type="java.lang.String" value=", \u6700\u5927:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" value="\u6750\u8D28:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ceiling:"/>
+                <Property name="text" type="java.lang.String" value="\u9876\u5C42:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioButtonFloorInverse">
@@ -629,7 +629,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="opposite of terrain"/>
+                <Property name="text" type="java.lang.String" value="\u76F8\u53CD\u7684\u65B9\u5757"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFloorInverseActionPerformed"/>
@@ -637,7 +637,7 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxFlood">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Flood the caves/tunnels:"/>
+                <Property name="text" type="java.lang.String" value="\u4EE5...\u586B\u5145\u6D1E\u7A74/\u901A\u9053:"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 0, 2, 2]"/>
@@ -652,7 +652,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="fixed level"/>
+                <Property name="text" type="java.lang.String" value="\u56FA\u5B9A\u9AD8\u5EA6"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonRoofFixedLevelActionPerformed"/>
@@ -660,7 +660,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Level:"/>
+                <Property name="text" type="java.lang.String" value="\u9ad8\u5ea6:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioButtonRoofInverse">
@@ -668,7 +668,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup3"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="opposite of terrain"/>
+                <Property name="text" type="java.lang.String" value="\u76F8\u53CD\u7684\u65B9\u5757"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonRoofInverseActionPerformed"/>
@@ -676,12 +676,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Top width:"/>
+                <Property name="text" type="java.lang.String" value="\u9876\u90E8\u5BBD\u5EA6:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Material:"/>
+                <Property name="text" type="java.lang.String" value="\u6750\u8D28:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelPreview">
@@ -698,17 +698,17 @@
                 <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="spinnerFloodLevel"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Level:"/>
+                <Property name="text" type="java.lang.String" value="\u9ad8\u5ea6:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Biome:"/>
+                <Property name="text" type="java.lang.String" value="\u7fa4\u7cfb:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboBoxBiome">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Integer&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6574\u6570&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioButtonFloorCustomDimension">
@@ -716,7 +716,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="custom dimension"/>
+                <Property name="text" type="java.lang.String" value="\u81EA\u5B9A\u4E49\u7EF4\u5EA6"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFloorCustomDimensionActionPerformed"/>
@@ -728,7 +728,7 @@
                   <ComponentRef name="buttonGroup3"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="fixed height above floor"/>
+                <Property name="text" type="java.lang.String" value="\u56FA\u5B9A\u5730\u9762\u4EE5\u4E0A\u9AD8\u5EA6"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonRoofFixedHeightActionPerformed"/>
@@ -760,7 +760,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel26">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fill with:"/>
+                <Property name="text" type="java.lang.String" value="\u4F7F\u7528...\u586B\u5145:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="radioButtonFillWithAir">
@@ -768,7 +768,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="air"/>
+                <Property name="text" type="java.lang.String" value="\u7A7A\u6C14"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFillWithAirActionPerformed"/>
@@ -779,7 +779,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="light:"/>
+                <Property name="text" type="java.lang.String" value="\u5149\u7167:"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFillWithLightActionPerformed"/>
@@ -798,7 +798,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGroup2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="custom:"/>
+                <Property name="text" type="java.lang.String" value="\u81EA\u5B9A\u4E49:"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFillWithCustomActionPerformed"/>
@@ -821,7 +821,7 @@
                   <ComponentRef name="buttonGroup2"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="cave air"/>
+                <Property name="text" type="java.lang.String" value="\u6D1E\u7A74\u7A7A\u6C14"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonFillWithCaveAirActionPerformed"/>
@@ -832,8 +832,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Floor Layers">
-                <Property name="tabTitle" type="java.lang.String" value="Floor Layers"/>
+              <JTabbedPaneConstraints tabName="\u5730\u9762\u8986\u76D6\u5C42">
+                <Property name="tabTitle" type="java.lang.String" value="\u5730\u9762\u8986\u76d6\u5c42"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -889,7 +889,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
-                <Property name="text" type="java.lang.String" value="You can add custom layers here which will be rendered on the cave/tunnel floors:"/>
+                <Property name="text" type="java.lang.String" value="\u60A8\u53EF\u4EE5\u5728\u6B64\u5904\u6DFB\u52A0\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42\uFF0C\u8FD9\u4E9B\u8986\u76d6\u5c42\u5C06\u5728\u6D1E\u7A74/\u96A7\u9053\u5730\u9762\u4E0A\u6E32\u67D3:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -913,7 +913,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="buttonNewFloorLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create New"/>
+                <Property name="text" type="java.lang.String" value="\u65b0\u5efa"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewFloorLayerActionPerformed"/>
@@ -921,7 +921,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonAddFloorLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Copy Existing"/>
+                <Property name="text" type="java.lang.String" value="\u590d\u5236\u73b0\u6709"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddFloorLayerActionPerformed"/>
@@ -929,7 +929,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonEditFloorLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="\u7F16\u8F91"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditFloorLayerActionPerformed"/>
@@ -937,7 +937,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonRemoveFloorLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove"/>
+                <Property name="text" type="java.lang.String" value="\u79FB\u9664"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRemoveFloorLayerActionPerformed"/>
@@ -948,8 +948,8 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Roof Layers">
-                <Property name="tabTitle" type="java.lang.String" value="Roof Layers"/>
+              <JTabbedPaneConstraints tabName="\u9876\u5C42\u8986\u76d6\u5c42">
+                <Property name="tabTitle" type="java.lang.String" value="\u9876\u5C42\u8986\u76d6\u5c42"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -1005,7 +1005,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel24">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;You can add custom layers here which will be rendered on the cave/tunnel roofs:&lt;br&gt;&#xa;&lt;strong&gt;Note:&lt;/strong&gt; these layers will be inverted! This includes Custom Objects.&lt;br&gt;&#xa;A later release will make this optional.&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;\u4F60\u53EF\u4EE5\u5728\u6B64\u5904\u6DFB\u52A0\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42\uFF0C\u8FD9\u4E9B\u8986\u76d6\u5c42\u5C06\u6E32\u67D3\u5728\u6D1E\u7A74/\u901A\u9053\u7EF4\u5EA6\u7684\u5E95\u90E8\uFF1A&lt;br&gt;\u6CE8\u610F\uFF1A \u8FD9\u4E9B\u8986\u76d6\u5c42\u5C06\u88AB\u53CD\u8F6C\uFF01\u8FD9\u5305\u62EC\u81EA\u5B9A\u4E49\u5BF9\u8C61\u3002&lt;br&gt;\u7A0D\u540E\u7684\u7248\u672C\u5C06\u4F7F\u6B64\u9009\u9879\u53EF\u9009\u3002&lt;/html&gt;"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -1029,7 +1029,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="buttonNewRoofLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create New"/>
+                <Property name="text" type="java.lang.String" value="\u65b0\u5efa"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewRoofLayerActionPerformed"/>
@@ -1037,7 +1037,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonAddRoofLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Copy Existing"/>
+                <Property name="text" type="java.lang.String" value="\u590d\u5236\u73b0\u6709"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddRoofLayerActionPerformed"/>
@@ -1045,7 +1045,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonEditRoofLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="text" type="java.lang.String" value="\u7F16\u8F91"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditRoofLayerActionPerformed"/>
@@ -1053,7 +1053,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonRemoveRoofLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Remove"/>
+                <Property name="text" type="java.lang.String" value="\u79FB\u9664"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRemoveRoofLayerActionPerformed"/>

@@ -129,7 +129,7 @@ public class CustomLayerController implements PropertyChangeListener {
                         switch (tunnelLayer.getLayerMode()) {
                             case CAVE:
                                 shortName = "\u5E95\u5C42\u7EF4\u5EA6";
-                                longName = "\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42\u5E95\u5C42\u7EF4\u5EA6";
+                                longName = "\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u8986\u76d6\u5c42\u5E95\u5C42\u7EF4\u5EA6";
                                 break;
                             case FLOATING:
                                 shortName = "\u60AC\u6D6E\u7EF4\u5EA6";
@@ -208,7 +208,7 @@ public class CustomLayerController implements PropertyChangeListener {
                     menuItem.addActionListener(e1 -> duplicate());
                 } else {
                     menuItem.setEnabled(false);
-                    menuItem.setToolTipText("\u8BE5\u8986\u76D6\u5C42\u4E0D\u53EF\u88AB\u590D\u5236.");
+                    menuItem.setToolTipText("\u8BE5\u8986\u76d6\u5c42\u4E0D\u53EF\u88AB\u590D\u5236.");
                 }
                 popup.add(menuItem);
 
@@ -221,7 +221,7 @@ public class CustomLayerController implements PropertyChangeListener {
                     menuItem.addActionListener(e1 -> exportLayer(layer));
                 } else {
                     menuItem.setEnabled(false);
-                    menuItem.setToolTipText("\u8BE5\u8986\u76D6\u5C42\u4E0D\u53EF\u5BFC\u51FA\u4E3A\u6587\u4EF6.");
+                    menuItem.setToolTipText("\u8BE5\u8986\u76d6\u5c42\u4E0D\u53EF\u5BFC\u51FA\u4E3A\u6587\u4EF6.");
                 }
                 popup.add(menuItem);
 
@@ -402,7 +402,7 @@ public class CustomLayerController implements PropertyChangeListener {
         }
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u6D1E\u7A74/\u901A\u9053\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> {
             final TunnelLayer layer = new TunnelLayer("\u901A\u9053", CAVE, BLACK, world.getPlatform());
             final int baseHeight, waterLevel;
@@ -430,7 +430,7 @@ public class CustomLayerController implements PropertyChangeListener {
         }
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u690D\u88AB\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u690D\u88AB\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> {
             final EditLayerDialog<PlantLayer> dialog = new EditLayerDialog<>(app, world.getPlatform(), PlantLayer.class);
             dialog.setVisible(() -> {
@@ -443,7 +443,7 @@ public class CustomLayerController implements PropertyChangeListener {
         });
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u6DF7\u5408\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u6DF7\u5408\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> {
             final EditLayerDialog<CombinedLayer> dialog = new EditLayerDialog<>(app, world.getPlatform(), CombinedLayer.class);
             dialog.setVisible(() -> {
@@ -457,9 +457,9 @@ public class CustomLayerController implements PropertyChangeListener {
         });
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u6807\u6CE8\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7684\u6807\u6CE8\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> {
-            final CustomAnnotationLayerDialog dialog = new CustomAnnotationLayerDialog(app, new CustomAnnotationLayer("\u6211\u7684\u81EA\u5B9A\u4E49\u6807\u6CE8", "\u81EA\u5B9A\u4E49\u8499\u7248\u8986\u76D6\u5C42", YELLOW));
+            final CustomAnnotationLayerDialog dialog = new CustomAnnotationLayerDialog(app, new CustomAnnotationLayer("\u6211\u7684\u81EA\u5B9A\u4E49\u6807\u6CE8", "\u81EA\u5B9A\u4E49\u8499\u7248\u8986\u76d6\u5c42", YELLOW));
             dialog.setVisible(() -> {
                 final CustomAnnotationLayer layer = dialog.getLayer();
                 if (paletteName != null) {
@@ -508,7 +508,7 @@ public class CustomLayerController implements PropertyChangeListener {
             customLayerMenu.addSeparator();
 
             for (Class<? extends CustomLayer> customLayerClass: allPluginLayers) {
-                menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A" + customLayerClass.getSimpleName() + "\u8986\u76D6\u5C42..."); // TODO: introduce a proper display name for custom layers
+                menuItem = new JMenuItem("\u6DFB\u52A0\u4E00\u4E2A" + customLayerClass.getSimpleName() + "\u8986\u76d6\u5c42..."); // TODO: introduce a proper display name for custom layers
                 menuItem.addActionListener(e -> {
                     final EditLayerDialog<CustomLayer> dialog = new EditLayerDialog<>(app, world.getPlatform(), (Class<CustomLayer>) customLayerClass);
                     dialog.setVisible(() -> {
@@ -526,10 +526,10 @@ public class CustomLayerController implements PropertyChangeListener {
             customLayerMenu.addSeparator();
         }
 
-        menuItem = new JMenu("\u4ECE\u53E6\u4E00\u4E2A\u7EF4\u5EA6\u590D\u5236\u8986\u76D6\u5C42");
-        menuItem.setToolTipText("\u8FD9\u5C06\u4F1A\u590D\u5236\u4E00\u4E2A\u8986\u76D6\u5C42\uFF0C\u5B83\u4F1A\u6709\u81EA\u5DF1\u7684ID\u548C\u72EC\u7ACB\u7684\u8BBE\u7F6E\u9879");
+        menuItem = new JMenu("\u4ECE\u53E6\u4E00\u4E2A\u7EF4\u5EA6\u590D\u5236\u8986\u76d6\u5c42");
+        menuItem.setToolTipText("\u8FD9\u5C06\u4F1A\u590D\u5236\u4E00\u4E2A\u8986\u76d6\u5c42\uFF0C\u5B83\u4F1A\u6709\u81EA\u5DF1\u7684ID\u548C\u72EC\u7ACB\u7684\u8BBE\u7F6E\u9879");
         final Function<Layer, Boolean> filter = app.getLayerFilterForCurrentDimension();
-        List<JMenuItem> copyMenuItems = getCopyLayerMenuItems((paletteName != null) ? paletteName : "\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42", filter);
+        List<JMenuItem> copyMenuItems = getCopyLayerMenuItems((paletteName != null) ? paletteName : "\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42", filter);
         if (! copyMenuItems.isEmpty()) {
             for (JMenuItem copyMenuItem: copyMenuItems) {
                 ((JMenu) menuItem).add(copyMenuItem);
@@ -539,11 +539,11 @@ public class CustomLayerController implements PropertyChangeListener {
         }
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u7531\u6587\u4EF6\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u7531\u6587\u4EF6\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> app.importLayers(paletteName, filter));
         customLayerMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u7531\u5176\u4ED6\u4E16\u754C\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u7531\u5176\u4ED6\u4E16\u754C\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> app.importCustomItemsFromWorld(CustomItemsTreeModel.ItemType.LAYER, filter));
         customLayerMenu.add(menuItem);
 
@@ -643,12 +643,12 @@ public class CustomLayerController implements PropertyChangeListener {
         final Set<Layer> layersInUse = dimension.getAllLayers(true);
         unusedLayers.removeAll(layersInUse);
         if (unusedLayers.isEmpty()) {
-            showInfo(app, "\u8BE5\u4E16\u754C\u6CA1\u6709\u672A\u4F7F\u7528\u7684\u8986\u76D6\u5C42.", "\u65E0\u672A\u4F7F\u7528\u8986\u76D6\u5C42");
+            showInfo(app, "\u8BE5\u4E16\u754C\u6CA1\u6709\u672A\u4F7F\u7528\u7684\u8986\u76d6\u5c42.", "\u65E0\u672A\u4F7F\u7528\u8986\u76d6\u5c42");
         } else {
             final DeleteLayersDialog dialog = new DeleteLayersDialog(app, unusedLayers);
             dialog.setVisible(true);
             if (! dialog.isCancelled()) {
-                showInfo(app, "\u9009\u4E2D\u7684\u8986\u76D6\u5C42\u5DF2\u88AB\u5220\u9664.", "\u8986\u76D6\u5C42\u5DF2\u5220\u9664");
+                showInfo(app, "\u9009\u4E2D\u7684\u8986\u76d6\u5c42\u5DF2\u88AB\u5220\u9664.", "\u8986\u76d6\u5c42\u5DF2\u5220\u9664");
             }
         }
     }
@@ -694,7 +694,7 @@ public class CustomLayerController implements PropertyChangeListener {
             final CombinedLayer combinedLayer = (CombinedLayer) layer;
             importLayersFromCombinedLayer(combinedLayer);
             if (! combinedLayer.restoreCustomTerrain()) {
-                showWarning(app, "\u8BE5\u8986\u76D6\u5C42\u5305\u542B\u4E86\u4E00\u4E2A\u4E0D\u53EF\u88AB\u6062\u590D\u7684\u81EA\u5B9A\u4E49\u65B9\u5757\uFF0C\u65B9\u5757\u5DF2\u91CD\u7F6E.", "\u81EA\u5B9A\u4E49\u65B9\u5757\u672A\u88AB\u6062\u590D");
+                showWarning(app, "\u8BE5\u8986\u76d6\u5c42\u5305\u542B\u4E86\u4E00\u4E2A\u4E0D\u53EF\u88AB\u6062\u590D\u7684\u81EA\u5B9A\u4E49\u65B9\u5757\uFF0C\u65B9\u5757\u5DF2\u91CD\u7F6E.", "\u81EA\u5B9A\u4E49\u65B9\u5757\u672A\u88AB\u6062\u590D");
             } else {
                 // Check for a custom terrain type and if necessary make sure it has a button
                 final Terrain terrain = combinedLayer.getTerrain();
@@ -770,7 +770,7 @@ public class CustomLayerController implements PropertyChangeListener {
                 });
         if (closestDistance.get() == Double.MAX_VALUE) {
             beep();
-            showInfo(view, "\u8986\u76D6\u5C42" + layer + "\u5728\u5F53\u524D\u7EF4\u5EA6\u672A\u88AB\u4F7F\u7528", "\u8986\u76D6\u5C42\u672A\u4F7F\u7528");
+            showInfo(view, "\u8986\u76d6\u5c42" + layer + "\u5728\u5F53\u524D\u7EF4\u5EA6\u672A\u88AB\u4F7F\u7528", "\u8986\u76d6\u5c42\u672A\u4F7F\u7528");
         } else {
             view.moveTo((closestTileX.get() << TILE_SIZE_BITS) + (TILE_SIZE / 2), (closestTileY.get() << TILE_SIZE_BITS) + (TILE_SIZE / 2));
         }
@@ -818,7 +818,7 @@ public class CustomLayerController implements PropertyChangeListener {
         if ((layerDirectory == null) || (! layerDirectory.isDirectory())) {
             layerDirectory = DesktopUtils.getDocumentsFolder();
         }
-        File selectedFile = FileUtils.selectFileForSave(app, "\u5BFC\u51FAWorldPainter\u8986\u76D6\u5C42\u6587\u4EF6", new File(layerDirectory, org.pepsoft.util.FileUtils.sanitiseName(layer.getName()) + ".layer"), new FileFilter() {
+        File selectedFile = FileUtils.selectFileForSave(app, "\u5BFC\u51FAWorldPainter\u8986\u76d6\u5c42\u6587\u4EF6", new File(layerDirectory, org.pepsoft.util.FileUtils.sanitiseName(layer.getName()) + ".layer"), new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".layer");
@@ -826,7 +826,7 @@ public class CustomLayerController implements PropertyChangeListener {
 
             @Override
             public String getDescription() {
-                return "WorldPainter\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42 (*.layer)";
+                return "WorldPainter\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42 (*.layer)";
             }
 
             @Override
@@ -849,7 +849,7 @@ public class CustomLayerController implements PropertyChangeListener {
                 throw new RuntimeException("I/O error while trying to write " + selectedFile, e);
             }
             config.setLayerDirectory(selectedFile.getParentFile());
-            showInfo(app, "\u8986\u76D6\u5C42" + layer.getName() + "\u6210\u529F\u5BFC\u51FA", "\u6210\u529F");
+            showInfo(app, "\u8986\u76d6\u5c42" + layer.getName() + "\u6210\u529F\u5BFC\u51FA", "\u6210\u529F");
         }
     }
 

@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class RaisePyramid extends MouseOrTabletOperation {
     public RaisePyramid(WorldPainter worldPainter) {
-        super("Raise Pyramid", "Raises a square pyramid out of the ground", worldPainter, 100, "operation.raisePyramid", "pyramid");
+        super("Raise Pyramid", "\u62D4\u5347\u91D1\u5B57\u5854\u5DE5\u5177-\u7531\u5730\u8868\u5347\u8D77\u4E00\u5EA7\u91D1\u5B57\u5854", worldPainter, 100, "operation.raisePyramid", "pyramid");
     }
 
     @Override
@@ -83,5 +83,5 @@ public class RaisePyramid extends MouseOrTabletOperation {
         return raised;
     }
 
-    private static final StandardOptionsPanel OPTIONS_PANEL = new StandardOptionsPanel("Raise Pyramid", "<p>Click to raise a four-sided sandstone pyramid from the ground");
+    private static final StandardOptionsPanel OPTIONS_PANEL = new StandardOptionsPanel("\u62D4\u5347\u91D1\u5B57\u5854\u5DE5\u5177", "<p>\u70B9\u51FB\u7531\u5730\u8868\u5347\u8D77\u4E00\u5EA7\u56DB\u8FB9\u91D1\u5B57\u5854");
 }

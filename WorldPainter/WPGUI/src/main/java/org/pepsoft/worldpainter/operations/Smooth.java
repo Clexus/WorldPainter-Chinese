@@ -17,7 +17,7 @@ import java.util.Arrays;
  */
 public class Smooth extends RadiusOperation {
     public Smooth(WorldPainter view) {
-        super("Smooth", "Smooth the terrain out", view, 100, "operation.smooth");
+        super("Smooth", "\u5E73\u6ED1\u5DE5\u5177-\u4F7F\u5730\u5F62\u5E73\u6ED1", view, 100, "operation.smooth");
     }
 
     @Override
@@ -82,9 +82,9 @@ public class Smooth extends RadiusOperation {
             dimension.setEventsInhibited(false);
         }
     }
-    
+
     private final TerrainShapingOptions<Smooth> options = new TerrainShapingOptions<>();
-    private final TerrainShapingOptionsPanel optionsPanel = new TerrainShapingOptionsPanel("Smooth", "<p>Click to smooth the terrain out", options);
+    private final TerrainShapingOptionsPanel optionsPanel = new TerrainShapingOptionsPanel("\u5E73\u6ED1\u5DE5\u5177", "<p>\u70B9\u51FB\u5E73\u6ED1\u5730\u5F62", options);
     private float[][] totals, currentHeights;
     private int[][] sampleCounts;
 }

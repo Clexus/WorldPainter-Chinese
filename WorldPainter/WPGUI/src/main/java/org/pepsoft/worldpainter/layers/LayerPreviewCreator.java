@@ -383,21 +383,21 @@ public class LayerPreviewCreator {
         }
     };
 
-    public static final Pattern STEPPED_ZERO_TO_FULL = new Pattern("100% - 0% (hard edge)") {
+    public static final Pattern STEPPED_ZERO_TO_FULL = new Pattern("100% - 0% (\u786C\u8FB9\u7F18)") {
         @Override
         float getStrength(int x, int y) {
             return MathUtils.getDistance(x, y, 188, 64) < 128 ? 1 : 0;
         }
     };
 
-    public static final Pattern STEPPED_ZERO_TO_HALF = new Pattern("50% - 0% (hard edge)") {
+    public static final Pattern STEPPED_ZERO_TO_HALF = new Pattern("50% - 0% (\u786C\u8FB9\u7F18)") {
         @Override
         float getStrength(int x, int y) {
             return MathUtils.getDistance(x, y, 188, 64) < 128 ? 0.5f : 0;
         }
     };
 
-    public static final Pattern CIRCULAR_ZERO_TO_FULL = new Pattern("0% - 100% (circular)") {
+    public static final Pattern CIRCULAR_ZERO_TO_FULL = new Pattern("0% - 100% (\u5706\u5F62)") {
         @Override
         float getStrength(int x, int y) {
             return 1f - MathUtils.getDistance(x - 64, y - 64) / MAX_DIST;
@@ -406,7 +406,7 @@ public class LayerPreviewCreator {
         private final float MAX_DIST = (float) Math.sqrt(64 * 64 + 64 * 64);
     };
 
-    public static final Pattern CONSTANT_HALF_PLUS_GRADIENT_PLUS_HIGHLIGHT = new Pattern("50% - 50% - 0% (100% highlight)") {
+    public static final Pattern CONSTANT_HALF_PLUS_GRADIENT_PLUS_HIGHLIGHT = new Pattern("50% - 50% - 0% (100% \u9AD8\u5149)") {
         @Override
         float getStrength(int x, int y) {
             return Math.max(x < 64 ? x / 127f : 0.5f, 1f - MathUtils.getDistance(x - 64, 127 - y) / 64);

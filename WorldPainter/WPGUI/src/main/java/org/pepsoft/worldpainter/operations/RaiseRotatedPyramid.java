@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class RaiseRotatedPyramid extends MouseOrTabletOperation {
     public RaiseRotatedPyramid(WorldPainter worldPainter) {
-        super("Raise Rotated Pyramid", "Raises a square, but rotated 45 degrees, pyramid out of the ground", worldPainter, 100, "operation.raiseRotatedPyramid", "pyramid");
+        super("Raise Rotated Pyramid", "拔升旋转金字塔工具-在地面上升起一座旋转45度的金字塔", worldPainter, 100, "operation.raiseRotatedPyramid", "pyramid");
     }
 
     @Override
@@ -80,5 +80,5 @@ public class RaiseRotatedPyramid extends MouseOrTabletOperation {
         return raised;
     }
 
-    private static final StandardOptionsPanel OPTIONS_PANEL = new StandardOptionsPanel("Raise Rotated Pyramid", "<p>Click to raise a 45&deg; rotated four-sided sandstone pyramid from the ground");
+    private static final StandardOptionsPanel OPTIONS_PANEL = new StandardOptionsPanel("拔升旋转金字塔工具", "<p>点击在地表升起一座45度旋转过的四边金字塔");
 }

@@ -41,13 +41,13 @@ public class Palette {
         // Row: Show/Solo labels
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(1, 1, 1, 1);
-        JideLabel label = new JideLabel("Show");
+        JideLabel label = new JideLabel("\u663E\u793A");
         label.setOrientation(SwingConstants.VERTICAL);
         label.setClockwise(false);
         label.setMinimumSize(label.getPreferredSize());
         constraints.anchor = GridBagConstraints.SOUTH;
         panel.add(label, constraints);
-        label = new JideLabel("Solo");
+        label = new JideLabel("\u4EC5\u663E\u793A");
         label.setOrientation(SwingConstants.VERTICAL);
         label.setClockwise(false);
         label.setMinimumSize(label.getPreferredSize());
@@ -57,7 +57,7 @@ public class Palette {
         constraints.anchor = GridBagConstraints.NORTHEAST;
         final JButton editButton = new JButton(ICON_EDIT);
         editButton.setMargin(new Insets(2, 2, 2, 2));
-        editButton.setToolTipText("Edit palette name and layer order");
+        editButton.setToolTipText("\u7F16\u8F91\u8C03\u8272\u677F\u540D\u79F0\u548C\u8986\u76D6\u5C42\u987A\u5E8F");
         editButton.addActionListener(this::editPalette);
         panel.add(editButton, constraints);
 
@@ -65,13 +65,13 @@ public class Palette {
         constraints.anchor = GridBagConstraints.FIRST_LINE_START;
         constraints.weightx = 0.0;
         showCheckBox = new JCheckBox();
-        showCheckBox.setToolTipText("Uncheck to hide all layer on this palette from view (they will still be exported)");
+        showCheckBox.setToolTipText("\u53D6\u6D88\u52FE\u9009\u4EE5\u9690\u85CF\u8BE5\u8C03\u8272\u76D8\u89C6\u56FE\u4E2D\u7684\u6240\u6709\u8986\u76D6\u5C42(\u4ECD\u53EF\u88AB\u5BFC\u51FA)");
         showCheckBox.setSelected(true);
         showCheckBox.addActionListener(e -> setShow(showCheckBox.isSelected()));
         soloCheckBox = new JCheckBox();
-        soloCheckBox.setToolTipText("<html>Check to show <em>only</em> the layers on this palette (the other layers are still exported)</html>");
+        soloCheckBox.setToolTipText("<html>\u52FE\u9009\u4EE5<em>\u4EC5</em>\u663E\u793A\u8BE5\u8C03\u8272\u76D8\u4E0A\u7684\u8BE5\u8986\u76D6\u5C42(\u5176\u4ED6\u8986\u76D6\u5C42\u4ECD\u53EF\u88AB\u5BFC\u51FA)</html>");
         soloCheckBox.addActionListener(e -> setSolo(soloCheckBox.isSelected()));
-        LayoutUtils.addRowOfComponents(panel, constraints, asList(showCheckBox, soloCheckBox, new JLabel("<html><i>all </i></html>")));
+        LayoutUtils.addRowOfComponents(panel, constraints, asList(showCheckBox, soloCheckBox, new JLabel("<html><i>\u5168\u9009</i></html>")));
 
         // Row: components provided to constructor
         LayoutUtils.addRowOfComponents(panel, constraints, buttonComponents);

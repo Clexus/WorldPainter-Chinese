@@ -69,7 +69,7 @@
   <SubComponents>
     <Component class="javax.swing.JCheckBox" name="checkBoxHeight">
       <Properties>
-        <Property name="text" type="java.lang.String" value="terrain height"/>
+        <Property name="text" type="java.lang.String" value="\u5730\u5F62\u9AD8\u5EA6"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxHeightActionPerformed"/>
@@ -77,12 +77,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Copy:"/>
+        <Property name="text" type="java.lang.String" value="\u590D\u5236:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxTerrain">
       <Properties>
-        <Property name="text" type="java.lang.String" value="terrain type"/>
+        <Property name="text" type="java.lang.String" value="\u65B9\u5757\u79CD\u7C7B"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxTerrainActionPerformed"/>
@@ -90,7 +90,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxFluids">
       <Properties>
-        <Property name="text" type="java.lang.String" value="fluid height and type"/>
+        <Property name="text" type="java.lang.String" value="\u6DB2\u4F53\u9AD8\u5EA6\u548C\u79CD\u7C7B"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxFluidsActionPerformed"/>
@@ -98,7 +98,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxLayers">
       <Properties>
-        <Property name="text" type="java.lang.String" value="layers"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxLayersActionPerformed"/>
@@ -106,7 +106,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxBiomes">
       <Properties>
-        <Property name="text" type="java.lang.String" value="biomes"/>
+        <Property name="text" type="java.lang.String" value="\u751F\u7269\u7FA4\u7CFB"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxBiomesActionPerformed"/>
@@ -114,7 +114,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxAnnotations">
       <Properties>
-        <Property name="text" type="java.lang.String" value="annotations"/>
+        <Property name="text" type="java.lang.String" value="\u6807\u6CE8\u8986\u76D6\u5C42"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxAnnotationsActionPerformed"/>
@@ -122,12 +122,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Options:"/>
+        <Property name="text" type="java.lang.String" value="\u9009\u9879"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxFeather">
       <Properties>
-        <Property name="text" type="java.lang.String" value="blend edges (slow!)"/>
+        <Property name="text" type="java.lang.String" value="\u6DF7\u5408\u8FB9\u7F18(\u5F88\u6162!)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxFeatherActionPerformed"/>
@@ -135,7 +135,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxCreateNewTiles">
       <Properties>
-        <Property name="text" type="java.lang.String" value="create new tiles"/>
+        <Property name="text" type="java.lang.String" value="\u521B\u5EFA\u65B0\u5206\u533A"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxCreateNewTilesActionPerformed"/>
@@ -143,12 +143,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="(no undo!)"/>
+        <Property name="text" type="java.lang.String" value="(\u65E0\u6CD5\u64A4\u9500!)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxRemoveExistingLayers">
       <Properties>
-        <Property name="text" type="java.lang.String" value="remove existing"/>
+        <Property name="text" type="java.lang.String" value="\u79FB\u9664\u73B0\u6709"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

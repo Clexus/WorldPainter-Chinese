@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="javax.swing.JButton" name="buttonClear">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Clear"/>
+        <Property name="text" type="java.lang.String" value="\u6E05\u9664"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonClearActionPerformed"/>
@@ -71,7 +71,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="\u540d\u79f0:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panelPlantControls">
@@ -81,7 +81,7 @@
     <Component class="javax.swing.JCheckBox" name="checkBoxGenerateTilledDirt">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="turn grass and dirt beneath crops to tilled dirt"/>
+        <Property name="text" type="java.lang.String" value="\u5C06\u519C\u4F5C\u7269\u4E0B\u7684\u8349\u65B9\u5757\u548C\u6CE5\u571F\u53D8\u4E3A\u8015\u5730"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -93,13 +93,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Paint:"/>
+        <Property name="text" type="java.lang.String" value="\u753B\u7B14:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxOnlyValidBlocks">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="only place on valid blocks"/>
+        <Property name="text" type="java.lang.String" value="\u53EA\u653E\u7F6E\u4E8E\u6709\u6548\u65B9\u5757\u4E0A"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxOnlyValidBlocksActionPerformed"/>

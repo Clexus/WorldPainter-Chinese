@@ -274,7 +274,7 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
 
         labelFluidType.setText("\u6DB2\u4F53");
 
-        jLabel12.setText("\u6DB2\u4F53\u5E73\u9762\u9AD8\u5EA6:");
+        jLabel12.setText("\u6DB2\u4F53\u9AD8\u5EA6:");
 
         jLabel13.setText("\u6DF1\u5EA6:");
 

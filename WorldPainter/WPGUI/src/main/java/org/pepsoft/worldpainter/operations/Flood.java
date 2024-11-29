@@ -24,24 +24,24 @@ import static org.pepsoft.worldpainter.Constants.TILE_SIZE;
  */
 public class Flood extends MouseOrTabletOperation {
     public Flood(WorldPainter view, boolean floodWithLava) {
-        super(floodWithLava ? "Lava" : "Flood", "Flood an area with " + (floodWithLava ? "lava" : "water"),
+        super(floodWithLava ? "Lava" : "Flood", (floodWithLava ? "\u5CA9\u6D46" : "\u6C34")+"\u586B\u5145\u5DE5\u5177-\u7528" + (floodWithLava ? "\u5CA9\u6D46" : "\u6C34") +"\u586B\u5145\u5730\u5F62\uFF0C\u4E0D\u66FF\u6362\u8868\u9762\u65B9\u5757",
                 view,
                 "operation.flood." + (floodWithLava ? "lava" : "water"),
                 floodWithLava ? "flood_with_lava" : "flood");
         this.floodWithLava = floodWithLava;
         optionsPanel = floodWithLava
-                ? new StandardOptionsPanel("Flood with Lava", "<ul><li>Left-click on dry land to flood with lava\n" +
-                "<li>Left-click on lava to raise it by one\n" +
-                "<li>Right-click on lava to lower it by one\n" +
-                "<li>Click on water to turn it to lava\n" +
+                ? new StandardOptionsPanel("\u5CA9\u6D46\u586B\u5145\u5DE5\u5177", "<ul><li>\u5DE6\u952E\u70B9\u51FB\u65E0\u6DB2\u4F53\u5730\u5F62\u4F7F\u7528\u5CA9\u6D46\u586B\u5145\u8BE5\u533A\u57DFn" +
+                "<li>\u5DE6\u952E\u70B9\u51FB\u5CA9\u6D46\u63D0\u9AD8\u5176\u9AD8\u5EA6\u4E00\u683Cn" +
+                "<li>\u53F3\u952E\u70B9\u51FB\u5CA9\u6D46\u964D\u4F4E\u5176\u9AD8\u5EA6\u4E00\u683Cn" +
+                "<li>\u70B9\u51FB\u6C34\u4F7F\u5176\u53D8\u4E3A\u5CA9\u6D46n" +
                 "</ul>")
-                : new StandardOptionsPanel("Flood with Water", "<ul><li>Left-click on dry land to flood with water\n" +
-                "<li>Left-click on water to raise it by one\n" +
-                "<li>Right-click on water to lower it by one\n" +
-                "<li>Click on lava to turn it to water\n" +
+                : new StandardOptionsPanel("\u6C34\u586B\u5145\u5DE5\u5177", "<ul><li>\u5DE6\u952E\u70B9\u51FB\u65E0\u6DB2\u4F53\u5730\u5F62\u4F7F\u7528\u6C34\u586B\u5145\u8BE5\u533A\u57DFn" +
+                "<li>\u5DE6\u952E\u70B9\u51FB\u6C34\u63D0\u9AD8\u5176\u9AD8\u5EA6\u4E00\u683Cn" +
+                "<li>\u53F3\u952E\u70B9\u51FB\u6C34\u964D\u4F4E\u5176\u9AD8\u5EA6\u4E00\u683Cn" +
+                "<li>\u70B9\u51FB\u5CA9\u6D46\u4F7F\u5176\u53D8\u4E3A\u6C34n" +
                 "</ul>");
     }
-    
+
     @Override
     protected void tick(int centreX, int centreY, boolean inverse, boolean first, float dynamicLevel) {
         final Dimension dimension = getDimension();
@@ -76,7 +76,7 @@ public class Flood extends MouseOrTabletOperation {
                 // There is fluid present of a different type; don't change the
                 // height, just change the type
                 if (floodWithLava) {
-                    fillMethod = new FloodFillMethod("Changing water to lava", dimensionBounds) {
+                    fillMethod = new FloodFillMethod("\u5C06\u6C34\u8F6C\u6362\u4E3A\u5CA9\u6D46", dimensionBounds) {
                         @Override public boolean isBoundary(int x, int y) {
                             final int height = dimension.getIntHeightAt(x, y);
                             return (height == Integer.MIN_VALUE) // Not on a tile
@@ -89,7 +89,7 @@ public class Flood extends MouseOrTabletOperation {
                         }
                     };
                 } else {
-                    fillMethod = new FloodFillMethod("Changing lava to water", dimensionBounds) {
+                    fillMethod = new FloodFillMethod("\u5C06\u5CA9\u6D46\u8F6C\u6362\u4E3A\u6C34r", dimensionBounds) {
                         @Override public boolean isBoundary(int x, int y) {
                             final int height = dimension.getIntHeightAt(x, y);
                             return (height == Integer.MIN_VALUE) // Not on a tile
@@ -111,7 +111,7 @@ public class Flood extends MouseOrTabletOperation {
                 final int floodToHeight = inverse ? (height - 1): (height + 1);
                 if (inverse) {
                     if (floodWithLava) {
-                        fillMethod = new FloodFillMethod("Lowering lava level", dimensionBounds) {
+                        fillMethod = new FloodFillMethod("\u964D\u4F4E\u5CA9\u6D46\u9AD8\u5EA6", dimensionBounds) {
                             @Override public boolean isBoundary(int x, int y) {
                                 final int height = dimension.getIntHeightAt(x, y);
                                 return (height == Integer.MIN_VALUE) // Not on a tile
@@ -125,7 +125,7 @@ public class Flood extends MouseOrTabletOperation {
                             }
                         };
                     } else {
-                        fillMethod = new FloodFillMethod("Lowering water level", dimensionBounds) {
+                        fillMethod = new FloodFillMethod("\u964D\u4F4E\u6C34\u9AD8\u5EA6", dimensionBounds) {
                             @Override public boolean isBoundary(int x, int y) {
                                 final int height = dimension.getIntHeightAt(x, y);
                                 return (height == Integer.MIN_VALUE) // Not on a tile
@@ -141,7 +141,7 @@ public class Flood extends MouseOrTabletOperation {
                     }
                 } else {
                     if (floodWithLava) {
-                        fillMethod = new FloodFillMethod(fluidPresent ? "Raising lava level" : "Flooding with lava", dimensionBounds) {
+                        fillMethod = new FloodFillMethod(fluidPresent ? "\u63D0\u9AD8\u5CA9\u6D46\u9AD8\u5EA6" : "\u4F7F\u7528\u5CA9\u6D46\u586B\u5145", dimensionBounds) {
                             @Override public boolean isBoundary(int x, int y) {
                                 final int height = dimension.getIntHeightAt(x, y), waterLevel = dimension.getWaterLevelAt(x, y);
                                 return (height == Integer.MIN_VALUE) // Not on a tile
@@ -155,7 +155,7 @@ public class Flood extends MouseOrTabletOperation {
                             }
                         };
                     } else {
-                        fillMethod = new FloodFillMethod(fluidPresent ? "Raising water level" : "Flooding with water", dimensionBounds) {
+                        fillMethod = new FloodFillMethod(fluidPresent ? "\u63D0\u9AD8\u6C34\u9AD8\u5EA6" : "\u4F7F\u7528\u6C34\u586B\u5145", dimensionBounds) {
                             @Override public boolean isBoundary(int x, int y) {
                                 final int height = dimension.getIntHeightAt(x, y), waterLevel = dimension.getWaterLevelAt(x, y);
                                 return (height == Integer.MIN_VALUE) // Not on a tile
@@ -191,7 +191,7 @@ public class Flood extends MouseOrTabletOperation {
                         return;
                     }
                     if (flooder.isBoundsHit()) {
-                        showWarning(getView(), "The area to be flooded was too large and may not have been completely flooded.", "Area Too Large");
+                        showWarning(getView(), "\u9700\u8981\u586B\u5145\u7684\u533A\u57DF\u8FC7\u5927\uFF0C\u53EF\u80FD\u65E0\u6CD5\u88AB\u5B8C\u5168\u586B\u5145.", "\u533A\u57DF\u8FC7\u5927");
                     }
                 } catch (IndexOutOfBoundsException e) {
                     // This most likely indicates that the area being flooded was too large
@@ -201,7 +201,7 @@ public class Flood extends MouseOrTabletOperation {
                             dimension.armSavePoint();
                         }
                     }
-                    JOptionPane.showMessageDialog(getView(), "The area to be flooded is too large or complex; please retry with a smaller area", "Area Too Large", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(getView(), "\u9700\u8981\u586B\u5145\u7684\u533A\u57DF\u8FC7\u5927\u6216\u8FC7\u4E8E\u590D\u6742\uFF0C\u8BF7\u5C1D\u8BD5\u4E00\u4E2A\u66F4\u5C0F\u7684\u533A\u57DF.", "\u533A\u57DF\u8FC7\u5927", JOptionPane.ERROR_MESSAGE);
                 }
             } finally {
                 synchronized (dimension) {

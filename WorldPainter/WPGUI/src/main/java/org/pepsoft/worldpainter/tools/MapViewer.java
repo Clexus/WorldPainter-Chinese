@@ -28,7 +28,7 @@ public class MapViewer extends AbstractTool {
         if (map != null) {
             TileProvider tileProvider = new MinecraftMapTileProvider(map.dir);
 
-            JFrame frame = new JFrame("Map Viewer");
+            JFrame frame = new JFrame("地图查看器");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             final TiledImageViewer viewer = new TiledImageViewer(true, true);
             viewer.setTileProvider(tileProvider);

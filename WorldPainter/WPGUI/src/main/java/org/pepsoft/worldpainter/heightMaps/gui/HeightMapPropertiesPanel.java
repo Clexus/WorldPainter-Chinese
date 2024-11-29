@@ -36,44 +36,44 @@ public class HeightMapPropertiesPanel extends JPanel {
     public void setHeightMap(HeightMap heightMap) {
         this.heightMap = heightMap;
         removeAll();
-        addField("Type:", heightMap.getClass().getSimpleName());
-        addField("Name:", heightMap, "name");
+        addField("\u7C7B\u578B:", heightMap.getClass().getSimpleName());
+        addField("\u540D\u79F0:", heightMap, "name");
         if (heightMap instanceof ConstantHeightMap) {
-            addField("Height: ", heightMap, "height");
+            addField("\u9AD8\u5EA6: ", heightMap, "height");
         } else if (heightMap instanceof NinePatchHeightMap) {
-            addField("Height:", heightMap, "height");
-            addField("Inner size X:", heightMap, "innerSizeX", 0, null);
-            addField("Inner size Y:", heightMap, "innerSizeY", 0, null);
-            addField("Border size:", heightMap, "borderSize", 0, null);
-            addField("Coast size:", heightMap, "coastSize", 0, null);
+            addField("\u9AD8\u5EA6:", heightMap, "height");
+            addField("\u6C34\u5E73\u6709\u6548\u5C3A\u5BF8:", heightMap, "innerSizeX", 0, null);
+            addField("\u5782\u76F4\u6709\u6548\u5C3A\u5BF8:", heightMap, "innerSizeY", 0, null);
+            addField("\u8FB9\u754C\u5C3A\u5BF8:", heightMap, "borderSize", 0, null);
+            addField("\u6D77\u5CB8\u7EBF\u5C3A\u5BF8:", heightMap, "coastSize", 0, null);
         } else if (heightMap instanceof NoiseHeightMap) {
-            addField("Height:", heightMap, "height", 0f, null);
-            addField("Scale:", heightMap, "scale", 0.0, null);
-            addField("Octaves:", heightMap, "octaves", 1, 8);
+            addField("\u9AD8\u5EA6:", heightMap, "height", 0f, null);
+            addField("\u6BD4\u4F8B:", heightMap, "scale", 0.0, null);
+            addField("\u566A\u58F0\u9891\u7387\u5C42\u7EA7\u53E0\u52A0\u6570\u91CF:", heightMap, "octaves", 1, 8);
         } else if (heightMap instanceof TransformingHeightMap) {
-            addField("X scale:", heightMap, "scaleX", 0, null);
-            addField("Y scale:", heightMap, "scaleY", 0, null);
-            addField("X offset:", heightMap, "offsetX");
-            addField("Y offset:", heightMap, "offsetY");
-            addField("Rotation:", heightMap, "rotation");
+            addField("\u6C34\u5E73\u6BD4\u4F8B:", heightMap, "scaleX", 0, null);
+            addField("\u5782\u76F4\u6BD4\u4F8B:", heightMap, "scaleY", 0, null);
+            addField("\u6C34\u5E73\u504F\u79FB:", heightMap, "offsetX");
+            addField("\u5782\u76F4\u504F\u79FB:", heightMap, "offsetY");
+            addField("\u65CB\u8F6C:", heightMap, "rotation");
         } else if (heightMap instanceof BitmapHeightMap) {
             BufferedImage image = ((BitmapHeightMap) heightMap).getImage();
             int noOfChannels = image.getColorModel().getNumComponents();
-            addField("Channel:", heightMap, "channel", 0, noOfChannels - 1);
-            addField("Repeat:", heightMap, "repeat");
-            addField("Bicubic scaling:", heightMap, "smoothScaling");
+            addField("\u901A\u9053\u6570:", heightMap, "channel", 0, noOfChannels - 1);
+            addField("\u662F\u5426\u91CD\u590D\u94FA\u5C55:", heightMap, "repeat");
+            addField("\u53CC\u4E09\u6B21\u63D2\u503C\u7F29\u653E:", heightMap, "smoothScaling");
         } else if (heightMap instanceof BandedHeightMap) {
-            addField("Segment 1 length:", heightMap, "segment1Length");
-            addField("Segment 1 end height:", heightMap, "segment1EndHeight");
-            addField("Segment 2 length:", heightMap, "segment2Length");
-            addField("Segment 2 end height:", heightMap, "segment2EndHeight");
-            addField("Smooth:", heightMap, "smooth");
+            addField("\u5206\u6BB51\u957F\u5EA6:", heightMap, "segment1Length");
+            addField("\u5206\u6BB51\u7ED3\u675F\u9AD8\u5EA6:", heightMap, "segment1EndHeight");
+            addField("\u5206\u6BB52\u957F\u5EA6:", heightMap, "segment2Length");
+            addField("\u5206\u6BB52\u7ED3\u675F\u9AD8\u5EA6:", heightMap, "segment2EndHeight");
+            addField("\u5E73\u6ED1\u5EA6:", heightMap, "smooth");
         } else if (heightMap instanceof ShelvingHeightMap) {
-            addField("Shelve height:", heightMap, "shelveHeight");
-            addField("Shelve strength:", heightMap, "shelveStrength");
+            addField("\u53F0\u9636\u9AD8\u5EA6:", heightMap, "shelveHeight");
+            addField("\u53F0\u9636\u5F3A\u5EA6:", heightMap, "shelveStrength");
         }
         double[] range = heightMap.getRange();
-        addField("Range:", "[" + range[0] + ", " + range[1] + "]");
+        addField("\u8303\u56F4:", "[" + range[0] + ", " + range[1] + "]");
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.weighty = 1.0;
         add(Box.createGlue(), constraints);

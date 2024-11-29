@@ -1,6 +1,6 @@
 /*
  * WorldPainter, a graphical and interactive map generator for Minecraft.
- * Copyright © 2011-2015  pepsoft.org, The Netherlands
+ * Copyright \u00A9 2011-2015  pepsoft.org, The Netherlands
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@ import java.awt.*;
  */
 public class Pencil extends AbstractPaintOperation {
     public Pencil(WorldPainterView view) {
-        super("Pencil", "Draw dots and straight or freehand lines with any terrain or layer", view, 100, "operation.pencil");
+        super("Pencil", "\u94C5\u7B14-\u4F7F\u7528\u4EFB\u4F55\u65B9\u5757\u6216\u8986\u76D6\u5C42\u7ED8\u5236\u70B9\u3001\u76F4\u7EBF\u6216\u81EA\u7531\u624B\u7ED8\u7EBF\u6761\u3002", view, 100, "operation.pencil");
     }
 
     @Override
@@ -199,14 +199,14 @@ public class Pencil extends AbstractPaintOperation {
 
     enum Axis {W_E, NW_SE, N_S, NE_SW}
 
-    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("Pencil", "<p>With the left mouse button do the following to apply the currently selected paint:\n" +
-            "<ul><li>Drag for freeform lines\n" +
-            "<li>Click for dots\n" +
-            "<li>Shift+click for straight lines from last dot or end of last line\n" +
-            "<li>Hold Ctrl to constrain to 45 degree angles</ul>\n" +
-            "<p>Use the right mouse button instead, to:\n" +
-            "<ul><li>With a Layer selected: remove the layer\n" +
-            "<li>With a Terrain selected: reset to the current theme\n" +
-            "<li>With a Biome selected: reset to Auto Biome" +
+    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("\u94C5\u7B14", "<p>\u4F7F\u7528\u5DE6\u952E\u6267\u884C\u4EE5\u4E0B\u64CD\u4F5C\u4EE5\u5E94\u7528\u5F53\u524D\u9009\u4E2D\u7684\u753B\u7B14\u7C7B\u578B:\n" +
+            "<ul><li>\u62D6\u52A8\u4EE5\u7ED8\u5236\u81EA\u7531\u5F62\u72B6\u7684\u7EBF\u6761\n" +
+            "<li>\u70B9\u51FB\u4EE5\u7ED8\u5236\u70B9\n" +
+            "<li>Shift+\u70B9\u51FB\u4EE5\u4ECE\u4E0A\u4E00\u4E2A\u70B9\u6216\u6700\u540E\u4E00\u6761\u7EBF\u7684\u7ED3\u5C3E\u7ED8\u5236\u76F4\u7EBF\n" +
+            "<li>\u6309\u4F4FCtrl\u952E\u9650\u5236\u7ED8\u5236\u89D2\u5EA6\u4E3A45\u5EA6\u89D2</ul>\n" +
+            "<p>\u4F7F\u7528\u53F3\u952E\u6267\u884C\u4EE5\u4E0B\u64CD\u4F5C:\n" +
+            "<ul><li>\u9009\u62E9\u8986\u76D6\u5C42\u65F6\uFF1A\u79FB\u9664\u8BE5\u8986\u76D6\u5C42 \n" +
+            "<li>\u9009\u62E9\u65B9\u5757\u65F6\uFF1A\u91CD\u7F6E\u4E3A\u5F53\u524D\u4E3B\u9898\n" +
+            "<li>\u9009\u62E9\u751F\u7269\u7FA4\u7CFB\u65F6\uFF1A\u91CD\u7F6E\u4E3A\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB" +
             "</ul>");
 }

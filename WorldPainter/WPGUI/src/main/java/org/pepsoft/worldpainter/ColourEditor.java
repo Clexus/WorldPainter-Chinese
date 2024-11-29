@@ -62,7 +62,7 @@ public class ColourEditor extends javax.swing.JPanel implements MouseListener {
     }
     
     private void pickColour() {
-        Color pick = JColorChooser.showDialog(this, "Select Colour", new Color(colour));
+        Color pick = JColorChooser.showDialog(this, "\u9009\u62E9\u989C\u8272", new Color(colour));
         if (pick != null) {
             int newColour = pick.getRGB();
             if (newColour != colour) {

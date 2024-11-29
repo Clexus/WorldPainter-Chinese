@@ -73,7 +73,7 @@ abstract class Mapping {
     }
 
     Mapping ditheredActualRange() {
-        return new Mapping(aspect, description + " (dithered from actual mask range)") {
+        return new Mapping(aspect, description + " (\u4ECE\u5B9E\u9645\u8986\u76D6\u56FE\u8303\u56F4\u6296\u52A8\u751F\u6210)") {
             @Override
             void applyGreyScale(int x, int y, double maskValue) {
                 if ((maskValue >= maskHighValue) || ((maskValue > maskLowValue) && (maskValue > (random.nextDouble() * (maskHighValue - maskLowValue) + maskLowValue)))) {
@@ -133,7 +133,7 @@ abstract class Mapping {
     }
 
     Mapping ditheredFullRange() {
-        return new Mapping(aspect, description + " (dithered from full mask range)") {
+        return new Mapping(aspect, description + " (\u4ECE\u5B9E\u9645\u5B8C\u6574\u8303\u56F4\u6296\u52A8\u751F\u6210)") {
             @Override
             void applyGreyScale(int x, int y, double maskValue) {
                 if ((maskValue > 0.0) && (maskValue > random.nextDouble() * maskMaxValue)) {
@@ -193,7 +193,7 @@ abstract class Mapping {
     }
 
     Mapping threshold() {
-        return new Mapping(aspect, description + " where mask is at or above threshold") {
+        return new Mapping(aspect, description + "\u4E2D\u7684\u8986\u76d6\u5c42\u7B49\u4E8E\u6216\u9AD8\u4E8E\u9608\u503C") {
             @Override
             void applyGreyScale(int x, int y, double maskValue) {
                 if (maskValue >= threshold) {
@@ -251,7 +251,7 @@ abstract class Mapping {
     }
 
     static Mapping setTerrainValue(Terrain terrain) {
-        return new Mapping("terrain " + terrain, "Set terrain type to " + terrain) {
+        return new Mapping("\u65B9\u5757 " + terrain, "\u5C06\u65B9\u5757\u7C7B\u578B\u8BBE\u7F6E\u4E3A " + terrain) {
             @Override
             void applyGreyScale(int x, int y, double maskValue) {
                 if (maskValue > 0.5) {
@@ -263,7 +263,7 @@ abstract class Mapping {
 
     static Mapping setLayerValue(Layer layer, int targetValue) {
         if (layer.dataSize.maxValue == 1) {
-            return new Mapping("layer " + layer + " (value " + targetValue + ")", "Set layer " + layer + " to selected value") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer + " (\u5F53\u524D\u503C\uFF1A " + targetValue + ")", "\u5C06\u8986\u76d6\u5c42 " + layer + " \u8BBE\u7F6E\u4E3A\u6307\u5B9A\u503C") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     if ((targetValue != 0) && (maskValue > 0.5)) {
@@ -272,7 +272,7 @@ abstract class Mapping {
                 }
             };
         } else if (layer.discrete) {
-            return new Mapping("layer " + layer + " (value " + targetValue + ")", "Set layer " + layer + " to selected value") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer + " (\u5F53\u524D\u503C\uFF1A " + targetValue + ")", "\u5C06\u8986\u76d6\u5c42 " + layer + " \u8BBE\u7F6E\u4E3A\u6307\u5B9A\u503C") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     if (maskValue > 0.5) {
@@ -281,7 +281,7 @@ abstract class Mapping {
                 }
             };
         } else {
-            return new Mapping("layer " + layer + " (value " + targetValue + ")", "Set layer " + layer + " to selected value") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer + " (\u5F53\u524D\u503C\uFF1A " + targetValue + ")", "\u5C06\u8986\u76d6\u5c42 " + layer + " \u8BBE\u7F6E\u4E3A\u6307\u5B9A\u503C") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     tile.setLayerValue(layer, x, y, Math.max(targetValue, tile.getLayerValue(layer, x, y)));
@@ -291,7 +291,7 @@ abstract class Mapping {
     }
 
     static Mapping mapToTerrain() {
-        return new Mapping("terrain", "Set terrain type index to mask value") {
+        return new Mapping("\u65B9\u5757", "\u5C06\u65B9\u5757\u7C7B\u578B\u7D22\u5F15\u8BBE\u7F6E\u4E3A\u906E\u7F69\u56FE\u7684\u503C") {
             @Override
             void applyDiscrete(int x, int y, int maskValue) {
                 tile.setTerrain(x, y, Terrain.VALUES[maskValue]);
@@ -301,7 +301,7 @@ abstract class Mapping {
 
     static Mapping mapToLayer(Layer layer) {
         if (layer.discrete) {
-            return new Mapping("layer " + layer, "Set layer " + layer + " to mask value") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u8BBE\u7F6E\u4E3A\u906E\u7F69\u56FE\u7684\u503C") {
                 @Override
                 void applyDiscrete(int x, int y, int maskValue) {
                     if (maskValue != 0) {
@@ -310,7 +310,7 @@ abstract class Mapping {
                 }
             };
         } else if (layer.dataSize.maxValue == 1) {
-            return new Mapping("layer " + layer, "Set layer " + layer + " to mask value") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u8BBE\u7F6E\u4E3A\u906E\u7F69\u56FE\u7684\u503C") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     if (maskValue > 0.5) {
@@ -319,7 +319,7 @@ abstract class Mapping {
                 }
             };
         } else {
-            return new Mapping("layer " + layer, "Set layer " + layer + " to mask value") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u8BBE\u7F6E\u4E3A\u906E\u7F69\u56FE\u7684\u503C") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     if (maskValue > 0.0) {
@@ -335,7 +335,7 @@ abstract class Mapping {
             throw new IllegalArgumentException("layer.dataSize " + layer.dataSize);
         }
         if (layer.discrete) {
-            return new Mapping("layer " + layer, "Map layer " + layer + " to actual mask range") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u6620\u5C04\u5230\u5B9E\u9645\u906E\u7F69\u56FE\u8303\u56F4") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     if (maskValue > 0.0) {
@@ -344,7 +344,7 @@ abstract class Mapping {
                 }
             };
         } else {
-            return new Mapping("layer " + layer, "Map layer " + layer + " to actual mask range") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u6620\u5C04\u5230\u5B9E\u9645\u906E\u7F69\u56FE\u8303\u56F4") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     tile.setLayerValue(layer, x, y, Math.max((int) Math.round((maskValue - maskLowValue) * layer.dataSize.maxValue / (maskHighValue - maskLowValue)), tile.getLayerValue(layer, x, y)));
@@ -363,7 +363,7 @@ abstract class Mapping {
             throw new IllegalArgumentException("layer.dataSize " + layer.dataSize);
         }
         if (layer.discrete) {
-            return new Mapping("layer " + layer, "Map layer " + layer + " to full mask range") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u6620\u5C04\u5230\u5B8C\u6574\u906E\u7F69\u56FE\u8303\u56F4") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     if (maskValue > 0.0) {
@@ -372,7 +372,7 @@ abstract class Mapping {
                 }
             };
         } else {
-            return new Mapping("layer " + layer, "Map layer " + layer + " to full mask range") {
+            return new Mapping("\u8986\u76d6\u5c42 " + layer, "\u5C06\u8986\u76d6\u5c42 " + layer + " \u6620\u5C04\u5230\u5B8C\u6574\u906E\u7F69\u56FE\u8303\u56F4") {
                 @Override
                 void applyGreyScale(int x, int y, double maskValue) {
                     tile.setLayerValue(layer, x, y, Math.max((int) Math.round(maskValue * layer.dataSize.maxValue / maskMaxValue), tile.getLayerValue(layer, x, y)));
@@ -395,7 +395,7 @@ abstract class Mapping {
     }
 
     static ColourToAnnotationsMapping colourToAnnotations() {
-        return new ColourToAnnotationsMapping("annotations", "Map layer Annotations to mask colours") {
+        return new ColourToAnnotationsMapping("\u6807\u6CE8\u5C42", "\u5C06\u6807\u6CE8\u5C42\u6620\u5C04\u5230\u906E\u7F69\u56FE\u989C\u8272") {
             @Override
             void applyColour(int x, int y, int rgb) {
                 if (((rgb >> 24) & 0xff) > 0x7f) {
@@ -405,7 +405,7 @@ abstract class Mapping {
 
             @Override
             ColourToAnnotationsMapping ditheredActualRange() {
-                return new ColourToAnnotationsMapping("annotations", "Map layer Annotations to mask colours (dithered)") {
+                return new ColourToAnnotationsMapping("\u6807\u6CE8\u5C42", "\u5C06\u6807\u6CE8\u5C42\u6620\u5C04\u5230\u906E\u7F69\u56FE\u989C\u8272(\u6296\u52A8\u751F\u6210)") {
                     {
                         dithered = true;
                     }

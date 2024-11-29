@@ -586,7 +586,7 @@ public final class App extends JFrame implements RadiusControl,
                 if (customLayer instanceof CombinedLayer) {
                     if (! ((CombinedLayer) customLayer).restoreCustomTerrain()) {
                         if (warnings.length() == 0) {
-                            warnings.append("\u4E00\u4E2A\u6216\u591A\u4E2A\u7EC4\u5408\u8986\u76D6\u5C42\u7684\u81EA\u5B9A\u4E49\u65B9\u5757\u65E0\u6CD5\u6062\u590D:\n\n");
+                            warnings.append("\u4E00\u4E2A\u6216\u591A\u4E2A\u7EC4\u5408\u8986\u76d6\u5c42\u7684\u81EA\u5B9A\u4E49\u65B9\u5757\u65E0\u6CD5\u6062\u590D:\n\n");
                         }
                         warnings.append(customLayer.getName()).append('\n');
                     } else {
@@ -599,7 +599,7 @@ public final class App extends JFrame implements RadiusControl,
                 }
             }
             if (warnings.length() > 0) {
-                warnings.append("\n\u81EA\u5B9A\u4E49\u65B9\u5757\u5DF2\u4ECE\u8FD9\u4E9B\u8986\u76D6\u5C42\u4E2D\u79FB\u9664.");
+                warnings.append("\n\u81EA\u5B9A\u4E49\u65B9\u5757\u5DF2\u4ECE\u8FD9\u4E9B\u8986\u76d6\u5c42\u4E2D\u79FB\u9664.");
                 showMessageDialog(this, warnings.toString(), "\u81EA\u5B9A\u4E49\u65B9\u5757\u6062\u590D\u5931\u8D25", ERROR_MESSAGE);
             }
 
@@ -2687,7 +2687,7 @@ public final class App extends JFrame implements RadiusControl,
 
         dockingManager.addFrame(new DockableFrameBuilder(createToolSettingsPanel(), "\u5DE5\u5177\u8BBE\u7F6E", DOCK_SIDE_WEST, 2).expand().build());
 
-        dockingManager.addFrame(new DockableFrameBuilder(createLayerPanel(), "\u8986\u76D6\u5C42", DOCK_SIDE_WEST, 3).build());
+        dockingManager.addFrame(new DockableFrameBuilder(createLayerPanel(), "\u8986\u76d6\u5c42", DOCK_SIDE_WEST, 3).build());
 
         dockingManager.addFrame(new DockableFrameBuilder(createTerrainPanel(), "\u65B9\u5757", DOCK_SIDE_WEST, 3).build());
 
@@ -3426,7 +3426,7 @@ public final class App extends JFrame implements RadiusControl,
         if (! config.isEasyMode()) {
             final JCheckBox checkBoxSoloTerrain = new RemoteJCheckBox(terrainSoloCheckBox, "\u4EC5\u663E\u793A:");
             checkBoxSoloTerrain.setHorizontalTextPosition(SwingConstants.LEADING);
-            checkBoxSoloTerrain.setToolTipText("<html>\u52FE\u9009\u4EE5<em>\u4EC5</em>\u663E\u793A\u8BE5\u8986\u76D6\u5C42 (\u5176\u4ED6\u8986\u76D6\u5C42\u4ECD\u4F1A\u88AB\u5BFC\u51FA)</html>");
+            checkBoxSoloTerrain.setToolTipText("<html>\u52FE\u9009\u4EE5<em>\u4EC5</em>\u663E\u793A\u8BE5\u8986\u76d6\u5c42 (\u5176\u4ED6\u8986\u76d6\u5c42\u4ECD\u4F1A\u88AB\u5BFC\u51FA)</html>");
             terrainPanel.add(checkBoxSoloTerrain, constraints);
         }
 
@@ -3924,7 +3924,7 @@ public final class App extends JFrame implements RadiusControl,
 
         menuItem = new JMenuItem(ACTION_IMPORT_LAYER);
         menuItem.setMnemonic('l');
-        menuItem.setText("\u7531\u6587\u4EF6\u5BFC\u5165\u8986\u76D6\u5C42...");
+        menuItem.setText("\u7531\u6587\u4EF6\u5BFC\u5165\u8986\u76d6\u5c42...");
         importMenu.add(menuItem);
 
         menuItem = new JMenuItem("\u7531\u6587\u4EF6\u5BFC\u5165\u81EA\u5B9A\u4E49\u65B9\u5757...");
@@ -3936,7 +3936,7 @@ public final class App extends JFrame implements RadiusControl,
         menuItem.addActionListener(e -> importHeightMapIntoCurrentDimension(null));
         importMenu.add(menuItem);
 
-        menuItem = new JMenuItem("\u4EE5\u65B9\u5757\u6216\u8986\u76D6\u5C42\u5F62\u5F0F\u5BFC\u5165\u53E0\u52A0\u5C42...");
+        menuItem = new JMenuItem("\u4EE5\u65B9\u5757\u6216\u8986\u76d6\u5c42\u5F62\u5F0F\u5BFC\u5165\u53E0\u52A0\u5C42...");
         menuItem.addActionListener(e -> importMask(null));
         importMenu.add(menuItem);
 
@@ -3980,7 +3980,7 @@ public final class App extends JFrame implements RadiusControl,
         menuItem.setMnemonic('t');
         menu.add(menuItem);
 
-        menuItem = new JMenuItem("\u5220\u9664\u672A\u4F7F\u7528\u7684\u8986\u76D6\u5C42...");
+        menuItem = new JMenuItem("\u5220\u9664\u672A\u4F7F\u7528\u7684\u8986\u76d6\u5c42...");
         menuItem.addActionListener(e -> customLayerController.deleteUnusedLayers());
         menu.add(menuItem);
 
@@ -5046,7 +5046,7 @@ public final class App extends JFrame implements RadiusControl,
         if (createSoloCheckbox) {
             soloCheckBox = new JCheckBox();
             layerSoloCheckBoxes.put(layer, soloCheckBox);
-            soloCheckBox.setToolTipText("<html>\u52FE\u9009\u4EE5<em>\u4EC5</em>\u663E\u793A\u8BE5\u8986\u76D6\u5C42 (\u5176\u4ED6\u8986\u76D6\u5C42\u4ECD\u4F1A\u88AB\u5BFC\u51FA)</html>");
+            soloCheckBox.setToolTipText("<html>\u52FE\u9009\u4EE5<em>\u4EC5</em>\u663E\u793A\u8BE5\u8986\u76d6\u5c42 (\u5176\u4ED6\u8986\u76d6\u5c42\u4ECD\u4F1A\u88AB\u5BFC\u51FA)</html>");
             soloCheckBox.addActionListener(new SoloCheckboxHandler(soloCheckBox, layer));
             components.add(soloCheckBox);
         } else {
@@ -5288,7 +5288,7 @@ public final class App extends JFrame implements RadiusControl,
         setEnabled(Caverns.INSTANCE, (! caveFloor) && (! floatingFloor), "\u6D1E\u7A74\u5728\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u5E95\u5C42\u7EF4\u5EA6\u4E0D\u53EF\u7528");
         setEnabled(Chasms.INSTANCE, (! caveFloor) && (! floatingFloor), "\u5CE1\u8C37\u5728\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u5E95\u5C42\u7EF4\u5EA6\u4E0D\u53EF\u7528");
         setEnabled(Resources.INSTANCE, (! caveFloor) && (! floatingFloor), "\u8D44\u6E90\u5728\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u5E95\u5C42\u7EF4\u5EA6\u4E0D\u53EF\u7528");
-        setEnabled(ReadOnly.INSTANCE, anchor.equals(NORMAL_DETAIL), "\u53EA\u8BFB\u8986\u76D6\u5C42\u65E0\u6CD5\u5E94\u7528");
+        setEnabled(ReadOnly.INSTANCE, anchor.equals(NORMAL_DETAIL), "\u53EA\u8BFB\u8986\u76d6\u5c42\u65E0\u6CD5\u5E94\u7528");
     }
 
     private void setEnabled(Layer layer, boolean enabled, String toolTipText) {
@@ -5409,7 +5409,7 @@ public final class App extends JFrame implements RadiusControl,
         for (CustomLayer layer: allLayers) {
             if ((layer instanceof CombinedLayer) && (((CombinedLayer) layer).getTerrain() == customTerrain)) {
                 Toolkit.getDefaultToolkit().beep();
-                JOptionPane.showMessageDialog(this, "\u81EA\u5B9A\u4E49\u65B9\u5757 \"" + name + "\" \u4ECD\u5728\u6DF7\u5408\u8986\u76D6\u5C42 \"" + layer.getName() + "\" \u4E2D\u5904\u4E8E\u4F7F\u7528\u72B6\u6001.\n\u8BF7\u5C06\u5176\u4ECE\u8986\u76D6\u5C42\u4E2D\u79FB\u9664\u6216\u76F4\u63A5\u79FB\u9664\u8986\u76D6\u5C42.", "\u65B9\u5757\u6B63\u5728\u4F7F\u7528", ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "\u81EA\u5B9A\u4E49\u65B9\u5757 \"" + name + "\" \u4ECD\u5728\u6DF7\u5408\u8986\u76d6\u5c42 \"" + layer.getName() + "\" \u4E2D\u5904\u4E8E\u4F7F\u7528\u72B6\u6001.\n\u8BF7\u5C06\u5176\u4ECE\u8986\u76d6\u5c42\u4E2D\u79FB\u9664\u6216\u76F4\u63A5\u79FB\u9664\u8986\u76d6\u5c42.", "\u65B9\u5757\u6B63\u5728\u4F7F\u7528", ERROR_MESSAGE);
                 return;
             }
         }
@@ -5729,7 +5729,7 @@ public final class App extends JFrame implements RadiusControl,
         if ((layerDirectory == null) || (! layerDirectory.isDirectory())) {
             layerDirectory = DesktopUtils.getDocumentsFolder();
         }
-        final File[] selectedFiles = FileUtils.selectFilesForOpen(this, "\u9009\u62E9WorldPainter\u8986\u76D6\u5C42\u6587\u4EF6", layerDirectory, new FileFilter() {
+        final File[] selectedFiles = FileUtils.selectFilesForOpen(this, "\u9009\u62E9WorldPainter\u8986\u76d6\u5c42\u6587\u4EF6", layerDirectory, new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".layer");
@@ -5737,7 +5737,7 @@ public final class App extends JFrame implements RadiusControl,
 
             @Override
             public String getDescription() {
-                return "WorldPainter \u81EA\u5B9A\u4E49\u8986\u76D6\u5C42 (*.layer)";
+                return "WorldPainter \u81EA\u5B9A\u4E49\u8986\u76d6\u5c42 (*.layer)";
             }
 
             @Override
@@ -5753,16 +5753,16 @@ public final class App extends JFrame implements RadiusControl,
                         final CustomLayer layer = (CustomLayer) in.readObject();
                         for (Layer existingLayer: customLayerController.getCustomLayers()) {
                             if (layer.equals(existingLayer)) {
-                                beepAndShowError(this, "\u8BE5\u8986\u76D6\u5C42\u5DF2\u7ECF\u5B58\u5728\u4E8E\u7EF4\u5EA6\u4E2D\u4E86\uFF0C\u5BFC\u5165\u65E0\u6548.", "\u8986\u76D6\u5C42\u5DF2\u5B58\u5728");
+                                beepAndShowError(this, "\u8BE5\u8986\u76d6\u5c42\u5DF2\u7ECF\u5B58\u5728\u4E8E\u7EF4\u5EA6\u4E2D\u4E86\uFF0C\u5BFC\u5165\u65E0\u6548.", "\u8986\u76d6\u5c42\u5DF2\u5B58\u5728");
                                 return;
                             }
                         }
                         if ((filter != null) && (! filter.apply(layer))) {
-                            beepAndShowError(this, "\u8BE5\u7EF4\u5EA6\u4E0D\u652F\u6301\u8BE5\u8986\u76D6\u5C42\u6216\u5176\u7C7B\u578B\uFF0C\u5BFC\u5165\u65E0\u6548.", "\u4E0D\u53EF\u5E94\u7528\u7684\u8986\u76D6\u5C42\u7C7B\u578B");
+                            beepAndShowError(this, "\u8BE5\u7EF4\u5EA6\u4E0D\u652F\u6301\u8BE5\u8986\u76d6\u5c42\u6216\u5176\u7C7B\u578B\uFF0C\u5BFC\u5165\u65E0\u6548.", "\u4E0D\u53EF\u5E94\u7528\u7684\u8986\u76d6\u5c42\u7C7B\u578B");
                             return;
                         }
                         if (! layer.isExportableToFile()) {
-                            beepAndShowError(this, "\u8BE5\u8986\u76D6\u5C42\u4E0D\u53EF\u88AB\u5BFC\u5165\uFF0C\u5BFC\u5165\u65E0\u6548.", "\u65E0\u6CD5\u5BFC\u5165\u7684\u8986\u76D6\u5C42");
+                            beepAndShowError(this, "\u8BE5\u8986\u76d6\u5c42\u4E0D\u53EF\u88AB\u5BFC\u5165\uFF0C\u5BFC\u5165\u65E0\u6548.", "\u65E0\u6CD5\u5BFC\u5165\u7684\u8986\u76d6\u5c42");
                             return;
                         }
                         if (paletteName != null) {
@@ -5777,15 +5777,15 @@ public final class App extends JFrame implements RadiusControl,
                     return;
                 } catch (IOException e) {
                     logger.error("I/O error while loading file " + selectedFile, e);
-                    beepAndShowError(this, "\u8BFB\u53D6\u9009\u5B9A\u6587\u4EF6\u65F6\u51FA\u73B0\u4E86I/O\u9519\u8BEF,\n\u6216\u6587\u4EF6\u4E0D\u662F(\u6709\u6548\u7684)WorldPainter\u8986\u76D6\u5C42\u6587\u4EF6", "I/O\u9519\u8BEF\u6216\u65E0\u6548\u6587\u4EF6");
+                    beepAndShowError(this, "\u8BFB\u53D6\u9009\u5B9A\u6587\u4EF6\u65F6\u51FA\u73B0\u4E86I/O\u9519\u8BEF,\n\u6216\u6587\u4EF6\u4E0D\u662F(\u6709\u6548\u7684)WorldPainter\u8986\u76d6\u5c42\u6587\u4EF6", "I/O\u9519\u8BEF\u6216\u65E0\u6548\u6587\u4EF6");
                     return;
                 } catch (ClassNotFoundException e) {
                     logger.error("Class not found exception while loading file " + selectedFile, e);
-                    beepAndShowError(this, "\u9009\u4E2D\u7684\u6587\u4EF6\u4E0D\u662F(\u6709\u6548\u7684)WorldPainter\u8986\u76D6\u5C42\u6587\u4EF6", "\u65E0\u6548\u6587\u4EF6");
+                    beepAndShowError(this, "\u9009\u4E2D\u7684\u6587\u4EF6\u4E0D\u662F(\u6709\u6548\u7684)WorldPainter\u8986\u76d6\u5c42\u6587\u4EF6", "\u65E0\u6548\u6587\u4EF6");
                     return;
                 } catch (ClassCastException e) {
                     logger.error("Class cast exception while loading file " + selectedFile, e);
-                    beepAndShowError(this, "\u9009\u4E2D\u7684\u6587\u4EF6\u4E0D\u662F(\u6709\u6548\u7684)WorldPainter\u8986\u76D6\u5C42\u6587\u4EF6", "\u65E0\u6548\u6587\u4EF6");
+                    beepAndShowError(this, "\u9009\u4E2D\u7684\u6587\u4EF6\u4E0D\u662F(\u6709\u6548\u7684)WorldPainter\u8986\u76d6\u5c42\u6587\u4EF6", "\u65E0\u6548\u6587\u4EF6");
                     return;
                 }
             }
@@ -5881,9 +5881,9 @@ public final class App extends JFrame implements RadiusControl,
                                 existingCustomLayers = customLayerController.getCustomLayers();
                             }
                             if (existingCustomLayers.contains(selectedItem)) {
-                                errors.append("\u8986\u76D6\u5C42 \"" + ((CustomLayer) selectedItem).getName() + "\" \u5DF2\u5B58\u5728\n");
+                                errors.append("\u8986\u76d6\u5c42 \"" + ((CustomLayer) selectedItem).getName() + "\" \u5DF2\u5B58\u5728\n");
                             } else if ((filter != null) && (! filter.apply((CustomLayer) selectedItem))) {
-                                errors.append("\u8986\u76D6\u5C42 \"" + ((CustomLayer) selectedItem).getName() + "\" \u6216\u5176\u7C7B\u578B\u4E0D\u53D7\u8BE5\u7EF4\u5EA6\u652F\u6301\n");
+                                errors.append("\u8986\u76d6\u5c42 \"" + ((CustomLayer) selectedItem).getName() + "\" \u6216\u5176\u7C7B\u578B\u4E0D\u53D7\u8BE5\u7EF4\u5EA6\u652F\u6301\n");
                                 showError = true;
                             } else {
                                 updateCustomTerrainButtons = customLayerController.importCustomLayer((CustomLayer) selectedItem) || updateCustomTerrainButtons;
@@ -5924,13 +5924,13 @@ public final class App extends JFrame implements RadiusControl,
                 final String what;
                 switch (itemType) {
                     case ALL:
-                        what = "\u8986\u76D6\u5C42\u3001\u65B9\u5757\u548C\u7FA4\u7CFB";
+                        what = "\u8986\u76d6\u5c42\u3001\u65B9\u5757\u548C\u7FA4\u7CFB";
                         break;
                     case BIOME:
                         what = "\u7FA4\u7CFB";
                         break;
                     case LAYER:
-                        what = "\u8986\u76D6\u5C42";
+                        what = "\u8986\u76d6\u5c42";
                         break;
                     case TERRAIN:
                         what = "\u65B9\u5757";
@@ -6552,7 +6552,7 @@ public final class App extends JFrame implements RadiusControl,
         private static final long serialVersionUID = 1L;
     };
 
-    private final BetterAction ACTION_IMPORT_LAYER = new BetterAction("importLayer", "\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42") {
+    private final BetterAction ACTION_IMPORT_LAYER = new BetterAction("importLayer", "\u5BFC\u5165\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42") {
         @Override
         protected void performAction(ActionEvent e) {
             importLayers(null, getLayerFilterForCurrentDimension());

@@ -49,7 +49,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
         });
 
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("cancel") {
+        actionMap.put("cancel", new AbstractAction("取消") {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
@@ -71,7 +71,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
         } else {
             mySavesDir = DesktopUtils.getDocumentsFolder();
         }
-        File levelDatFile = FileUtils.selectFileForOpen(this, "Select Minecraft map level.dat file", mySavesDir, new FileFilter() {
+        File levelDatFile = FileUtils.selectFileForOpen(this, "选择一个Minecraft地图的 level.dat 文件", mySavesDir, new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().equalsIgnoreCase("level.dat");
@@ -79,7 +79,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
 
             @Override
             public String getDescription() {
-                return "Minecraft level.dat files";
+                return "Minecraft level.dat 文件";
             }
 
             @Override
@@ -102,7 +102,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
                 config.setSavesDirectory(file.getParentFile().getParentFile());
             }
 
-            JOptionPane.showMessageDialog(this, "Player respawned");
+            JOptionPane.showMessageDialog(this, "玩家已重生");
             dispose();
         } catch (IOException e) {
             throw new RuntimeException("I/O error while reading or writing level.dat", e);

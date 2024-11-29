@@ -46,7 +46,7 @@
         <Container class="javax.swing.JPanel" name="panelGeneral">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="General">
+              <JTabbedPaneConstraints tabName="\u5168\u5c40">
                 <Property name="tabTitle" type="java.lang.String" value="General"/>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -151,7 +151,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxSubsurfaceMaterialActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Terrain&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u65b9\u5757&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel65">
@@ -227,7 +227,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u5b57\u7b26\u4e32&gt;"/>
               </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel83">
@@ -253,7 +253,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxUndergroundLayerAnchorActionPerformed"/>
               </Events>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u5b57\u7b26\u4e32&gt;"/>
               </AuxValues>
             </Component>
             <Container class="javax.swing.JPanel" name="panelBorderWallRoof">
@@ -631,7 +631,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxGeneratorActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Generator&gt;"/>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u751f\u6210\u5668&gt;"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -643,7 +643,7 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="comboBoxSubsurfaceBiome">
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Integer&gt;"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6574\u6570&gt;"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -651,8 +651,8 @@
         <Container class="javax.swing.JPanel" name="jPanel5">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Theme">
-                <Property name="tabTitle" type="java.lang.String" value="Theme"/>
+              <JTabbedPaneConstraints tabName="主题">
+                <Property name="tabTitle" type="java.lang.String" value="主题"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -705,7 +705,7 @@
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Caves, Caverns and Chasms">
+              <JTabbedPaneConstraints tabName="洞穴洞窟与峡谷">
                 <Property name="tabTitle" type="java.lang.String" value="Caves, Caverns and Chasms"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/pepsoft/worldpainter/icons/caverns.png"/>
@@ -1197,7 +1197,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Level:"/>
+                    <Property name="text" type="java.lang.String" value="\u9ad8\u5ea6:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="spinnerCavernsFloodLevel">
@@ -1209,7 +1209,7 @@
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="checkBoxCavernsFloodWithLava">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Lava instead of water:"/>
+                    <Property name="text" type="java.lang.String" value="\u4f7f\u7528\u5ca9\u6d46\u800c\u975e\u6c34:"/>
                     <Property name="horizontalTextPosition" type="int" value="10"/>
                   </Properties>
                 </Component>
@@ -1582,7 +1582,7 @@
         <Container class="javax.swing.JPanel" name="jPanel4">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Resources">
+              <JTabbedPaneConstraints tabName="资源">
                 <Property name="tabTitle" type="java.lang.String" value="Resources"/>
                 <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/org/pepsoft/worldpainter/icons/resources.png"/>
@@ -2810,7 +2810,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Reset"/>
+                <Property name="text" type="java.lang.String" value="\u91cd\u7f6e:"/>
                 <Property name="toolTipText" type="java.lang.String" value="Reset the resource settings to Minecraft-like defaults"/>
               </Properties>
               <Events>
@@ -2822,7 +2822,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Other Layers">
+              <JTabbedPaneConstraints tabName="其他覆盖层">
                 <Property name="tabTitle" type="java.lang.String" value="Other Layers"/>
               </JTabbedPaneConstraints>
             </Constraint>
@@ -3113,7 +3113,7 @@
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Custom Layers">
+              <JTabbedPaneConstraints tabName="自定义覆盖层">
                 <Property name="tabTitle" type="java.lang.String" value="Custom Layers"/>
               </JTabbedPaneConstraints>
             </Constraint>

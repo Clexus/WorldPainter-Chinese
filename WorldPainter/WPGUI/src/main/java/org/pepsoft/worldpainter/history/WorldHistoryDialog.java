@@ -20,7 +20,7 @@ public class WorldHistoryDialog extends WorldPainterDialog {
      */
     public WorldHistoryDialog(Window parent, World2 world) {
         super(parent);
-        setTitle("History of " + world.getName());
+        setTitle(world.getName()+"\u7684\u5386\u53F2");
         initComponents();
         tableModel = new WorldHistoryTableModel(world);
         jTable1.setModel(tableModel);
@@ -52,11 +52,11 @@ public class WorldHistoryDialog extends WorldPainterDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("An overview of the history of this .world file:");
+        jLabel1.setText("\u8BE5 .world \u6587\u4EF6\u7684\u5386\u53F2\u6982\u89C8:");
 
-        jLabel2.setText("Include");
+        jLabel2.setText("\u5305\u542B");
 
-        jCheckBox1.setText("saves/loads");
+        jCheckBox1.setText("\u4FDD\u5B58/\u52A0\u8F7D");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
@@ -64,14 +64,14 @@ public class WorldHistoryDialog extends WorldPainterDialog {
         });
 
         jCheckBox2.setSelected(true);
-        jCheckBox2.setText("exports/merges");
+        jCheckBox2.setText("\u5BFC\u51FA/\u5408\u5E76");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Close");
+        jButton1.setText("\u5173\u95ED");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

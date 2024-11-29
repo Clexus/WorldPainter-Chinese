@@ -180,7 +180,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select the image to import as a mask:"/>
+        <Property name="text" type="java.lang.String" value="\u9009\u62E9\u8981\u5BFC\u5165\u7684\u8986\u76D6\u56FE:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldFilename">
@@ -195,12 +195,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelImageDimensions">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;Image size: ? x ?, bit depth: ?&lt;br&gt;&#xa;Lowest value: ?, highest value: ?&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;\u56FE\u7247\u5927\u5C0F: ? x ?, \u4F4D\u6DF1\u5EA6: ?&lt;br&gt;&#xa;\u6700\u4F4E\u503C: ?, \u6700\u9AD8\u503C: ?&lt;/html&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53D6\u6D88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -208,7 +208,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOk">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786E\u8BA4"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -217,7 +217,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Apply to:"/>
+        <Property name="text" type="java.lang.String" value="\u5E94\u7528\u4E8E:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonTerrain">
@@ -225,7 +225,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="terrain:"/>
+        <Property name="text" type="java.lang.String" value="\u65B9\u5757:"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonTerrainActionPerformed"/>
@@ -236,7 +236,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="layer"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonLayerActionPerformed"/>
@@ -250,12 +250,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxLayerActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Layer&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u8986\u76d6\u5c42&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select the mapping:"/>
+        <Property name="text" type="java.lang.String" value="\u9009\u62E9\u6620\u5C04:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerThreshold">
@@ -268,7 +268,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Scale:"/>
+        <Property name="text" type="java.lang.String" value="\u7F29\u653E:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerScale">
@@ -291,8 +291,8 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Offset:"/>
-        <Property name="toolTipText" type="java.lang.String" value="The origin of the height map will be at these coordinates in the map"/>
+        <Property name="text" type="java.lang.String" value="\u504F\u79FB:"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerOffsetX">
@@ -300,7 +300,7 @@
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0" maximum="999999" minimum="-999999" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="The origin of the height map will be at these coordinates in the map"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinnerOffsetXStateChanged"/>
@@ -311,7 +311,7 @@
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="0" maximum="999999" minimum="-999999" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="The origin of the height map will be at these coordinates in the map"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinnerOffsetYStateChanged"/>
@@ -320,17 +320,17 @@
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
         <Property name="text" type="java.lang.String" value=","/>
-        <Property name="toolTipText" type="java.lang.String" value="The origin of the height map will be at these coordinates in the map"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelWorldDimensions">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Scaled size: ? x ? blocks"/>
+        <Property name="text" type="java.lang.String" value="\u7F29\u653E\u540E\u5C3A\u5BF8: ? x ? \u4E2A\u65B9\u5757"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxRemoveExisting">
       <Properties>
-        <Property name="text" type="java.lang.String" value="remove existing layer"/>
+        <Property name="text" type="java.lang.String" value="\u79FB\u9664\u5DF2\u6709\u8986\u76d6\u5c42"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -342,7 +342,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxApplyToTerrainActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Terrain&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u65B9\u5757&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -358,7 +358,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxApplyToLayerValueActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Integer&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6574\u6570&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="labelReason">
@@ -378,17 +378,17 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxMappingActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Mapping&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6620\u5C04&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Threshold:"/>
+        <Property name="text" type="java.lang.String" value="\u9608\u503C:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelMaskRange">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Actual mask range: -999,999 - 999,999"/>
+        <Property name="text" type="java.lang.String" value="\u5B9E\u9645\u8986\u76D6\u56FE\u5C3A\u5BF8: -999,999 - 999,999"/>
       </Properties>
     </Component>
   </SubComponents>

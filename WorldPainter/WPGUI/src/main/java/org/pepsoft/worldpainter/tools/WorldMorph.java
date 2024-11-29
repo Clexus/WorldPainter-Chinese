@@ -22,7 +22,7 @@ public class WorldMorph {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             final WorldPainter view = new WorldPainter(createNewWorld().getDimension(NORMAL_DETAIL), ColourScheme.DEFAULT, null);
-            JFrame frame = new JFrame("WorldMorph");
+            JFrame frame = new JFrame("\u4E16\u754C\u53D8\u79CD");
             frame.getContentPane().add(view, BorderLayout.CENTER);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.pack();

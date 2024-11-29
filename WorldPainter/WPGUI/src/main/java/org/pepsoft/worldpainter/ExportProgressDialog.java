@@ -50,7 +50,7 @@ public class ExportProgressDialog extends MultiProgressDialog<Map<Integer, Chunk
         this.acknowledgedWarnings = acknowledgedWarnings;
         addWindowListener(this);
 
-        JButton minimiseButton = new JButton("Minimize");
+        JButton minimiseButton = new JButton("最小化");
         minimiseButton.addActionListener(e -> App.getInstance().setState(Frame.ICONIFIED));
         addButton(minimiseButton);
     }
@@ -78,29 +78,29 @@ public class ExportProgressDialog extends MultiProgressDialog<Map<Integer, Chunk
 
     @Override
     protected String getVerb() {
-        return "Export";
+        return "导出";
     }
 
     @Override
     protected String getResultsReport(Map<Integer, ChunkFactory.Stats> result, long duration) {
         StringBuilder sb = new StringBuilder();
-        sb.append("<html>World exported as ").append(new File(baseDir, FileUtils.sanitiseName(name)));
+        sb.append("<html>世界已导出为 ").append(new File(baseDir, FileUtils.sanitiseName(name)));
         int hours = (int) (duration / 3600);
         duration = duration - hours * 3600L;
         int minutes = (int) (duration / 60);
         int seconds = (int) (duration - minutes * 60);
-        sb.append("<br>Export took ").append(hours).append(":").append((minutes < 10) ? "0" : "").append(minutes).append(":").append((seconds < 10) ? "0" : "").append(seconds);
+        sb.append("<br>导出花费了 ").append(hours).append(":").append((minutes < 10) ? "0" : "").append(minutes).append(":").append((seconds < 10) ? "0" : "").append(seconds);
         final Platform platform = world.getPlatform();
         final Version mcVersion = platform.getAttribute(ATTRIBUTE_MC_VERSION);
         if ((platform == JAVA_MCREGION) && (world.getMaxHeight() != DEFAULT_MAX_HEIGHT_MCREGION)) {
-            sb.append("<br><br>Please note: this map has a <b>non-standard height!</b> You need to have<br>an appropriate height mod installed to play it!");
+            sb.append("<br><br>请注意: this map has a <b>non-standard height!</b> You need to have<br>an appropriate height mod installed to play it!");
         } else if ((mcVersion.isAtLeast(V_1_17)) && ((world.getMaxHeight() - world.getMinHeight()) > 384)) {
-            sb.append("<br><br>Please note: this map is <b>more than 384 blocks</b> high.<br>This may cause performance problems on lower end computers.");
+            sb.append("<br><br>请注意: this map is <b>more than 384 blocks</b> high.<br>This may cause performance problems on lower end computers.");
         }
         if ((platform == JAVA_ANVIL_1_17) && ((world.getMinHeight() != DEFAULT_MIN_HEIGHT) || (world.getMaxHeight() != DEFAULT_MAX_HEIGHT_ANVIL))) {
-            sb.append("<br><br>Please note: <b>this map uses a data pack</b> for a deviating build height.<br>This data pack is only compatible with Minecraft 1.17.<br>It is not forward compatible with newer versions of Minecraft.");
+            sb.append("<br><br>请注意: <b>this map uses a data pack</b> for a deviating build height.<br>This data pack is only compatible with Minecraft 1.17.<br>It is not forward compatible with newer versions of Minecraft.");
         } else if (((platform == JAVA_ANVIL_1_18) || (platform == JAVA_ANVIL_1_19)) && ((world.getMinHeight() != DEFAULT_MIN_HEIGHT_1_18) || (world.getMaxHeight() != DEFAULT_MAX_HEIGHT_1_18))) {
-            sb.append("<br><br>Please note: <b>this map uses a data pack</b> for a deviating build height.<br>This data pack is only compatible with Minecraft 1.18.2 - 1.20.1.<br>It may not be forward compatible with newer versions of Minecraft.");
+            sb.append("<br><br>请注意: <b>this map uses a data pack</b> for a deviating build height.<br>This data pack is only compatible with Minecraft 1.18.2 - 1.20.1.<br>It may not be forward compatible with newer versions of Minecraft.");
         }
         if (result.size() == 1) {
             ChunkFactory.Stats stats = result.get(result.keySet().iterator().next());

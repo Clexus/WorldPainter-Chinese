@@ -170,7 +170,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         }
         if ((! radioButtonFloorCustomDimension.isSelected()) && (layer.getFloorDimensionId() != null)) {
             DesktopUtils.beep();
-            if (JOptionPane.showConfirmDialog(this, "The floor dimension will be deleted.\nThis cannot be undone! Proceed?", "Confirm Floor Deletion", YES_NO_OPTION, WARNING_MESSAGE) != YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(this, "\u8BE5\u5730\u9762\u7EF4\u5EA6\u5C06\u88AB\u5220\u9664.\n\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500! \u786E\u8BA4\u7EE7\u7EED\u5417?", "\u786E\u8BA4\u5220\u9664", YES_NO_OPTION, WARNING_MESSAGE) != YES_OPTION) {
                 return;
             }
             final App app = App.getInstance();
@@ -186,9 +186,9 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
                 final Configuration config = Configuration.getInstance();
                 if (! config.isMessageDisplayedCountAtLeast(PAINT_TUNNEL_LAYER_KEY, 3)) {
                     doLaterOnEventThread(() -> JOptionPane.showMessageDialog(App.getInstance(),
-                            "Use the paint tools to paint the Custom Cave/Tunnel Layer in the desired shape.\n" +
-                            "Then right-click on the [" + layer.getName() + "] button on the [" + layer.getPalette() + "] panel\n" +
-                            "and select \"Edit floor dimension\" to paint on, and vertically shape, the cave floor."));
+                            "\u4F7F\u7528\u753B\u7B14\u5DE5\u5177\u5C06\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u96A7\u9053\u8986\u76d6\u5c42\u6D82\u7ED8\u6210\u6240\u9700\u5F62\u72B6\u3002\n"+
+                            "\u7136\u540E\u5728[" + layer.getPalette() + "]\u9762\u677F\u4E2D\uFF0C\u53F3\u952E\u70B9\u51FB[" + layer.getName() + "]\u6309\u94AE\uFF0C\n"+
+                            "\u9009\u62E9\u201C\u7F16\u8F91\u5730\u9762\u7EF4\u5EA6\u201D\u6765\u7ED8\u5236\u5E76\u5782\u76F4\u5851\u9020\u6D1E\u7A74\u5730\u9762\u3002"));
                     config.setMessageDisplayed(PAINT_TUNNEL_LAYER_KEY);
                 }
             } else {
@@ -203,7 +203,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
     protected final void dismiss() {
         super.ok();
     }
-    
+
     protected final void updatePreview() {
 //        if ((radioButtonFloorFixedLevel.isSelected() && radioButtonRoofFixedLevel.isSelected())
 //                || (radioButtonFloorInverse.isSelected() && radioButtonRoofInverse.isSelected())) {
@@ -229,7 +229,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             labelPreview.setIcon(null);
         }
     }
-    
+
     private void loadSettings() {
         programmaticChange = true;
         try {
@@ -336,7 +336,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         } finally {
             programmaticChange = false;
         }
-        
+
         setControlStates();
     }
 
@@ -406,7 +406,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         if (platform.capabilities.contains(BIOMES_3D) || platform.capabilities.contains(NAMED_BIOMES)) {
             layer.setTunnelBiome((Integer) comboBoxBiome.getSelectedItem());
         }
-        
+
         List<TunnelLayer.LayerSettings> floorLayers = floorLayersTableModel.getLayers();
         layer.setFloorLayers(((floorLayers != null) && (! floorLayers.isEmpty())) ? floorLayers : null);
 
@@ -428,7 +428,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             layer.setFillMaterial(mixedMaterialChooserFill.getMaterial());
         }
     }
-    
+
     protected void setControlStates() {
         spinnerFloorLevel.setEnabled(! radioButtonFloorCustomDimension.isSelected());
         spinnerFloorMin.setEnabled((! radioButtonFloorFixedLevel.isSelected()) && (! radioButtonFloorCustomDimension.isSelected()));
@@ -524,7 +524,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             app.getCustomLayersByPalette().entrySet().stream()
                 .map((entry) -> {
                     String palette = entry.getKey();
-                    JMenu paletteMenu = new JMenu(palette != null ? palette : "Hidden Layers");
+                    JMenu paletteMenu = new JMenu(palette != null ? palette : "\u9690\u85CF\u8986\u76d6\u5c42");
                     entry.getValue().stream()
                         .filter(l -> (l.getExporterType() != null) && IncidentalLayerExporter.class.isAssignableFrom(l.getExporterType()))
                         .forEach(l -> {
@@ -555,7 +555,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
 
     protected final void newLayer(Component button, TunnelLayersTableModel tableModel) {
         JPopupMenu popupMenu = new BetterJPopupMenu();
-        JMenuItem item = new JMenuItem("Custom Objects Layer");
+        JMenuItem item = new JMenuItem("\u81EA\u5B9A\u4E49\u5BF9\u8C61\u8986\u76d6\u5c42");
         item.addActionListener(e -> {
             EditLayerDialog<Bo2Layer> dialog = new EditLayerDialog<>(TunnelLayerDialog.this, platform, Bo2Layer.class);
             dialog.setVisible(() -> {
@@ -565,7 +565,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             });
         });
         popupMenu.add(item);
-        item = new JMenuItem("Custom Ground Cover Layer");
+        item = new JMenuItem("\u81EA\u5B9A\u4E49\u5730\u9762\u8986\u76D6\u7269\u8986\u76d6\u5c42");
         item.addActionListener(e -> {
             EditLayerDialog<GroundCoverLayer> dialog = new EditLayerDialog<>(TunnelLayerDialog.this, platform, GroundCoverLayer.class);
             dialog.setVisible(() -> {
@@ -575,7 +575,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             });
         });
         popupMenu.add(item);
-        item = new JMenuItem("Custom Plants Layer");
+        item = new JMenuItem("\u81EA\u5B9A\u4E49\u690D\u88AB\u8986\u76d6\u5c42");
         item.addActionListener(e -> {
             EditLayerDialog<PlantLayer> dialog = new EditLayerDialog<>(TunnelLayerDialog.this, platform, PlantLayer.class);
             dialog.setVisible(() -> {
@@ -642,7 +642,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             final TileFactory tileFactory = new HeightMapTileFactory(seed, heightMap, minHeight, maxHeight, dialog.isFloodWithLava(), theme);
             final Dimension floorDimension = new Dimension(world, null, seed, tileFactory, new Anchor(dim, CAVE_FLOOR, invert, id));
             world.addDimension(floorDimension);
-            layer.updateFloorDimension(dimension, textFieldName.getText() + " Floor");
+            layer.updateFloorDimension(dimension, textFieldName.getText() + "\u5730\u9762\u7EF4\u5EA6");
 
             // Also update the layer with the same settings, so that e.g. the preview works approximately right
             layer.setFloorLevel(dialog.getLevel());

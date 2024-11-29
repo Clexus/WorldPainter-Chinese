@@ -157,7 +157,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
         JButton addCustomBiomeButton = new JButton(IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/plus.png"));
         addCustomBiomeButton.putClientProperty(KEY_ADD_BUTTON, TRUE);
         addCustomBiomeButton.setMargin(App.BUTTON_INSETS);
-        addCustomBiomeButton.setToolTipText("Add a custom biome");
+        addCustomBiomeButton.setToolTipText("\u6DFB\u52A0\u4E00\u4E2A\u81EA\u5B9A\u4E49\u7FA4\u7CFB");
         addCustomBiomeButton.addActionListener(e -> {
             final World2 world = App.getInstance().getWorld();
             if (world == null) {
@@ -167,11 +167,11 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
             final Window parent = SwingUtilities.getWindowAncestor(BiomesPanel.this);
             final int id = customBiomeManager.getNextId();
             if (id == -1) {
-                JOptionPane.showMessageDialog(parent, "Maximum number of custom biomes reached", "Maximum Reached", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(parent, "\u5DF2\u8FBE\u5230\u81EA\u5B9A\u4E49\u7FA4\u7CFB\u6570\u91CF\u7684\u6700\u5927\u503C", "\u8FBE\u5230\u6700\u5927\u503C", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             final Platform platform = world.getPlatform();
-            CustomBiome customBiome = new CustomBiome(platform.capabilities.contains(NAMED_BIOMES) ? "namespace:biome" : "Custom", id, Color.ORANGE.getRGB());
+            CustomBiome customBiome = new CustomBiome(platform.capabilities.contains(NAMED_BIOMES) ? "namespace:biome" : "\u81EA\u5B9A\u4E49", id, Color.ORANGE.getRGB());
             CustomBiomeDialog dialog = new CustomBiomeDialog(parent, customBiome, true, platform);
             dialog.setVisible(true);
             if (! dialog.isCancelled()) {
@@ -212,7 +212,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
                     } else {
                         Set<BiomeOption> options = findVariantOptions(biome);
                         if (! options.isEmpty()) {
-                            tooltip.append(" (options: ");
+                            tooltip.append(" (\u9009\u9879: ");
                             tooltip.append(options.stream().map(this::createOptionName).collect(joining(", ")));
                             tooltip.append(')');
                         }
@@ -261,7 +261,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
     private void resetOptions() {
         Set<BiomeOption> availableOptions = findAvailableOptions(selectedBaseBiome);
         optionsPanel.removeAll();
-        optionsPanel.add(new JLabel("Variations:"));
+        optionsPanel.add(new JLabel("\u53D8\u79CD:"));
         for (BiomeOption option: availableOptions) {
             JCheckBox checkBox = new JCheckBox(createOptionName(option));
             checkBox.addActionListener(event -> updateOptions());
@@ -272,9 +272,54 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
     }
 
     private String createOptionName(BiomeOption option) {
-        return stream(option.name().split("_"))
+        String string = stream(option.name().split("_"))
                 .map(s -> s.charAt(0) + s.substring(1).toLowerCase())
                 .collect(joining(" "));
+        switch (string) {
+            case "Frozen":
+                string = "\u51B0\u51BB\u53D8\u79CD";
+                break;
+            case "Deep":
+                string = "\u6DF1\u6D77\u53D8\u79CD";
+                break;
+            case "Warm":
+                string = "\u6696\u6C34\u53D8\u79CD";
+                break;
+            case "Lukewarm":
+                string = "\u6E29\u6C34\u53D8\u79CD";
+                break;
+            case "Cold":
+                string = "\u51B7\u6C34\u53D8\u79CD";
+                break;
+            case "Flowers":
+                string = "\u7E41\u82B1\u53D8\u79CD";
+                break;
+            case "Windswept":
+                string = "\u98CE\u88AD\u53D8\u79CD";
+                break;
+            case "Sparse":
+                string = "\u7A00\u758F\u53D8\u79CD";
+                break;
+            case "Old Growth":
+                string = "\u539F\u59CB\u53D8\u79CD";
+                break;
+            case "Gravelly":
+                string = "\u7802\u783E\u53D8\u79CD";
+                break;
+            case "Plateau":
+                string = "\u9AD8\u539F\u53D8\u79CD";
+                break;
+            case "Wooded":
+                string = "\u7E41\u8302\u53D8\u79CD";
+                break;
+            case "Eroded":
+                string = "\u4FB5\u8680\u53D8\u79CD";
+                break;
+            case "Snowy":
+                string = "\u79EF\u96EA\u53D8\u79CD";
+                break;
+        }
+        return string;
     }
 
     private void updateOptions() {
@@ -336,7 +381,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
     }
 
     private void updateLabels() {
-        label1.setText("Selected biome: " + (showIds ? selectedBiome : ""));
+        label1.setText("\u9009\u62E9\u7684\u7FA4\u7CFB: " + (showIds ? selectedBiome : ""));
         label1.setIcon(biomeHelper.getBiomeIcon(selectedBiome));
         label2.setText(biomeHelper.getBiomeNameWithoutId(selectedBiome));
     }
@@ -349,7 +394,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
         button.putClientProperty(KEY_PAINT_ID, createDiscreteLayerPaintId(Biome.INSTANCE, biome));
         button.putClientProperty(KEY_CUSTOM_BIOME, TRUE);
         button.setMargin(App.BUTTON_INSETS);
-        button.setToolTipText(customBiome.getName() + " (" + biome + "); right-click for options");
+        button.setToolTipText(customBiome.getName() + " (" + biome + "); \u53F3\u952E\u70B9\u51FB\u67E5\u770B\u9009\u9879");
         button.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mousePressed(MouseEvent e) {
@@ -364,7 +409,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
                         showPopupMenu(e);
                     }
                 }
-                
+
                 @Override
                 public void mouseReleased(MouseEvent e) {
                     if (e.isPopupTrigger()) {
@@ -374,8 +419,8 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
 
                 private void showPopupMenu(MouseEvent e) {
                     JPopupMenu popup = new BetterJPopupMenu();
-                    
-                    JMenuItem item = new JMenuItem("Edit...");
+
+                    JMenuItem item = new JMenuItem("\u7F16\u8F91...");
                     item.addActionListener(actionEvent -> {
                         CustomBiomeDialog dialog = new CustomBiomeDialog(SwingUtilities.getWindowAncestor(button), customBiome, false, App.getInstance().getWorld().getPlatform());
                         dialog.setVisible(true);
@@ -384,15 +429,15 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
                         }
                     });
                     popup.add(item);
-                    
-                    item = new JMenuItem("Remove...");
+
+                    item = new JMenuItem("\u79FB\u9664...");
                     item.addActionListener(actionEvent -> {
                         if (JOptionPane.showConfirmDialog(button, "Are you sure you want to remove custom biome \"" + customBiome.getName() + "\" (ID: " + customBiome.getId() + ")?\nAny occurrences will be replaced with Automatic Biomes", "Confirm Removal", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                             customBiomeManager.removeCustomBiome(customBiome);
                         }
                     });
                     popup.add(item);
-                    
+
                     popup.show(button, e.getX(), e.getY());
                 }
             });
@@ -489,7 +534,7 @@ public class BiomesPanel extends JPanel implements CustomBiomeManager.CustomBiom
 
     private final JPanel grid = new JPanel(new GridLayout(0, 5)), optionsPanel = new JPanel();
     private final ButtonGroup buttonGroup;
-    private final JLabel label1 = new JLabel("Selected biome: 1"), label2 = new JLabel("Plains");
+    private final JLabel label1 = new JLabel("\u9009\u62E9\u7684\u7FA4\u7CFB: 1"), label2 = new JLabel("\u5E73\u539F");
 
     private final CustomBiomeManager customBiomeManager;
     private final Listener listener;

@@ -151,7 +151,7 @@ public class DefaultPlugin extends AbstractPlugin implements LayerProvider, Cont
 
     public static final Platform JAVA_ANVIL_1_19 = new Platform(
             "org.pepsoft.anvil.1.19",
-            "Minecraft 1.19 or later",
+            "Minecraft 1.19 \u6216\u4E4B\u540E",
             new int[] { 256, 320, 512, 1024, 1536, 2032 }, 320,
             Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE,
             new int[] { 0, -64, -128, -256, -512, -1024, -2032 }, -64,

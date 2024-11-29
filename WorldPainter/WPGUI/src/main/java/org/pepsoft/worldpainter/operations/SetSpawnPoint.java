@@ -21,7 +21,7 @@ import static org.pepsoft.worldpainter.Dimension.Role.DETAIL;
  */
 public class SetSpawnPoint extends MouseOrTabletOperation {
     public SetSpawnPoint(WorldPainter view) {
-        super("Spawn", "Change the spawn point", view, "operation.setSpawnPoint", "spawn");
+        super("Spawn", "\u51FA\u751F\u70B9\u5DE5\u5177-\u4FEE\u6539\u51FA\u751F\u70B9", view, "operation.setSpawnPoint", "spawn");
     }
 
     @Override
@@ -45,7 +45,7 @@ public class SetSpawnPoint extends MouseOrTabletOperation {
             int spawnHeight = dimension.getIntHeightAt(centreX, centreY);
             if (spawnHeight == Integer.MIN_VALUE) {
                 // No tile
-                if (JOptionPane.showConfirmDialog(getView(), "<html>Are you sure you want to set the spawn <em>outside</em> the boundary of the world?</html>") != JOptionPane.OK_OPTION) {
+                if (JOptionPane.showConfirmDialog(getView(), "<html>\u4F60\u786E\u5B9A\u8981\u628A\u51FA\u751F\u70B9\u8BBE\u7F6E\u5728\u4E16\u754C\u8FB9\u754C\u7684<em>\u5916\u9762</em>\u5417?</html>") != JOptionPane.OK_OPTION) {
                     return;
                 }
             }
@@ -54,5 +54,5 @@ public class SetSpawnPoint extends MouseOrTabletOperation {
         }
     }
 
-    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("Spawn", "<p>Click to set the location of the initial spawn point");
+    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("\u51FA\u751F\u70B9\u5DE5\u5177", "<p>\u70B9\u51FB\u8BBE\u7F6E\u51FA\u751F\u70B9");
 }

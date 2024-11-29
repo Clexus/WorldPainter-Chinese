@@ -115,7 +115,7 @@ public class WorldHistoryTableModel implements TableModel {
     private List<HistoryEntry> filteredHistory;
     private boolean includeLoadsSaves, includeExportsMerges = true;
     
-    private static final String[] COLUMN_NAMES = {"Date", "User", "Action"};
+    private static final String[] COLUMN_NAMES = {"\u65E5\u671F", "\u7528\u6237", "\u64CD\u4F5C"};
     private static final Class[] COLUMN_TYPES = {String.class, String.class, String.class};
     private static final int COLUMN_DATE   = 0;
     private static final int COLUMN_USER   = 1;

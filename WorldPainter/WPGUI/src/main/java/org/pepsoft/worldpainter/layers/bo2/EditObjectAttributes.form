@@ -7,7 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Edit Object Attributes"/>
+    <Property name="title" type="java.lang.String" value="\u7F16\u8F91\u5BF9\u8C61\u5C5E\u6027"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -269,12 +269,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="\u540D\u79F0:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="File:"/>
+        <Property name="text" type="java.lang.String" value="\u6587\u4EF6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelFile">
@@ -284,7 +284,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Offset:"/>
+        <Property name="text" type="java.lang.String" value="\u504F\u79FB:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelOffset">
@@ -292,8 +292,8 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;offset&lt;/u&gt;&lt;/html&gt;"/>
-        <Property name="toolTipText" type="java.lang.String" value="Click to edit the offset."/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;\u504F\u79FB&lt;/u&gt;&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u70B9\u51FB\u7F16\u8F91\u504F\u79FB."/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
@@ -304,8 +304,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOffsetAuto">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Auto"/>
-        <Property name="toolTipText" type="java.lang.String" value="This will try to set the offset to the base of the object."/>
+        <Property name="text" type="java.lang.String" value="\u81EA\u52A8"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u9009\u9879\u5C06\u5C1D\u8BD5\u5C06\u504F\u79FB\u91CF\u8BBE\u7F6E\u4E3A\u5BF9\u8C61\u7684\u57FA\u51C6\u4F4D\u7F6E."/>
         <Property name="horizontalTextPosition" type="int" value="10"/>
       </Properties>
       <Events>
@@ -314,8 +314,8 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOffsetReset">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Zero"/>
-        <Property name="toolTipText" type="java.lang.String" value="This will set the offset to all zeroes."/>
+        <Property name="text" type="java.lang.String" value="\u5F52\u96F6"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u9009\u9879\u4F1A\u5C06\u504F\u79FB\u91CF\u5F52\u96F6."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOffsetResetActionPerformed"/>
@@ -323,7 +323,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -331,7 +331,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOKActionPerformed"/>
@@ -349,8 +349,8 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Relative frequency:"/>
-        <Property name="toolTipText" type="java.lang.String" value="The frequency of this object relative to the other objects in the layer."/>
+        <Property name="text" type="java.lang.String" value="\u76F8\u5BF9\u9891\u7387:"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76d6\u5c42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u9891\u7387."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerFrequency">
@@ -358,7 +358,7 @@
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="100" maximum="9999" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="The frequency of this object relative to the other objects in the layer."/>
+        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76d6\u5c42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u9891\u7387."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -371,8 +371,8 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="comboBoxCollisionMode"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Collide with:"/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Determines which existing blocks an object will collide with (and therefore not be rendered).&lt;br&gt;&#xa;&lt;strong&gt;Note&lt;/strong&gt; that only above ground blocks are considered!&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="\u4E0E...\u53D1\u751F\u78B0\u649E:"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;\u786E\u5B9A\u5BF9\u8C61\u5C06\u4E0E\u54EA\u4E9B\u73B0\u6709\u65B9\u5757\u53D1\u751F\u78B0\u649E\uFF08\u56E0\u6B64\u4E0D\u4F1A\u88AB\u6E32\u67D3\uFF09.&lt;br&gt;&#xa;&lt;strong&gt;\u6CE8\u610F&lt;/strong&gt; \u4EC5\u8003\u8651\u5730\u9762\u4EE5\u4E0A\u7684\u65B9\u5757\uFF01&lt;/html&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxCollisionMode">
@@ -385,7 +385,7 @@
             <StringItem index="3" value="nothing"/>
           </StringArray>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Determines which existing blocks an object will collide with (and therefore not be rendered).&lt;br&gt;&#xa;&lt;strong&gt;Note&lt;/strong&gt; that only above ground blocks are considered!&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;\u786E\u5B9A\u5BF9\u8C61\u5C06\u4E0E\u54EA\u4E9B\u73B0\u6709\u65B9\u5757\u53D1\u751F\u78B0\u649E\uFF08\u56E0\u6B64\u4E0D\u4F1A\u88AB\u6E32\u67D3\uFF09.&lt;br&gt;&#xa;&lt;strong&gt;\u6CE8\u610F&lt;/strong&gt; \u4EC5\u8003\u8651\u5730\u9762\u4EE5\u4E0A\u7684\u65B9\u5757\uFF01&lt;/html&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -393,8 +393,8 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="comboBoxUndergroundMode"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Replace underground blocks:"/>
-        <Property name="toolTipText" type="java.lang.String" value="Determines whether existing underground blocks should be replaced by blocks from the object."/>
+        <Property name="text" type="java.lang.String" value="\u66FF\u6362\u5730\u5E95\u65B9\u5757:"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u786E\u5B9A\u662F\u5426\u5E94\u4F7F\u7528\u5BF9\u8C61\u4E2D\u7684\u65B9\u5757\u66FF\u6362\u73B0\u6709\u7684\u5730\u4E0B\u65B9\u5757\u3002."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxUndergroundMode">
@@ -407,32 +407,32 @@
             <StringItem index="3" value="if existing block is air"/>
           </StringArray>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Determines whether existing underground blocks should be replaced by blocks from the object."/>
+        <Property name="toolTipText" type="java.lang.String" value="\u786E\u5B9A\u662F\u5426\u5E94\u4F7F\u7528\u5BF9\u8C61\u4E2D\u7684\u65B9\u5757\u66FF\u6362\u73B0\u6709\u7684\u5730\u4E0B\u65B9\u5757\u3002"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Spawn:"/>
+        <Property name="text" type="java.lang.String" value="\u751F\u6210:"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxRandomRotation">
       <Properties>
-        <Property name="text" type="java.lang.String" value="random rotation"/>
+        <Property name="text" type="java.lang.String" value="\u968F\u673A\u65CB\u8F6C"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxOnSolidLand">
       <Properties>
-        <Property name="text" type="java.lang.String" value="on solid land"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u56FA\u4F53\u5730\u9762\u4E0A"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxOnAir">
       <Properties>
-        <Property name="text" type="java.lang.String" value="on air"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u7A7A\u4E2D"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxOnWater">
       <Properties>
-        <Property name="text" type="java.lang.String" value="on water"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u6C34\u4E0A"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxOnWaterActionPerformed"/>
@@ -440,17 +440,17 @@
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxUnderWater">
       <Properties>
-        <Property name="text" type="java.lang.String" value="under water"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u6C34\u4E0B"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxUnderLava">
       <Properties>
-        <Property name="text" type="java.lang.String" value="under lava"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u5CA9\u6D46\u4E0B"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxOnLava">
       <Properties>
-        <Property name="text" type="java.lang.String" value="on lava"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u5CA9\u6D46\u4E0A"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxFrequencyActive">
@@ -468,24 +468,24 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="comboBoxLeafDecayMode"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Leaf blocks should:"/>
+        <Property name="text" type="java.lang.String" value="\u6811\u53F6\u65B9\u5757\u5E94:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxLeafDecayMode">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="no change"/>
-            <StringItem index="1" value="behave as exported"/>
-            <StringItem index="2" value="decay"/>
-            <StringItem index="3" value="not decay"/>
+            <StringItem index="0" value="\u4E0D\u53D8"/>
+            <StringItem index="1" value="\u4E0E\u5BFC\u51FA\u5BF9\u8C61\u76F8\u540C"/>
+            <StringItem index="2" value="\u51CB\u96F6"/>
+            <StringItem index="3" value="\u4E0D\u51CB\u96F6"/>
           </StringArray>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxReplace">
       <Properties>
-        <Property name="text" type="java.lang.String" value="replace with air:"/>
+        <Property name="text" type="java.lang.String" value="\u4EE5\u7A7A\u6C14\u66FF\u6362:"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxReplaceActionPerformed"/>
@@ -493,7 +493,7 @@
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxExtendFoundation">
       <Properties>
-        <Property name="text" type="java.lang.String" value="extend foundation to ground"/>
+        <Property name="text" type="java.lang.String" value="\u5C06\u57FA\u5E95\u5EF6\u4F38\u5230\u5730\u9762"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxReplacedMaterial">
@@ -501,19 +501,19 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Material&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6750\u8D28&gt;"/>
       </AuxValues>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxCollideWithFloor">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="collide with floor"/>
+        <Property name="text" type="java.lang.String" value="\u4E0E\u5730\u9762\u78B0\u649E"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.util.TristateCheckBox" name="checkBoxRandomMirroring">
       <Properties>
-        <Property name="text" type="java.lang.String" value="random mirroring"/>
+        <Property name="text" type="java.lang.String" value="\u968F\u673A\u955C\u50CF"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -525,12 +525,12 @@
           <ComponentRef name="checkBoxRandomMirroring"/>
         </Property>
         <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Mirroring works by rotating blocks 180 degrees.&lt;br&gt;&#xa;It does not work for asymmetric mod blocks of which&lt;br&gt;&#xa;the rotated versions are not mirrors of the originals.&lt;/html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;\u955C\u50CF\u901A\u8FC7\u5C06\u65B9\u5757\u65CB\u8F6C180\u5EA6\u6765\u5B9E\u73B0.&lt;br&gt;&#xa;\u5B83\u4E0D\u9002\u7528\u4E8E\u4E0D\u5BF9\u79F0\u7684\u6A21\u7EC4\u65B9\u5757,&lt;br&gt;&#xa;\u8FD9\u4E9B\u65B9\u5757\u7684\u65CB\u8F6C\u7248\u672C\u4E0D\u662F\u539F\u7248\u7684\u955C\u50CF.&lt;/html&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Placement:"/>
+        <Property name="text" type="java.lang.String" value="\u653E\u7F6E:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonPlaceOnTerrain">
@@ -538,7 +538,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="relative to terrain"/>
+        <Property name="text" type="java.lang.String" value="\u76F8\u5BF9\u4E8E\u65B9\u5757"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonPlaceOnTerrainActionPerformed"/>
@@ -549,7 +549,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="fixed height"/>
+        <Property name="text" type="java.lang.String" value="\u56FA\u5B9A\u9AD8\u5EA6"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonPlaceAtFixedHeightActionPerformed"/>
@@ -568,7 +568,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="spinnerRandomVariation"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Random y variation:"/>
+        <Property name="text" type="java.lang.String" value="\u968F\u673AY\u8F74\u53d8\u79cd:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerRandomVariation">
@@ -584,7 +584,7 @@
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/information.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value=" "/>
-        <Property name="toolTipText" type="java.lang.String" value="Distributed equally above and below the initial height."/>
+        <Property name="toolTipText" type="java.lang.String" value="\u521D\u59CB\u9AD8\u5EA6\u7684\u4E0A\u4E0B\u65B9\u5747\u5300\u5206\u5E03."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxRandomVariationActive">
@@ -602,26 +602,26 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="spinnerVerticalOffset"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Height above terrain:"/>
+        <Property name="text" type="java.lang.String" value="\u4E8E\u65B9\u5757\u4E0A\u7684\u9AD8\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Waterlogging should:"/>
+        <Property name="text" type="java.lang.String" value="\u542B\u6C34\u72B6\u6001\u5E94"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxWaterlogging">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="no change"/>
-            <StringItem index="1" value="be managed by WorldPainter"/>
-            <StringItem index="2" value="behave as exported"/>
+            <StringItem index="0" value="\u4E0D\u53D8"/>
+            <StringItem index="1" value="\u7531WorldPainter\u7BA1\u7406"/>
+            <StringItem index="2" value="\u4E0E\u5BFC\u51FA\u5BF9\u8C61\u76F8\u540C"/>
           </StringArray>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u5B57\u7B26\u4E32&gt;"/>
       </AuxValues>
     </Component>
   </SubComponents>

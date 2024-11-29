@@ -62,7 +62,7 @@ public class HistoryEntry implements Serializable {
             case WORLD_HEIGHT_MAP_IMPORTED_TO_DIMENSION:
                 return MessageFormat.format("\u9AD8\u5EA6\u56FE {1} \u5DF2\u88AB\u5BFC\u5165\u7EF4\u5EA6 {0}", args[0], args[1]);
             case WORLD_MASK_IMPORTED_TO_DIMENSION:
-                return MessageFormat.format("\u906E\u7F69 {1} \u5DF2\u4EE5\u56FE\u5C42 {2} \u5BFC\u5165\u5230\u7EF4\u5EA6 {0}", args[0], args[1], args[2]);
+                return MessageFormat.format("\u906E\u7F69 {1} \u5DF2\u4EE5\u8986\u76d6\u5c42 {2} \u5BFC\u5165\u5230\u7EF4\u5EA6 {0}", args[0], args[1], args[2]);
             case WORLD_RECOVERED_FROM_AUTOSAVE:
                 return MessageFormat.format("WorldPainter {0} \u5DF2\u5C06\u4E16\u754C\u4ECE\u81EA\u52A8\u4FDD\u5B58\u7684\u5185\u5BB9\u4E2D\u6062\u590D", wpVersion);
             case WORLD_RETARGETED:

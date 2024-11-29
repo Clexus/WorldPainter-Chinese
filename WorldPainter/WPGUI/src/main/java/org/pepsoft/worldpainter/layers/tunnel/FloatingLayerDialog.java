@@ -107,9 +107,9 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             final Configuration config = Configuration.getInstance();
             if (! config.isMessageDisplayedCountAtLeast(PAINT_FLOATING_LAYER_KEY, 3)) {
                 doLaterOnEventThread(() -> JOptionPane.showMessageDialog(App.getInstance(),
-                        "Use the paint tools to paint the Floating Dimension in the desired shape.\n" +
-                        "Then right-click on the [" + layer.getName() + "] button on the [" + layer.getPalette() + "] panel\n" +
-                        "and select \"Edit floating dimension\" to paint on, and vertically shape, the dimension floor."));
+                        "\u4F7F\u7528\u753B\u7B14\u5DE5\u5177\u6765\u5C06\u60AC\u6D6E\u7EF4\u5EA6\u753B\u6210\u60F3\u8981\u7684\u5F62\u72B6.\n" +
+                        "\u53F3\u952E [" + layer.getPalette() + "] \u9762\u677F\u4E0A\u7684 [" + layer.getName() + "] \u6309\u94AE\n" +
+                        "\u5E76\u9009\u4E2D \"\u7F16\u8F91\u60AC\u6D6E\u7EF4\u5EA6\" \u6765\u7ED8\u5236\u5E76\u5782\u76F4\u5851\u9020\u7EF4\u5EA6\u5730\u9762."));
                 config.setMessageDisplayed(PAINT_FLOATING_LAYER_KEY);
             }
         }
@@ -131,7 +131,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             labelPreview.setIcon(null);
         }
     }
-    
+
     private void loadSettings() {
         programmaticChange = true;
         try {
@@ -193,7 +193,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         } finally {
             programmaticChange = false;
         }
-        
+
         setControlStates();
     }
 
@@ -226,13 +226,13 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         layer.setName(textFieldName.getText().trim());
         layer.setPaint(paintPicker1.getPaint());
         layer.setOpacity(paintPicker1.getOpacity());
-        
+
         List<TunnelLayer.LayerSettings> roofLayers = roofLayersTableModel.getLayers();
         layer.setRoofLayers(((roofLayers != null) && (! roofLayers.isEmpty())) ? roofLayers : null);
 
         layer.setFloodWithLava(checkBoxFloodWithLava1.isSelected());
     }
-    
+
     protected void setControlStates() {
         spinnerBottomMin.setEnabled(! radioButtonBottomFixedLevel.isSelected());
         spinnerBottomMax.setEnabled(! radioButtonBottomFixedLevel.isSelected());
@@ -300,7 +300,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         final TileFactory tileFactory = new HeightMapTileFactory(seed, heightMap, minHeight, maxHeight, floodWithLava, theme);
         final Dimension floorDimension = new Dimension(world, null, seed, tileFactory, new Anchor(dim, FLOATING_FLOOR, invert, id));
         world.addDimension(floorDimension);
-        layer.updateFloorDimension(dimension, textFieldName.getText() + " Floor");
+        layer.updateFloorDimension(dimension, textFieldName.getText() + "\u5730\u9762");
 
         // Also update the layer with the same settings, so that e.g. the preview works approximately right
         layer.setFloorLevel(floorLevel);

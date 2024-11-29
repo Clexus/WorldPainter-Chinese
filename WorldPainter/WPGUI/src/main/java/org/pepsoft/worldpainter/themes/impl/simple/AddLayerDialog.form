@@ -10,7 +10,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Add Layer Mapping"/>
+    <Property name="title" type="java.lang.String" value="\u6DFB\u52A0\u8986\u76D6\u5C42\u6620\u5C04"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -90,17 +90,17 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Configure a layer to add to the mapping:"/>
+        <Property name="text" type="java.lang.String" value="\u914D\u7F6E\u4E00\u4E2A\u8986\u76D6\u5C42\u6765\u6DFB\u52A0\u6620\u5C04:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxLayer">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+            <StringItem index="0" value="\u9879\u76EE 1"/>
+            <StringItem index="1" value="\u9879\u76EE 2"/>
+            <StringItem index="2" value="\u9879\u76EE 3"/>
+            <StringItem index="3" value="\u9879\u76EE 4"/>
           </StringArray>
         </Property>
       </Properties>
@@ -110,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -118,7 +118,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -130,7 +130,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="spinnerFrom"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="From:"/>
+        <Property name="text" type="java.lang.String" value="\u6765\u81EA\u4E8E:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerFrom">
@@ -145,7 +145,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="spinnerTo"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="To:"/>
+        <Property name="text" type="java.lang.String" value="\u76EE\u6807:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerTo">
@@ -160,12 +160,12 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="comboBoxLayer"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Layer:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76D6\u5C42:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxFeather">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Feather:"/>
+        <Property name="text" type="java.lang.String" value="\u7FBD\u5316:"/>
         <Property name="horizontalTextPosition" type="int" value="10"/>
       </Properties>
     </Component>

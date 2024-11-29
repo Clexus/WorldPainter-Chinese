@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class CreateMountain extends MouseOrTabletOperation {
     public CreateMountain(WorldPainter view) {
-        super("CreateMountain", "Instantly create a mountain", view, "operation.createMountain");
+        super("CreateMountain", "\u9020\u5C71\u5DE5\u5177-\u77AC\u95F4\u521B\u5EFA\u4E00\u5EA7\u5C71", view, "operation.createMountain");
     }
 
     @Override

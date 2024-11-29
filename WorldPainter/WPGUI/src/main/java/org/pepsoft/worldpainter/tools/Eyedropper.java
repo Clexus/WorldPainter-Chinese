@@ -31,7 +31,7 @@ import static org.pepsoft.worldpainter.tools.Eyedropper.PaintType.*;
  */
 public final class Eyedropper extends MouseOrTabletOperation {
     public Eyedropper(WorldPainterView view, ColourScheme colourScheme, CustomBiomeManager customBiomeManager) {
-        super("Eyedropper", "Select a paint from the map", view, "operation.eyedropper");
+        super("Eyedropper", "吸管-选择地图上的一种画笔", view, "operation.eyedropper");
         this.colourScheme = colourScheme;
         this.customBiomeManager = customBiomeManager;
     }
@@ -93,7 +93,7 @@ public final class Eyedropper extends MouseOrTabletOperation {
                         if ((paintTypes != null) && (! paintTypes.contains(ANNOTATION))) {
                             return;
                         }
-                        name = Annotations.getColourName(value) + " Annotations";
+                        name = Annotations.getColourName(value) + "标注覆盖层";
                         icon = createScaledColourIcon(Annotations.getColour(value, colourScheme));
                     } else if (SYSTEM_LAYERS.contains(layer)) {
                         return;

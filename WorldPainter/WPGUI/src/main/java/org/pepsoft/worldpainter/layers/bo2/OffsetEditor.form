@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Edit Offset"/>
+    <Property name="title" type="java.lang.String" value="\u7F16\u8F91\u504F\u79FB\u91CF"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -95,7 +95,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="X axis (west to east):"/>
+        <Property name="text" type="java.lang.String" value="X\u8F74(\u4E1C\u897F\u65B9\u5411):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerX">
@@ -110,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Z axis (north to south):"/>
+        <Property name="text" type="java.lang.String" value="Z\u8F74(\u5357\u5317\u65B9\u5411):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerY">
@@ -125,7 +125,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Y axis (vertical):"/>
+        <Property name="text" type="java.lang.String" value="Y\u8F74(\u5782\u76F4\u65B9\u5411):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerZ">
@@ -140,7 +140,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -148,7 +148,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOKActionPerformed"/>
@@ -200,7 +200,7 @@
           <Connection component="jLabel2" name="font" type="property"/>
         </Property>
         <Property name="lineWrap" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="The dotted square indicates the &quot;origin&quot; of the object; i.e. the block that will be placed directly on the surface at the location of the object. You can change it by adjusting the offset. The dotted line indicates ground level.&#xa;&#xa;Rotate the object by pressing L or R."/>
+        <Property name="text" type="java.lang.String" value="\u865A\u7EBF\u65B9\u6846\u8868\u793A\u5BF9\u8C61\u7684\u201C\u539F\u70B9\u201D; \u4F8B\u5982\u76F4\u63A5\u653E\u7F6E\u5728\u5BF9\u8C61\u4F4D\u7F6E\u8868\u9762\u4E0A\u7684\u65B9\u5757\u3002\u4F60\u53EF\u4EE5\u901A\u8FC7\u8C03\u6574\u504F\u79FB\u91CF\u6765\u66F4\u6539\u5B83\u3002\u865A\u7EBF\u8868\u793A\u5730\u9762\u6C34\u5E73\u7EBF\u3002.&#xa;&#xa;\u901A\u8FC7\u6309 L \u6216 R \u6765\u65CB\u8F6C\u5BF9\u8C61."/>
         <Property name="wrapStyleWord" type="boolean" value="true"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>

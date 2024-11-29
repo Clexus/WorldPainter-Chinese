@@ -216,11 +216,11 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
             image = ImageIO.read(selectedFile);
             if (image == null) {
                 labelImageDimensions.setForeground(Color.RED);
-                labelImageDimensions.setText("Not an image file, or damaged file!");
+                labelImageDimensions.setText("\u8BE5\u6587\u4EF6\u4E0D\u662F\u56FE\u50CF\u6587\u4EF6\u6216\u6587\u4EF6\u5DF2\u635F\u574F!");
                 selectedFile = null;
             } else if (image.isAlphaPremultiplied()) {
                 labelImageDimensions.setForeground(Color.RED);
-                labelImageDimensions.setText("Premultiplied alpha not supported! Please convert to non-premultiplied.");
+                labelImageDimensions.setText("\u4E0D\u652F\u6301\u81EA\u5DE6\u4E58 alpha \u56FE\u50CF! \u8BF7\u5C06\u5176\u8F6C\u6362\u4E3A\u975E\u81EA\u5DE6\u4E58\u7684\u56FE\u50CF.");
                 selectedFile = null;
             } else {
                 maskImporter = new MaskImporter(dimension, selectedFile, image);
@@ -279,20 +279,20 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
                     spinnerScale.setToolTipText(null);
                     labelImageDimensions.setIcon(null);
                     if (inputType == COLOUR) {
-                        labelImageDimensions.setText(String.format("Image size: %,d x %,d, colour, %d bits", width, height, image.getSampleModel().getSampleSize(0)));
+                        labelImageDimensions.setText(String.format("\u56FE\u50CF\u5927\u5C0F: %,d x %,d, \u5168\u5F69, %d \u4F4D", width, height, image.getSampleModel().getSampleSize(0)));
                     } else if (inputType == ONE_BIT_GREY_SCALE) {
-                        labelImageDimensions.setText(String.format("Image size: %,d x %,d, black and white", width, height));
+                        labelImageDimensions.setText(String.format("\u56FE\u50CF\u5927\u5C0F: %,d x %,d, \u9ED1\u767D", width, height));
                     } else if ((inputType == FLOAT_GREY_SCALE) || (inputType == DOUBLE_GREY_SCALE)) {
-                        labelImageDimensions.setText(String.format("<html>Image size: %,d x %,d, grey scale, %d bits floating point<br>Lowest value: %,f, highest value: %,f</html>", width, height, image.getSampleModel().getSampleSize(0), maskImporter.getImageLowValue(), maskImporter.getImageHighValue()));
+                        labelImageDimensions.setText(String.format("<html>\u56FE\u50CF\u5927\u5C0F: %,d x %,d, \u7070\u5EA6, %d \u4F4D\u6D6E\u70B9<br>\u6700\u4F4E\u503C: %,f, \u6700\u9AD8\u503C: %,f</html>", width, height, image.getSampleModel().getSampleSize(0), maskImporter.getImageLowValue(), maskImporter.getImageHighValue()));
                     } else {
-                        labelImageDimensions.setText(String.format("<html>Image size: %,d x %,d, grey scale, %d bits integer<br>Lowest value: %,d, highest value: %,d</html>", width, height, image.getSampleModel().getSampleSize(0), Math.round(maskImporter.getImageLowValue()), Math.round(maskImporter.getImageHighValue())));
+                        labelImageDimensions.setText(String.format("<html>\u56FE\u50CF\u5927\u5C0F: %,d x %,d, \u7070\u5EA6, %d \u4F4D\u6574\u5F62<br>\u6700\u4F4E\u503C: %,d, \u6700\u9AD8\u503C: %,d</html>", width, height, image.getSampleModel().getSampleSize(0), Math.round(maskImporter.getImageLowValue()), Math.round(maskImporter.getImageHighValue())));
                     }
                 }
                 if ((inputType == FLOAT_GREY_SCALE) || (inputType == DOUBLE_GREY_SCALE)) {
-                    labelMaskRange.setText(String.format("Actual mask range: %,f - %,f", maskImporter.getImageLowValue(), maskImporter.getImageHighValue()));
+                    labelMaskRange.setText(String.format("\u5B9E\u9645\u906E\u7F69\u8303\u56F4: %,f - %,f", maskImporter.getImageLowValue(), maskImporter.getImageHighValue()));
                     labelMaskRange.setVisible(true);
                 } else if ((inputType != ONE_BIT_GREY_SCALE) && (inputType != COLOUR) && (inputType != UNSUPPORTED)) {
-                    labelMaskRange.setText(String.format("Actual mask range: %,d - %,d", (long) maskImporter.getImageLowValue(), (long) maskImporter.getImageHighValue()));
+                    labelMaskRange.setText(String.format("\u5B9E\u9645\u906E\u7F69\u8303\u56F4: %,d - %,d", (long) maskImporter.getImageLowValue(), (long) maskImporter.getImageHighValue()));
                     labelMaskRange.setVisible(true);
                 } else {
                     labelMaskRange.setVisible(false);
@@ -302,15 +302,15 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
         } catch (IOException e) {
             logger.error("I/O error loading image " + selectedFile, e);
             labelImageDimensions.setForeground(Color.RED);
-            labelImageDimensions.setText(String.format("I/O error loading image (message: %s)!", e.getMessage()));
+            labelImageDimensions.setText(String.format("\u52A0\u8F7D\u56FE\u7247\u65F6\u51FA\u73B0I/O\u9519\u8BEF (\u9519\u8BEF\u6D88\u606F: %s)!", e.getMessage()));
             selectedFile = null;
         } catch (IllegalArgumentException e) {
             logger.error("IllegalArgumentException loading image " + selectedFile, e);
             labelImageDimensions.setForeground(Color.RED);
             if (e.getMessage().equals("Invalid scanline stride")) {
-                labelImageDimensions.setText("Image data too large to load; try reducing dimensions or bit depth");
+                labelImageDimensions.setText("\u56FE\u50CF\u6587\u4EF6\u8FC7\u5927;\u8BF7\u5C1D\u8BD5\u538B\u7F29\u5C3A\u5BF8");
             } else {
-                labelImageDimensions.setText("Error in image data: " + e.getMessage());
+                labelImageDimensions.setText("\u56FE\u7247\u6570\u636E\u51FA\u9519: " + e.getMessage());
             }
             selectedFile = null;
         }
@@ -318,7 +318,7 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
 
     private void updateWorldDimensions() {
         float scale = (float) spinnerScale.getValue();
-        labelWorldDimensions.setText(String.format("Scaled size: %,d x %,d blocks", Math.round(image.getWidth() * (scale / 100)), Math.round(image.getHeight() * (scale / 100))));
+        labelWorldDimensions.setText(String.format("\u7F29\u653E\u540E\u5C3A\u5BF8: %,d x %,d \u4E2A\u65B9\u5757", Math.round(image.getWidth() * (scale / 100)), Math.round(image.getHeight() * (scale / 100))));
     }
 
     @Override
@@ -333,7 +333,7 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
             ProgressDialog.executeTask(this, new ProgressTask<Void>() {
                 @Override
                 public String getName() {
-                    return "Importing mask";
+                    return "\u5BFC\u5165\u906E\u7F69\u56FE\u4E2D";
                 }
 
                 @Override
@@ -359,7 +359,7 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
         if (myHeightMapDir == null) {
             myHeightMapDir = Configuration.getInstance().getHeightMapsDirectory();
         }
-        final File file = ImageUtils.selectImageForOpen(this, "a mask image file", myHeightMapDir);
+        final File file = ImageUtils.selectImageForOpen(this, "\u4E00\u4E2A\u906E\u7F69\u56FE\u50CF", myHeightMapDir);
         if (file != null) {
             masksDir = file.getParentFile();
             fieldFilename.setText(file.getAbsolutePath());
@@ -409,9 +409,9 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
         jLabel14.setText("jLabel14");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Import Mask");
+        setTitle("\u5BFC\u5165\u906E\u7F69\u56FE");
 
-        jLabel1.setText("Select the image to import as a mask:");
+        jLabel1.setText("\u9009\u62E9\u4E00\u4E2A\u8981\u5BFC\u5165\u7684\u906E\u7F69\u56FE:");
 
         buttonSelectFile.setText("...");
         buttonSelectFile.addActionListener(new java.awt.event.ActionListener() {
@@ -420,16 +420,16 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
             }
         });
 
-        labelImageDimensions.setText("<html>Image size: ? x ?, bit depth: ?<br>\nLowest value: ?, highest value: ?</html>");
+        labelImageDimensions.setText("<html>\u56FE\u50CF\u5927\u5C0F: ? x ?, \u4F4D\u6DF1\u5EA6: ?<br>\n\u6700\u4F4E\u503C: ?, \u6700\u9AD8\u503C: ?</html>");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOk.setText("OK");
+        buttonOk.setText("\u786E\u8BA4");
         buttonOk.setEnabled(false);
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,10 +437,10 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
             }
         });
 
-        jLabel2.setText("Apply to:");
+        jLabel2.setText("\u5E94\u7528\u4E8E:");
 
         buttonGroup1.add(radioButtonTerrain);
-        radioButtonTerrain.setText("terrain:");
+        radioButtonTerrain.setText("\u65B9\u5757:");
         radioButtonTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonTerrainActionPerformed(evt);
@@ -448,7 +448,7 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
         });
 
         buttonGroup1.add(radioButtonLayer);
-        radioButtonLayer.setText("layer");
+        radioButtonLayer.setText("\u8986\u76d6\u5c42");
         radioButtonLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonLayerActionPerformed(evt);
@@ -462,12 +462,12 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
             }
         });
 
-        jLabel3.setText("Select the mapping:");
+        jLabel3.setText("\u9009\u62E9\u6620\u5C04:");
 
         spinnerThreshold.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 255.0d, 1.0d));
         spinnerThreshold.setEnabled(false);
 
-        jLabel4.setText("Scale:");
+        jLabel4.setText("\u6BD4\u4F8B\u7F29\u653E:");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(100.0f), Float.valueOf(0.01f), Float.valueOf(999.99f), Float.valueOf(0.1f)));
         spinnerScale.setEditor(new javax.swing.JSpinner.NumberEditor(spinnerScale, "0.00"));
@@ -479,11 +479,11 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
 
         jLabel5.setText("%");
 
-        jLabel11.setText("Offset:");
-        jLabel11.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        jLabel11.setText("\u504F\u79FB:");
+        jLabel11.setToolTipText("\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E");
 
         spinnerOffsetX.setModel(new javax.swing.SpinnerNumberModel(0, -999999, 999999, 1));
-        spinnerOffsetX.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        spinnerOffsetX.setToolTipText("\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E");
         spinnerOffsetX.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinnerOffsetXStateChanged(evt);
@@ -491,7 +491,7 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
         });
 
         spinnerOffsetY.setModel(new javax.swing.SpinnerNumberModel(0, -999999, 999999, 1));
-        spinnerOffsetY.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        spinnerOffsetY.setToolTipText("\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E");
         spinnerOffsetY.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinnerOffsetYStateChanged(evt);
@@ -499,11 +499,11 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
         });
 
         jLabel12.setText(",");
-        jLabel12.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        jLabel12.setToolTipText("\u9AD8\u5EA6\u56FE\u539F\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u4F4D\u7F6E");
 
-        labelWorldDimensions.setText("Scaled size: ? x ? blocks");
+        labelWorldDimensions.setText("\u7F29\u653E\u540E\u5C3A\u5BF8: ? x ? \u4E2A\u65B9\u5757");
 
-        checkBoxRemoveExisting.setText("remove existing layer");
+        checkBoxRemoveExisting.setText("\u79FB\u9664\u5DF2\u6709\u7684\u8986\u76d6\u5c42");
         checkBoxRemoveExisting.setEnabled(false);
 
         comboBoxApplyToTerrain.setEnabled(false);
@@ -531,9 +531,9 @@ public class ImportMaskDialog extends WorldPainterDialog implements DocumentList
             }
         });
 
-        jLabel6.setText("Threshold:");
+        jLabel6.setText("\u9608\u503C:");
 
-        labelMaskRange.setText("Actual mask range: -999,999 - 999,999");
+        labelMaskRange.setText("\u5B9E\u9645\u906E\u7F69\u56FE\u8303\u56F4: -999,999 - 999,999");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -116,11 +116,11 @@ public class TerrainRangesTableModel implements TableModel {
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return "Level";
+                return "\u9AD8\u5EA6";
             case 1:
-                return "Terrain type";
+                return "\u65B9\u5757\u79CD\u7C7B";
             case 2:
-                return "Actions";
+                return "\u64CD\u4F5C";
             default:
                 throw new IllegalArgumentException();
         }
@@ -219,14 +219,14 @@ public class TerrainRangesTableModel implements TableModel {
             }
         }
     }
- 
+
     private void notifyChangeListener() {
         if (changeListener != null) {
             changeListener.dataChanged(this);
         }
     }
 
-    private final JButton deleteButton = new JButton("Delete");
+    private final JButton deleteButton = new JButton("\u5220\u9664");
     private final List<TableModelListener> listeners = new ArrayList<>();
     private int[] levels;
     private Terrain[] terrains;

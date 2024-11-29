@@ -143,7 +143,7 @@ spiral:     while (true) {
 
         @Override
         public String toString() {
-            return "Seed: " + seed + ", continent tiles: " + continentTiles;
+            return "种子: " + seed + ", 大陆分区数量: " + continentTiles;
         }
         
         final long seed;

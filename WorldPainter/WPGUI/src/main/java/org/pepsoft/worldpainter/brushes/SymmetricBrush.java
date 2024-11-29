@@ -69,7 +69,7 @@ public abstract class SymmetricBrush extends AbstractBrush {
     
     @Override
     public String toString() {
-        return getName() + " (radius=" + radius + ", brushShape=" + brushShape + ", level=" + level + ')';
+        return getName() + " (\u534A\u5F84=" + radius + ", \u7B14\u5237\u5F62\u72B6=" + brushShape + ", \u7EA7\u522B=" + level + ')';
     }
 
     @Override
@@ -87,9 +87,9 @@ public abstract class SymmetricBrush extends AbstractBrush {
         }
         return clone;
     }
-    
+
     protected abstract float calcStrength(int dx, int dy);
-    
+
     private void cacheStrengths() {
         if ((radius != cachedRadius) || (level != cachedLevel)) {
             // No need to allocate a new array if there is one already and the
@@ -130,60 +130,49 @@ public abstract class SymmetricBrush extends AbstractBrush {
     private float[][] strengthCache, fullStrengthCache;
     private float level = 1.0f, cachedLevel = -1.0f;
 
-    public static final SymmetricBrush CONSTANT_CIRCLE = new RadialBrush("Constant Circle", BrushShape.CIRCLE, true) {
+    public static final SymmetricBrush CONSTANT_CIRCLE = new RadialBrush("\u5E38\u91CF\u5706", BrushShape.CIRCLE, true) {
         @Override
         protected float calcStrength(float dr) {
             return 1.0f;
         }
     };
 
-    public static final SymmetricBrush CONSTANT_SQUARE = new RadialBrush("Constant Square", BrushShape.SQUARE, false) {
+    public static final SymmetricBrush CONSTANT_SQUARE = new RadialBrush("\u5E38\u91CF\u65B9\u5F62", BrushShape.SQUARE, false) {
         @Override
         protected float calcStrength(float dr) {
             return 1.0f;
         }
     };
-    
-    public static final SymmetricBrush LINEAR_CIRCLE = new RadialBrush("Linear Circle", BrushShape.CIRCLE, true) {
+
+    public static final SymmetricBrush LINEAR_CIRCLE = new RadialBrush("\u7EBF\u6027\u5706", BrushShape.CIRCLE, true) {
         @Override
         protected float calcStrength(float dr) {
             return 1.0f - dr;
         }
     };
 
-    public static final SymmetricBrush LINEAR_SQUARE = new RadialBrush("Linear Square", BrushShape.SQUARE, false) {
+    public static final SymmetricBrush LINEAR_SQUARE = new RadialBrush("\u7EBF\u6027\u65B9\u5F62", BrushShape.SQUARE, false) {
         @Override
         protected float calcStrength(float dr) {
             return 1.0f - dr;
         }
     };
 
-    public static final SymmetricBrush COSINE_CIRCLE = new RadialBrush("Sine Circle", BrushShape.CIRCLE, true) {
-        @Override
-        protected float calcStrength(float dr) {
-            return (float) Math.cos(dr * Math.PI) / 2 + 0.5f;
-        }
-    };
-    
-    public static final SymmetricBrush COSINE_SQUARE = new RadialBrush("Sine Square", BrushShape.SQUARE, false) {
+    public static final SymmetricBrush COSINE_CIRCLE = new RadialBrush("\u6B63\u5F26\u5706", BrushShape.CIRCLE, true) {
         @Override
         protected float calcStrength(float dr) {
             return (float) Math.cos(dr * Math.PI) / 2 + 0.5f;
         }
     };
 
-    public static final SymmetricBrush PLATEAU_CIRCLE = new RadialBrush("Plateau Circle", BrushShape.CIRCLE, true) {
+    public static final SymmetricBrush COSINE_SQUARE = new RadialBrush("\u6B63\u5F26\u65B9\u5F62", BrushShape.SQUARE, false) {
         @Override
         protected float calcStrength(float dr) {
-            if (dr <= 0.5f) {
-                return 1.0f;
-            } else {
-                return (float) Math.cos((dr - 0.5f) * TWO_PI) / 2 + 0.5f;
-            }
+            return (float) Math.cos(dr * Math.PI) / 2 + 0.5f;
         }
     };
-    
-    public static final SymmetricBrush PLATEAU_SQUARE = new RadialBrush("Plateau Square", BrushShape.SQUARE, false) {
+
+    public static final SymmetricBrush PLATEAU_CIRCLE = new RadialBrush("\u666E\u62C9\u6258\u5706", BrushShape.CIRCLE, true) {
         @Override
         protected float calcStrength(float dr) {
             if (dr <= 0.5f) {
@@ -194,28 +183,39 @@ public abstract class SymmetricBrush extends AbstractBrush {
         }
     };
 
-    public static final SymmetricBrush SPIKE_CIRCLE = new RadialBrush("Spike Circle", BrushShape.CIRCLE, true) {
+    public static final SymmetricBrush PLATEAU_SQUARE = new RadialBrush("\u666E\u62C9\u6258\u65B9\u5F62", BrushShape.SQUARE, false) {
+        @Override
+        protected float calcStrength(float dr) {
+            if (dr <= 0.5f) {
+                return 1.0f;
+            } else {
+                return (float) Math.cos((dr - 0.5f) * TWO_PI) / 2 + 0.5f;
+            }
+        }
+    };
+
+    public static final SymmetricBrush SPIKE_CIRCLE = new RadialBrush("\u5C16\u523A\u5706", BrushShape.CIRCLE, true) {
         @Override
         protected float calcStrength(float dr) {
             return (1.0f - dr) * (1.0f - dr);
         }
     };
 
-    public static final SymmetricBrush SPIKE_SQUARE = new RadialBrush("Spike Square", BrushShape.SQUARE, false) {
+    public static final SymmetricBrush SPIKE_SQUARE = new RadialBrush("\u5C16\u523A\u65B9\u5F62", BrushShape.SQUARE, false) {
         @Override
         protected float calcStrength(float dr) {
             return (1.0f - dr) * (1.0f - dr);
         }
     };
 
-    public static final SymmetricBrush DOME_CIRCLE = new RadialBrush("Dome Circle", BrushShape.CIRCLE, true) {
+    public static final SymmetricBrush DOME_CIRCLE = new RadialBrush("\u7A79\u9876\u5706", BrushShape.CIRCLE, true) {
         @Override
         protected float calcStrength(float dr) {
             return (float) Math.sqrt(1 - dr * dr);
         }
     };
 
-    public static final SymmetricBrush DOME_SQUARE = new RadialBrush("Dome Square", BrushShape.SQUARE, false) {
+    public static final SymmetricBrush DOME_SQUARE = new RadialBrush("\u7A79\u9876\u65B9\u5F62", BrushShape.SQUARE, false) {
         @Override
         protected float calcStrength(float dr) {
             return (float) Math.sqrt(1 - dr * dr);

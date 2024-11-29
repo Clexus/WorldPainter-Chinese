@@ -123,7 +123,7 @@ public class CombinedLayer extends CustomLayer implements LayerContainer {
 
     @Override
     public String getType() {
-        return "\u6DF7\u5408\u8986\u76D6\u5C42";
+        return "\u6DF7\u5408\u8986\u76d6\u5c42";
     }
 
     public Terrain getTerrain() {

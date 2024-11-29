@@ -183,8 +183,8 @@ public enum Terrain {
 
         private static final int STONE_SEED_OFFSET = 188434540;
     },
-    WATER("\u6C34", STATIONARY_WATER, STATIONARY_WATER, "\u26A0 \u8FD9\u4F1A\u8BA9\u6C34\u65B9\u5757\u76F4\u63A5\u66FF\u4EE3\u539F\u6709\u65B9\u5757 (\u63D0\u793A: \u4F60\u9700\u8981\u7684\u53EF\u80FD\u7684\u662F\u6C34\u57DF\u586B\u5145\u5DE5\u5177!)", BIOME_RIVER),
-    LAVA("\u5CA9\u6D46", STATIONARY_LAVA, STATIONARY_LAVA, "\u26A0 \u8FD9\u4F1A\u8BA9\u5CA9\u6D46\u76F4\u63A5\u66FF\u4EE3\u539F\u6709\u65B9\u5757 (\u63D0\u793A: \u4F60\u9700\u8981\u7684\u53EF\u80FD\u662F\u5CA9\u6D46\u586B\u5145\u5DE5\u5177!)", BIOME_PLAINS),
+    WATER("\u6C34", STATIONARY_WATER, STATIONARY_WATER, "! \u8FD9\u4F1A\u8BA9\u6C34\u65B9\u5757\u76F4\u63A5\u66FF\u4EE3\u539F\u6709\u65B9\u5757 (\u63D0\u793A: \u4F60\u9700\u8981\u7684\u53EF\u80FD\u7684\u662F\u6C34\u586B\u5145\u5DE5\u5177!)", BIOME_RIVER),
+    LAVA("\u5CA9\u6D46", STATIONARY_LAVA, STATIONARY_LAVA, "! \u8FD9\u4F1A\u8BA9\u5CA9\u6D46\u76F4\u63A5\u66FF\u4EE3\u539F\u6709\u65B9\u5757 (\u63D0\u793A: \u4F60\u9700\u8981\u7684\u53EF\u80FD\u662F\u5CA9\u6D46\u586B\u5145\u5DE5\u5177!)", BIOME_PLAINS),
     @Deprecated
     SNOW("\u8986\u96EA\u77F3\u5757", "[\u5DF2\u5F03\u7528] \u753B\u4E00\u5C42\u7531\u77F3\u5934\u548C\u5706\u77F3\u7EC4\u6210\u7684\u77F3\u5757\uFF0C\u518D\u8986\u76D6\u4E00\u5C42\u96EA", BIOME_ICE_PLAINS, 1) {
         @Override
@@ -2997,11 +2997,11 @@ public enum Terrain {
     public static MixedMaterial getCustomMaterial(int index) {
         return customMaterials[index];
     }
-    
+
     public static void setCustomMaterial(int index, MixedMaterial material) {
         customMaterials[index] = material;
     }
-    
+
     public static Terrain getCustomTerrain(int index) {
         return (index < 48)
                 ? ((index < 24)
@@ -3009,7 +3009,7 @@ public enum Terrain {
                     : VALUES[index + 52])
                 : VALUES[index + 54];
     }
-    
+
     public static Terrain[] getConfiguredValues() {
         final ArrayList<Terrain> values = new ArrayList<>(VALUES.length);
         values.addAll(asList(PICK_LIST));
@@ -3030,7 +3030,7 @@ public enum Terrain {
     private final String name, description;
     private final BufferedImage icon;
     private final int defaultBiome;
-    
+
     public static final int CUSTOM_TERRAIN_COUNT = 96;
 
     static final MixedMaterial[] customMaterials = new MixedMaterial[CUSTOM_TERRAIN_COUNT];
@@ -3045,7 +3045,7 @@ public enum Terrain {
     static final int LAVA_LEVEL         = 80;
     static final int DIRT_LEVEL         = Integer.MAX_VALUE;
     static final int GRAVEL_LEVEL       = Integer.MAX_VALUE;
-        
+
     static final float GOLD_CHANCE         = PerlinNoise.getLevelForPromillage(1);
     static final float IRON_CHANCE         = PerlinNoise.getLevelForPromillage(5);
     static final float COAL_CHANCE         = PerlinNoise.getLevelForPromillage(9);
@@ -3056,13 +3056,13 @@ public enum Terrain {
     static final float LAVA_CHANCE         = PerlinNoise.getLevelForPromillage(1);
     static final float DIRT_CHANCE         = PerlinNoise.getLevelForPromillage(9);
     static final float GRAVEL_CHANCE       = PerlinNoise.getLevelForPromillage(9);
-    
+
     static final float FLOWER_CHANCE       = PerlinNoise.getLevelForPromillage(10);
     static final float FERN_CHANCE         = PerlinNoise.getLevelForPromillage(10);
     static final float GRASS_CHANCE        = PerlinNoise.getLevelForPromillage(100);
 
     static final float DOUBLE_TALL_GRASS_CHANCE = PerlinNoise.getLevelForPromillage(50);
-    
+
     static final float BEACH_SAND_CHANCE   = PerlinNoise.getLevelForPromillage(400) * 1.5f;
     static final float BEACH_GRAVEL_CHANCE = PerlinNoise.getLevelForPromillage(200) * 1.5f;
     static final float BEACH_CLAY_CHANCE   = PerlinNoise.getLevelForPromillage(40);
@@ -3240,7 +3240,7 @@ public enum Terrain {
         CUSTOM_94,
         CUSTOM_95,
         CUSTOM_96,
-            
+
         DEEPSLATE,
         TUFF,
         BASALT,
@@ -3344,7 +3344,7 @@ public enum Terrain {
 //        String[] tens = {"forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 //        String[] ones = {"", "-one", "-two", "-three", "-four", "-five", "-six", "-seven", "-eight", "-nine"};
 //        for (int i = 49; i <= 96; i++) {
-//            System.out.printf("    CUSTOM_%1$d(\"Custom %1$d\", \"Custom Material %3$s%4$s\", BIOME_PLAINS) {%n" +
+//            System.out.printf("    CUSTOM_%1$d("Custom %1$d", "Custom Material %3$s%4$s", BIOME_PLAINS) {%n" +
 //                            "        @Override public Material getMaterial(long seed, int x, int y, int z, int height) {return helper.getMaterial(seed, x, y, z, height);}%n" +
 //                            "%n" +
 //                            "        @Override public Material getMaterial(long seed, int x, int y, float z, int height) {return helper.getMaterial(seed, x, y, z, height);}%n" +

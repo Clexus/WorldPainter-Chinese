@@ -120,7 +120,7 @@ public class SuperflatPresetStructuresTableModel implements TableModel {
     public static final int COLUMN_ENABLED = 1;
     public static final int COLUMN_PARAMS  = 2;
 
-    public static final String[] COLUMN_NAMES   = {"Structure",  "Enabled",     "Parameters"};
+    public static final String[] COLUMN_NAMES   = {"结构",  "启用状态",     "参数"};
     public static final Class<?>[] COLUMN_TYPES = {String.class, Boolean.class, String.class};
 
     private final Structure[] allStructures;

@@ -82,7 +82,7 @@ public class EditPaletteDialog extends WorldPainterDialog {
         if (! newName.equals(palette.getName())) {
             final Palette existingPalette = paletteManager.getPalette(newName);
             if ((existingPalette != null) && (existingPalette != palette)) {
-                beepAndShowError(this, "There already is a palette named \"" + newName + "\"", "Name Already In Use");
+                beepAndShowError(this, "\u5DF2\u7ECF\u6709\u540D\u4E3A \"" + newName + "\" \u7684\u8C03\u8272\u677F\u4E86", "\u540D\u79F0\u5DF2\u88AB\u5360\u7528");
                 return false;
             }
             paletteManager.rename(palette, newName);

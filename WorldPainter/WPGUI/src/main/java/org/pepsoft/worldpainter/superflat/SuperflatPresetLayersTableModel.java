@@ -102,7 +102,7 @@ public class SuperflatPresetLayersTableModel implements TableModel {
     private final List<Layer> layers;
     private final List<TableModelListener> listeners = new ArrayList<>();
 
-    private static final String[] COLUMN_NAMES    = {"Material",   "Thickness"};
+    private static final String[] COLUMN_NAMES    = {"材质",   "密度"};
     private static final Class<?>[] COLUMN_TYPES  = {String.class, Integer.class};
     private static final int COLUMN_MATERIAL  = 0;
     private static final int COLUMN_THICKNESS = 1;

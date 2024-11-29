@@ -84,21 +84,21 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
                 int row = tableMaterialRows.rowAtPoint(point);
                 if ((row != -1) && (column == COLUMN_MATERIAL)) {
                     JDialog dialog = new WorldPainterDialog(CustomMaterialDialog.this);
-                    dialog.setTitle("Edit Material");
+                    dialog.setTitle("\u7F16\u8F91\u6750\u8D28");
                     MaterialSelector materialSelector = new MaterialSelector();
                     materialSelector.setPlatform(platform);
                     materialSelector.setExtendedBlockIds(extendedBlockIds);
                     materialSelector.setMaterial((Material) tableModel.getValueAt(row, COLUMN_MATERIAL));
                     dialog.getContentPane().add(materialSelector, BorderLayout.CENTER);
                     JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-                    JButton okButton = new JButton("OK");
+                    JButton okButton = new JButton("\u786E\u8BA4");
                     okButton.addActionListener(event -> {
                         Material material = materialSelector.getMaterial();
                         tableModel.setValueAt(material, row, COLUMN_MATERIAL);
                         dialog.dispose();
                     });
                     buttonPanel.add(okButton);
-                    JButton cancelButton = new JButton("Cancel");
+                    JButton cancelButton = new JButton("\u53D6\u6D88");
                     cancelButton.addActionListener(event -> dialog.dispose());
                     buttonPanel.add(cancelButton);
                     dialog.getRootPane().setDefaultButton(okButton);
@@ -344,7 +344,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
             programmaticChange = false;
         }
     }
-    
+
     private void addMaterial() {
         if (tableMaterialRows.isEditing()) {
             tableMaterialRows.getCellEditor().stopCellEditing();
@@ -352,7 +352,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
 
         tableModel.addMaterial(new Row(Material.DIRT, tableModel.getAverageCount(), 1.0f));
     }
-    
+
     private void removeMaterial() {
         if (tableMaterialRows.isEditing()) {
             tableMaterialRows.getCellEditor().stopCellEditing();
@@ -362,7 +362,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
             tableModel.removeMaterial(selectedRows[i]);
         }
     }
-    
+
     private void setControlStates() {
         boolean nameSet = ! fieldName.getText().trim().isEmpty();
         switch (jTabbedPane1.getSelectedIndex()) {
@@ -397,7 +397,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
             buttonSelectColour.setEnabled(false);
         }
     }
-    
+
     private String createName() {
         switch (jTabbedPane1.getSelectedIndex()) {
             case 0:
@@ -437,9 +437,9 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         }
         return false;
     }
-    
+
     private void pickColour() {
-        Color pick = JColorChooser.showDialog(this, "Select Colour", new Color(selectedColour));
+        Color pick = JColorChooser.showDialog(this, "\u9009\u62E9\u989C\u8272", new Color(selectedColour));
         if (pick != null) {
             selectedColour = pick.getRGB();
             setLabelColour();

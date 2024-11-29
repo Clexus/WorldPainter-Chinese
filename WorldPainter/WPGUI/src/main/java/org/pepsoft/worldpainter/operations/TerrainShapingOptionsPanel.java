@@ -25,7 +25,7 @@ public class TerrainShapingOptionsPanel extends StandardOptionsPanel {
 
     @Override
     protected void addAdditionalComponents(GridBagConstraints constraints) {
-        checkBoxApplyTheme = new JCheckBox("Apply theme");
+        checkBoxApplyTheme = new JCheckBox("应用主题");
         checkBoxApplyTheme.addActionListener(e -> {
             options.setApplyTheme(checkBoxApplyTheme.isSelected());
             firePropertyChange("options", null, options);

@@ -16,7 +16,7 @@ import java.util.Random;
  */
 public class Erode extends RadiusOperation {
     public Erode(WorldPainter view) {
-        super("Erode", "Erode the terrain", view, 100, "operation.erode");
+        super("\u4FB5\u8680", "\u4FB5\u8680\u5730\u5F62", view, 100, "operation.erode");
     }
 
     @Override

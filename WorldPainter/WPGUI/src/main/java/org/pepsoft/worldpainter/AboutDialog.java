@@ -55,7 +55,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
         jTextPane3.setText(loadTechInfo(world, view, undoManager));
 
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("close", new AbstractAction("close") {
+        actionMap.put("close", new AbstractAction("\u5173\u95ED") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 close();
@@ -77,7 +77,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
     }
 
     // WindowListener
-    
+
     @Override
     public void windowOpened(WindowEvent e) {
         jScrollPane1.getVerticalScrollBar().setValue(0);
@@ -134,7 +134,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
             throw new RuntimeException("I/O error reading resource", e);
         }
     }
-    
+
     private String loadChangelog() {
         try {
             return FileUtils.load(ClassLoader.getSystemResourceAsStream("CHANGELOG"), UTF_8);
@@ -142,11 +142,11 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
             throw new RuntimeException("I/O error while loading change log from classpath", e);
         }
     }
-    
+
     private void close() {
         dispose();
     }
-    
+
     private void donate() {
         try {
             DesktopUtils.open(new URL("https://www.worldpainter.net/donate/paypal"));
@@ -218,7 +218,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
         }
         return message.toString();
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -239,13 +239,13 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
         jTextPane3 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("About WorldPainter");
+        setTitle("\u5173\u4E8EWorldPainter");
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/resources/banner.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        buttonClose.setText("Close");
+        buttonClose.setText("\u5173\u95ED");
         buttonClose.addActionListener(this::buttonCloseActionPerformed);
 
         jScrollPane1.setBorder(null);
@@ -256,7 +256,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
         jTextPane1.addHyperlinkListener(this::jTextPane1HyperlinkUpdate);
         jScrollPane1.setViewportView(jTextPane1);
 
-        jTabbedPane1.addTab("Credits", jScrollPane1);
+        jTabbedPane1.addTab("\u9E23\u8C22\u540D\u5355", jScrollPane1);
 
         jScrollPane2.setBorder(null);
 
@@ -264,7 +264,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
         jTextPane2.setText("Een paar regels\nom te laten zien\nhoe het er in het echt\nuit zal zien.");
         jScrollPane2.setViewportView(jTextPane2);
 
-        jTabbedPane1.addTab("Change log", jScrollPane2);
+        jTabbedPane1.addTab("\u66F4\u65B0\u65E5\u5FD7", jScrollPane2);
 
         jScrollPane3.setBorder(null);
 
@@ -272,7 +272,7 @@ public class AboutDialog extends javax.swing.JDialog implements WindowListener {
         jTextPane3.setText("Een paar regels\nom te laten zien\nhoe het er in het echt\nuit zal zien.");
         jScrollPane3.setViewportView(jTextPane3);
 
-        jTabbedPane1.addTab("Tech Info", jScrollPane3);
+        jTabbedPane1.addTab("\u6280\u672F\u4FE1\u606F", jScrollPane3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

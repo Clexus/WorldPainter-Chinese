@@ -47,7 +47,7 @@ public class WPTransferHandler extends TransferHandler {
         try {
             final List<File> list = (List<File>) support.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
             if (list.size() > 1) {
-                beepAndShowError(app, "Please drag only one file at a time.", "Multiple Files");
+                beepAndShowError(app, "\u4E00\u6B21\u8BF7\u4EC5\u62D6\u5165\u4E00\u4E2A\u6587\u4EF6.", "\u6587\u4EF6\u6570\u91CF\u8FC7\u591A");
                 return false;
             }
             final File file = list.get(0);
@@ -55,19 +55,19 @@ public class WPTransferHandler extends TransferHandler {
             final int p = name.lastIndexOf('.');
             final String extension = (p != -1) ? name.substring(p + 1).toLowerCase() : null;
             if ((! "world".equals(extension)) && (! IMAGE_FILE_EXTENSIONS.contains(extension))) {
-                beepAndShowError(app, "The file is not a WorldPainter .world file or image file.", "Unsupported File");
+                beepAndShowError(app, "\u8BE5\u6587\u4EF6\u4E0D\u662FWorldPainter\u7684.world\u683C\u5F0F\u6587\u4EF6\u6216\u56FE\u7247\u6587\u4EF6.", "\u4E0D\u652F\u6301\u8BE5\u6587\u4EF6\u7C7B\u578B");
                 return false;
             }
             try {
                 if (IMAGE_FILE_EXTENSIONS.contains(extension)) {
                     final int action = JOptionPane.showOptionDialog(app,
-                            "An image file was dropped on WorldPainter.\nSelect how you would like to import it:",
-                            "Select Image Import Action",
+                            "\u56FE\u7247\u6587\u4EF6\u5DF2\u88AB\u62D6\u5165 WorldPainter.\n\u8BF7\u9009\u62E9\u4F60\u7684\u5BFC\u5165\u65B9\u5F0F:",
+                            "\u9009\u62E9\u6587\u4EF6\u5BFC\u5165\u65B9\u5F0F",
                             DEFAULT_OPTION,
                             QUESTION_MESSAGE,
                             null,
-                            new String[] { "New World", "Height Map", "Mask", "Cancel" },
-                            "Cancel");
+                            new String[] { "\u65B0\u4E16\u754C", "\u9AD8\u5EA6\u56FE", "\u906E\u7F69\u5C42", "\u53D6\u6D88" },
+                            "\u53D6\u6D88");
                     switch (action) {
                         case 0:
                             app.importHeightMap(file);

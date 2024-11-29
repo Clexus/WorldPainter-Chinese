@@ -80,7 +80,7 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
     
     @Override
     public GroundCoverLayer createLayer() {
-        return new GroundCoverLayer("My Ground Cover", MixedMaterial.create(platform, ROSE), Color.RED);
+        return new GroundCoverLayer("\u6211\u7684\u5730\u9762\u8986\u76D6\u7269", MixedMaterial.create(platform, ROSE), Color.RED);
     }
 
     @Override

@@ -115,7 +115,7 @@ public class MapImportDialog extends WorldPainterDialog {
         MapInfo mapInfo = platformManager.identifyMap(worldDir);
         if (mapInfo == null) {
             logger.error("Could not determine platform for " + worldDir);
-            JOptionPane.showMessageDialog(MapImportDialog.this, "Could not determine map format for " + worldDir.getName(), "Unidentified Map Format", ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(MapImportDialog.this, "无法确定该文件的地图格式： " + worldDir.getName(), "无法确定地图格式", ERROR_MESSAGE);
             // TODO
             return;
         }
@@ -123,11 +123,11 @@ public class MapImportDialog extends WorldPainterDialog {
         Platform platform = mapInfo.platform;
         if (! mapInfo.platform.capabilities.contains(BLOCK_BASED)) {
             logger.error("Non block based platform " + platform + " not supported for " + worldDir);
-            JOptionPane.showMessageDialog(MapImportDialog.this, "Non block based map format " + platform + " not (yet) supported", "Unsupported Map Format", ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(MapImportDialog.this, "不基于方块的地图格式 " + platform + " (暂时)未被支持", "不受支持的地图格式", ERROR_MESSAGE);
             return;
         } else if (! (platformManager.getPlatformProvider(platform) instanceof MapImporterProvider)) {
             logger.error("Platform provider for platform " + platform + " does not support importing");
-            JOptionPane.showMessageDialog(MapImportDialog.this, "The plugin for map format " + platform + " does not support Importing existing maps", "Importing Not Supported", ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(MapImportDialog.this, "能导入 " + platform + " 格式地图的插件不支持导入已有地图", "不受支持的导入", ERROR_MESSAGE);
             return;
         }
 
@@ -156,7 +156,7 @@ public class MapImportDialog extends WorldPainterDialog {
             int version = levelDat.getVersion();
             if (version == VERSION_UNKNOWN) {
                 logger.error("Modded maps are not (yet) supported while analysing map " + levelDatFile);
-                JOptionPane.showMessageDialog(MapImportDialog.this, "Modded maps are not (yet) supported for Importing", "Modded Map", ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(MapImportDialog.this, "被模组修改过的地图(暂)不支持导入", "不支持模组修改过的地图", ERROR_MESSAGE);
                 return;
             } else if ((version != VERSION_MCREGION) && (version != VERSION_ANVIL)) {
                 logger.error("Unsupported Minecraft version while analysing map " + levelDatFile);
@@ -171,7 +171,7 @@ public class MapImportDialog extends WorldPainterDialog {
         Set<Integer> dimensions = stream(platformProvider.getDimensions(platform, worldDir)).boxed().collect(toSet());
         if (! dimensions.contains(DIM_NORMAL)) {
             logger.error("Map has no surface dimension: " + worldDir);
-            JOptionPane.showMessageDialog(MapImportDialog.this, "This map has no surface dimension; this is not supported by WorldPainter", "Missing Surface Dimension", ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(MapImportDialog.this, "该地图没有主世界; 不受 WorldPainter 支持", "主世界缺失", ERROR_MESSAGE);
             return;
         }
 
@@ -185,7 +185,7 @@ public class MapImportDialog extends WorldPainterDialog {
         mapStatistics = ProgressDialog.executeTask(this, new ProgressTask<MapStatistics>() {
             @Override
             public String getName() {
-                return "Analyzing map...";
+                return "分析地图...";
             }
             
             @Override
@@ -227,9 +227,9 @@ public class MapImportDialog extends WorldPainterDialog {
             int width = mapStatistics.highestChunkX - mapStatistics.lowestChunkX + 1;
             int length = mapStatistics.highestChunkZ - mapStatistics.lowestChunkZ + 1;
             int area = mapStatistics.chunkCount;
-            labelWidth.setText(FORMATTER.format(width * 16L) + " blocks (from " + FORMATTER.format((long) mapStatistics.lowestChunkX << 4) + " to " + FORMATTER.format(((long) mapStatistics.highestChunkX << 4) + 15) + "; " + FORMATTER.format(width) + " chunks)");
-            labelLength.setText(FORMATTER.format(length * 16L) + " blocks (from " + FORMATTER.format((long) mapStatistics.lowestChunkZ << 4) + " to " + FORMATTER.format(((long) mapStatistics.highestChunkZ << 4) + 15) + "; " + FORMATTER.format(length) + " chunks)");
-            labelArea.setText(FORMATTER.format(area * 256L) + " blocks (" + FORMATTER.format(area) + " chunks)");
+            labelWidth.setText(FORMATTER.format(width * 16L) + " 个方块 (从 " + FORMATTER.format((long) mapStatistics.lowestChunkX << 4) + " 到 " + FORMATTER.format(((long) mapStatistics.highestChunkX << 4) + 15) + "; " + FORMATTER.format(width) + " 个区块)");
+            labelLength.setText(FORMATTER.format(length * 16L) + " 个方块 (从 " + FORMATTER.format((long) mapStatistics.lowestChunkZ << 4) + " 到 " + FORMATTER.format(((long) mapStatistics.highestChunkZ << 4) + 15) + "; " + FORMATTER.format(length) + " 个区块)");
+            labelArea.setText(FORMATTER.format(area * 256L) + " 个方块 (" + FORMATTER.format(area) + " 个区块)");
         }
     }
     
@@ -244,9 +244,9 @@ public class MapImportDialog extends WorldPainterDialog {
     }
     
     private void resetStats() {
-        labelWidth.setText("0 blocks (from ? to ?; 0 chunks)");
-        labelLength.setText("0 blocks (from ? to ?; 0 chunks)");
-        labelArea.setText("0 blocks² (0 chunks)");
+        labelWidth.setText("0 个方块 (从 ? 到 ?; 0 个区块)");
+        labelLength.setText("0 个方块 (从 ? 到 ?; 0 个区块)");
+        labelArea.setText("0 个方块² (0 个区块)");
     }
     
     private void selectDir() {

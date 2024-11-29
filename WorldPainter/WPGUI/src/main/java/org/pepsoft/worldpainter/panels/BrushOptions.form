@@ -91,7 +91,7 @@
             <Font component="checkBoxAbove" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="at or above"/>
+        <Property name="text" type="java.lang.String" value="\u4EC5\u5E94\u7528\u4E8E\u9AD8\u5EA6\u5927\u4E8E\u7B49\u4E8E...\u65F6"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxAboveActionPerformed"/>
@@ -120,7 +120,7 @@
             <Font component="checkBoxBelow" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="at or below"/>
+        <Property name="text" type="java.lang.String" value="\u4EC5\u5E94\u7528\u4E8E\u9AD8\u5EA6\u5C0F\u4E8E\u7B49\u4E8E...\u65F6"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxBelowActionPerformed"/>
@@ -149,7 +149,7 @@
             <Font component="checkBoxReplace" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="only on"/>
+        <Property name="text" type="java.lang.String" value="\u4EC5\u5E94\u7528\u4E8E"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxReplaceActionPerformed"/>
@@ -176,7 +176,7 @@
             <Font component="checkBoxFeather" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="feather"/>
+        <Property name="text" type="java.lang.String" value="\u7FBD\u5316"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -190,7 +190,7 @@
             <Font component="checkBoxExceptOn" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="except on"/>
+        <Property name="text" type="java.lang.String" value="\u6392\u9664"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxExceptOnActionPerformed"/>
@@ -217,7 +217,7 @@
             <Font component="checkBoxAboveSlope" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="above"/>
+        <Property name="text" type="java.lang.String" value="\u5761\u5EA6\u5927\u4E8E"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxAboveSlopeActionPerformed"/>
@@ -230,7 +230,7 @@
             <Font component="checkBoxBelowSlope" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="below"/>
+        <Property name="text" type="java.lang.String" value="\u5761\u5EA6\u5C0F\u4E8E"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxBelowSlopeActionPerformed"/>
@@ -259,7 +259,7 @@
             <Font component="jLabel1" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="degrees"/>
+        <Property name="text" type="java.lang.String" value="\u5EA6"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxInSelection">
@@ -269,7 +269,7 @@
             <Font component="checkBoxInSelection" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="inside selection"/>
+        <Property name="text" type="java.lang.String" value="\u4EC5\u5E94\u7528\u4E8E\u9009\u533A\u5185"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxInSelectionActionPerformed"/>
@@ -282,7 +282,7 @@
             <Font component="checkBoxOutsideSelection" property="font" relativeSize="true" size="-1"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="outside selection"/>
+        <Property name="text" type="java.lang.String" value="\u4EC5\u5E94\u7528\u4E8E\u9009\u533A\u5916"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxOutsideSelectionActionPerformed"/>

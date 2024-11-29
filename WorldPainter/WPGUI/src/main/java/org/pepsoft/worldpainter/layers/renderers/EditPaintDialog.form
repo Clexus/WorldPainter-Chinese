@@ -11,7 +11,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Edit Paint"/>
+    <Property name="title" type="java.lang.String" value="\u7F16\u8F91\u753B\u7B14"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -151,8 +151,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/fill.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Make Solid Colour"/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Select a colour and fill canvas completely&lt;br&gt;&#xa;Selected colour will become background colour&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="\u7EAF\u8272\u586B\u5145"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;\u9009\u62E9\u4E00\u4E2A\u989C\u8272\u5E76\u4EE5\u5176\u586B\u5145\u753B\u677F&lt;br&gt;&#xa;\u9009\u4E2D\u7684\u989C\u8272\u4F1A\u6210\u4E3A\u80CC\u666F\u8272&lt;/html&gt;"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -169,8 +169,8 @@
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/pencil.png"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Pencil"/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Left-click to paint with selected colour&lt;br&gt;&#xa;Right-click to paint with background colour&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="\u94C5\u7B14"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;\u5DE6\u952E\u4EE5\u9009\u62E9\u7684\u989C\u8272\u7ED8\u5236&lt;br&gt;&#xa;\u53F3\u952E\u4EE5\u80CC\u666F\u8272\u7ED8\u5236&lt;/html&gt;"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -186,8 +186,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/sponge.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Eraser"/>
-        <Property name="toolTipText" type="java.lang.String" value="Click to erase to transparency"/>
+        <Property name="text" type="java.lang.String" value="\u6A61\u76AE"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u70B9\u51FB\u4EE5\u64E6\u9664\u81F3\u900F\u660E\u8272"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -197,7 +197,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -205,7 +205,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOk">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOkActionPerformed"/>
@@ -237,7 +237,7 @@
             <LineBorder/>
           </Border>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Preview of pattern"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u6837\u5F0F\u9884\u89C8"/>
       </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
@@ -249,8 +249,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/clear_selection.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Clear"/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Clear entire canvas to transparency&lt;br&gt;&#xa;Set background colour to transparency&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="\u6E05\u9664"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;\u6E05\u9664\u6574\u4E2A\u753B\u677F\u4E3A\u900F\u660E&lt;br&gt;&#xa;\u5C06\u80CC\u666F\u8272\u8BBE\u7F6E\u4E3A\u900F\u660E&lt;/html&gt;"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -265,7 +265,7 @@
             <Font component="jLabel1" italic="true" property="font" relativeSize="true" size="0"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="Left-click to paint with selected colour; right-click for background colour"/>
+        <Property name="text" type="java.lang.String" value="\u5DE6\u952E\u70B9\u51FB\u4EE5\u4F7F\u7528\u6240\u9009\u989C\u8272\u7ED8\u5236\uFF1B\u53F3\u952E\u70B9\u51FB\u4EE5\u80CC\u666F\u989C\u8272\u7ED8\u5236"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="sliderOpacity">
@@ -278,7 +278,7 @@
     </Component>
     <Component class="com.jidesoft.swing.JideLabel" name="labelOpacity">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Opacity"/>
+        <Property name="text" type="java.lang.String" value="\u900F\u660E\u5EA6"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonSolidColour">
@@ -287,7 +287,7 @@
           <ComponentRef name="buttonGroupType"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Solid colour"/>
+        <Property name="text" type="java.lang.String" value="\u7EAF\u8272"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonSolidColourActionPerformed"/>
@@ -298,7 +298,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroupType"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Pattern:"/>
+        <Property name="text" type="java.lang.String" value="\u6837\u5F0F:"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonPatternActionPerformed"/>

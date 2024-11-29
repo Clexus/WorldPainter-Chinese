@@ -94,12 +94,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Configure your combined layer on this screen."/>
+        <Property name="text" type="java.lang.String" value="\u5728\u6B64\u754C\u9762\u914D\u7F6E\u4F60\u7684\u6DF7\u5408\u8986\u76d6\u5c42."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Terrain:"/>
+        <Property name="text" type="java.lang.String" value="\u65B9\u5757:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxTerrain">
@@ -107,12 +107,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxTerrainActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Terrain&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u65B9\u5757&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Biome:"/>
+        <Property name="text" type="java.lang.String" value="\u7FA4\u7CFB:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxBiome">
@@ -120,12 +120,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxBiomeActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Integer&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6574\u6570&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Layers:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -144,7 +144,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="buttonAddLayer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add"/>
+        <Property name="text" type="java.lang.String" value="\u6DFB\u52A0"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddLayerActionPerformed"/>
@@ -152,7 +152,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="\u540D\u79F0:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldName">
@@ -162,12 +162,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Paint:"/>
+        <Property name="text" type="java.lang.String" value="\u753B\u7B14:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonRemoveLayer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Remove"/>
+        <Property name="text" type="java.lang.String" value="\u79FB\u9664"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -176,12 +176,12 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxApplyTerrainAndBiomeOnExport">
       <Properties>
-        <Property name="text" type="java.lang.String" value="apply terrain and biome on Export"/>
+        <Property name="text" type="java.lang.String" value="\u5BFC\u51FA\u65F6\u5E94\u7528\u65B9\u5757\u4E0E\u7FA4\u7CFB"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonEditLayerSettings">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Edit..."/>
+        <Property name="text" type="java.lang.String" value="\u7F16\u8F91..."/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

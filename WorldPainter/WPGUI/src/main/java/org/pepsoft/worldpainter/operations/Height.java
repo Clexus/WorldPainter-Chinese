@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class Height extends RadiusOperation {
     public Height(WorldPainter view) {
-        super("Height", "Raise or lower the terrain", view, 100, "operation.height");
+        super("Height", "\u9AD8\u5EA6\u5DE5\u5177-\u63D0\u9AD8\u6216\u964D\u4F4E\u5730\u5F62\u9AD8\u5EA6", view, 100, "operation.height");
     }
 
     @Override
@@ -86,6 +86,6 @@ public class Height extends RadiusOperation {
     }
 
     private final TerrainShapingOptions<Height> options = new TerrainShapingOptions<>();
-    private final TerrainShapingOptionsPanel optionsPanel = new TerrainShapingOptionsPanel("Height", "<ul><li>Left-click to raise the terrain<li>Right-click to lower the terrain</ul>", options);
+    private final TerrainShapingOptionsPanel optionsPanel = new TerrainShapingOptionsPanel("\u9AD8\u5EA6\u5DE5\u5177", "<ul><li>\u5DE6\u952E\u70B9\u51FB\u63D0\u9AD8\u5730\u5F62\u9AD8\u5EA6<li>\u53F3\u952E\u964D\u4F4E\u5730\u5F62\u9AD8\u5EA6</ul>", options);
 //    private Dimension dimensionSnapshot;
 }

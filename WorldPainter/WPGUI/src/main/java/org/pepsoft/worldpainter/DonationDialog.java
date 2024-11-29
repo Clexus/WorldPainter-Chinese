@@ -61,7 +61,7 @@ public final class DonationDialog extends WorldPainterDialog {
             DesktopUtils.open(new URL("https://www.worldpainter.net/donate/paypal"));
             config.setDonationStatus(Configuration.DonationStatus.DONATED);
             config.setShowDonationDialogAfter(config.getLaunchCount() + 100);
-            showInfo(this, "The donation PayPal page has been opened in your browser.\n\nThank you very much for donating!", "Thank You");
+            showInfo(this, "捐赠PayPal页面已在你的浏览器打开.\n\n感谢您的捐赠!", "谢谢");
             config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_DONATE).addTimestamp());
             ok();
         } catch (MalformedURLException e) {
@@ -72,7 +72,7 @@ public final class DonationDialog extends WorldPainterDialog {
     private void alreadyDonated() {
         config.setDonationStatus(Configuration.DonationStatus.DONATED);
         config.setShowDonationDialogAfter(config.getLaunchCount() + 100);
-        showInfo(this, "Thank you very much for donating!", "Thank You");
+        showInfo(this, "非常感谢捐赠!", "谢谢");
         config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_ALREADY_DONATED).addTimestamp());
         ok();
     }
@@ -85,7 +85,7 @@ public final class DonationDialog extends WorldPainterDialog {
     private void noThanks() {
         config.setDonationStatus(Configuration.DonationStatus.NO_THANK_YOU);
         config.setShowDonationDialogAfter(config.getLaunchCount() + 50);
-        showInfo(this, "Alright, no problem. We will not ask you again for a while.\nIf you change your mind, you can donate from the About screen!", "No Problem");
+        showInfo(this, "行，我们会在一段时间内都不打扰您的.\n如果您改变主意了，还是可以在关于页面进行捐赠!", "没问题");
         config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_NO_THANKS).addTimestamp());
         ok();
     }
@@ -117,7 +117,7 @@ public final class DonationDialog extends WorldPainterDialog {
         buttonMerchStore = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Please Support WorldPainter");
+        setTitle("请支持WorldPainter");
         setResizable(false);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -128,14 +128,14 @@ public final class DonationDialog extends WorldPainterDialog {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(jTextArea1.getFont().deriveFont(jTextArea1.getFont().getSize()+6f));
         jTextArea1.setLineWrap(true);
-        jTextArea1.setText("Thank you for using WorldPainter!\n\nWorldPainter takes a lot of effort to create and maintain. Please consider helping out with a donation, or by buying merchandise from our merch store.");
+        jTextArea1.setText("感谢您使用 WorldPainter!\n\nWorldPainter 的创作和维护需要花费很多精力. 请考虑通过捐赠或购买周边商品赞助本项目.");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setOpaque(false);
 
         buttonDonate.setBackground(new java.awt.Color(255, 196, 58));
         buttonDonate.setFont(buttonDonate.getFont().deriveFont(buttonDonate.getFont().getStyle() | java.awt.Font.BOLD, buttonDonate.getFont().getSize()+3));
         buttonDonate.setMnemonic('d');
-        buttonDonate.setText("Donate");
+        buttonDonate.setText("捐赠");
         buttonDonate.setBorderPainted(false);
         buttonDonate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public final class DonationDialog extends WorldPainterDialog {
 
         buttonAlreadyDonated.setFont(buttonAlreadyDonated.getFont().deriveFont(buttonAlreadyDonated.getFont().getSize()+3f));
         buttonAlreadyDonated.setMnemonic('a');
-        buttonAlreadyDonated.setText("I have already donated");
+        buttonAlreadyDonated.setText("我已经捐赠过了");
         buttonAlreadyDonated.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAlreadyDonatedActionPerformed(evt);
@@ -154,7 +154,7 @@ public final class DonationDialog extends WorldPainterDialog {
 
         buttonAskLater.setFont(buttonAskLater.getFont().deriveFont(buttonAskLater.getFont().getSize()+3f));
         buttonAskLater.setMnemonic('l');
-        buttonAskLater.setText("Ask me later");
+        buttonAskLater.setText("以后再说");
         buttonAskLater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAskLaterActionPerformed(evt);
@@ -163,7 +163,7 @@ public final class DonationDialog extends WorldPainterDialog {
 
         buttonNoThanks.setFont(buttonNoThanks.getFont().deriveFont(buttonNoThanks.getFont().getSize()+3f));
         buttonNoThanks.setMnemonic('n');
-        buttonNoThanks.setText("No thank you");
+        buttonNoThanks.setText("不，我不想捐赠");
         buttonNoThanks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNoThanksActionPerformed(evt);
@@ -171,7 +171,7 @@ public final class DonationDialog extends WorldPainterDialog {
         });
 
         buttonMerchStore.setFont(buttonMerchStore.getFont().deriveFont(buttonMerchStore.getFont().getSize()+3f));
-        buttonMerchStore.setText("Merch store");
+        buttonMerchStore.setText("周边商店");
         buttonMerchStore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMerchStoreActionPerformed(evt);

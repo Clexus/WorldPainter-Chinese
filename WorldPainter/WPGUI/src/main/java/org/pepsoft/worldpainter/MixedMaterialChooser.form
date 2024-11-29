@@ -44,7 +44,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;MixedMaterial&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6DF7\u5408\u6750\u8D28&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="buttonEdit">

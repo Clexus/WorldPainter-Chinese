@@ -69,7 +69,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
     
     @Override
     public Bo2Layer createLayer() {
-        return new Bo2Layer(new Bo2ObjectTube("My Custom Objects", Collections.emptyList()), "Custom (e.g. bo2, bo3, nbt, schem and/or schematic) objects", Color.ORANGE);
+        return new Bo2Layer(new Bo2ObjectTube("\u6211\u7684\u81EA\u5B9A\u4E49\u5BF9\u8C61", Collections.emptyList()), "\u81EA\u5B9A\u4E49\u5BF9\u8C61 (\u4F8B\u5982 bo2, bo3, nbt, schem \u548C/\u6216 schematic \u5BF9\u8C61)", Color.ORANGE);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         }
         saveSettings(layer);
     }
-    
+
     @Override
     public void reset() {
         List<WPObject> objects = new ArrayList<>();
@@ -132,7 +132,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
                     }
                 }
                 if (missingFiles > 0) {
-                    showWarning(this, "This is an old custom object layer and " + missingFiles + " objects\ncould NOT be restored because they were missing or\nreading them resulted in an I/O error.\n\nYou will have to re-add these objects before\nsaving the settings, otherwise the existing object\ndata will be gone. You may also cancel the dialog\nwithout affecting the object data.", "Missing Files");
+                    showWarning(this, "\u8BE5\u8986\u76d6\u5c42\u4E3A\u65E7\u7684\u81EA\u5B9A\u4E49\u5BF9\u8C61\u8986\u76d6\u5c42\u5E76\u4E14\u6709 " + missingFiles + " \u4E2A\u5BF9\u8C61\u56E0\u4E22\u5931\u6216\u8BFB\u5199\u9519\u8BEF\u65E0\u6CD5\u88AB\u6062\u590D.\n\n\u4F60\u9700\u8981\u5728\u4FDD\u5B58\u8BBE\u7F6E\u524D\u91CD\u65B0\u6DFB\u52A0\u8FD9\u4E9B\u5BF9\u8C61\uFF0C\u5426\u5219\u73B0\u6709\u7684\u5BF9\u8C61\u6570\u636E\u4E5F\u4F1A\u4E22\u5931\n\u4F60\u4E5F\u53EF\u4EE5\u5728\u4E0D\u5F71\u54CD\u5BF9\u8C61\u6570\u636E\u7684\u60C5\u51B5\u4E0B\u5173\u95ED\u8BE5\u7A97\u53E3.", "\u7F3A\u5931\u6587\u4EF6");
                 }
             }
         } else {
@@ -147,9 +147,9 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         spinnerBlocksPerAttempt.setValue(layer.getDensity());
         spinnerGrid.setValue(layer.getGridX());
         spinnerRandomOffset.setValue(layer.getRandomDisplacement());
-        
+
         refreshLeafDecaySettings();
-        
+
         settingsChanged();
     }
 
@@ -189,16 +189,16 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         super.setContext(context);
         colourScheme = context.getColourScheme();
     }
-        
+
     // ListSelectionListener
-    
+
     @Override
     public void valueChanged(ListSelectionEvent e) {
         settingsChanged();
     }
 
     // DocumentListener
-    
+
     @Override
     public void insertUpdate(DocumentEvent e) {
         settingsChanged();
@@ -222,7 +222,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         }
         Bo2ObjectProvider objectProvider = new Bo2ObjectTube(name, objects);
         if (layer == null) {
-            layer = new Bo2Layer(objectProvider, "Custom (e.g. bo2, bo3 and/or schematic) objects", paintPicker1.getPaint());
+            layer = new Bo2Layer(objectProvider, "\u81EA\u5B9A\u4E49\u5BF9\u8C61 (\u4F8B\u5982 bo2, bo3 \u548C/\u6216 schematic \u5BF9\u8C61)", paintPicker1.getPaint());
         } else {
             layer.setObjectProvider(objectProvider);
             layer.setPaint(paintPicker1.getPaint());
@@ -239,7 +239,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         setControlStates();
         context.settingsChanged();
     }
-    
+
     private void setControlStates() {
         boolean filesSelected = listModel.getSize() > 0;
         boolean objectsSelected = listObjects.getSelectedIndex() != -1;
@@ -247,7 +247,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         buttonReloadAll.setEnabled(filesSelected);
         buttonEdit.setEnabled(objectsSelected);
     }
-    
+
     private void addFilesOrDirectory() {
         // Can't use FileUtils.selectFilesForOpen() because it doesn't support
         // selecting directories, or adding custom components to the dialog
@@ -256,7 +256,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         if ((config.getCustomObjectsDirectory() != null) && config.getCustomObjectsDirectory().isDirectory()) {
             fileChooser.setCurrentDirectory(config.getCustomObjectsDirectory());
         }
-        fileChooser.setDialogTitle("Select File(s) or Directory");
+        fileChooser.setDialogTitle("\u9009\u62E9\u6587\u4EF6\u6216\u76EE\u5F55");
         fileChooser.setMultiSelectionEnabled(true);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         CustomObjectManager.UniversalFileFilter fileFilter = CustomObjectManager.getInstance().getFileFilter();
@@ -283,9 +283,9 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
                         }
                         File[] files = selectedFile.listFiles((FilenameFilter) fileFilter);
                         if (files == null) {
-                            beepAndShowError(this, selectedFile.getName() + " is not a directory or it cannot be read.", "Not A Valid Directory");
+                            beepAndShowError(this, selectedFile.getName() + " \u4E0D\u662F\u76EE\u5F55\u6216\u65E0\u6CD5\u8BFB\u53D6.", "\u76EE\u5F55\u65E0\u6548");
                         } else if (files.length == 0) {
-                            beepAndShowError(this, "Directory " + selectedFile.getName() + " does not contain any supported custom object files.", "No Custom Object Files");
+                            beepAndShowError(this, "\u76EE\u5F55 " + selectedFile.getName() + " \u4E0D\u5305\u542B\u4EFB\u4F55\u652F\u6301\u7684\u5BF9\u8C61\u7C7B\u578B.", "\u672A\u627E\u5230\u81EA\u5B9A\u4E49\u5BF9\u8C61\u6587\u4EF6");
                         } else {
                             for (File file: files) {
                                 addFile(checkForNameOnlyMaterials, nameOnlyMaterialsNames, file);
@@ -311,20 +311,18 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
                 if (checkForNameOnlyMaterials && (! nameOnlyMaterialsNames.isEmpty())) {
                     String message;
                     if (nameOnlyMaterialsNames.size() > 4) {
-                        message = format("One or more added objects contain block types that are\n" +
-                                "incompatible with the current map format (%s):\n" +
-                                "%s and %d more\n" +
-                                "You will not be able to export this world in this format if you use this layer.",
+                        message = format("\u4E00\u4E2A\u6216\u591A\u4E2A\u6DFB\u52A0\u7684\u5BF9\u8C61\u5305\u542B\u4E0E\u5F53\u524D\u5730\u56FE\u683C\u5F0F(%s)\u4E0D\u517C\u5BB9\u7684\u65B9\u5757: \n" +
+                                "%s(\u8FD8\u6709%d\u4E2A)\n" +
+                                "\u5982\u679C\u4F60\u4ECD\u7136\u4F7F\u7528\u8BE5\u8986\u76d6\u5c42\uFF0C\u4F60\u5C06\u65E0\u6CD5\u4EE5\u8BE5\u683C\u5F0F\u5BFC\u51FA\u672C\u4E16\u754C.",
                                 platform.displayName, String.join(", ", new ArrayList<>(nameOnlyMaterialsNames).subList(0, 3)),
                                 nameOnlyMaterialsNames.size() - 3);
                     } else {
-                        message = format("One or more added objects contain block types that are\n" +
-                                "incompatible with the current map format (%s):\n" +
-                                "%s\n" +
-                                "You will not be able to export this world in this format if you use this layer.",
+                        message = format("\u4E00\u4E2A\u6216\u591A\u4E2A\u6DFB\u52A0\u7684\u5BF9\u8C61\u5305\u542B\u4E0E\u5F53\u524D\u5730\u56FE\u683C\u5F0F(%s)\u4E0D\u517C\u5BB9\u7684\u65B9\u5757: \n" +
+                                        "%s\n" +
+                                        "\u5982\u679C\u4F60\u4ECD\u7136\u4F7F\u7528\u8BE5\u8986\u76d6\u5c42\uFF0C\u4F60\u5C06\u65E0\u6CD5\u4EE5\u8BE5\u683C\u5F0F\u5BFC\u51FA\u672C\u4E16\u754C.",
                                 platform.displayName, String.join(", ", nameOnlyMaterialsNames));
                     }
-                    beepAndShowWarning(this, message, "Map Format Not Compatible");
+                    beepAndShowWarning(this, message, "\u5730\u56FE\u683C\u5F0F\u4E0D\u652F\u6301");
                 }
             }
         }
@@ -408,26 +406,26 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         }
         if ((noFiles.length() > 0) || (notFound.length() > 0) || (errors.length() > 0)) {
             StringBuilder message = new StringBuilder();
-            message.append("Not all files could be reloaded!\n");
+            message.append("\u6709\u6587\u4EF6\u65E0\u6CD5\u91CD\u8F7D!\n");
             if (noFiles.length() > 0) {
-                message.append("\nThe following objects came from an old layer and have no filename stored:\n");
+                message.append("\n\u4E0B\u65B9\u7684\u5BF9\u8C61\u6765\u81EA\u4E8E\u4E00\u4E2A\u8001\u7684\u8986\u76d6\u5c42\uFF0C\u4E14\u6CA1\u6709\u50A8\u5B58\u6587\u4EF6\u540D\u6570\u636E:\n");
                 message.append(noFiles);
             }
             if (notFound.length() > 0) {
-                message.append("\nThe following files were missing or not accessible:\n");
+                message.append("\n\u4E0B\u65B9\u6587\u4EF6\u7F3A\u5931\u6216\u65E0\u6CD5\u8BBF\u95EE:\n");
                 message.append(notFound);
             }
             if (errors.length() > 0) {
-                message.append("\nThe following files experienced I/O errors while loading:\n");
+                message.append("\n\u4E0B\u65B9\u6587\u4EF6\u52A0\u8F7D\u65F6\u51FA\u73B0 I/O \u9519\u8BEF:\n");
                 message.append(errors);
             }
-            JOptionPane.showMessageDialog(this, message, "Not All Files Reloaded", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, message, "\u6709\u6587\u4EF6\u65E0\u6CD5\u91CD\u8F7D", JOptionPane.ERROR_MESSAGE);
         } else {
-            showInfo(this, indices.length + " objects successfully reloaded", "Success");
+            showInfo(this, indices.length + " \u4E2A\u5BF9\u8C61\u6210\u529F\u91CD\u8F7D", "\u6210\u529F");
         }
         refreshLeafDecaySettings();
     }
-    
+
     private void editObjects() {
         List<WPObject> selectedObjects = new ArrayList<>(listObjects.getSelectedIndices().length);
         int[] selectedIndices = listObjects.getSelectedIndices();
@@ -446,7 +444,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         if (listModel.isEmpty()) {
             labelLeafDecayTitle.setEnabled(false);
             labelEffectiveLeafDecaySetting.setEnabled(false);
-            labelEffectiveLeafDecaySetting.setText("N/A");
+            labelEffectiveLeafDecaySetting.setText("\u4E0D\u9002\u7528");
             buttonSetDecay.setEnabled(false);
             buttonSetNoDecay.setEnabled(false);
             buttonReset.setEnabled(false);
@@ -520,11 +518,11 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             buttonReset.setEnabled(true);
             if (nonDecayingLeavesFound) {
                 // Both decaying and non decaying leaves found
-                labelEffectiveLeafDecaySetting.setText("<html>Decaying <i>and</i> non decaying leaves.</html>");
+                labelEffectiveLeafDecaySetting.setText("<html>\u51CB\u843D\u7684<i>\u4E0E</i>\u4E0D\u51CB\u843D\u7684\u6811\u53F6\u90FD\u5B58\u5728.</html>");
                 buttonSetDecay.setEnabled(true);
             } else {
                 // Only decaying leaves found
-                labelEffectiveLeafDecaySetting.setText("<html>Leaves <b>do</b> decay.</html>");
+                labelEffectiveLeafDecaySetting.setText("<html><b>\u6240\u6709</b>\u6811\u53F6\u90FD\u4F1A\u51CB\u843D.</html>");
                 buttonSetDecay.setEnabled(false);
             }
         } else {
@@ -532,7 +530,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
                 // Only non decaying leaves found
                 labelLeafDecayTitle.setEnabled(true);
                 labelEffectiveLeafDecaySetting.setEnabled(true);
-                labelEffectiveLeafDecaySetting.setText("<html>Leaves do <b>not</b> decay.</html>");
+                labelEffectiveLeafDecaySetting.setText("<html><b>\u6240\u6709</b>\u6811\u53F6\u90FD\u4E0D\u4F1A\u51CB\u843D.</html>");
                 buttonSetDecay.setEnabled(true);
                 buttonSetNoDecay.setEnabled(false);
                 buttonReset.setEnabled(true);
@@ -540,7 +538,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
                 // No leaf blocks encountered at all, so N/A
                 labelLeafDecayTitle.setEnabled(false);
                 labelEffectiveLeafDecaySetting.setEnabled(false);
-                labelEffectiveLeafDecaySetting.setText("N/A");
+                labelEffectiveLeafDecaySetting.setText("\u4E0D\u9002\u7528");
                 buttonSetDecay.setEnabled(false);
                 buttonSetNoDecay.setEnabled(false);
                 buttonReset.setEnabled(false);
@@ -576,7 +574,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         final int grid = (Integer) spinnerGrid.getValue();
         final float blocksAt50 = (float) ((Integer) spinnerBlocksPerAttempt.getValue()) * grid * grid;
         final float blocksAt1 = blocksAt50 * 64, blocksAt100 = round(blocksAt50 / 3.515625f);
-        labelBlocksPerAttempt.setText(format("one per %d blocks at 1%%; %d blocks at 50%%; %d blocks at 100%%)",
+        labelBlocksPerAttempt.setText(format("\u6BCF %d \u4E2A\u65B9\u5757 1 \u4E2A (1%%\u7684\u6982\u7387)\uFF1B\u6BCF %d \u4E2A\u65B9\u5757 1 \u4E2A (50%%\u7684\u6982\u7387)\uFF1B\u6BCF %d \u4E2A\u65B9\u5757 1 \u4E2A (100%%\u7684\u6982\u7387)",
                 round(blocksAt1),
                 round(blocksAt50),
                 round((blocksAt100 <= 1) ? 1 : blocksAt100)));
@@ -626,7 +624,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         jLabel14 = new javax.swing.JLabel();
 
         buttonReloadAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/arrow_rotate_clockwise.png"))); // NOI18N
-        buttonReloadAll.setToolTipText("Reload all or selected objects from disk");
+        buttonReloadAll.setToolTipText("\u4ECE\u78C1\u76D8\u91CD\u8F7D\u6240\u6709\u6216\u9009\u4E2D\u5BF9\u8C61");
         buttonReloadAll.setEnabled(false);
         buttonReloadAll.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonReloadAll.addActionListener(new java.awt.event.ActionListener() {
@@ -638,7 +636,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         buttonEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_edit.png"))); // NOI18N
-        buttonEdit.setToolTipText("Edit selected object(s) options");
+        buttonEdit.setToolTipText("\u7F16\u8F91\u9009\u62E9\u7684\u5BF9\u8C61\u9009\u9879");
         buttonEdit.setEnabled(false);
         buttonEdit.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -647,29 +645,29 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             }
         });
 
-        labelLeafDecayTitle.setText("Leaf decay settings for these objects:");
+        labelLeafDecayTitle.setText("\u8FD9\u4E9B\u5BF9\u8C61\u7684\u6811\u53F6\u51CB\u96F6\u8BBE\u7F6E:");
 
-        labelEffectiveLeafDecaySetting.setText("<html>Leaves do <b>not</b> decay.</html>");
+        labelEffectiveLeafDecaySetting.setText("<html>\u6811\u53F6<b>\u4E0D\u4F1A</b>\u51CB\u96F6.</html>");
         labelEffectiveLeafDecaySetting.setEnabled(false);
 
-        buttonSetDecay.setText("Set all to decay");
-        buttonSetDecay.setToolTipText("Set all objects to decaying leaves");
+        buttonSetDecay.setText("\u8BBE\u7F6E\u6240\u6709\u6811\u53F6\u90FD\u4F1A\u51CB\u96F6");
+        buttonSetDecay.setToolTipText("\u8BBE\u7F6E\u6240\u6709\u5BF9\u8C61\u7684\u6811\u53F6\u90FD\u4F1A\u51CB\u96F6");
         buttonSetDecay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSetDecayActionPerformed(evt);
             }
         });
 
-        buttonSetNoDecay.setText("<html>Set all to <b>not</b> decay</html>");
-        buttonSetNoDecay.setToolTipText("Set all objects to non decaying leaves");
+        buttonSetNoDecay.setText("<html>\u8BBE\u7F6E\u6240\u6709\u6811\u53F6\u90FD<b>\u4E0D\u4F1A</b>\u51CB\u96F6</html>");
+        buttonSetNoDecay.setToolTipText("\u8BBE\u7F6E\u6240\u6709\u5BF9\u8C61\u7684\u6811\u53F6\u90FD\u4E0D\u4F1A\u51CB\u96F6");
         buttonSetNoDecay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSetNoDecayActionPerformed(evt);
             }
         });
 
-        buttonReset.setText("Reset");
-        buttonReset.setToolTipText("Reset leaf decay to object defaults");
+        buttonReset.setText("\u91CD\u7F6E");
+        buttonReset.setToolTipText("\u5C06\u6811\u53F6\u51CB\u96F6\u72B6\u6001\u91CD\u7F6E\u4E3A\u5BF9\u8C61\u9ED8\u8BA4\u503C");
         buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetActionPerformed(evt);
@@ -716,7 +714,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         jScrollPane1.setViewportView(listObjects);
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel6.setText("<html><u>Get custom objects</u></html>");
+        jLabel6.setText("<html><u>\u83B7\u53D6\u81EA\u5B9A\u4E49\u5BF9\u8C61</u></html>");
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -724,13 +722,13 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             }
         });
 
-        jLabel1.setText("Define your custom object layer on this screen.");
+        jLabel1.setText("\u5728\u8BE5\u754C\u9762\u5B9A\u4E49\u4F60\u7684\u81EA\u5B9A\u4E49\u5BF9\u8C61\u8986\u76D6\u5C42.");
 
-        jLabel3.setText("Name:");
+        jLabel3.setText("\u540D\u79F0:");
 
         fieldName.setColumns(15);
 
-        jLabel4.setText("Paint:");
+        jLabel4.setText("\u753B\u7B14:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -758,10 +756,10 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
                     .addComponent(paintPicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel2.setText("Object(s):");
+        jLabel2.setText("\u5BF9\u8C61:");
 
         buttonAddFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_add.png"))); // NOI18N
-        buttonAddFile.setToolTipText("Add one or more objects");
+        buttonAddFile.setToolTipText("\u6DFB\u52A0\u4E00\u4E2A\u6216\u66F4\u591A\u5BF9\u8C61");
         buttonAddFile.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonAddFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -770,7 +768,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
         });
 
         buttonRemoveFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_delete.png"))); // NOI18N
-        buttonRemoveFile.setToolTipText("Remove selected object(s)");
+        buttonRemoveFile.setToolTipText("\u79FB\u9664\u9009\u4E2D\u5BF9\u8C61");
         buttonRemoveFile.setEnabled(false);
         buttonRemoveFile.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonRemoveFile.addActionListener(new java.awt.event.ActionListener() {
@@ -779,7 +777,7 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             }
         });
 
-        jLabel7.setText("Spawn chance:");
+        jLabel7.setText("\u751F\u6210\u51E0\u7387:");
 
         spinnerBlocksPerAttempt.setModel(new javax.swing.SpinnerNumberModel(20, 1, 99999, 1));
         spinnerBlocksPerAttempt.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -788,11 +786,11 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             }
         });
 
-        labelBlocksPerAttempt.setText("one per x blocks at 1%; y blocks at 50%; z blocks at 100%)");
+        labelBlocksPerAttempt.setText("\u6BCF x \u4E2A\u65B9\u5757 1%; y \u4E2A\u65B9\u5757 50%; z \u4E2A\u65B9\u5757 100%)");
 
-        jLabel10.setText("one in");
+        jLabel10.setText("1/");
 
-        jLabel5.setText("Grid:");
+        jLabel5.setText("\u7F51\u683C:");
 
         spinnerGrid.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
         spinnerGrid.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -801,9 +799,9 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             }
         });
 
-        jLabel8.setText("(at 50%)");
+        jLabel8.setText("(\u572850%\u51E0\u7387\u4E0B)");
 
-        jLabel9.setText("Random offset:");
+        jLabel9.setText("\u968F\u673A\u504F\u79FB:");
 
         spinnerRandomOffset.setModel(new javax.swing.SpinnerNumberModel(0, 0, 999, 1));
         spinnerRandomOffset.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -812,13 +810,13 @@ public class Bo2LayerEditor extends AbstractLayerEditor<Bo2Layer> implements Lis
             }
         });
 
-        jLabel11.setText("block(s)");
+        jLabel11.setText("\u4E2A\u65B9\u5757");
 
-        jLabel12.setText("Effective density:");
+        jLabel12.setText("\u6709\u6548\u5BC6\u5EA6:");
 
-        jLabel13.setText("(objects displaced in a random direction up to this distance)");
+        jLabel13.setText("(\u5BF9\u8C61\u5728\u968F\u673A\u65B9\u5411\u4E0A\u4F4D\u79FB\u6700\u591A\u8FD9\u4E2A\u8DDD\u79BB)");
 
-        jLabel14.setText("block(s)");
+        jLabel14.setText("\u4E2A\u65B9\u5757");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

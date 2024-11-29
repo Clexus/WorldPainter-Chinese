@@ -45,7 +45,8 @@ public class SimpleThemeEditor extends javax.swing.JPanel implements ButtonPress
                 tableTerrain.getCellEditor().stopCellEditing();
             }
             if (! terrainTableModel.isValid()) {
-                showWarning(this, "You have configured multiple terrain types with the same levels!\nRemove, or change the level of, one of the duplicates.", "Duplicate Levels");
+                showWarning(this, "\u4F60\u914D\u7F6E\u4E86\u591A\u4E2A\u5177\u6709\u76F8\u540C\u9AD8\u5EA6\u7684\u65B9\u5757\u7C7B\u578B\uFF01\n" +
+                        "\u8BF7\u5220\u9664\u6216\u66F4\u6539\u5176\u4E2D\u4E00\u4E2A\u91CD\u590D\u9879\u7684\u9AD8\u5EA6\u3002", "\u9AD8\u5EA6\u91CD\u590D");
                 return false;
             }
             if (tableLayers.isEditing()) {

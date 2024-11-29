@@ -123,7 +123,7 @@ public class WPObjectRenderer {
         BufferedImage image = renderer.render();
         ImageIcon icon = new ImageIcon(image);
         JLabel label = new JLabel(icon);
-        JFrame frame = new JFrame("WPObjectRenderer Test");
+        JFrame frame = new JFrame("WP对象渲染测试");
         frame.getContentPane().add(label, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();

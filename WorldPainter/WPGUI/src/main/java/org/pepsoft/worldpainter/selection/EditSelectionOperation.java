@@ -19,7 +19,7 @@ import java.awt.geom.Path2D;
  */
 public class EditSelectionOperation extends RadiusOperation {
     public EditSelectionOperation(WorldPainterView view, ObservableBoolean selectionState) {
-        super("Edit Selection", "Expand or shrink the selection", view, "operation.selection.edit", "edit_selection");
+        super("Edit Selection", "编辑选区-扩大或缩小选区", view, "operation.selection.edit", "edit_selection");
         this.selectionState = selectionState;
     }
 
@@ -76,6 +76,6 @@ public class EditSelectionOperation extends RadiusOperation {
 
     private final ObservableBoolean selectionState;
 
-    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("Edit Selection", "<ul><li>Left-click to add to the selection<li>Right-click to remove from the selection</ul>");
+    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("编辑选区", "<ul><li>左键添加到选区<li>右键从选区移除</ul>");
     private static final double DEGREES_TO_RADIANS = 360 / (Math.PI * 2);
 }

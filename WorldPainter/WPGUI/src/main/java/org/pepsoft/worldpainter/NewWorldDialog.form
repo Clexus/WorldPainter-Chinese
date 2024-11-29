@@ -82,7 +82,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -339,7 +339,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Level:"/>
+            <Property name="text" type="java.lang.String" value="\u9ad8\u5ea6:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comboBoxMaxHeight">
@@ -347,7 +347,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxMaxHeightActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Integer&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6574\u6570&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JSpinner" name="spinnerLength">
@@ -367,7 +367,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Water level:"/>
+            <Property name="text" type="java.lang.String" value="\u6c34\u5e73\u9762:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fieldSeed">
@@ -415,7 +415,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Name:"/>
+            <Property name="text" type="java.lang.String" value="\u540d\u79f0:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -509,7 +509,7 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkBoxLava">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Lava instead of water:"/>
+            <Property name="text" type="java.lang.String" value="\u4f7f\u7528\u5ca9\u6d46\u800c\u975e\u6c34:"/>
             <Property name="horizontalTextPosition" type="int" value="10"/>
           </Properties>
           <Events>
@@ -651,7 +651,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxTargetActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Platform&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u5e73\u53f0&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkBoxMasterDimension">
@@ -690,7 +690,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxMinHeightActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Integer&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u6574\u6570&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
@@ -741,7 +741,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="buttonCreate">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create"/>
+        <Property name="text" type="java.lang.String" value="\u521b\u5efa:"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCreateActionPerformed"/>

@@ -162,7 +162,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="rounded"/>
+        <Property name="text" type="java.lang.String" value="\u5706\u6ED1"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonRoundedEdgeActionPerformed"/>
@@ -170,7 +170,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Variation:"/>
+        <Property name="text" type="java.lang.String" value="\u53d8\u79cd:"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.NoiseSettingsEditor" name="noiseSettingsEditor1">
@@ -210,7 +210,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxSmooth">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Smooth:"/>
+        <Property name="text" type="java.lang.String" value="\u5E73\u6ED1\u5EA6:"/>
         <Property name="horizontalTextPosition" type="int" value="10"/>
       </Properties>
     </Component>
@@ -224,7 +224,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="\u540D\u79F0:"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.MixedMaterialChooser" name="mixedMaterialSelector1">
@@ -236,7 +236,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Thickness:"/>
+        <Property name="text" type="java.lang.String" value="\u5BC6\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerThickness">
@@ -256,7 +256,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Edge "/>
+        <Property name="text" type="java.lang.String" value="\u8FB9\u7F18"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonSheerEdge">
@@ -265,7 +265,7 @@
           <ComponentRef name="buttonGroup1"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="sheer"/>
+        <Property name="text" type="java.lang.String" value="\u526A\u5207"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonSheerEdgeActionPerformed"/>
@@ -276,7 +276,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="linear"/>
+        <Property name="text" type="java.lang.String" value="\u7EBF\u6027"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonLinearEdgeActionPerformed"/>
@@ -284,7 +284,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="shape:"/>
+        <Property name="text" type="java.lang.String" value="\u5F62\u72B6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonSmoothEdge">
@@ -292,7 +292,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="smooth"/>
+        <Property name="text" type="java.lang.String" value="\u5E73\u6ED1"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioButtonSmoothEdgeActionPerformed"/>
@@ -300,17 +300,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Material:"/>
+        <Property name="text" type="java.lang.String" value="\u6750\u8D28:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Paint:"/>
+        <Property name="text" type="java.lang.String" value="\u753B\u7B14:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="width:"/>
+        <Property name="text" type="java.lang.String" value="\u5BBD\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerEdgeWidth">
@@ -328,9 +328,9 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="Bedrock"/>
-            <StringItem index="1" value="Terrain"/>
-            <StringItem index="2" value="Top of ground cover"/>
+            <StringItem index="0" value="\u57FA\u5CA9"/>
+            <StringItem index="1" value="\u65B9\u5757"/>
+            <StringItem index="2" value="\u5730\u9762\u8986\u76D6\u7269\u7684\u9876\u5C42"/>
           </StringArray>
         </Property>
       </Properties>
@@ -338,12 +338,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxLayerAnchorActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u5B57\u7B26\u4E32&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Layers relative to:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42\u4E0E...\u76F8\u5BF9:"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.layers.renderers.PaintPicker" name="paintPicker1">

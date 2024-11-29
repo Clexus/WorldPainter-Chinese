@@ -69,69 +69,69 @@ public class CopySelectionOperationOptionsPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         checkBoxRemoveExistingLayers = new javax.swing.JCheckBox();
 
-        checkBoxHeight.setText("terrain height");
+        checkBoxHeight.setText("\u5730\u5F62\u9AD8\u5EA6");
         checkBoxHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxHeightActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Copy:");
+        jLabel1.setText("\u590D\u5236:");
 
-        checkBoxTerrain.setText("terrain type");
+        checkBoxTerrain.setText("\u65B9\u5757\u79CD\u7C7B");
         checkBoxTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxTerrainActionPerformed(evt);
             }
         });
 
-        checkBoxFluids.setText("fluid height and type");
+        checkBoxFluids.setText("\u6DB2\u4F53\u9AD8\u5EA6\u548C\u79CD\u7C7B");
         checkBoxFluids.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxFluidsActionPerformed(evt);
             }
         });
 
-        checkBoxLayers.setText("layers");
+        checkBoxLayers.setText("\u8986\u76D6\u5C42");
         checkBoxLayers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxLayersActionPerformed(evt);
             }
         });
 
-        checkBoxBiomes.setText("biomes");
+        checkBoxBiomes.setText("\u751F\u7269\u7FA4\u7CFB");
         checkBoxBiomes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxBiomesActionPerformed(evt);
             }
         });
 
-        checkBoxAnnotations.setText("annotations");
+        checkBoxAnnotations.setText("\u6807\u6CE8\u8986\u76D6\u5C42");
         checkBoxAnnotations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxAnnotationsActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Options:");
+        jLabel2.setText("\u9009\u9879:");
 
-        checkBoxFeather.setText("blend edges (slow!)");
+        checkBoxFeather.setText("\u6DF7\u5408\u8FB9\u7F18(\u5F88\u6162!)");
         checkBoxFeather.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxFeatherActionPerformed(evt);
             }
         });
 
-        checkBoxCreateNewTiles.setText("create new tiles");
+        checkBoxCreateNewTiles.setText("\u521B\u5EFA\u65B0\u5206\u533A");
         checkBoxCreateNewTiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCreateNewTilesActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("(no undo!)");
+        jLabel3.setText("(\u65E0\u6CD5\u64A4\u9500!)");
 
-        checkBoxRemoveExistingLayers.setText("remove existing");
+        checkBoxRemoveExistingLayers.setText("\u79FB\u9664\u73B0\u6709");
         checkBoxRemoveExistingLayers.setEnabled(false);
         checkBoxRemoveExistingLayers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

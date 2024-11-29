@@ -221,14 +221,14 @@ public final class DimensionPainter {
                 case BIT:
                 case BIT_PER_CHUNK:
                     if (undo) {
-                        fillMethod = new UndoDimensionPaintFillMethod("Removing " + layer, dimension, paint) {
+                        fillMethod = new UndoDimensionPaintFillMethod("\u79FB\u9664" + layer, dimension, paint) {
                             @Override
                             public boolean isBoundary(int x, int y) {
                                 return ! dimension.getBitLayerValueAt(layer, x, y);
                             }
                         };
                     } else {
-                        fillMethod = new DimensionPaintFillMethod("Applying " + layer, dimension, paint) {
+                        fillMethod = new DimensionPaintFillMethod("\u5E94\u7528" + layer, dimension, paint) {
                             @Override
                             public boolean isBoundary(int x, int y) {
                                 return dimension.getBitLayerValueAt(layer, x, y);
@@ -241,7 +241,7 @@ public final class DimensionPainter {
                     if (paint instanceof DiscreteLayerPaint) {
                         final int fillValue = dimension.getLayerValueAt(layer, x, y);
                         if (undo) {
-                            fillMethod = new UndoDimensionPaintFillMethod("Removing " + layer, dimension, paint) {
+                            fillMethod = new UndoDimensionPaintFillMethod("\u79FB\u9664" + layer, dimension, paint) {
                                 @Override
                                 public boolean isBoundary(int x, int y) {
                                     return dimension.getLayerValueAt(layer, x, y) != fillValue;
@@ -253,7 +253,7 @@ public final class DimensionPainter {
                                 }
                             };
                         } else {
-                            fillMethod = new DimensionPaintFillMethod("Applying " + layer, dimension, paint) {
+                            fillMethod = new DimensionPaintFillMethod("\u5E94\u7528" + layer, dimension, paint) {
                                 @Override
                                 public boolean isBoundary(int x, int y) {
                                     return dimension.getLayerValueAt(layer, x, y) != fillValue;
@@ -267,14 +267,14 @@ public final class DimensionPainter {
                         }
                     } else {
                         if (undo) {
-                            fillMethod = new UndoDimensionPaintFillMethod("Removing " + layer, dimension, paint) {
+                            fillMethod = new UndoDimensionPaintFillMethod("\u79FB\u9664" + layer, dimension, paint) {
                                 @Override
                                 public boolean isBoundary(int x, int y) {
                                     return dimension.getLayerValueAt(layer, x, y) == 0;
                                 }
                             };
                         } else {
-                            fillMethod = new DimensionPaintFillMethod("Applying " + layer, dimension, paint) {
+                            fillMethod = new DimensionPaintFillMethod("\u5E94\u7528" + layer, dimension, paint) {
                                 @Override
                                 public boolean isBoundary(int x, int y) {
                                     return dimension.getLayerValueAt(layer, x, y) >= targetValue;
@@ -291,7 +291,7 @@ public final class DimensionPainter {
         } else if (paint instanceof TerrainPaint) {
             final Terrain terrainToFill = dimension.getTerrainAt(x, y);
             if (undo) {
-                fillMethod = new UndoDimensionPaintFillMethod("Removing " + terrainToFill, dimension, paint) {
+                fillMethod = new UndoDimensionPaintFillMethod("\u79FB\u9664" + terrainToFill, dimension, paint) {
                     @Override
                     public boolean isBoundary(int x, int y) {
                         return dimension.getTerrainAt(x, y) != terrainToFill;
@@ -303,7 +303,7 @@ public final class DimensionPainter {
                     }
                 };
             } else {
-                fillMethod = new DimensionPaintFillMethod("Applying " + ((TerrainPaint) paint).getTerrain(), dimension, paint) {
+                fillMethod = new DimensionPaintFillMethod("\u5E94\u7528" + ((TerrainPaint) paint).getTerrain(), dimension, paint) {
                     @Override
                     public boolean isBoundary(int x, int y) {
                         return dimension.getTerrainAt(x, y) != terrainToFill;

@@ -7,7 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Import Existing Minecraft Map"/>
+    <Property name="title" type="java.lang.String" value="导入已有的Minecraft地图"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -149,7 +149,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select an existing map:"/>
+        <Property name="text" type="java.lang.String" value="选择已有地图:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldFilename">
@@ -164,12 +164,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Statistics for surface:"/>
+        <Property name="text" type="java.lang.String" value="主世界信息统计:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Width:"/>
+        <Property name="text" type="java.lang.String" value="宽度:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelWidth">
@@ -179,7 +179,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Length:"/>
+        <Property name="text" type="java.lang.String" value="长度:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelLength">
@@ -189,7 +189,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Area:"/>
+        <Property name="text" type="java.lang.String" value="面积:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelArea">
@@ -199,7 +199,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="取消"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -207,7 +207,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="确认"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -216,7 +216,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Options:"/>
+        <Property name="text" type="java.lang.String" value="选项:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonReadOnlyNone">
@@ -224,7 +224,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="do not mark any chunks read-only"/>
+        <Property name="text" type="java.lang.String" value="不要将区块标记为只读"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonReadOnlyManMade">
@@ -232,7 +232,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="mark chunks containing man-made blocks read-only"/>
+        <Property name="text" type="java.lang.String" value="将有人工建筑物的区块标记为只读"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonReadOnlyAll">
@@ -240,7 +240,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="mark all chunks read-only"/>
+        <Property name="text" type="java.lang.String" value="将所有区块标记为只读"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioButtonReadOnlyManMadeAboveGround">
@@ -249,31 +249,31 @@
           <ComponentRef name="buttonGroup1"/>
         </Property>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;mark chunks containing man-made blocks &lt;i&gt;above ground&lt;/i&gt; read-only&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;将&lt;i&gt;地表&lt;/i&gt;有人工建筑物的区块标记为只读&lt;/html&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxImportSurface">
       <Properties>
         <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="Import Surface"/>
+        <Property name="text" type="java.lang.String" value="导入主世界"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxImportNether">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Import Nether"/>
+        <Property name="text" type="java.lang.String" value="导入下界"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="checkBoxImportEnd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Import End"/>
+        <Property name="text" type="java.lang.String" value="导入末地"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Map format:"/>
+        <Property name="text" type="java.lang.String" value="地图格式:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPlatform">

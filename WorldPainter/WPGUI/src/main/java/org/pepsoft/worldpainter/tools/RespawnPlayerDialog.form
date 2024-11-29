@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Respawn Player"/>
+    <Property name="title" type="java.lang.String" value="\u91CD\u751F\u73A9\u5BB6"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -70,12 +70,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Use this tool to respawn the player in a single player"/>
+        <Property name="text" type="java.lang.String" value="\u4F7F\u7528\u8BE5\u5DE5\u5177\u5728\u5355\u4EBA\u6A21\u5F0F\u91CD\u751F\u73A9\u5BB6"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="world where respawn after death is broken."/>
+        <Property name="text" type="java.lang.String" value="\u91CD\u751F\u540E\u8FDB\u5165\u7684\u4E16\u754C\u5DF2\u635F\u574F."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -85,17 +85,17 @@
             <Font bold="true" component="jLabel3" property="font" relativeSize="true" size="0"/>
           </FontInfo>
         </Property>
-        <Property name="text" type="java.lang.String" value="Make sure Minecraft is not running!"/>
+        <Property name="text" type="java.lang.String" value="\u8BF7\u786E\u4FDD\u6E38\u620F\u6CA1\u6709\u8FD0\u884C!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Then, select the level.dat file of the world, and press"/>
+        <Property name="text" type="java.lang.String" value="\u7136\u540E\u9009\u62E9\u4E16\u754C\u7684 level.dat \u6587\u4EF6\uFF0C\u7136\u540E"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="the button to respawn the player:"/>
+        <Property name="text" type="java.lang.String" value="\u70B9\u51FB\u6309\u94AE\u6765\u91CD\u751F\u73A9\u5BB6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
@@ -110,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Respawn"/>
+        <Property name="text" type="java.lang.String" value="\u91CD\u751F"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

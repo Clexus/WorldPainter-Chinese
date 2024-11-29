@@ -134,80 +134,80 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
                     parent = null;
                 }
                 JPopupMenu menu = new BetterJPopupMenu();
-                JMenuItem menuItem = new JMenuItem("Focus Here");
+                JMenuItem menuItem = new JMenuItem("\u805A\u7126\u6B64\u5904");
                 menuItem.addActionListener(actionEvent -> {
                     focusOn(heightMap);
                     installHeightMap(false);
                 });
                 menu.add(menuItem);
 
-                JMenu insertMenu = new JMenu("Insert");
-                menuItem = new JMenuItem("Product");
+                JMenu insertMenu = new JMenu("\u63D2\u5165");
+                menuItem = new JMenuItem("\u4E58\u79EF");
                 menuItem.addActionListener(actionEvent -> {
                     ProductHeightMap productHeightMap = new ProductHeightMap(heightMap, new ConstantHeightMap(1.0f));
                     replace(parent, heightMap, productHeightMap);
                 });
                 insertMenu.add(menuItem);
-                menuItem = new JMenuItem("Sum");
+                menuItem = new JMenuItem("\u603B\u548C");
                 menuItem.addActionListener(actionEvent -> {
                     SumHeightMap sumHeightMap = new SumHeightMap(heightMap, new ConstantHeightMap(0.0f));
                     replace(parent, heightMap, sumHeightMap);
                 });
                 insertMenu.add(menuItem);
-                menuItem = new JMenuItem("Maximum");
+                menuItem = new JMenuItem("\u6700\u5927\u503C");
                 menuItem.addActionListener(actionEvent -> {
                     MaximisingHeightMap maximisingHeightMap = new MaximisingHeightMap(heightMap, new ConstantHeightMap(0.0f));
                     replace(parent, heightMap, maximisingHeightMap);
                 });
                 insertMenu.add(menuItem);
-                menuItem = new JMenuItem("Slope");
+                menuItem = new JMenuItem("\u5761\u5EA6");
                 menuItem.addActionListener(actionEvent -> {
                     SlopeHeightMap slopeHeightMap = new SlopeHeightMap(heightMap);
                     replace(parent, heightMap, slopeHeightMap);
                 });
                 insertMenu.add(menuItem);
-                menuItem = new JMenuItem("Displacement");
+                menuItem = new JMenuItem("\u4F4D\u79FB");
                 menuItem.addActionListener(actionEvent -> {
                     DisplacementHeightMap displacementHeightMap = new DisplacementHeightMap(heightMap, new ConstantHeightMap(0.0f), new ConstantHeightMap(0.0f));
                     replace(parent, heightMap, displacementHeightMap);
                 });
                 insertMenu.add(menuItem);
-                menuItem = new JMenuItem("Transformation");
+                menuItem = new JMenuItem("\u53D8\u6362");
                 menuItem.addActionListener(actionEvent -> {
                     TransformingHeightMap transformingHeightMap = new TransformingHeightMap(heightMap.getName(), heightMap, 1.0f, 1.0f, 0, 0, 0.0f);
                     replace(parent, heightMap, transformingHeightMap);
                 });
                 insertMenu.add(menuItem);
-                menuItem = new JMenuItem("Shelves");
+                menuItem = new JMenuItem("\u5E73\u53F0");
                 menuItem.addActionListener(actionEvent -> {
                     ShelvingHeightMap shelvingHeightMap = new ShelvingHeightMap(heightMap);
                     replace(parent, heightMap, shelvingHeightMap);
                 });
                 insertMenu.add(menuItem);
                 menu.add(insertMenu);
-                JMenu replaceMenu = new JMenu("Replace");
-                menuItem = new JMenuItem("Mandelbrot");
+                JMenu replaceMenu = new JMenu("\u66FF\u6362");
+                menuItem = new JMenuItem("\u66FC\u5FB7\u52C3\u7F57\u96C6");
                 menuItem.addActionListener(actionEvent -> {
                     MandelbrotHeightMap mandelbrotHeightMap = new MandelbrotHeightMap();
                     replace(parent, heightMap, mandelbrotHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Nine Patch");
+                menuItem = new JMenuItem(".9\u56FE");
                 menuItem.addActionListener(actionEvent -> {
                     NinePatchHeightMap ninePatchHeightMap = new NinePatchHeightMap(100, 25, 1.0f);
                     replace(parent, heightMap, ninePatchHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Constant");
+                menuItem = new JMenuItem("\u5E38\u91CF");
                 menuItem.addActionListener(actionEvent -> {
                     ConstantHeightMap constantHeightMap = new ConstantHeightMap(1.0f);
                     replace(parent, heightMap, constantHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Bitmap");
+                menuItem = new JMenuItem("\u4F4D\u56FE");
                 menuItem.addActionListener(actionEvent -> {
                     final File myHeightMapDir = Configuration.getInstance().getHeightMapsDirectory();
-                    final File file = ImageUtils.selectImageForOpen(HeightMapEditor.this, "a height map image file", myHeightMapDir);
+                    final File file = ImageUtils.selectImageForOpen(HeightMapEditor.this, "\u4E00\u4E2A\u9AD8\u5EA6\u56FE\u6587\u4EF6", myHeightMapDir);
                     if (file != null) {
                         try {
                             BufferedImage image = ImageIO.read(file);
@@ -219,56 +219,56 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
                     }
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Noise");
+                menuItem = new JMenuItem("\u566A\u58F0");
                 menuItem.addActionListener(actionEvent -> {
                     NoiseHeightMap noiseHeightMap = new NoiseHeightMap(1f, 1.0, 1);
                     replace(parent, heightMap, noiseHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Bands");
+                menuItem = new JMenuItem("\u9AD8\u5EA6\u5E26");
                 menuItem.addActionListener(actionEvent -> {
                     BandedHeightMap bandedHeightMap = new BandedHeightMap(100, 1.0, 100, 1.0, false);
                     replace(parent, heightMap, bandedHeightMap);
                 });
                 replaceMenu.add(menuItem);
                 replaceMenu.addSeparator();
-                menuItem = new JMenuItem("Product");
+                menuItem = new JMenuItem("\u4E58\u79EF");
                 menuItem.addActionListener(actionEvent -> {
                     ProductHeightMap productHeightMap = new ProductHeightMap(new ConstantHeightMap(1.0f), new ConstantHeightMap(1.0f));
                     replace(parent, heightMap, productHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Sum");
+                menuItem = new JMenuItem("\u548C");
                 menuItem.addActionListener(actionEvent -> {
                     SumHeightMap sumHeightMap = new SumHeightMap(new ConstantHeightMap(0.5f), new ConstantHeightMap(0.5f));
                     replace(parent, heightMap, sumHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Maximum");
+                menuItem = new JMenuItem("\u6700\u5927\u503C");
                 menuItem.addActionListener(actionEvent -> {
                     MaximisingHeightMap maximisingHeightMap = new MaximisingHeightMap(new ConstantHeightMap(1.0f), new ConstantHeightMap(1.0f));
                     replace(parent, heightMap, maximisingHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Slope");
+                menuItem = new JMenuItem("\u5761\u5EA6");
                 menuItem.addActionListener(actionEvent -> {
                     SlopeHeightMap slopeHeightMap = new SlopeHeightMap(new ConstantHeightMap(1.0f));
                     replace(parent, heightMap, slopeHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Displacement");
+                menuItem = new JMenuItem("\u504F\u79FB");
                 menuItem.addActionListener(actionEvent -> {
                     DisplacementHeightMap displacementHeightMap = new DisplacementHeightMap(new ConstantHeightMap(1.0f), new ConstantHeightMap(0.0f), new ConstantHeightMap(0.0f));
                     replace(parent, heightMap, displacementHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Transformation");
+                menuItem = new JMenuItem("\u53D8\u6362");
                 menuItem.addActionListener(actionEvent -> {
                     TransformingHeightMap transformingHeightMap = new TransformingHeightMap(null, new ConstantHeightMap(1.0f), 1.0f, 1.0f, 0, 0, 0.0f);
                     replace(parent, heightMap, transformingHeightMap);
                 });
                 replaceMenu.add(menuItem);
-                menuItem = new JMenuItem("Shelves");
+                menuItem = new JMenuItem("\u5E73\u53F0");
                 menuItem.addActionListener(actionEvent -> {
                     ShelvingHeightMap shelvingHeightMap = new ShelvingHeightMap(new ConstantHeightMap(1.0f));
                     replace(parent, heightMap, shelvingHeightMap);
@@ -276,7 +276,7 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
                 replaceMenu.add(menuItem);
                 menu.add(replaceMenu);
                 if (heightMap instanceof DelegatingHeightMap) {
-                    menuItem = new JMenuItem("Delete");
+                    menuItem = new JMenuItem("\u5220\u9664");
                     menuItem.addActionListener(e -> {
                         replace(parent, heightMap, ((DelegatingHeightMap) heightMap).getHeightMap(0));
                         treeModel.notifyListeners();
@@ -581,7 +581,7 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
 
     private static void configError(Throwable e) {
         logger.error("Exception while loading config file", e);
-        JOptionPane.showMessageDialog(null, "Could not read configuration file! Resetting configuration.\n\nException type: " + e.getClass().getSimpleName() + "\nMessage: " + e.getMessage(), "Configuration Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "\u65E0\u6CD5\u8BFB\u53D6\u914D\u7F6E\u6587\u4EF6! \u914D\u7F6E\u6587\u4EF6\u5DF2\u91CD\u7F6E.\n\n\u9519\u8BEF\u7C7B\u578B: " + e.getClass().getSimpleName() + "\n\u9519\u8BEF\u6D88\u606F: " + e.getMessage(), "\u914D\u7F6E\u9519\u8BEF", JOptionPane.ERROR_MESSAGE);
     }
 
     private HeightMap rootHeightMap, focusHeightMap;

@@ -74,7 +74,7 @@ public class CombinedLayerEditor extends AbstractLayerEditor<CombinedLayer> impl
     
     @Override
     public CombinedLayer createLayer() {
-        return new CombinedLayer("My Combined Layer", "A combined layer", Color.ORANGE);
+        return new CombinedLayer("\u6211\u7684\u6DF7\u5408\u8986\u76d6\u5c42", "\u4E00\u4E2A\u6DF7\u5408\u8986\u76d6\u5c42", Color.ORANGE);
     }
 
     @Override

@@ -18,7 +18,7 @@ import javax.swing.*;
  */
 public class Sponge extends RadiusOperation {
     public Sponge(WorldPainterView view) {
-        super("Sponge", "Dry up or reset water and lava", view, 100, "operation.sponge");
+        super("Sponge", "\u6D77\u7EF5\u5DE5\u5177-\u5438\u6536\u6216\u6E05\u9664\u5CA9\u6D46\u6216\u6C34", view, 100, "operation.sponge");
     }
 
     @Override
@@ -64,5 +64,5 @@ public class Sponge extends RadiusOperation {
         }
     }
 
-    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("Sponge", "<ul><li>Left-click to remove water and lava<li>Right-click to reset to the default fluid type and height</ul>");
+    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("\u6D77\u7EF5\u5DE5\u5177", "<ul><li>\u5DE6\u952E\u79FB\u9664\u5CA9\u6D46\u6216\u6C34<li>\u53F3\u952E\u4F7F\u5176\u91CD\u7F6E\u4E3A\u9ED8\u8BA4\u6DB2\u4F53\u79CD\u7C7B\u548C\u9AD8\u5EA6</ul>");
 }

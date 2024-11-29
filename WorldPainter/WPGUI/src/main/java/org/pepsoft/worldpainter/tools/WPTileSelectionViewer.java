@@ -66,7 +66,7 @@ public class WPTileSelectionViewer extends TiledImageViewer {
         int zoom = getZoom();
         g2.drawImage(SCALE_BAR, 10, getHeight() - 10 - SCALE_BAR.getHeight(), this);
         g2.setColor(Color.BLACK);
-        String str = ((zoom < 0) ? (100 << -zoom) : (100 >> zoom)) + " blocks";
+        String str = ((zoom < 0) ? (100 << -zoom) : (100 >> zoom)) + "个方块";
         g2.drawString(str, 15 + SCALE_BAR.getWidth() + 1, getHeight() - 9);
         g2.setColor(Color.WHITE);
         g2.drawString(str, 15 + SCALE_BAR.getWidth(), getHeight() - 10);

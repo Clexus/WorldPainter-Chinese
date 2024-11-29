@@ -231,7 +231,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             checkBoxPopulate.setSelected(dimension.isPopulate());
         } else {
             checkBoxPopulate.setSelected(false);
-            checkBoxPopulate.setToolTipText("Automatic population not support by format " + platform);
+            checkBoxPopulate.setToolTipText(platform+"\u683C\u5F0F\u4E0D\u652F\u6301\u81EA\u52A8\u586B\u5145");
         }
         Generator generator = (Generator) comboBoxGenerator.getSelectedItem();
         comboBoxGenerator.setModel(new DefaultComboBoxModel<>(platform.supportedGenerators.toArray(new Generator[platform.supportedGenerators.size()])));
@@ -314,14 +314,14 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         comboBoxSurfaceLayerAnchor.setEnabled(enabled);
         setControlStates();
     }
-    
+
     public boolean saveSettings() {
         final int minHeight = dimension.getMinHeight(), maxHeight = dimension.getMaxHeight() - 1;
 
         // sanity checks
         if ((comboBoxGenerator.getSelectedItem() == CUSTOM) && ((generatorName == null) || generatorName.trim().isEmpty())) {
             buttonGeneratorOptions.requestFocusInWindow();
-            beepAndShowError(this, "The custom world generator name has not been set.\nUse the [...] button to set it.", "Error");
+            beepAndShowError(this, "\u81EA\u5B9A\u4E49\u4E16\u754C\u751F\u6210\u5668\u6682\u672A\u914D\u7F6E.\n\u8BF7\u4F7F\u7528 [...] \u6309\u94AE\u6765\u8BBE\u7F6E.", "\u9519\u8BEF");
             return false;
         }
 
@@ -415,7 +415,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         cavernsSettings.setMaximumLevel((cavernsMaxLevel >= maxHeight) ? Integer.MAX_VALUE : cavernsMaxLevel);
         cavernsSettings.setCaveDecorationSettings(checkBoxDecorateCaverns.isSelected() ? decorationSettings : null);
         dimension.setLayerSettings(Caverns.INSTANCE, cavernsSettings);
-        
+
         // chasms
         ChasmsSettings chasmsSettings = (ChasmsSettings) dimension.getLayerSettings(Chasms.INSTANCE);
         if (chasmsSettings == null) {
@@ -440,10 +440,10 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         chasmsSettings.setLeaveWater(! checkBoxCavernsRemoveWater.isSelected());
         chasmsSettings.setCaveDecorationSettings(checkBoxDecorateChasms.isSelected() ? decorationSettings : null);
         dimension.setLayerSettings(Chasms.INSTANCE, chasmsSettings);
-        
+
         // populate
         dimension.setPopulate(checkBoxPopulate.isSelected());
-        
+
         // deciduous
         TreeLayerSettings<DeciduousForest> deciduousSettings = (TreeLayerSettings<DeciduousForest>) dimension.getLayerSettings(DeciduousForest.INSTANCE);
         if (deciduousSettings == null) {
@@ -456,7 +456,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             deciduousSettings.setMinimumLevel(0);
         }
         dimension.setLayerSettings(DeciduousForest.INSTANCE, deciduousSettings);
-        
+
         // pine
         TreeLayerSettings<PineForest> pineSettings = (TreeLayerSettings<PineForest>) dimension.getLayerSettings(PineForest.INSTANCE);
         if (pineSettings == null) {
@@ -469,7 +469,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             pineSettings.setMinimumLevel(0);
         }
         dimension.setLayerSettings(PineForest.INSTANCE, pineSettings);
-        
+
         // jungle
         TreeLayerSettings<Jungle> jungleSettings = (TreeLayerSettings<Jungle>) dimension.getLayerSettings(Jungle.INSTANCE);
         if (jungleSettings == null) {
@@ -482,7 +482,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             jungleSettings.setMinimumLevel(0);
         }
         dimension.setLayerSettings(Jungle.INSTANCE, jungleSettings);
-        
+
         // swampland
         TreeLayerSettings<SwampLand> swampLandSettings = (TreeLayerSettings<SwampLand>) dimension.getLayerSettings(SwampLand.INSTANCE);
         if (swampLandSettings == null) {
@@ -495,7 +495,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             swampLandSettings.setMinimumLevel(0);
         }
         dimension.setLayerSettings(SwampLand.INSTANCE, swampLandSettings);
-        
+
         // frost
         FrostSettings frostSettings = (FrostSettings) dimension.getLayerSettings(Frost.INSTANCE);
         if (frostSettings == null) {
@@ -564,7 +564,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             resourcesSettings.setMaxLevel(ANCIENT_DEBRIS, (Integer) spinnerAncientDebrisMaxLevel.getValue());
             dimension.setLayerSettings(Resources.INSTANCE, resourcesSettings);
         }
-        
+
         // annotations
         AnnotationsSettings annotationsSettings = (AnnotationsSettings) dimension.getLayerSettings(Annotations.INSTANCE);
         if (annotationsSettings == null) {
@@ -572,7 +572,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         }
         annotationsSettings.setExport(checkBoxExportAnnotations.isSelected());
         dimension.setLayerSettings(Annotations.INSTANCE, annotationsSettings);
-        
+
         // custom layers
         if ((mode == Mode.EXPORT) && (customLayersTableModel != null) && (! customLayersTableModel.isPristine())) {
             customLayersTableModel.save();
@@ -639,7 +639,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 try {
                     ExportSettingsEditor editor = platformProvider.getExportSettingsEditor(platform);
                     editor.setExportSettings(exportSettings);
-                    jTabbedPane1.addTab("Post Processing", editor);
+                    jTabbedPane1.addTab("\u540E\u5904\u7406", editor);
                 } catch (RuntimeException e) {
                     logger.warn("Could not initialise post processing tab", e);
                 }
@@ -663,7 +663,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
     private void loadSettings() {
         final int minHeight = dimension.getMinHeight(), maxHeight = dimension.getMaxHeight() - 1;
-        
+
         // general
         ((SpinnerNumberModel) spinnerMinSurfaceDepth.getModel()).setMaximum(maxHeight);
         spinnerMinSurfaceDepth.setValue(dimension.getTopLayerMinDepth());
@@ -852,7 +852,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
         // populate
         checkBoxPopulate.setSelected(dimension.isPopulate());
-        
+
         // deciduous
         TreeLayerSettings<DeciduousForest> deciduousSettings = (TreeLayerSettings<DeciduousForest>) dimension.getLayerSettings(DeciduousForest.INSTANCE);
         if (deciduousSettings == null) {
@@ -865,7 +865,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             checkBoxDeciduousEverywhere.setSelected(false);
             sliderDeciduousLevel.setValue(8);
         }
-        
+
         // pine
         TreeLayerSettings<PineForest> pineSettings = (TreeLayerSettings<PineForest>) dimension.getLayerSettings(PineForest.INSTANCE);
         if (pineSettings == null) {
@@ -878,7 +878,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             checkBoxPineEverywhere.setSelected(false);
             sliderPineLevel.setValue(8);
         }
-        
+
         // jungle
         TreeLayerSettings<Jungle> jungleSettings = (TreeLayerSettings<Jungle>) dimension.getLayerSettings(Jungle.INSTANCE);
         if (jungleSettings == null) {
@@ -891,7 +891,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             checkBoxJungleEverywhere.setSelected(false);
             sliderJungleLevel.setValue(8);
         }
-        
+
         // swamp
         TreeLayerSettings<SwampLand> swampLandSettings = (TreeLayerSettings<SwampLand>) dimension.getLayerSettings(SwampLand.INSTANCE);
         if (swampLandSettings == null) {
@@ -904,7 +904,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             checkBoxSwamplandEverywhere.setSelected(false);
             jSlider6.setValue(8);
         }
-        
+
         // frost
         FrostSettings frostSettings = (FrostSettings) dimension.getLayerSettings(Frost.INSTANCE);
         if (frostSettings == null) {
@@ -1030,7 +1030,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             ((SpinnerNumberModel) spinnerAncientDebrisMaxLevel.getModel()).setMaximum(maxHeight);
             spinnerAncientDebrisMaxLevel.setValue(clamp(minHeight, resourcesSettings.getMaxLevel(ANCIENT_DEBRIS), maxHeight));
         }
-        
+
         // terrain ranges
         if ((mode != Mode.EXPORT)
                 && (dimension.getTileFactory() instanceof HeightMapTileFactory)
@@ -1045,7 +1045,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             annotationsSettings = new AnnotationsSettings();
         }
         checkBoxExportAnnotations.setSelected(annotationsSettings.isExport());
-        
+
         // custom layers
         if (mode == Mode.EXPORT) {
             final List<CustomLayer> customLayers = dimension.getCustomLayers(true);
@@ -1071,7 +1071,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
         setControlStates();
     }
-    
+
     private void setControlStates() {
         final boolean enabled = isEnabled();
         final Anchor anchor = (dimension != null) ? dimension.getAnchor() : null;
@@ -1162,7 +1162,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         setEnabled(checkBoxBottomless, enabled && (! floorDimension) && (! master)); // TODO make it possible for this to be different for the master dimension
         setEnabled(comboBoxSubsurfaceBiome, enabled && (! caveFloor));
     }
-    
+
     private void setEnabled(Component component, boolean enabled) {
         if (component.isEnabled() != enabled) {
             component.setEnabled(enabled);
@@ -1220,10 +1220,10 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         if (comboBoxGenerator.getSelectedItem() != null) {
             switch ((Generator) comboBoxGenerator.getSelectedItem()) {
                 case FLAT:
-                    buttonGeneratorOptions.setToolTipText("Edit the Superflat mode preset");
+                    buttonGeneratorOptions.setToolTipText("\u7F16\u8F91\u8D85\u5E73\u5766\u6A21\u5F0F\u9884\u8BBE");
                     break;
                 case CUSTOM:
-                    buttonGeneratorOptions.setToolTipText("Set the custom world generator name");
+                    buttonGeneratorOptions.setToolTipText("\u8BBE\u7F6E\u81EA\u5B9A\u4E49\u4E16\u754C\u751F\u6210\u5668\u540D\u79F0");
                     break;
                 default:
                     buttonGeneratorOptions.setToolTipText(null);
@@ -1267,10 +1267,10 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                             tableCustomLayers.getSelectionModel().setSelectionInterval(index, index);
                             tableCustomLayers.scrollRectToVisible(tableCustomLayers.getCellRect(index, 0, true));
                         } else {
-                            beepAndShowError(DimensionPropertiesEditor.this, "Layer " + layer.getName() + " not in list", "Not In List");
+                            beepAndShowError(DimensionPropertiesEditor.this, "\u8986\u76D6\u5C42 " + layer.getName() + " \u4E0D\u5728\u5217\u8868\u4E2D", "\u4E0D\u5728\u5217\u8868\u4E2D");
                         }
                     } else {
-                        beepAndShowError(DimensionPropertiesEditor.this, "Layer " + layer.getName() + " is not a Custom Layer", "Not A Custom Layer");
+                        beepAndShowError(DimensionPropertiesEditor.this, "\u8986\u76D6\u5C42 " + layer.getName() + " \u4E0D\u662F\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42", "\u4E0D\u662F\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42");
                     }
                 }
 
@@ -1283,7 +1283,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
     }
 
     private void resetOrder() {
-        if (JOptionPane.showConfirmDialog(this, "Do you want to reset the order of all custom layers to the default?\nThis cannot be undone!", "Confirm Order Reset", YES_NO_OPTION) != YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "\u4F60\u60F3\u8981\u91CD\u7F6E\u6240\u6709\u8986\u76D6\u5C42\u7684\u987A\u5E8F\u4E3A\u9ED8\u8BA4\u503C\u5417?\n\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!", "\u786E\u8BA4\u987A\u5E8F\u91CD\u7F6E", YES_NO_OPTION) != YES_OPTION) {
             return;
         }
         final List<CustomLayer> customLayers = dimension.getCustomLayers(true);
@@ -2676,7 +2676,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerWaterChance, gridBagConstraints);
 
-        jLabel29.setText("‰");
+        jLabel29.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -2804,7 +2804,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerLapisChance, gridBagConstraints);
 
-        jLabel25.setText("‰");
+        jLabel25.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -2828,7 +2828,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel51, gridBagConstraints);
 
-        jLabel22.setText("‰");
+        jLabel22.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -2884,7 +2884,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerWaterMaxLevel, gridBagConstraints);
 
-        jLabel26.setText("‰");
+        jLabel26.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -2980,7 +2980,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerLavaMinLevel, gridBagConstraints);
 
-        jLabel23.setText("‰");
+        jLabel23.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -3004,7 +3004,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerLavaMaxLevel, gridBagConstraints);
 
-        jLabel24.setText("‰");
+        jLabel24.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -3020,7 +3020,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel61, gridBagConstraints);
 
-        jLabel52.setText("‰");
+        jLabel52.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -3028,7 +3028,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel52, gridBagConstraints);
 
-        jLabel28.setText("‰");
+        jLabel28.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -3241,7 +3241,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel30, gridBagConstraints);
 
-        jLabel33.setText("‰");
+        jLabel33.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -3282,7 +3282,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(spinnerCopperMaxLevel, gridBagConstraints);
 
-        jLabel27.setText("‰");
+        jLabel27.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -3298,7 +3298,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(spinnerGravelMinLevel, gridBagConstraints);
 
-        jLabel31.setText("‰");
+        jLabel31.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -3348,7 +3348,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel42, gridBagConstraints);
 
-        jLabel89.setText("‰");
+        jLabel89.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -3366,7 +3366,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
         jPanel22.setLayout(new java.awt.GridBagLayout());
 
-        jLabel101.setText("‰");
+        jLabel101.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -3438,7 +3438,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel22.add(spinnerAncientDebrisMinLevel, gridBagConstraints);
 
-        jLabel75.setText("‰");
+        jLabel75.setText("\u2030");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -3883,7 +3883,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         if (checkBoxPopulate.isSelected() && jCheckBox8.isSelected() && (! endlessBorder)) {
             jCheckBox8.setSelected(false);
             setControlStates();
-            showInfo(this, "\"Resources everywhere\" disabled on the Resources tab,\nto avoid duplicate resources. You may enable it again manually.", "Resources Everywhere Disabled");
+            showInfo(this, "\"\u5904\u5904\u8D44\u6E90\" \u5728\u8D44\u6E90\u6807\u7B7E\u9875\u88AB\u5173\u95ED\u4EE5\u9632\u6B62\u5237\u53D6\u8D44\u6E90. \u4F60\u53EF\u4EE5\u624B\u52A8\u5F00\u542F.", "\u5904\u5904\u8D44\u6E90\u5DF2\u5173\u95ED");
         }
     }//GEN-LAST:event_checkBoxPopulateActionPerformed
 
@@ -4057,13 +4057,13 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
     private void buttonGeneratorOptionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGeneratorOptionsActionPerformed
         if (comboBoxGenerator.getSelectedItem() == CUSTOM) {
-            String editedGeneratorOptions = JOptionPane.showInputDialog(this, "Edit the custom world generator name:", generatorName);
+            String editedGeneratorOptions = JOptionPane.showInputDialog(this, "\u7F16\u8F91\u81EA\u5B9A\u4E49\u4E16\u754C\u751F\u6210\u5668\u7684\u540D\u79F0:", generatorName);
             if (editedGeneratorOptions != null) {
                 generatorName = editedGeneratorOptions;
             }
         } else {
             if (generatorName != null) {
-                String editedGeneratorOptions = JOptionPane.showInputDialog(this, "Edit the Superflat mode preset:", generatorName);
+                String editedGeneratorOptions = JOptionPane.showInputDialog(this, "\u7F16\u8F91\u8D85\u5E73\u5766\u6A21\u5F0F\u9884\u8BBE:", generatorName);
                 if (editedGeneratorOptions != null) {
                     generatorName = editedGeneratorOptions;
                 }

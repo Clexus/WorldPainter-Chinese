@@ -40,8 +40,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Terrain">
-                <Property name="tabTitle" type="java.lang.String" value="Terrain"/>
+              <JTabbedPaneConstraints tabName="\u65b9\u5757">
+                <Property name="tabTitle" type="java.lang.String" value="\u65b9\u5757"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -83,8 +83,8 @@
           <SubComponents>
             <Component class="javax.swing.JCheckBox" name="checkBoxBeaches">
               <Properties>
-                <Property name="text" type="java.lang.String" value="beaches"/>
-                <Property name="toolTipText" type="java.lang.String" value="Whether to add beaches from two levels below the water level to two levels above."/>
+                <Property name="text" type="java.lang.String" value="\u6D77\u6EE9"/>
+                <Property name="toolTipText" type="java.lang.String" value="\u662F\u5426\u5C06\u6D77\u6EE9\u4ECE\u6C34\u4F4D\u4EE5\u4E0B\u4E24\u5C42\u589E\u52A0\u5230\u6C34\u4F4D\u4EE5\u4E0A\u4E24\u5C42."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxBeachesActionPerformed"/>
@@ -106,7 +106,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="buttonAddTerrain">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add..."/>
+                <Property name="text" type="java.lang.String" value="\u6DFB\u52A0..."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddTerrainActionPerformed"/>
@@ -119,8 +119,8 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkBoxRandomise">
               <Properties>
-                <Property name="text" type="java.lang.String" value="noisy edges"/>
-                <Property name="toolTipText" type="java.lang.String" value="Whether to randomise the edges of the terrain types (except beaches)."/>
+                <Property name="text" type="java.lang.String" value="\u566A\u58F0\u8FB9\u7F18"/>
+                <Property name="toolTipText" type="java.lang.String" value="\u662F\u5426\u968F\u673A\u5316\u65B9\u5757\u79CD\u7C7B\u7684\u8FB9\u7F18(\u9664\u4E86\u6D77\u6EE9)."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkBoxRandomiseActionPerformed"/>
@@ -128,7 +128,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Default water level:"/>
+                <Property name="text" type="java.lang.String" value="\u9ED8\u8BA4\u6C34\u5E73\u9762\u9AD8\u5EA6:"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -136,8 +136,8 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Layers">
-                <Property name="tabTitle" type="java.lang.String" value="Layers"/>
+              <JTabbedPaneConstraints tabName="\u8986\u76d6\u5c42">
+                <Property name="tabTitle" type="java.lang.String" value="\u8986\u76d6\u5c42"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -171,7 +171,7 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="buttonAddLayer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add..."/>
+                <Property name="text" type="java.lang.String" value="\u6DFB\u52A0..."/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddLayerActionPerformed"/>

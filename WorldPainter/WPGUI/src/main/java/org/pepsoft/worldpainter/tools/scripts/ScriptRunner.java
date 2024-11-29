@@ -81,7 +81,7 @@ public class ScriptRunner extends WorldPainterDialog {
     private void selectFile() {
         Set<String> extensions = new HashSet<>();
         SCRIPT_ENGINE_MANAGER.getEngineFactories().forEach(factory -> extensions.addAll(factory.getExtensions()));
-        File script = FileUtils.selectFileForOpen(this, "Select Script", (File) jComboBox1.getSelectedItem(), new FileFilter() {
+        File script = FileUtils.selectFileForOpen(this, "选择脚本", (File) jComboBox1.getSelectedItem(), new FileFilter() {
             @Override
             public boolean accept(File f) {
                 if (f.isDirectory()) {
@@ -100,7 +100,7 @@ public class ScriptRunner extends WorldPainterDialog {
             @Override
             public String getDescription() {
                 StringBuilder sb = new StringBuilder();
-                sb.append("Script files (");
+                sb.append("脚本文件 (");
                 sb.append(extensions.stream().map(extension -> "*." + extension).collect(joining(", ")));
                 sb.append(')');
                 return sb.toString();
@@ -137,7 +137,7 @@ public class ScriptRunner extends WorldPainterDialog {
                 labelName.setText(script.getName());
             }
             if (scriptDescriptor.description != null) {
-                addRegular(panelDescriptor, new JLabel("Description:"));
+                addRegular(panelDescriptor, new JLabel("描述:"));
                 JTextArea textArea = new JTextArea(scriptDescriptor.description);
                 textArea.setEditable(false);
                 textArea.setOpaque(false);
@@ -161,7 +161,7 @@ public class ScriptRunner extends WorldPainterDialog {
                 paramDescriptor.setChangeListener(e -> setControlStates());
             }
             if (! allFieldsOptional) {
-                addlastOnLine(panelDescriptor, new JLabel("* mandatory parameter"));
+                addlastOnLine(panelDescriptor, new JLabel("* 通配符"));
             }
 
             jLabel2.setVisible(! scriptDescriptor.hideCmdLineParams);

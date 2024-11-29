@@ -42,14 +42,14 @@ import static org.pepsoft.worldpainter.util.LayoutUtils.setDefaultSizeAndLocatio
  */
 public class ThreeDeeFrame extends JFrame implements WindowListener {
     public ThreeDeeFrame(Dimension dimension, ColourScheme colourScheme, CustomBiomeManager customBiomeManager, Point initialCoords) throws HeadlessException {
-        super("WorldPainter - 3D View");
+        super("WorldPainter - 3D \u89C6\u56FE");
         setIconImage(App.ICON);
         this.colourScheme = colourScheme;
         this.customBiomeManager = customBiomeManager;
         this.coords = initialCoords;
-        
+
         scrollPane = new JScrollPane();
-        
+
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -74,7 +74,7 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
             @Override public void mouseEntered(MouseEvent e) {}
             @Override public void mouseExited(MouseEvent e) {}
             @Override public void mouseMoved(MouseEvent e) {}
-            
+
             private int previousX, previousY;
         };
         scrollPane.addMouseListener(mouseAdapter);
@@ -93,10 +93,10 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                 }
             }
         });
-        
+
         getContentPane().add(scrollPane, BorderLayout.CENTER);
-        
-        alwaysOnTopButton.setToolTipText("Set the 3D view window to be always on top");
+
+        alwaysOnTopButton.setToolTipText("\u8BBE\u7F6E3D\u89C6\u56FE\u603B\u662F\u4F4D\u4E8E\u7A97\u53E3\u6700\u4E0A\u5C42");
         alwaysOnTopButton.addActionListener(e -> {
             if (alwaysOnTopButton.isSelected()) {
                 ThreeDeeFrame.this.setAlwaysOnTop(true);
@@ -104,7 +104,7 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                 ThreeDeeFrame.this.setAlwaysOnTop(false);
             }
         });
-        
+
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
         toolBar.add(alwaysOnTopButton);
@@ -121,7 +121,7 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
         toolBar.add(MOVE_TO_SPAWN_ACTION);
         toolBar.add(MOVE_TO_ORIGIN_ACTION);
         toolBar.addSeparator();
-        toolBar.add(new JLabel("Visible layers:"));
+        toolBar.add(new JLabel("\u53EF\u89C1\u8986\u76D6\u5C42:"));
         final JRadioButton radioButtonLayersNone = new JRadioButton(NO_LAYERS_ACTION);
         layerVisibilityButtonGroup.add(radioButtonLayersNone);
         toolBar.add(radioButtonLayersNone);
@@ -136,7 +136,7 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
         glassPane = new GlassPane();
         setGlassPane(glassPane);
         getGlassPane().setVisible(true);
-        
+
         ActionMap actionMap = rootPane.getActionMap();
         actionMap.put("rotateLeft", ROTATE_LEFT_ACTION);
         actionMap.put("rotateRight", ROTATE_RIGHT_ACTION);
@@ -150,13 +150,13 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
         inputMap.put(KeyStroke.getKeyStroke('-'), "zoomOut");
         inputMap.put(KeyStroke.getKeyStroke('0'), "resetZoom");
         inputMap.put(KeyStroke.getKeyStroke('+'), "zoomIn");
-        
+
         setSize(800, 600);
         scaleToUI(this);
         setDefaultSizeAndLocation(this, 60);
-        
+
         setDimension(dimension);
-        
+
         addWindowListener(this);
     }
 
@@ -226,12 +226,12 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
     @Override public void windowDeiconified(WindowEvent e) {}
     @Override public void windowActivated(WindowEvent e) {}
     @Override public void windowDeactivated(WindowEvent e) {}
-    
-    private final Action ROTATE_LEFT_ACTION = new BetterAction("rotate3DViewLeft", "Rotate left", ICON_ROTATE_LEFT) {
+
+    private final Action ROTATE_LEFT_ACTION = new BetterAction("rotate3DViewLeft", "\u5DE6\u8F6C", ICON_ROTATE_LEFT) {
         {
-            setShortDescription("Rotate the view 90 degrees anticlockwise (l)");
+            setShortDescription("\u5C06\u89C6\u56FE\u9006\u65F6\u9488 90 \u5EA6\u65CB\u8F6C");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             rotation--;
@@ -249,15 +249,15 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                 glassPane.setRotation(DIRECTIONS[rotation], dimension.getAnchor().invert);
             }
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
-    private final Action ROTATE_RIGHT_ACTION = new BetterAction("rotate3DViewRight", "Rotate right", ICON_ROTATE_RIGHT) {
+
+    private final Action ROTATE_RIGHT_ACTION = new BetterAction("rotate3DViewRight", "\u53F3\u8F6C", ICON_ROTATE_RIGHT) {
         {
-            setShortDescription("Rotate the view 90 degrees clockwise (r)");
+            setShortDescription("\u5C06\u89C6\u56FE\u987A\u65F6\u9488 90 \u5EA6\u65CB\u8F6C");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             rotation++;
@@ -275,20 +275,20 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                 glassPane.setRotation(DIRECTIONS[rotation], dimension.getAnchor().invert);
             }
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
 
-    private final Action EXPORT_IMAGE_ACTION = new BetterAction("export3DViewImage", "Export image", ICON_EXPORT_IMAGE) {
+    private final Action EXPORT_IMAGE_ACTION = new BetterAction("export3DViewImage", "\u5BFC\u51FA\u56FE\u7247", ICON_EXPORT_IMAGE) {
         {
-            setShortDescription("Export to an image file");
+            setShortDescription("\u5BFC\u51FA\u4E00\u4E2A\u56FE\u7247\u6587\u4EF6");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             final Rectangle imageBounds = threeDeeView.getImageBounds();
             if (! imageFitsInJavaArray(imageBounds)) {
-                beepAndShowError(ThreeDeeFrame.this, "The 3D image is too large to export to an image.\nThe area (width x height) may not be more than " + INT_NUMBER_FORMAT.format(Integer.MAX_VALUE), "3D Image Too Large");
+                beepAndShowError(ThreeDeeFrame.this, "\u8BE53D\u56FE\u8D85\u51FA\u4E86\u53EF\u5BFC\u51FA\u56FE\u7247\u7684\u5927\u5C0F\u9650\u5236.\n\u56FE\u50CF\u5927\u5C0F(\u957Fx\u5BBD)\u4E0D\u80FD\u5927\u4E8E" + INT_NUMBER_FORMAT.format(Integer.MAX_VALUE), "3D\u56FE\u50CF\u8FC7\u5927");
                 return;
             }
             final String defaultname = dimension.getWorld().getName().replaceAll("\\s", "").toLowerCase() + ((dimension.getAnchor().dim == DIM_NORMAL) ? "" : ("_" + dimension.getName().toLowerCase())) + "_3d.png";
@@ -303,7 +303,7 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                     selectedFile = new File(selectedFile.getParentFile(), selectedFile.getName() + ".png");
                 }
                 if (selectedFile.exists()) {
-                    if (JOptionPane.showConfirmDialog(ThreeDeeFrame.this, "The file already exists!\nDo you want to overwrite it?", "Overwrite File?", JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
+                    if (JOptionPane.showConfirmDialog(ThreeDeeFrame.this, "\u8BE5\u6587\u4EF6\u5DF2\u7ECF\u5B58\u5728\u4E86!\n\u4F60\u8981\u8986\u76D6\u5B83\u5417?", "\u8986\u76D6\u6587\u4EF6?", JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
                         return;
                     }
                 }
@@ -311,7 +311,7 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                 Boolean result = ProgressDialog.executeTask(ThreeDeeFrame.this, new ProgressTask<Boolean>() {
                         @Override
                         public String getName() {
-                            return "Exporting image...";
+                            return "\u5BFC\u51FA\u56FE\u50CF...";
                         }
 
                         @Override
@@ -324,19 +324,19 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                         }
                     });
                 if ((result != null) && result.equals(Boolean.FALSE)) {
-                    JOptionPane.showMessageDialog(ThreeDeeFrame.this, "Format " + type + " not supported!");
+                    JOptionPane.showMessageDialog(ThreeDeeFrame.this, "\u683C\u5F0F " + type + " \u4E0D\u652F\u6301!");
                 }
             }
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
-    private final Action MOVE_TO_SPAWN_ACTION = new BetterAction("move3DViewToSpawn", "Move to spawn", ICON_MOVE_TO_SPAWN) {
+
+    private final Action MOVE_TO_SPAWN_ACTION = new BetterAction("move3DViewToSpawn", "\u79FB\u52A8\u5230\u51FA\u751F\u70B9", ICON_MOVE_TO_SPAWN) {
         {
-            setShortDescription("Move the view to the spawn location");
+            setShortDescription("\u5C06\u89C6\u56FE\u79FB\u52A8\u5230\u51FA\u751F\u70B9");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             if (dimension.getAnchor().dim == DIM_NORMAL) {
@@ -344,28 +344,28 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
                 threeDeeView.moveTo(spawn.x, spawn.y);
             }
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
-    private final Action MOVE_TO_ORIGIN_ACTION = new BetterAction("move3DViewToOrigin", "Move to origin", ICON_MOVE_TO_ORIGIN) {
+
+    private final Action MOVE_TO_ORIGIN_ACTION = new BetterAction("move3DViewToOrigin", "\u79FB\u52A8\u5230\u539F\u70B9", ICON_MOVE_TO_ORIGIN) {
         {
-            setShortDescription("Move the view to the origin (coordinates 0,0)");
+            setShortDescription("\u5C06\u89C6\u56FE\u79FB\u52A8\u5230\u539F\u70B9 (\u5750\u6807 0,0)");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             threeDeeView.moveTo(0, 0);
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
-    private final Action ZOOM_IN_ACTION = new BetterAction("zoom3DViewIn", "Zoom in", ICON_ZOOM_IN) {
+
+    private final Action ZOOM_IN_ACTION = new BetterAction("zoom3DViewIn", "\u653E\u5927", ICON_ZOOM_IN) {
         {
-            setShortDescription("Zoom in");
+            setShortDescription("\u653E\u5927");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             final Rectangle visibleRect = threeDeeView.getVisibleRect();
@@ -387,16 +387,16 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
             ZOOM_OUT_ACTION.setEnabled(true);
             RESET_ZOOM_ACTION.setEnabled(zoom != 1);
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
-    private final Action RESET_ZOOM_ACTION = new BetterAction("reset3DViewZoom", "Reset zoom", ICON_RESET_ZOOM) {
+
+    private final Action RESET_ZOOM_ACTION = new BetterAction("reset3DViewZoom", "\u91CD\u7F6E\u653E\u7F29", ICON_RESET_ZOOM) {
         {
-            setShortDescription("Reset the zoom level to 1:1");
+            setShortDescription("\u5C06\u89C6\u56FE\u7F29\u653E\u91CD\u7F6E\u4E3A 1:1");
             setEnabled(false);
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             final Rectangle visibleRect = threeDeeView.getVisibleRect();
@@ -435,15 +435,15 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
             ZOOM_OUT_ACTION.setEnabled(true);
             setEnabled(false);
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
-    private final Action ZOOM_OUT_ACTION = new BetterAction("zoom3DViewOut", "Zoom out", ICON_ZOOM_OUT) {
+
+    private final Action ZOOM_OUT_ACTION = new BetterAction("zoom3DViewOut", "\u7F29\u5C0F", ICON_ZOOM_OUT) {
         {
-            setShortDescription("Zoom out");
+            setShortDescription("\u7F29\u5C0F");
         }
-        
+
         @Override
         public void performAction(ActionEvent e) {
             final Rectangle visibleRect = threeDeeView.getVisibleRect();
@@ -465,13 +465,13 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
             ZOOM_IN_ACTION.setEnabled(true);
             RESET_ZOOM_ACTION.setEnabled(zoom != 1);
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
 
-    private final Action NO_LAYERS_ACTION = new BetterAction("layerVisibilityNone", "None") {
+    private final Action NO_LAYERS_ACTION = new BetterAction("layerVisibilityNone", "\u65E0") {
         {
-            setShortDescription("Show no layers");
+            setShortDescription("\u4E0D\u663E\u793A\u8986\u76D6\u5C42");
         }
 
         @Override
@@ -480,9 +480,9 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
         }
     };
 
-    private final Action SYNC_LAYERS_ACTION = new BetterAction("layerVisibilitySync", "Sync") {
+    private final Action SYNC_LAYERS_ACTION = new BetterAction("layerVisibilitySync", "\u540C\u6B65") {
         {
-            setShortDescription("Synchronise layer visibility with editor");
+            setShortDescription("\u4E0E\u7F16\u8F91\u5668\u540C\u6B65\u8986\u76D6\u5C42\u53EF\u89C1\u6027");
         }
 
         @Override
@@ -491,9 +491,9 @@ public class ThreeDeeFrame extends JFrame implements WindowListener {
         }
     };
 
-    private final Action SURFACE_LAYERS_ACTION = new BetterAction("layerVisibilitySurface", "Surface") {
+    private final Action SURFACE_LAYERS_ACTION = new BetterAction("layerVisibilitySurface", "\u8868\u5C42") {
         {
-            setShortDescription("Show all above-ground layers");
+            setShortDescription("\u663E\u793A\u6240\u6709\u5730\u8868\u8986\u76D6\u5C42");
             setSelected(true);
         }
 

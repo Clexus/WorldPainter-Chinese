@@ -20,10 +20,10 @@ import static org.pepsoft.worldpainter.Constants.MEDIUM_BLOBS;
  */
 public class RaiseMountain extends RadiusOperation {
     public RaiseMountain(WorldPainter view) {
-        super("Raise Mountain", "Raises a mountain out of the ground", view, 100, "operation.raiseMountain", "mountain");
+        super("Raise Mountain", "\u5347\u5C71\u5DE5\u5177-\u7531\u5730\u8868\u5347\u8D77\u4E00\u5EA7\u5C71", view, 100, "operation.raiseMountain", "mountain");
         options = new TerrainShapingOptions<>();
         options.setApplyTheme(true); // This has historically been the default for this operation
-        optionsPanel = new TerrainShapingOptionsPanel("Mountain", "<ul><li>Left-click to raise a mountain in the shape of the brush and its base at bedrock<li>Right-click to dig a hole in the shape of the brush and its base at build height</ul>", options);
+        optionsPanel = new TerrainShapingOptionsPanel("\u5347\u5C71\u5DE5\u5177", "<ul><li>\u5DE6\u952E\u70B9\u51FB\u4EE5\u6309\u7167\u753B\u7B14\u7684\u5F62\u72B6\u5347\u8D77\u4E00\u5EA7\u5C71\uFF0C\u5C71\u7684\u5E95\u90E8\u4F4D\u4E8E\u57FA\u5CA9\u5C42\u3002<li>\u53F3\u952E\u70B9\u51FB\u4EE5\u6316\u6398\u4E00\u4E2A\u5F62\u72B6\u4E0E\u753B\u7B14\u76F8\u540C\u7684\u5751\u6D1E\uFF0C\u5751\u6D1E\u7684\u5E95\u90E8\u4F4D\u4E8E\u5EFA\u9020\u9AD8\u5EA6\u3002</ul>", options);
     }
 
     @Override

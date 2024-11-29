@@ -38,7 +38,7 @@ public abstract class ImportPreset {
 
     private final String description;
 
-    public static final ImportPreset FULL_RANGE_0_BASED = new ImportPreset("Full range; from 0") {
+    public static final ImportPreset FULL_RANGE_0_BASED = new ImportPreset("\u5B8C\u6574\u8303\u56F4; \u4ECE 0 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             if (imageLow < 0) {
@@ -55,7 +55,7 @@ public abstract class ImportPreset {
         }
     };
 
-    public static final ImportPreset FULL_RANGE_MINUS_64_BASED = new ImportPreset("Full range; from -64") {
+    public static final ImportPreset FULL_RANGE_MINUS_64_BASED = new ImportPreset("\u5B8C\u6574\u8303\u56F4; \u4ECE -64 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             if (imageLow < 0) {
@@ -71,7 +71,7 @@ public abstract class ImportPreset {
             }
         }
     };
-    public static final ImportPreset WORLDPAINTER_LOW_RES_0_BASED = new ImportPreset("One to one (e.g. low res WorldPainter export); from 0") {
+    public static final ImportPreset WORLDPAINTER_LOW_RES_0_BASED = new ImportPreset("\u4E00\u5BF9\u4E00 (\u6BD4\u5982\u4F4E\u5206\u8FA8\u7387 WorldPainter \u5BFC\u51FA); \u4ECE 0 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             if (imageLow < 0) {
@@ -88,7 +88,7 @@ public abstract class ImportPreset {
         }
     };
 
-    public static final ImportPreset WORLDPAINTER_HIGH_RES_0_BASED = new ImportPreset("256 to one (e.g. high res WorldPainter export); from 0") {
+    public static final ImportPreset WORLDPAINTER_HIGH_RES_0_BASED = new ImportPreset("256\u5BF9\u4E00 (\u6BD4\u5982\u9AD8\u5206\u8FA8\u7387 WorldPainter \u5BFC\u51FA); \u4ECE 0 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             if (imageLow < 0) {
@@ -114,7 +114,7 @@ public abstract class ImportPreset {
         }
     };
 
-    public static final ImportPreset WORLDPAINTER_LOW_RES_MINUS_64_BASED = new ImportPreset("One to one (e.g. low res WorldPainter export); from -64") {
+    public static final ImportPreset WORLDPAINTER_LOW_RES_MINUS_64_BASED = new ImportPreset("\u4E00\u5BF9\u4E00 (\u6BD4\u5982\u4F4E\u5206\u8FA8\u7387 WorldPainter \u5BFC\u51FA); \u4ECE -64 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             if (imageLow < 0) {
@@ -131,7 +131,7 @@ public abstract class ImportPreset {
         }
     };
 
-    public static final ImportPreset WORLDPAINTER_HIGH_RES_MINUS_64_BASED = new ImportPreset("256 to one (e.g. high res WorldPainter export); from -64") {
+    public static final ImportPreset WORLDPAINTER_HIGH_RES_MINUS_64_BASED = new ImportPreset("256\u5BF9\u4E00 (\u6BD4\u5982\u9AD8\u5206\u8FA8\u7387 WorldPainter \u5BFC\u51FA); \u4ECE -64 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             if (imageLow < 0) {
@@ -157,7 +157,7 @@ public abstract class ImportPreset {
         }
     };
 
-    public static final ImportPreset FLOATING_POINT_MINUS_64_BASED = new ImportPreset("Normalised floating point range; from -64") {
+    public static final ImportPreset FLOATING_POINT_MINUS_64_BASED = new ImportPreset("\u5F52\u4E00\u5316\u6D6E\u70B9\u6570\u8303\u56F4; \u4ECE -64 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             return new Mapping(0.0, 1.0, -64, maxHeight - 1);
@@ -169,7 +169,7 @@ public abstract class ImportPreset {
         }
     };
 
-    public static final ImportPreset FLOATING_POINT_0_BASED = new ImportPreset("Normalised floating point range; from 0") {
+    public static final ImportPreset FLOATING_POINT_0_BASED = new ImportPreset("\u5F52\u4E00\u5316\u6D6E\u70B9\u6570\u8303\u56F4; \u4ECE -0 \u5F00\u59CB") {
         @Override
         public Mapping getMapping(double imageMaxHeight, double imageLow, double imageHigh, Platform platform, int maxHeight) {
             return new Mapping(0.0, 1.0, 0, maxHeight - 1);

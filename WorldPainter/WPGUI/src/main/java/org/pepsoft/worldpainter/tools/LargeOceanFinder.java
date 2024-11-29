@@ -148,7 +148,7 @@ spiral:     while (true) {
 
         @Override
         public String toString() {
-            return "Seed: " + seed + ", ocean tiles: " + oceanTiles + " , ocean or mushroom island tiles: " + oceanOrMushroomTiles;
+            return "种子: " + seed + ", 海洋分区数量: " + oceanTiles + " , 海洋或蘑菇岛分区数量: " + oceanOrMushroomTiles;
         }
         
         final long seed;

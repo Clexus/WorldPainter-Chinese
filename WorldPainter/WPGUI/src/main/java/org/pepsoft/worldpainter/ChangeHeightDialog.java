@@ -149,30 +149,30 @@ public class ChangeHeightDialog extends WorldPainterDialog {
         spinnerTranslateAmount.setEnabled(translate);
         spinnerScaleAmount.setEnabled(scale);
         if ((newPlatform == DefaultPlugin.JAVA_MCREGION) && (newMaxHeight != DEFAULT_MAX_HEIGHT_MCREGION)) {
-            labelWarning.setText("Only with mods!");
+            labelWarning.setText("\u53EA\u6709\u5728\u6709mod\u7684\u60C5\u51B5\u4E0B\u53EF\u884C!");
             labelWarning.setVisible(true);
         } else if (((newMinHeight < oldMinHeight) || (newMaxHeight > oldMaxHeight)) && (newPlatform.getAttribute(ATTRIBUTE_MC_VERSION).isAtLeast(V_1_17)) && ((newMaxHeight - newMinHeight) > 384)) {
-            labelWarning.setText("May impact performance");
+            labelWarning.setText("\u53EF\u80FD\u5F71\u54CD\u6027\u80FD");
             labelWarning.setVisible(true);
         } else {
             labelWarning.setVisible(false);
         }
         checkBoxAdjustLayers.setEnabled((newMinHeight != oldMinHeight) || (newMaxHeight != oldMaxHeight) || translate || scale);
     }
-    
+
     private void doResize() {
         // TODO warn about platform incompatibility?
         final Platform oldPlatform = world.getPlatform(), newPlatform = (Platform) comboBoxPlatform.getSelectedItem();
         final int oldMaxHeight = world.getMaxHeight(), oldMinHeight = world.getMinHeight();
         final int newMaxHeight = (Integer) comboBoxNewMaxHeight.getSelectedItem(), newMinHeight = (Integer) comboBoxNewMinHeight.getSelectedItem();
-        if (((newPlatform != oldPlatform) || (newMinHeight != oldMinHeight) || (newMaxHeight != oldMaxHeight)) && (world.getImportedFrom() != null) && (JOptionPane.showConfirmDialog(this, "<html>This world was imported from an existing map!<br>Are you <i>sure</i> you want to retarget it?<br>You will not be able to merge it back to the existing map any more!</html>", "Import from Existing Map", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.YES_OPTION)) {
+        if (((newPlatform != oldPlatform) || (newMinHeight != oldMinHeight) || (newMaxHeight != oldMaxHeight)) && (world.getImportedFrom() != null) && (JOptionPane.showConfirmDialog(this, "<html>\u8BE5\u4E16\u754C\u5BFC\u5165\u4E8E\u4E00\u4E2A\u5DF2\u5B58\u5728\u7684\u4E16\u754C!<br>\u4F60<i>\u786E\u5B9A</i>\u8981\u91CD\u5B9A\u5411\u5B83\u5417?<br>\u4F60\u5C06\u65E0\u6CD5\u518D\u5C06\u5176\u5408\u5E76\u56DE\u73B0\u6709\u5730\u56FE!</html>", "\u5BFC\u5165\u4E8E\u5DF2\u6709\u5730\u56FE", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.YES_OPTION)) {
             return;
         }
         changePlatform(newPlatform, checkBoxAdjustLayers.isSelected());
         ProgressDialog.executeTask(this, new ProgressTask<Void>() {
             @Override
             public String getName() {
-                return "Changing world height";
+                return "\u4FEE\u6539\u4E16\u754C\u9AD8\u5EA6";
             }
 
             @Override
@@ -285,11 +285,11 @@ public class ChangeHeightDialog extends WorldPainterDialog {
         labelPlatformWarning = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Change Map Format");
+        setTitle("\u66F4\u6539\u5730\u56FE\u683C\u5F0F");
 
-        jLabel1.setText("Current build limits:");
+        jLabel1.setText("\u5F53\u524D\u5EFA\u7B51\u4E0A\u9650:");
 
-        jLabel2.setText("New build limits:");
+        jLabel2.setText("\u65B0\u5EFA\u7B51\u4E0A\u9650:");
 
         labelCurrentMaxHeight.setText("jLabel3");
 
@@ -299,14 +299,14 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786E\u8BA4");
         buttonOK.setEnabled(false);
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,7 +314,7 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel5.setText("Terrain and water levels:");
+        jLabel5.setText("\u65B9\u5757\u548C\u6C34\u5E73\u9762\u9AD8\u5EA6:");
 
         spinnerTranslateAmount.setModel(new javax.swing.SpinnerNumberModel(0, -127, 127, 1));
         spinnerTranslateAmount.setEnabled(false);
@@ -324,7 +324,7 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        label.setText("blocks");
+        label.setText("\u4E2A\u65B9\u5757");
 
         spinnerScaleAmount.setModel(new javax.swing.SpinnerNumberModel(100, 1, 9999, 1));
         spinnerScaleAmount.setEnabled(false);
@@ -336,8 +336,8 @@ public class ChangeHeightDialog extends WorldPainterDialog {
 
         jLabel7.setText("%");
 
-        checkBoxScale.setText("Scale");
-        checkBoxScale.setToolTipText("<html>Scale the levels by the specified percentage;<br>\nlevels that are (still) too low or high will be cut off.</html>");
+        checkBoxScale.setText("\u7F29\u653E");
+        checkBoxScale.setToolTipText("<html>\u6309\u7279\u5B9A\u767E\u5206\u6BD4\u7F29\u653E\u9AD8\u5EA6;<br>\n\u8FC7\u9AD8\u6216\u8FC7\u4F4E\u7684\u9AD8\u5EA6\u4F1A\u88AB\u524A\u51CF.</html>");
         checkBoxScale.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 checkBoxScaleStateChanged(evt);
@@ -349,8 +349,8 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxTranslate.setText("Shift");
-        checkBoxTranslate.setToolTipText("<html>Shift the levels up or down by the specified number of blocks;<br>\nnegative means down; levels which are (still) too low or high will be cut off.</html>");
+        checkBoxTranslate.setText("\u79FB\u52A8");
+        checkBoxTranslate.setToolTipText("<html>\u5C06\u9AD8\u5EA6\u4E0A\u4E0B\u79FB\u52A8;<br>\n\u8D1F\u6570\u5373\u4E3A\u5411\u4E0B; \u8FC7\u9AD8\u6216\u8FC7\u4F4E\u7684\u9AD8\u5EA6\u4F1A\u88AB\u524A\u51CF.</html>");
         checkBoxTranslate.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 checkBoxTranslateStateChanged(evt);
@@ -362,15 +362,15 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel6.setText("<html><b>Note:</b> this operation cannot be undone!</html>");
+        jLabel6.setText("<html><b>\u6CE8\u610F:</b> \u8BE5\u64CD\u4F5C\u65E0\u6CD5\u64A4\u9500!</html>");
 
-        jLabel8.setText("(If both are enabled scale");
+        jLabel8.setText("(\u5982\u679C\u4E24\u8005\u90FD\u5F00\u542F,\u7F29\u653E");
 
         labelWarning.setFont(labelWarning.getFont().deriveFont(labelWarning.getFont().getStyle() | java.awt.Font.BOLD));
         labelWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelWarning.setText("May impact performance");
+        labelWarning.setText("\u53EF\u80FD\u5F71\u54CD\u6027\u80FD");
 
-        jLabel3.setText("Map format:");
+        jLabel3.setText("\u5730\u56FE\u683C\u5F0F:");
 
         comboBoxPlatform.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,7 +380,7 @@ public class ChangeHeightDialog extends WorldPainterDialog {
 
         labelCurrentMinHeight.setText("jLabel4");
 
-        jLabel9.setText("Lower");
+        jLabel9.setText("\u9AD8\u5EA6\u4E0B\u9650");
 
         comboBoxNewMinHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,28 +388,28 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel10.setText("Upper");
+        jLabel10.setText("\u9AD8\u5EA6\u4E0A\u9650");
 
         checkBoxAdjustLayers.setSelected(true);
-        checkBoxAdjustLayers.setText("Also apply to theme and layer settings");
+        checkBoxAdjustLayers.setText("\u540C\u65F6\u5E94\u7528\u4E3B\u9898\u548C\u8986\u76D6\u5C42\u8BBE\u7F6E");
 
         labelCutOffWarning.setFont(labelCutOffWarning.getFont().deriveFont(labelCutOffWarning.getFont().getStyle() | java.awt.Font.BOLD));
         labelCutOffWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelCutOffWarning.setText("Top and/or bottom cut off!");
+        labelCutOffWarning.setText("\u9876\u5C42\u548C/\u6216\u5E95\u5C42\u88AB\u524A\u51CF\u4E86!");
 
-        jLabel11.setText("will be applied first, then shift.)");
+        jLabel11.setText("\u4F1A\u5148\u5E94\u7528\uFF0C\u7136\u540E\u518D\u79FB\u52A8.)");
 
-        jLabel4.setText("Current height range in use:");
+        jLabel4.setText("\u5F53\u524D\u4F7F\u7528\u7684\u4E0A\u4E0B\u9650:");
 
         labelOldExtents.setText("-999 - -999");
 
-        jLabel12.setText("New height range in use:");
+        jLabel12.setText("\u65B0\u7684\u4E0A\u4E0B\u9650:");
 
         labelNewExtents.setText("<html><b>-999 - 999</b></html>");
 
         labelPlatformWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelPlatformWarning.setText("<html><b>Unknown format; export not possible</b></html>");
-        labelPlatformWarning.setToolTipText("<html>This map format is unknown and cannot be Exported. Most likely it<br>\nis supported by a plugin that is not installed or cannot be loaded.</html>");
+        labelPlatformWarning.setText("<html><b>\u672A\u77E5\u683C\u5F0F; \u65E0\u6CD5\u5BFC\u51FA</b></html>");
+        labelPlatformWarning.setToolTipText("<html>\u8BE5\u5730\u56FE\u683C\u5F0F\u4F4D\u7F6E\u56E0\u6B64\u65E0\u6CD5\u5BFC\u51FA. \u5F88\u6709\u53EF\u80FD\u662F\u56E0\u4E3A\u652F\u6301\u6539\u683C\u5F0F\u7684\u63D2\u4EF6<br>\n\u672A\u5B89\u88C5\u6216\u65E0\u6CD5\u52A0\u8F7D.</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class Flatten extends RadiusOperation {
     public Flatten(WorldPainter view) {
-        super("Flatten", "Flatten an area", view, 100, "operation.flatten");
+        super("Flatten", "\u5E73\u6574\u5DE5\u5177-\u4F7F\u533A\u57DF\u53D8\u5E73\u6574", view, 100, "operation.flatten");
     }
 
     @Override
@@ -62,8 +62,8 @@ public class Flatten extends RadiusOperation {
             dimension.setEventsInhibited(false);
         }
     }
-    
+
     private final TerrainShapingOptions<Flatten> options = new TerrainShapingOptions<>();
-    private final TerrainShapingOptionsPanel optionsPanel = new TerrainShapingOptionsPanel("Flatten", "<p>Click to flatten the terrain", options);
+    private final TerrainShapingOptionsPanel optionsPanel = new TerrainShapingOptionsPanel("\u5E73\u6574\u5DE5\u5177", "<p>\u70B9\u51FB\u5E73\u6574\u5730\u5F62", options);
     private float targetHeight = -Float.MAX_VALUE;
 }

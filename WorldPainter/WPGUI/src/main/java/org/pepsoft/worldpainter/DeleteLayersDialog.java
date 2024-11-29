@@ -36,7 +36,7 @@ public class DeleteLayersDialog extends WorldPainterDialog {
     }
 
     private void deleteSelectedLayers() {
-        if (JOptionPane.showConfirmDialog(this, "Are you sure you want to delete " + jList1.getSelectedIndices().length + " layer(s)?\nThis cannot be undone!", "Confirm Deletion", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "\u4F60\u786E\u5B9A\u8981\u5220\u9664 " + jList1.getSelectedIndices().length + " \u4E2A\u8986\u76D6\u5C42\u5417?\n\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!", "\u786E\u8BA4\u5220\u9664", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             App app = App.getInstance();
             jList1.getSelectedValuesList().forEach(app::deleteCustomLayer);
             app.validate();

@@ -120,7 +120,7 @@ public class SimpleBrowser extends javax.swing.JDialog implements HyperlinkListe
                 backAction.setEnabled(true);
                 forwardAction.setEnabled(false);
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(this, "I/O error loading page " + url, "Error Loading Page", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "\u52A0\u8F7D\u9875\u9762 " + url + " \u65F6\u51FA\u73B0I/O\u9519\u8BEF", "\u52A0\u8F7D\u9875\u9762\u51FA\u9519", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_jEditorPane1HyperlinkUpdate
@@ -129,7 +129,7 @@ public class SimpleBrowser extends javax.swing.JDialog implements HyperlinkListe
         {
             setEnabled(false);
         }
-        
+
         @Override
         public void actionPerformed(ActionEvent event) {
             if (historyPointer > 0) {
@@ -142,19 +142,19 @@ public class SimpleBrowser extends javax.swing.JDialog implements HyperlinkListe
                     }
                     forwardAction.setEnabled(true);
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(SimpleBrowser.this, "I/O error loading page " + url, "Error Loading Page", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(SimpleBrowser.this, "\u52A0\u8F7D\u9875\u9762 " + url + " \u65F6\u51FA\u73B0I/O\u9519\u8BEF", "\u52A0\u8F7D\u9875\u9762\u51FA\u9519", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
-        
+
         private static final long serialVersionUID = 1L;
     };
-    
+
     private final Action forwardAction = new AbstractAction("forward", IconUtils.loadScaledIcon("org/pepsoft/worldpainter/icons/resultset_next.png")) {
         {
             setEnabled(false);
         }
-        
+
         @Override
         public void actionPerformed(ActionEvent event) {
             if (historyPointer < (historySize - 1)) {
@@ -167,7 +167,7 @@ public class SimpleBrowser extends javax.swing.JDialog implements HyperlinkListe
                     }
                     backAction.setEnabled(true);
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(SimpleBrowser.this, "I/O error loading page " + url, "Error Loading Page", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(SimpleBrowser.this, "\u52A0\u8F7D\u9875\u9762 " + url + " \u65F6\u51FA\u73B0I/O\u9519\u8BEF", "\u52A0\u8F7D\u9875\u9762\u51FA\u9519", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

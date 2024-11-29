@@ -142,12 +142,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Slope:"/>
+        <Property name="text" type="java.lang.String" value="\u5761\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Layers:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76D6\u5C42:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelSlope">
@@ -157,7 +157,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Coordinates:"/>
+        <Property name="text" type="java.lang.String" value="\u5750\u6807:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCoords">
@@ -167,7 +167,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Height:"/>
+        <Property name="text" type="java.lang.String" value="\u9AD8\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelHeight">
@@ -177,22 +177,22 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="m"/>
+        <Property name="text" type="java.lang.String" value="\u7C73"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelFluidType">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fluid"/>
+        <Property name="text" type="java.lang.String" value="\u6DB2\u4F53"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="level:"/>
+        <Property name="text" type="java.lang.String" value="\u9ad8\u5ea6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="depth:"/>
+        <Property name="text" type="java.lang.String" value="\u6DF1\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelWaterLevel">
@@ -202,7 +202,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel15">
       <Properties>
-        <Property name="text" type="java.lang.String" value="m"/>
+        <Property name="text" type="java.lang.String" value="\u7C73"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelWaterDepth">
@@ -212,7 +212,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
       <Properties>
-        <Property name="text" type="java.lang.String" value="m"/>
+        <Property name="text" type="java.lang.String" value="\u7C73"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -238,7 +238,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Terrain:"/>
+        <Property name="text" type="java.lang.String" value="\u65b9\u5757:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelTerrain">
@@ -251,7 +251,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Biome:"/>
+        <Property name="text" type="java.lang.String" value="\u7fa4\u7cfb:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelBiome">
@@ -282,12 +282,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="In selection:"/>
+        <Property name="text" type="java.lang.String" value="\u9009\u533A\u5185:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="automatic"/>
+        <Property name="text" type="java.lang.String" value="\u81EA\u52A8"/>
       </Properties>
     </Component>
   </SubComponents>

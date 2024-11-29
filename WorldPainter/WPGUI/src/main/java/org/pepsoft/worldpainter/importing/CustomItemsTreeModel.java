@@ -183,7 +183,7 @@ public class CustomItemsTreeModel implements TreeModel {
     private final List<CustomBiome> customBiomes = new ArrayList<>();
     private final List<String> childrenOfRoot = new ArrayList<>();
     
-    private static final String ROOT = "Custom Items", LAYERS = "Custom Layers", TERRAINS = "Custom Terrain", BIOMES = "Custom Biomes";
+    private static final String ROOT = "\u81EA\u5B9A\u4E49\u9879\u76EE", LAYERS = "\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42", TERRAINS = "\u81EA\u5B9A\u4E49\u65B9\u5757", BIOMES = "\u81EA\u5B9A\u4E49\u7FA4\u7CFB";
 
     public enum ItemType {ALL, LAYER, TERRAIN, BIOME}
 }

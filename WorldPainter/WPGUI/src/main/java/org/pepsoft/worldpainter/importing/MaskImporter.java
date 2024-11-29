@@ -80,7 +80,7 @@ public class MaskImporter {
                         default:
                             inputType = UNSUPPORTED;
                             imageMaxValue = -1;
-                            unsupportedReason = "Grey scale images of " + sampleSize + " bits not yet supported";
+                            unsupportedReason = sampleSize + " \u4F4D\u7684\u7070\u5EA6\u56FE\u6682\u672A\u53D7\u652F\u6301";
                             break;
                     }
                     break;
@@ -272,7 +272,7 @@ outer:          for (int x = 0; x < width; x++) {
                                 final int imageX = tileOffsetX + xInTile, imageY = tileOffsetY + yInTile;
                                 if ((imageX >= 0) && (imageX < width) && (imageY >= 0) && (imageY < height)) {
                                     // This is warranted because doubles can still precisely store integers up to around
-                                    // 2⁵³ and the expected values for discrete layers will always be much smaller than
+                                    // 2\u2075\u00B3 and the expected values for discrete layers will always be much smaller than
                                     // that
                                     mapping.applyDiscrete(xInTile, yInTile, (int) scaledHeightMap.getHeight(imageX, imageY));
                                 }
@@ -310,7 +310,7 @@ outer:          for (int x = 0; x < width; x++) {
     public String getScalingNotSupportedReason() {
         final int imageType = image.getType();
         if ((image.getColorModel() instanceof IndexColorModel) && (imageType != TYPE_BYTE_BINARY) && (imageType != TYPE_BYTE_INDEXED)) {
-            return "Scaling not supported for indexed images of type " + imageType;
+            return imageType + "\u7C7B\u578B\u7684\u7D22\u5F15\u56FE\u4E0D\u53D7\u652F\u6301";
         }
         return null;
     }
@@ -378,7 +378,7 @@ outer:          for (int x = 0; x < width; x++) {
                         return new PossibleMappingsResult(setTerrainValue(applyToTerrainType));
                     } else {
                         // One-bit mask to terrain
-                        return new PossibleMappingsResult("Pick one terrain type to apply one-bit mask to");
+                        return new PossibleMappingsResult("\u9009\u62E9\u4E00\u79CD\u65B9\u5757\u7C7B\u578B\u6765\u5E94\u7528\u4E00\u6BD4\u7279\u906E\u7F69");
                     }
                 } else if (applyToLayer != null) {
                     if (applyToLayer.discrete) {
@@ -388,7 +388,7 @@ outer:          for (int x = 0; x < width; x++) {
                             return new PossibleMappingsResult(setLayerValue(applyToLayer, applyToLayerValue));
                         } else {
                             // No value selected
-                            return new PossibleMappingsResult("Pick one discrete layer value to apply one-bit mask to");
+                            return new PossibleMappingsResult("\u9009\u62E9\u4E00\u4E2A\u79BB\u6563\u8986\u76d6\u5c42\u7684\u503C\u6765\u5E94\u7528\u4E00\u6BD4\u7279\u906E\u7F69");
                         }
                     } else if (applyToLayer.getDataSize().maxValue == 1) {
                         // One-bit mask to one-bit layer
@@ -400,7 +400,7 @@ outer:          for (int x = 0; x < width; x++) {
                             return new PossibleMappingsResult(setLayerValue(applyToLayer, applyToLayerValue));
                         } else {
                             // No value selected
-                            return new PossibleMappingsResult("Pick one layer intensity to apply one-bit mask to");
+                            return new PossibleMappingsResult("\u9009\u62E9\u4E00\u4E2A\u8986\u76d6\u5c42\u786C\u5EA6\u6765\u5E94\u7528\u4E00\u6BD4\u7279\u906E\u7F69");
                         }
                     }
                 }
@@ -417,7 +417,7 @@ outer:          for (int x = 0; x < width; x++) {
                         if (imageHighValue < Terrain.VALUES.length) {
                             return new PossibleMappingsResult(mapToTerrain());
                         } else {
-                            return new PossibleMappingsResult("Mask contains values higher than the highest terrain type index (" + (Terrain.VALUES.length - 1) + ")");
+                            return new PossibleMappingsResult("\u906E\u7F69\u56FE\u5305\u542B\u9AD8\u4E8E\u65B9\u5757\u7C7B\u578B\u7D22\u5F15\u6700\u5927\u503C\u7684\u503C (" + (Terrain.VALUES.length - 1) + ")");
                         }
                     }
                 } else if (applyToLayer != null) {
@@ -431,7 +431,7 @@ outer:          for (int x = 0; x < width; x++) {
                             if (imageHighValue <= applyToLayer.dataSize.maxValue) {
                                 return new PossibleMappingsResult(mapToLayer(applyToLayer));
                             } else {
-                                return new PossibleMappingsResult("Mask contains values higher than the highest layer value (" + applyToLayer.dataSize.maxValue + ")");
+                                return new PossibleMappingsResult("\u906E\u7F69\u56FE\u5305\u542B\u9AD8\u4E8E\u8986\u76d6\u5c42\u6700\u5927\u503C\u7684\u503C (" + applyToLayer.dataSize.maxValue + ")");
                             }
                         }
                     } else if (applyToLayer.getDataSize().maxValue == 1) {
@@ -464,7 +464,7 @@ outer:          for (int x = 0; x < width; x++) {
                         // Continuous greyscale mask to one terrain type
                         return new PossibleMappingsResult(setTerrainValue(applyToTerrainType).ditheredActualRange(), setTerrainValue(applyToTerrainType).ditheredFullRange(), setTerrainValue(applyToTerrainType).threshold());
                     } else {
-                        return new PossibleMappingsResult("Pick one terrain type to apply floating point mask to");
+                        return new PossibleMappingsResult("\u9009\u62E9\u4E00\u79CD\u65B9\u5757\u7C7B\u578B\u6765\u5E94\u7528\u6D6E\u70B9\u906E\u7F69");
                     }
                 } else if (applyToLayer != null) {
                     if (applyToLayer.discrete) {
@@ -474,7 +474,7 @@ outer:          for (int x = 0; x < width; x++) {
                             return new PossibleMappingsResult(setLayerValue(applyToLayer, applyToLayerValue).ditheredActualRange(), setLayerValue(applyToLayer, applyToLayerValue).ditheredFullRange(), setLayerValue(applyToLayer, applyToLayerValue).threshold());
                         } else {
                             // No value selected
-                            return new PossibleMappingsResult("Pick one discrete layer value type to apply floating point mask to");
+                            return new PossibleMappingsResult("\u9009\u62E9\u4E00\u4E2A\u79BB\u6563\u8986\u76d6\u5c42\u7684\u503C\u6765\u5E94\u7528\u6D6E\u70B9\u906E\u7F69");
                         }
                     } else if (applyToLayer.getDataSize().maxValue == 1) {
                         // Continuous greyscale mask to one-bit layer
@@ -503,12 +503,12 @@ outer:          for (int x = 0; x < width; x++) {
                 if (Annotations.INSTANCE.equals(applyToLayer) && (applyToLayerValue == null)) {
                     return new PossibleMappingsResult(colourToAnnotations(), colourToAnnotations().ditheredActualRange());
                 } else {
-                    return new PossibleMappingsResult("Colour mask can only be applied to Annotations layer");
+                    return new PossibleMappingsResult("\u5F69\u8272\u906E\u7F69\u4EC5\u53EF\u5E94\u7528\u4E8E\u6807\u6CE8\u8986\u76d6\u5c42");
                 }
             default:
-                return new PossibleMappingsResult("Bit depth or format of mask not supported");
+                return new PossibleMappingsResult("\u8986\u76D6\u56FE\u7684\u4F4D\u6DF1\u5EA6\u6216\u683C\u5F0F\u4E0D\u652F\u6301");
         }
-        return new PossibleMappingsResult("No target selected");
+        return new PossibleMappingsResult("\u672A\u9009\u62E9\u76EE\u6807");
     }
 
     public Terrain getApplyToTerrainType() {

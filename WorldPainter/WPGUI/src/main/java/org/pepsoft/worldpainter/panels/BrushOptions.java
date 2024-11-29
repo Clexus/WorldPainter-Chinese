@@ -336,13 +336,13 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         if (paint instanceof String) {
             switch ((String) paint) {
                 case TerrainOrLayerFilter.WATER:
-                    return "Water";
+                    return "\u6C34";
                 case TerrainOrLayerFilter.LAVA:
-                    return "Lava";
+                    return "\u5CA9\u6D46";
                 case TerrainOrLayerFilter.LAND:
-                    return "Land";
+                    return "\u9646\u5730";
                 case TerrainOrLayerFilter.AUTO_BIOMES:
-                    return "All Auto Biomes";
+                    return "\u6240\u6709\u7684\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB";
                 default:
                     throw new UnsupportedOperationException("Paint of type \"" + paint + "\" not supported");
             }
@@ -354,9 +354,9 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
                 return new BiomeHelper(colourScheme, customBiomeManager, platform).getBiomeName(abs(layerValue.value));
             } else if (layerValue.layer instanceof Annotations) {
                 if (layerValue.value == -1) {
-                    return "All Annotations";
+                    return "\u6240\u6709\u7684\u6807\u6CE8\u8986\u76D6\u5C42";
                 } else {
-                    return Annotations.getColourName(layerValue.value) + " Annotations";
+                    return Annotations.getColourName(layerValue.value) + "\u6807\u6CE8\u8986\u76D6\u5C42";
                 }
             } else {
                 throw new UnsupportedOperationException("Paint of layer type " + layerValue.layer.getClass() + " and value " + layerValue.value + " not supported");
@@ -475,24 +475,24 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         Arrays.stream(menu.getMenuComponents()).forEach(popupMenu::add);
         return popupMenu;
     }
-    
+
     @SuppressWarnings("unchecked") // Guaranteed by code
     private JMenu createObjectSelectionMenu(final String descriptor, final ObjectSelectionListener listener, final boolean addAnother, final Object currentSelection) {
-        final JMenuItem waterItem = new JMenuItem("Water", ICON_WATER);
-        waterItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.WATER, "Water", null));
+        final JMenuItem waterItem = new JMenuItem("\u6C34", ICON_WATER);
+        waterItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.WATER, "\u6C34", null));
         JMenu popupMenu = new JMenu();
         popupMenu.add(waterItem);
 
-        final JMenuItem lavaItem = new JMenuItem("Lava", ICON_LAVA);
-        lavaItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.LAVA, "Lava", null));
+        final JMenuItem lavaItem = new JMenuItem("\u5CA9\u6D46", ICON_LAVA);
+        lavaItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.LAVA, "\u5CA9\u6D46", null));
         popupMenu.add(lavaItem);
 
-        final JMenuItem landItem = new JMenuItem("Land");
-        landItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.LAND, "Land", null));
+        final JMenuItem landItem = new JMenuItem("\u9646\u5730");
+        landItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.LAND, "\u9646\u5730", null));
         popupMenu.add(landItem);
 
-        final JMenuItem eyedropperItem = new JMenuItem("Select on Map", ICON_EYEDROPPER);
-        eyedropperItem.setToolTipText("Select a paint from the map");
+        final JMenuItem eyedropperItem = new JMenuItem("\u5728\u5730\u56FE\u4E0A\u9009\u62E9", ICON_EYEDROPPER);
+        eyedropperItem.setToolTipText("\u5728\u5730\u56FE\u4E0A\u9009\u62E9\u4E00\u4E2A\u753B\u7B14");
         final App app = App.getInstance();
         final ColourScheme colourScheme = app.getColourScheme();
         if (mapSelectionListener != null) {
@@ -544,9 +544,9 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         }
         popupMenu.add(eyedropperItem);
 
-        final JMenu terrainMenu = new JMenu("Terrain");
-        final JMenu customTerrainMenu = new JMenu("Custom");
-        final JMenu stainedClayTerrainMenu = new JMenu("Stained Terracotta");
+        final JMenu terrainMenu = new JMenu("\u65B9\u5757");
+        final JMenu customTerrainMenu = new JMenu("\u81EA\u5B9A\u4E49");
+        final JMenu stainedClayTerrainMenu = new JMenu("\u67D3\u8272\u9676\u74E6");
         for (Terrain terrain: Terrain.getConfiguredValues()) {
             final Terrain selectedTerrain = terrain;
             final String name = terrain.getName();
@@ -566,8 +566,8 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
             terrainMenu.add(customTerrainMenu);
         }
         popupMenu.add(terrainMenu);
-        
-        final JMenu layerMenu = new JMenu("Layer");
+
+        final JMenu layerMenu = new JMenu("\u8986\u76D6\u5C42");
         LayerManager.getInstance().getLayers().stream()
             .filter(layer -> ! layer.equals(Biome.INSTANCE))
             .forEach(layer -> {
@@ -582,7 +582,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
             app.getCustomLayersByPalette().entrySet().stream()
                 .map((entry) -> {
                     String palette = entry.getKey();
-                    JMenu paletteMenu = new JMenu(palette != null ? palette : "Hidden Layers");
+                    JMenu paletteMenu = new JMenu(palette != null ? palette : "\u9690\u85CF\u7684\u8986\u76D6\u5C42");
                     entry.getValue().forEach(layer -> {
                         JMenuItem menuItem = new JMenuItem(layer.getName(), new ImageIcon(layer.getIcon()));
                         menuItem.addActionListener(e -> listener.objectSelected(layer, layer.getName(), new ImageIcon(layer.getIcon())));
@@ -599,12 +599,12 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         }
         popupMenu.add(layerMenu);
 
-        final JMenu biomeMenu = new JMenu("Biome");
+        final JMenu biomeMenu = new JMenu("\u7FA4\u7CFB");
         final CustomBiomeManager customBiomeManager = app.getCustomBiomeManager();
         final BiomeHelper biomeHelper = new BiomeHelper(colourScheme, customBiomeManager, platform);
         List<CustomBiome> customBiomes = customBiomeManager.getCustomBiomes();
         if (! customBiomes.isEmpty()) {
-            JMenu customBiomeMenu = new JMenu("Custom");
+            JMenu customBiomeMenu = new JMenu("\u81EA\u5B9A\u4E49");
             for (CustomBiome customBiome: customBiomes) {
                 final int selectedBiome = customBiome.getId();
                 final String name = biomeHelper.getBiomeName(selectedBiome);
@@ -641,9 +641,9 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
                 }
             }
         }
-        final JMenu autoBiomeSubMenu = new JMenu("Auto Biomes");
-        final JMenuItem autoBiomesMenuItem = new JMenuItem("All Auto Biomes");
-        autoBiomesMenuItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.AUTO_BIOMES, "All Auto Biomes", null));
+        final JMenu autoBiomeSubMenu = new JMenu("\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB");
+        final JMenuItem autoBiomesMenuItem = new JMenuItem("\u6240\u6709\u7684\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB");
+        autoBiomesMenuItem.addActionListener(e -> listener.objectSelected(TerrainOrLayerFilter.AUTO_BIOMES, "\u6240\u6709\u7684\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB", null));
         autoBiomeSubMenu.add(autoBiomesMenuItem);
         for (int autoBiome: Dimension.POSSIBLE_AUTO_BIOMES) {
             final int selectedBiome = -autoBiome;
@@ -656,16 +656,16 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         biomeMenu.add(autoBiomeSubMenu);
         popupMenu.add(biomeMenu);
 
-        final JMenu annotationsMenu = new JMenu("Annotations");
-        JMenuItem menuItem = new JMenuItem("All Annotations");
-        menuItem.addActionListener(e -> listener.objectSelected(new LayerValue(Annotations.INSTANCE), "All Annotations", null));
+        final JMenu annotationsMenu = new JMenu("\u6807\u6CE8\u8986\u76D6\u5C42");
+        JMenuItem menuItem = new JMenuItem("\u6240\u6709\u7684\u6807\u6CE8\u8986\u76D6\u5C42");
+        menuItem.addActionListener(e -> listener.objectSelected(new LayerValue(Annotations.INSTANCE), "\u6240\u6709\u7684\u6807\u6CE8\u8986\u76D6\u5C42", null));
         annotationsMenu.add(menuItem);
         for (int i = 1; i < 16; i++) {
             final int layerValue = i;
             final Icon icon  = createScaledColourIcon(Annotations.getColour(layerValue, colourScheme));
             final String colourName = Annotations.getColourName(layerValue);
             menuItem = new JMenuItem(colourName, icon);
-            menuItem.addActionListener(e -> listener.objectSelected(new LayerValue(Annotations.INSTANCE, layerValue), colourName + " Annotations", icon));
+            menuItem.addActionListener(e -> listener.objectSelected(new LayerValue(Annotations.INSTANCE, layerValue), colourName + "\u6807\u6CE8\u8986\u76D6\u5C42", icon));
             annotationsMenu.add(menuItem);
         }
         popupMenu.add(annotationsMenu);
@@ -680,9 +680,9 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
                     selection.add(currentSelection);
                 }
                 selection.add(object);
-                listener.objectSelected(selection, "Multiple", ICON_PLUS);
+                listener.objectSelected(selection, "\u591A\u9009", ICON_PLUS);
             }), true, currentSelection);
-            subMenu.setText("Add Another");
+            subMenu.setText("\u6DFB\u52A0\u53E6\u4E00\u4E2A");
             subMenu.setIcon(ICON_PLUS);
             popupMenu.add(subMenu);
         }
@@ -727,7 +727,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
             // from the rest of the menu items and insert it between the menu
             // items and the submenus
             if (menu.getMenuComponentCount() > 0) {
-                menu.setText("More");
+                menu.setText("\u66F4\u591A");
                 menu.setToolTipText(null);
                 replacementMenu.add(breakUpLongMenus(menu, maxLength), index);
             }
@@ -750,13 +750,13 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         JPopupMenu menu = createReplaceMenu();
         menu.show(this, buttonReplace.getX() + buttonReplace.getWidth(), buttonReplace.getY());
     }
-    
+
     private void showExceptOnMenu() {
         App.getInstance().cancelPaintSelection();
         JPopupMenu menu = createExceptOnMenu();
         menu.show(this, buttonExceptOn.getX() + buttonExceptOn.getWidth(), buttonExceptOn.getY());
     }
-    
+
     private void filterChanged() {
         if (listener != null) {
             Filter filter = getFilter();
@@ -793,7 +793,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         checkBoxOutsideSelection = new javax.swing.JCheckBox();
 
         checkBoxAbove.setFont(checkBoxAbove.getFont().deriveFont(checkBoxAbove.getFont().getSize()-1f));
-        checkBoxAbove.setText("at or above");
+        checkBoxAbove.setText("\u4EC5\u5E94\u7528\u4E8E\u9AD8\u5EA6\u5927\u4E8E\u7B49\u4E8E...\u65F6:");
         checkBoxAbove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxAboveActionPerformed(evt);
@@ -810,7 +810,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxBelow.setFont(checkBoxBelow.getFont().deriveFont(checkBoxBelow.getFont().getSize()-1f));
-        checkBoxBelow.setText("at or below");
+        checkBoxBelow.setText("\u4EC5\u5E94\u7528\u4E8E\u9AD8\u5EA6\u5C0F\u4E8E\u7B49\u4E8E...\u65F6:");
         checkBoxBelow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxBelowActionPerformed(evt);
@@ -827,7 +827,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxReplace.setFont(checkBoxReplace.getFont().deriveFont(checkBoxReplace.getFont().getSize()-1f));
-        checkBoxReplace.setText("only on");
+        checkBoxReplace.setText("\u4EC5\u5E94\u7528\u4E8E\uFF1A");
         checkBoxReplace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxReplaceActionPerformed(evt);
@@ -844,7 +844,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxFeather.setFont(checkBoxFeather.getFont().deriveFont(checkBoxFeather.getFont().getSize()-1f));
-        checkBoxFeather.setText("feather");
+        checkBoxFeather.setText("\u7FBD\u5316");
         checkBoxFeather.setEnabled(false);
         checkBoxFeather.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -853,7 +853,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxExceptOn.setFont(checkBoxExceptOn.getFont().deriveFont(checkBoxExceptOn.getFont().getSize()-1f));
-        checkBoxExceptOn.setText("except on");
+        checkBoxExceptOn.setText("\u6392\u9664");
         checkBoxExceptOn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxExceptOnActionPerformed(evt);
@@ -870,7 +870,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxAboveSlope.setFont(checkBoxAboveSlope.getFont().deriveFont(checkBoxAboveSlope.getFont().getSize()-1f));
-        checkBoxAboveSlope.setText("above");
+        checkBoxAboveSlope.setText("\u5761\u5EA6\u5927\u4E8E");
         checkBoxAboveSlope.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxAboveSlopeActionPerformed(evt);
@@ -878,7 +878,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxBelowSlope.setFont(checkBoxBelowSlope.getFont().deriveFont(checkBoxBelowSlope.getFont().getSize()-1f));
-        checkBoxBelowSlope.setText("below");
+        checkBoxBelowSlope.setText("\u5761\u5EA6\u5C0F\u4E8E");
         checkBoxBelowSlope.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxBelowSlopeActionPerformed(evt);
@@ -895,10 +895,10 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         jLabel1.setFont(jLabel1.getFont().deriveFont(jLabel1.getFont().getSize()-1f));
-        jLabel1.setText("degrees");
+        jLabel1.setText("\u5EA6");
 
         checkBoxInSelection.setFont(checkBoxInSelection.getFont().deriveFont(checkBoxInSelection.getFont().getSize()-1f));
-        checkBoxInSelection.setText("inside selection");
+        checkBoxInSelection.setText("\u4EC5\u5E94\u7528\u4E8E\u9009\u533A\u5185");
         checkBoxInSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxInSelectionActionPerformed(evt);
@@ -906,7 +906,7 @@ public class BrushOptions extends javax.swing.JPanel implements Observer {
         });
 
         checkBoxOutsideSelection.setFont(checkBoxOutsideSelection.getFont().deriveFont(checkBoxOutsideSelection.getFont().getSize()-1f));
-        checkBoxOutsideSelection.setText("outside selection");
+        checkBoxOutsideSelection.setText("\u4EC5\u5E94\u7528\u4E8E\u9009\u533A\u5916");
         checkBoxOutsideSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxOutsideSelectionActionPerformed(evt);

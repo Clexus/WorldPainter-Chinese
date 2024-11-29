@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Edit Palette"/>
+    <Property name="title" type="java.lang.String" value="\u7F16\u8F91\u8C03\u8272\u677F"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -110,7 +110,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="textFieldName"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Name:"/>
+        <Property name="text" type="java.lang.String" value="\u540d\u79f0:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textFieldName">
@@ -123,12 +123,12 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="listLayers"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Layer order:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76D6\u5C42\u987A\u5E8F:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cancel"/>
+        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -136,7 +136,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOk">
       <Properties>
-        <Property name="text" type="java.lang.String" value="OK"/>
+        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -155,7 +155,7 @@
             <Property name="selectionMode" type="int" value="1"/>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;CustomLayer&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;\u81ea\u5b9a\u4e49\u8986\u76d6\u5c42&gt;"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -165,8 +165,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/top.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Top"/>
-        <Property name="toolTipText" type="java.lang.String" value="Move the selected layers to the top"/>
+        <Property name="text" type="java.lang.String" value="\u7F6E\u9876"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u5C06\u9009\u4E2D\u7684\u8986\u76D6\u5C42\u7F6E\u9876"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -179,8 +179,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/up.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Up"/>
-        <Property name="toolTipText" type="java.lang.String" value="Move the selected layers up one row"/>
+        <Property name="text" type="java.lang.String" value="\u4E0A\u79FB"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u4E0A\u79FB\u9009\u4E2D\u8986\u76D6\u5C42"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -193,8 +193,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/down.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Down"/>
-        <Property name="toolTipText" type="java.lang.String" value="Move the selected layers down one row"/>
+        <Property name="text" type="java.lang.String" value="\u4E0B\u79FB"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u4E0B\u79FB\u9009\u4E2D\u8986\u76D6\u5C42"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -207,8 +207,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/bottom.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Bottom"/>
-        <Property name="toolTipText" type="java.lang.String" value="Move the selected layers to the bottom"/>
+        <Property name="text" type="java.lang.String" value="\u7F6E\u5E95"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u5C06\u9009\u4E2D\u8986\u76D6\u5C42\u7F6E\u5E95"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
@@ -221,8 +221,8 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/a_z.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Sort"/>
-        <Property name="toolTipText" type="java.lang.String" value="Sort all the layers alphabetically by name"/>
+        <Property name="text" type="java.lang.String" value="\u6392\u5E8F"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u5C06\u6240\u6709\u8986\u76D6\u5C42\u6309\u7167\u5B57\u6BCD\u987A\u5E8F\u6392\u5217"/>
         <Property name="horizontalAlignment" type="int" value="10"/>
       </Properties>
       <Events>
@@ -239,12 +239,12 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="listLayers"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Hold shift to select multiple rows"/>
+        <Property name="text" type="java.lang.String" value="\u6309shift\u591A\u9009"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonReset">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reset"/>
+        <Property name="text" type="java.lang.String" value="\u91cd\u7f6e:"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>

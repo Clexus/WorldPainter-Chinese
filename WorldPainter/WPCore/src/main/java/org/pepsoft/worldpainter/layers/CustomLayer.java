@@ -246,7 +246,7 @@ public abstract class CustomLayer extends Layer implements Cloneable {
             biome = -1;
         }
         if (version < 2) {
-            palette = "\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42";
+            palette = "\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42";
         }
         if (version < 3) {
             export = true;
@@ -270,7 +270,7 @@ public abstract class CustomLayer extends Layer implements Cloneable {
 
     private int colour, biome = -1, version = CURRENT_VERSION;
     private boolean hide, export = true;
-    private String palette = "\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42";
+    private String palette = "\u81EA\u5B9A\u4E49\u8986\u76d6\u5c42";
     /**
      * The index indicating the export order of the layer.
      */

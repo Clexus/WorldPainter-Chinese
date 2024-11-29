@@ -68,22 +68,22 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
                 if (value instanceof TiledImageViewer.BackgroundImageMode) {
                     switch ((TiledImageViewer.BackgroundImageMode) value) {
                         case CENTRE:
-                            setText("Centre");
+                            setText("\u5C45\u4E2D");
                             break;
                         case CENTRE_REPEAT:
-                            setText("Centre (repeat)");
+                            setText("\u5C45\u4E2D(\u91CD\u590D)");
                             break;
                         case FIT:
-                            setText("Fit");
+                            setText("\u9002\u5E94");
                             break;
                         case FIT_REPEAT:
-                            setText("Fit (repeat)");
+                            setText("\u9002\u5E94(\u91CD\u590D)");
                             break;
                         case REPEAT:
-                            setText("Repeat");
+                            setText("\u91CD\u590D");
                             break;
                         case STRETCH:
-                            setText("Stretch");
+                            setText("\u62C9\u4F38");
                             break;
                     }
                 }
@@ -119,7 +119,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
         scaleToUI();
         pack();
         setLocationRelativeTo(parent);
-        
+
         if (enableOverlay) {
             addWindowListener(this);
         }
@@ -186,7 +186,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
     }
 
     private void selectBackgroundImage() {
-        final File selectedFile = selectImageForOpen(this, "a background image file", new File(fieldBackgroundImage.getText()));
+        final File selectedFile = selectImageForOpen(this, "\u80CC\u666F\u56FE\u6587\u4EF6", new File(fieldBackgroundImage.getText()));
         if (selectedFile != null) {
             fieldBackgroundImage.setText(selectedFile.getAbsolutePath());
         }
@@ -204,7 +204,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
     }
 
     private void addOverlay() {
-        final File imageFile = selectImageForOpen(this, "an overlay image file", config.getOverlaysDirectory());
+        final File imageFile = selectImageForOpen(this, "\u8986\u76D6\u56FE\u6587\u4EF6", config.getOverlaysDirectory());
         if (imageFile != null) {
             final Overlay overlay = new Overlay(imageFile);
             final int rowIndex = overlaysTableModel.addOverlay(overlay);

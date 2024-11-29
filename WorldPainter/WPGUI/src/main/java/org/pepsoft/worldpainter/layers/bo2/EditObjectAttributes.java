@@ -57,7 +57,7 @@ public class EditObjectAttributes extends WorldPainterDialog {
                     labelFile.setForeground(Color.RED);
                 }
             } else {
-                labelFile.setText("<html><i>unknown</i></html>");
+                labelFile.setText("<html><i>\u672A\u77E5</i></html>");
             }
             Point3i offset = object.getOffset();
             offsets.put(object, offset);
@@ -126,8 +126,8 @@ public class EditObjectAttributes extends WorldPainterDialog {
             previewer.setObject(object);
             jPanel1.add(previewer, BorderLayout.CENTER);
         } else {
-            labelFile.setText(objects.size() + " objects selected");
-            fieldName.setText("multiple");
+            labelFile.setText("\u5DF2\u9009\u4E2D "+objects.size()+" \u4E2A\u5BF9\u8C61");
+            fieldName.setText("\u591A\u9009");
             fieldName.setEnabled(false);
             file = null;
             long frequencyTotal = 0, variationTotal = 0, verticalOffsetTotal = 0;
@@ -155,7 +155,7 @@ public class EditObjectAttributes extends WorldPainterDialog {
                 int verticalOffset = object.getAttribute(ATTRIBUTE_VERTICAL_OFFSET);
                 verticalOffsetTotal += verticalOffset;
             }
-            labelOffset.setText("multiple");
+            labelOffset.setText("\u591A\u9009");
             checkBoxRandomRotation.setMixed(true);
             checkBoxRandomMirroring.setMixed(true);
             checkBoxOnAir.setMixed(true);
@@ -171,7 +171,7 @@ public class EditObjectAttributes extends WorldPainterDialog {
             spinnerFrequency.setValue(averageFrequency);
             if (! allFrequenciesIdentical) {
                 checkBoxFrequencyActive.setSelected(false);
-                checkBoxFrequencyActive.setToolTipText("<html>The relative frequencies of the selected objects are not all the same.<br>Check the checkbox if you want to set them all to the same value.</html>");
+                checkBoxFrequencyActive.setToolTipText("<html>\u9009\u5B9A\u5BF9\u8C61\u7684\u76F8\u5BF9\u9891\u7387\u5E76\u4E0D\u5B8C\u5168\u76F8\u540C<br>\u5982\u679C\u8981\u5C06\u5B83\u4EEC\u5168\u90E8\u8BBE\u7F6E\u4E3A\u76F8\u540C\u7684\u503C\uFF0C\u8BF7\u52FE\u9009\u590D\u9009\u6846.</html>");
                 checkBoxFrequencyActive.setEnabled(true);
                 spinnerFrequency.setEnabled(false);
             }
@@ -182,7 +182,7 @@ public class EditObjectAttributes extends WorldPainterDialog {
             spinnerRandomVariation.setValue(averageVariation);
             if (! allVariationsIdentical) {
                 checkBoxRandomVariationActive.setSelected(false);
-                checkBoxRandomVariationActive.setToolTipText("<html>The random variations of the selected objects are not all the same.<br>Check the checkbox if you want to set them all to the same value.</html>");
+                checkBoxRandomVariationActive.setToolTipText("<html>\u6240\u9009\u5BF9\u8C61\u7684\u968F\u673A\u53d8\u79cd\u5E76\u4E0D\u5B8C\u5168\u76F8\u540C<br>\u5982\u679C\u8981\u5C06\u5B83\u4EEC\u5168\u90E8\u8BBE\u7F6E\u4E3A\u76F8\u540C\u7684\u503C\uFF0C\u8BF7\u52FE\u9009\u590D\u9009\u6846.</html>");
                 checkBoxRandomVariationActive.setEnabled(true);
                 spinnerRandomVariation.setEnabled(false);
             }
@@ -191,22 +191,22 @@ public class EditObjectAttributes extends WorldPainterDialog {
         pack();
 
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("cancel") {
+        actionMap.put("cancel", new AbstractAction("\u53D6\u6D88") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
-            
+
             private static final long serialVersionUID = 1L;
         });
 
         InputMap inputMap = rootPane.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancel");
-        
+
         getRootPane().setDefaultButton(buttonOK);
-        
+
         setLocationRelativeTo(parent);
-        
+
         setControlStates();
     }
 
@@ -357,7 +357,7 @@ public class EditObjectAttributes extends WorldPainterDialog {
             }
         }
         if (! singleSelection) {
-            JOptionPane.showMessageDialog(this, objects.size() + " offsets autoset");
+            JOptionPane.showMessageDialog(this, objects.size() + " \u4E2A\u504F\u79FB\u88AB\u81EA\u52A8\u8BBE\u7F6E");
         }
     }
 
@@ -367,18 +367,18 @@ public class EditObjectAttributes extends WorldPainterDialog {
         if (singleSelection) {
             labelOffset.setText("<html><u>0, 0, 0</u></html>");
         } else {
-            JOptionPane.showMessageDialog(this, objects.size() + " offsets reset");
+            JOptionPane.showMessageDialog(this, objects.size() + " \u4E2A\u504F\u79FB\u88AB\u91CD\u7F6E");
         }
     }
-    
+
     private void setControlStates() {
         comboBoxReplacedMaterial.setEnabled(checkBoxReplace.isSelected());
         checkBoxCollideWithFloor.setEnabled(checkBoxOnWater.isSelected() || checkBoxOnWater.isTristateMode());
         spinnerVerticalOffset.setEnabled(radioButtonPlaceAtFixedHeight.isSelected());
         if (radioButtonPlaceOnTerrain.isSelected()) {
-            labelVerticalOffset.setText("Height above terrain:");
+            labelVerticalOffset.setText("\u65B9\u5757\u4EE5\u4E0A\u7684\u9AD8\u5EA6:");
         } else if (radioButtonPlaceAtFixedHeight.isSelected()) {
-            labelVerticalOffset.setText("Absolute height:");
+            labelVerticalOffset.setText("\u7EDD\u5BF9\u9AD8\u5EA6:");
         }
         spinnerVerticalOffset.setEnabled(radioButtonPlaceOnTerrain.isSelected() || radioButtonPlaceAtFixedHeight.isSelected());
     }

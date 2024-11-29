@@ -404,7 +404,7 @@ public class EditPaintDialog extends WorldPainterDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSolidColourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSolidColourActionPerformed
-        final Color selectedColour = JColorChooser.showDialog(this, "Choose A Colour", paintColour);
+        final Color selectedColour = JColorChooser.showDialog(this, "\u9009\u62E9\u4E00\u79CD\u989C\u8272", paintColour);
         if (selectedColour != null) {
             iconEditor1.fill(selectedColour.getRGB());
             colour = selectedColour;
@@ -417,12 +417,12 @@ public class EditPaintDialog extends WorldPainterDialog {
 
     private void toggleButtonPencilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButtonPencilActionPerformed
         iconEditor1.setPaintColour(paintColour.getRGB());
-        jLabel1.setText("Left-click to paint with selected colour; right-click for background colour");
+        jLabel1.setText("\u5DE6\u952E\u5355\u51FB\u4EE5\u4F7F\u7528\u6240\u9009\u989C\u8272\u7ED8\u5236\uFF1B\u53F3\u952E\u5355\u51FB\u4EE5\u663E\u793A\u80CC\u666F\u989C\u8272");
     }//GEN-LAST:event_toggleButtonPencilActionPerformed
 
     private void toggleButtonEraserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleButtonEraserActionPerformed
         iconEditor1.setPaintColour(0x00ffffff);
-        jLabel1.setText("Click to erase to transparency");
+        jLabel1.setText("\u70B9\u51FB\u4EE5\u64E6\u9664\u4E3A\u900F\u660E");
     }//GEN-LAST:event_toggleButtonEraserActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
@@ -522,21 +522,21 @@ public class EditPaintDialog extends WorldPainterDialog {
     };
 
     private static final String[] EGA_NAMES = {
-            "Black",
-            "Blue",
-            "Green",
-            "Cyan",
-            "Red",
-            "Magenta",
-            "Brown",
-            "Light Grey",
-            "Dark Grey",
-            "Bright Blue",
-            "Bright Green",
-            "Bright Cyan",
-            "Bright Red",
-            "Bright Magenta",
-            "Bright Yellow",
-            "Bright White"
+            "\u9ED1\u8272",
+            "\u84DD\u8272",
+            "\u7EFF\u8272",
+            "\u9752\u8272",
+            "\u7EA2\u8272",
+            "\u6D0B\u7EA2\u8272",
+            "\u68D5\u8272",
+            "\u6D45\u7070\u8272",
+            "\u7070\u8272",
+            "\u4EAE\u84DD\u8272",
+            "\u4EAE\u7EFF\u8272",
+            "\u4EAE\u9752\u8272",
+            "\u4EAE\u7EA2\u8272",
+            "\u4EAE\u6D0B\u7EA2\u8272",
+            "\u4EAE\u9EC4\u8272",
+            "\u4EAE\u767D\u8272"
     };
 }

@@ -79,7 +79,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
 
     @Override
     public PlantLayer createLayer() {
-        return new PlantLayer("Plants", "A custom collection of plants", Color.GREEN);
+        return new PlantLayer("\u690D\u88AB", "\u4E00\u7CFB\u5217\u690D\u7269\u7684\u7EC4\u5408", Color.GREEN);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
                     plantLabels[i].setEnabled(false);
                     plantLabels[i].setText(ALL_PLANTS[i].getName());
                 }
-                plantLabels[i].setToolTipText("This plant is not compatible with the current map format");
+                plantLabels[i].setToolTipText("\u8BE5\u690D\u7269\u4E0E\u5F53\u524D\u7684\u5730\u56FE\u683C\u5F0F\u4E0D\u517C\u5BB9");
             } else if (settings != null) {
                 spinners[i].setValue((int) settings.occurrence);
                 plantLabels[i].setEnabled(true);
@@ -187,13 +187,13 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
         panelPlantControls.add(panel);
         addCategory(panel, SAPLINGS);
         addCategory(panel, CROPS);
-        addCategory(panel, "Various", MUSHROOMS, CACTUS, SUGAR_CANE, FLOATING_PLANTS, END);
+        addCategory(panel, "\u5404\u79CD\u690D\u7269", MUSHROOMS, CACTUS, SUGAR_CANE, FLOATING_PLANTS, END);
         addFiller(panel);
         panel = new JPanel(new GridBagLayout());
         panelPlantControls.add(panel);
-        addCategory(panel, "Water plants", WATER_PLANTS, DRIPLEAF);
+        addCategory(panel, "\u6C34\u7CFB\u690D\u7269", WATER_PLANTS, DRIPLEAF);
         addCategory(panel, NETHER);
-        addCategory(panel, "Hanging Plants", "For ceilings and cave/tunnel roofs", HANGING_DRY_PLANTS, HANGING_WATER_PLANTS);
+        addCategory(panel, "\u60AC\u6302\u690D\u7269", "\u7528\u4E8E\u9876\u5C42\u4E16\u754C\u6216\u6D1E\u7A74/\u901A\u9053\u4E16\u754C\u7684\u9876\u5C42", HANGING_DRY_PLANTS, HANGING_WATER_PLANTS);
         addFiller(panel);
         panelPlantControls.setPreferredSize(panelPlantControls.getMinimumSize());
     }
@@ -215,7 +215,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
         panel.add(new JLabel("<html><b>" + title + "</b></html>"), constraints);
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         if (newColumn) {
-            panel.add(new JLabel("Growth:"), constraints);
+            panel.add(new JLabel("\u751F\u957F\u7A0B\u5EA6:"), constraints);
         }
         if (subTitle != null) {
             panel.add(new JLabel(subTitle), constraints);
@@ -267,7 +267,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
 
         if (! enabled) {
             spinners[index].setEnabled(false);
-            spinners[index].setToolTipText("This plant is not compatible with the current map format");
+            spinners[index].setToolTipText("\u8BE5\u690D\u7269\u4E0E\u5F53\u524D\u7684\u5730\u56FE\u683C\u5F0F\u4E0D\u517C\u5BB9");
         }
 
         if (plant.getMaxGrowth() > 1) {
@@ -380,7 +380,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
             if ((value == 0) && percentageLabels[i].isEnabled()) {
                 percentageLabels[i].setEnabled(false);
                 plantLabels[i].setFont(normalFont);
-                percentageLabels[i].setText("   %");
+                percentageLabels[i].setText("\u2007\u2007\u2007%");
                 if ((growthFromSpinners[i] != null) && growthFromSpinners[i].isEnabled()) {
                     growthFromSpinners[i].setEnabled(false);
                     growthToSpinners[i].setEnabled(false);
@@ -395,9 +395,9 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
                 }
                 int percentage = (int) (value * 100 / totalOccurrence);
                 if (percentage < 10) {
-                    percentageLabels[i].setText("  " + percentage + "%");
+                    percentageLabels[i].setText("\u2007\u2007" + percentage + "%");
                 } else if (percentage < 100) {
-                    percentageLabels[i].setText(" " + percentage + "%");
+                    percentageLabels[i].setText("\u2007" + percentage + "%");
                 } else {
                     percentageLabels[i].setText(percentage + "%");
                 }
@@ -418,7 +418,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
     private void setControlStates() {
         checkBoxGenerateTilledDirt.setEnabled(cropsSelected);
     }
-    
+
     private PlantLayer saveSettings(PlantLayer layer) {
         if (layer == null) {
             layer = createLayer();
@@ -442,7 +442,7 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
         }
         return layer;
     }
-    
+
     private void clear() {
         for (int i = 0; i < ALL_PLANTS.length; i++) {
             spinners[i].setValue(0);
@@ -547,10 +547,8 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
             final ExportSettings exportSettings = context.getDimension().getExportSettings();
             if ((exportSettings == null) || ((exportSettings instanceof JavaExportSettings) && ((JavaExportSettings) exportSettings).isRemovePlants())) {
                 DesktopUtils.beep();
-                showInfo(SwingUtilities.windowForComponent(this), "You must also turn off \"Plants: remove from invalid blocks\"\n" +
-                        "on the Post Processing tab of the Export screen! Otherwise\n" +
-                        "plants on invalid blocks will be removed during post-\n" +
-                        "processing.", "Reminder: Turn Off Remove Plants");
+                showInfo(SwingUtilities.windowForComponent(this), "\u4F60\u8FD8\u5FC5\u987B\u5728\u5BFC\u51FA\u754C\u9762\u7684\u540E\u5904\u7406\u6807\u7B7E\u4E2D\u5173\u95ED\u201C\u690D\u7269\uFF1A\u4ECE\u65E0\u6548\u65B9\u5757\u4E2D\u79FB\u9664\u201D\u9009\u9879\uFF01\n\u5426\u5219\uFF0C\u540E\u5904\u7406\u8FC7\u7A0B\u4E2D\u65E0\u6548\u65B9\u5757\u4E0A\u7684\u690D\u7269\u5C06\u88AB\u79FB\u9664\u3002",
+                        "\u63D0\u9192\uFF1A\u5173\u95ED\u79FB\u9664\u690D\u7269\u9009\u9879");
             }
         }
     }//GEN-LAST:event_checkBoxOnlyValidBlocksActionPerformed

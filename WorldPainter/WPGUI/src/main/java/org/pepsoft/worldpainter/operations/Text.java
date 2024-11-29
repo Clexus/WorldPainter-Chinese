@@ -17,7 +17,7 @@ import java.awt.*;
  */
 public class Text extends AbstractBrushOperation implements PaintOperation {
     public Text(WorldPainterView view) {
-        super("Text", "Draw text using any layer or terrain at different sizes, fonts and angles", view, "operation.text");
+        super("Text", "\u6587\u672C\u5DE5\u5177-\u4F7F\u7528\u4EFB\u610F\u8986\u76D6\u5C42\u6216\u65B9\u5757\u4EE5\u4EFB\u610F\u5B57\u4F53\u3001\u5B57\u53F7\u548C\u89D2\u5EA6\u751F\u6210\u6587\u5B57", view, "operation.text");
     }
 
     @Override
@@ -84,5 +84,5 @@ public class Text extends AbstractBrushOperation implements PaintOperation {
     private final DimensionPainter painter = new DimensionPainter();
     private String savedText;
 
-    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("Text", "<p>Click to form text with the currently selected paint with its top left corner at the indicated location");
+    private static final JPanel OPTIONS_PANEL = new StandardOptionsPanel("\u6587\u672C\u5DE5\u5177", "<p>\u70B9\u51FB\u4EE5\u5728\u6307\u5B9A\u4F4D\u7F6E\u5F62\u6210\u6587\u672C\uFF0C\u6587\u672C\u7684\u5DE6\u4E0A\u89D2\u4E0E\u5F53\u524D\u9009\u4E2D\u7684\u753B\u7B14\u7C7B\u578B\u5BF9\u9F50\u3002");
 }

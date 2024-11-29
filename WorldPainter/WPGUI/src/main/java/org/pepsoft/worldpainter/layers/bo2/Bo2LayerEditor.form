@@ -137,7 +137,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/arrow_rotate_clockwise.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Reload all or selected objects from disk"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u7531\u78C1\u76D8\u4E2D\u91CD\u65B0\u52A0\u8F7D\u5BF9\u8C61"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[2, 2, 2, 2]"/>
@@ -211,19 +211,19 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelLeafDecayTitle">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Leaf decay settings for these objects:"/>
+            <Property name="text" type="java.lang.String" value="\u5BF9\u8FD9\u4E9B\u5BF9\u8C61\u7684\u6811\u53F6\u51CB\u96F6\u8BBE\u7F6E:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEffectiveLeafDecaySetting">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Leaves do &lt;b&gt;not&lt;/b&gt; decay.&lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;\u6811\u53F6&lt;b&gt;\u4E0D\u4F1A&lt;/b&gt;\u51CB\u96F6.&lt;/html&gt;"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="buttonSetDecay">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Set all to decay"/>
-            <Property name="toolTipText" type="java.lang.String" value="Set all objects to decaying leaves"/>
+            <Property name="text" type="java.lang.String" value="\u5C06\u6240\u6709\u6811\u53F6\u8BBE\u7F6E\u4E3A\u4F1A\u51CB\u96F6"/>
+            <Property name="toolTipText" type="java.lang.String" value="\u5C06\u6240\u6709\u5BF9\u8C61\u8BBE\u7F6E\u4E3A\u6811\u53F6\u4F1A\u51CB\u96F6"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSetDecayActionPerformed"/>
@@ -231,8 +231,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="buttonSetNoDecay">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Set all to &lt;b&gt;not&lt;/b&gt; decay&lt;/html&gt;"/>
-            <Property name="toolTipText" type="java.lang.String" value="Set all objects to non decaying leaves"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;\u5C06\u6240\u6709\u6811\u53F6\u8BBE\u7F6E\u4E3A&lt;b&gt;\u4E0D\u4F1A&lt;/b&gt;\u51CB\u96F6&lt;/html&gt;"/>
+            <Property name="toolTipText" type="java.lang.String" value="\u5C06\u6240\u6709\u5BF9\u8C61\u8BBE\u7F6E\u4E3A\u6811\u53F6\u4E0D\u4F1A\u51CB\u96F6"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSetNoDecayActionPerformed"/>
@@ -240,8 +240,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="buttonReset">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Reset"/>
-            <Property name="toolTipText" type="java.lang.String" value="Reset leaf decay to object defaults"/>
+            <Property name="text" type="java.lang.String" value="\u91CD\u7F6E"/>
+            <Property name="toolTipText" type="java.lang.String" value="\u5C06\u6811\u53F6\u51CB\u96F6\u72B6\u6001\u91CD\u7F6E\u4E3A\u5BF9\u8C61\u9ED8\u8BA4\u503C"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonResetActionPerformed"/>
@@ -261,7 +261,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="listObjectsMouseClicked"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;WPObject&gt;"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;WP\u5BF9\u8C61&gt;"/>
           </AuxValues>
         </Component>
       </SubComponents>
@@ -271,7 +271,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="0" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;Get custom objects&lt;/u&gt;&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;\u83B7\u53D6\u81EA\u5B9A\u4E49\u5BF9\u8C61&lt;/u&gt;&lt;/html&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Hand Cursor"/>
         </Property>
@@ -282,7 +282,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Define your custom object layer on this screen."/>
+        <Property name="text" type="java.lang.String" value="\u5728\u6B64\u754C\u9762\u5B9A\u4E49\u4F60\u7684\u81EA\u5B9A\u4E49\u5BF9\u8C61\u8986\u76d6\u5c42."/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -323,7 +323,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Name:"/>
+            <Property name="text" type="java.lang.String" value="\u540D\u79F0:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fieldName">
@@ -333,7 +333,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Paint:"/>
+            <Property name="text" type="java.lang.String" value="\u753B\u7B14:"/>
           </Properties>
         </Component>
         <Component class="org.pepsoft.worldpainter.layers.renderers.PaintPicker" name="paintPicker1">
@@ -342,7 +342,7 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Object(s):"/>
+        <Property name="text" type="java.lang.String" value="\u5BF9\u8C61:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonAddFile">
@@ -350,7 +350,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/brick_add.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Add one or more objects"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u6DFB\u52A0\u4E00\u4E2A\u6216\u66F4\u591A\u5BF9\u8C61"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[2, 2, 2, 2]"/>
         </Property>
@@ -364,7 +364,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/org/pepsoft/worldpainter/icons/brick_delete.png"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Remove selected object(s)"/>
+        <Property name="toolTipText" type="java.lang.String" value="\u79FB\u9664\u9009\u4E2D\u7684\u5BF9\u8C61"/>
         <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[2, 2, 2, 2]"/>
@@ -376,7 +376,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Spawn chance:"/>
+        <Property name="text" type="java.lang.String" value="\u751F\u6210\u51E0\u7387:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerBlocksPerAttempt">
@@ -391,17 +391,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelBlocksPerAttempt">
       <Properties>
-        <Property name="text" type="java.lang.String" value="one per x blocks at 1%; y blocks at 50%; z blocks at 100%)"/>
+        <Property name="text" type="java.lang.String" value="\u6BCF %d \u4E2A\u65B9\u5757 1%\uFF1B\u6BCF %d \u4E2A\u65B9\u5757 50%\uFF1B\u6BCF %d \u4E2A\u65B9\u5757 100%)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="one in"/>
+        <Property name="text" type="java.lang.String" value="\u53F3\u4FA7\u4E2D\u7684\u4E00\u4E2A\uFF1A"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Grid:"/>
+        <Property name="text" type="java.lang.String" value="\u7F51\u683C:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerGrid">
@@ -416,12 +416,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="(at 50%)"/>
+        <Property name="text" type="java.lang.String" value="(50%)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Random offset:"/>
+        <Property name="text" type="java.lang.String" value="\u968F\u673A\u504F\u79FB:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerRandomOffset">
@@ -436,22 +436,22 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="block(s)"/>
+        <Property name="text" type="java.lang.String" value="\u4E2A\u65B9\u5757"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Effective density:"/>
+        <Property name="text" type="java.lang.String" value="\u6709\u6548\u5BC6\u5EA6:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="(objects displaced in a random direction up to this distance)"/>
+        <Property name="text" type="java.lang.String" value="(\u5BF9\u8C61\u5728\u8FD9\u4E2A\u8DDD\u79BB\u5185\u6CBF\u968F\u673A\u65B9\u5411\u504F\u79FB)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
-        <Property name="text" type="java.lang.String" value="block(s)"/>
+        <Property name="text" type="java.lang.String" value="\u4E2A\u65B9\u5757"/>
       </Properties>
     </Component>
   </SubComponents>

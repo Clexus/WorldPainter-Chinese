@@ -17,7 +17,7 @@ import java.beans.PropertyVetoException;
  */
 public class CopySelectionOperation extends MouseOrTabletOperation {
     public CopySelectionOperation(WorldPainterView view) {
-        super("Copy Selection", "Copy the selection to another location", view, "operation.selection.copy", "copy_selection");
+        super("Copy Selection", "\u590D\u5236\u9009\u533A-\u5C06\u9009\u533A\u590D\u5236\u5230\u5176\u4ED6\u5730\u65B9", view, "operation.selection.copy", "copy_selection");
     }
 
     @Override
@@ -84,7 +84,7 @@ public class CopySelectionOperation extends MouseOrTabletOperation {
 
     private SelectionHelper selectionHelper;
     private final CopySelectionOperationOptions options = new CopySelectionOperationOptions();
-    private final StandardOptionsPanel optionsPanel = new StandardOptionsPanel("Copy Selection", "<p>Click to copy the selected area to the indicated location. Choose below which aspects of the world to copy:") {
+    private final StandardOptionsPanel optionsPanel = new StandardOptionsPanel("\u590D\u5236\u9009\u533A", "<p>\u70B9\u51FB\u5C06\u9009\u533A\u590D\u5236\u5230\u6307\u5B9A\u533A\u57DF. \u5728\u4E0B\u65B9\u9009\u62E9\u4E16\u754C\u7684\u54EA\u4E9B\u5185\u5BB9\u9700\u8981\u88AB\u590D\u5236:") {
         @Override
         protected void addAdditionalComponents(GridBagConstraints constraints) {
             add(new CopySelectionOperationOptionsPanel(options), constraints);

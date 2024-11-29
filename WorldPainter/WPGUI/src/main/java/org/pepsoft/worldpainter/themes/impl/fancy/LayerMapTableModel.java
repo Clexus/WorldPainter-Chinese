@@ -115,7 +115,7 @@ public class LayerMapTableModel implements TableModel {
     private final List<Layer> layers;
     private final List<TableModelListener> listeners = new ArrayList<>();
     
-    private static final String[] COLUMN_NAMES = {"Layer",     "From",        "To",          "Feather"};
+    private static final String[] COLUMN_NAMES = {"覆盖层",     "来源",        "目标",          "羽化"};
     private static final Class[] COLUMN_TYPES =  {Layer.class, Integer.class, Integer.class, Boolean.class};
     
     private static final int COLUMN_LAYER   = 0;
