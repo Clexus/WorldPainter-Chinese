@@ -61,16 +61,16 @@ public class ScaleWorldDialog extends WorldPainterDialog {
     private void scale() {
         final int percentage = (int) spinnerScaleFactor.getValue();
         if (percentage == 100) {
-            beepAndShowError(this, "Select a scaling factor other than 100%", "Select Scaling Factor");
+            beepAndShowError(this, "\u9009\u62E9\u4E00\u4E2A 100% \u4EE5\u5916\u7684\u7F29\u653E\u7CFB\u6570", "\u9009\u62E9\u7F29\u653E\u7CFB\u6570");
             return;
-        } else if (JOptionPane.showConfirmDialog(this, "Are you sure you want to scale this dimension by " + percentage + "%?\nThis cannot be undone!", "Confirm Scaling", YES_NO_OPTION) != OK_OPTION) {
+        } else if (JOptionPane.showConfirmDialog(this, "\u4F60\u786E\u5B9A\u8981\u5C06\u8BE5\u7EF4\u5EA6\u7F29\u653E\u81F3" + percentage + "%\u5417?\n\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!", "\u786E\u8BA4\u7F29\u653E", YES_NO_OPTION) != OK_OPTION) {
             return;
         }
         final CoordinateTransform transform = CoordinateTransform.getScalingInstance(percentage / 100f);
         ProgressDialog.executeTask(this, new ProgressTask<Void>() {
             @Override
             public String getName() {
-                return "Scaling dimension(s)";
+                return "\u7F29\u653E\u7EF4\u5EA6";
             }
 
             @Override
@@ -84,19 +84,19 @@ public class ScaleWorldDialog extends WorldPainterDialog {
             }
         }, NOT_CANCELABLE);
         if (affectedDimensions.stream().flatMap(dimension -> dimension.getOverlays().stream()).anyMatch(overlay -> ! overlay.getFile().canRead())) {
-            beepAndShowWarning(this, "One or more overlay image files could not be read,\nand have therefore not been scaled.\nYou will need to scale these manually.", "Not All Overlays Scaled");
+            beepAndShowWarning(this, "\u4E00\u4E2A\u6216\u591A\u4E2A\u906E\u7F69\u56FE\u65E0\u6CD5\u8BFB\u53D6,\n\u56E0\u6B64\u4E5F\u672A\u88AB\u8C03\u6574.\n\u4F60\u9700\u8981\u624B\u52A8\u8C03\u6574\u5B83\u4EEC.", "\u90E8\u5206\u906E\u7F69\u56FE\u672A\u8C03\u6574");
         }
         ok();
     }
-    
+
     private void updateNewSize() {
         final Dimension dimension = world.getDimension(anchor);
         final float scale = (int) spinnerScaleFactor.getValue() / 100f;
         final int newWidth = Math.round(dimension.getWidth() * TILE_SIZE * scale), newHeight = Math.round(dimension.getHeight() * TILE_SIZE * scale);
-        labelNewSize.setText(format("%s x %s blocks", INT_NUMBER_FORMAT.format(newWidth), INT_NUMBER_FORMAT.format(newHeight)));
+        labelNewSize.setText(format("%s x %s \u683C", INT_NUMBER_FORMAT.format(newWidth), INT_NUMBER_FORMAT.format(newHeight)));
         labelNewWalkingTime.setText(getWalkingTime(newWidth, newHeight));
     }
-    
+
     private void setControlStates() {
         buttonScale.setEnabled((int) spinnerScaleFactor.getValue() != 100);
     }
@@ -142,20 +142,20 @@ public class ScaleWorldDialog extends WorldPainterDialog {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Scale World");
+        setTitle("\u7F29\u653E\u4E16\u754C");
 
-        jLabel1.setText("Scale the current dimension according to these settings:");
+        jLabel1.setText("\u4F7F\u7528\u8FD9\u4E9B\u9009\u9879\u7F29\u653E\u4E16\u754C:");
 
-        jLabel2.setText("Current size:");
+        jLabel2.setText("\u5F53\u524D\u5927\u5C0F:");
 
-        jLabel3.setText("Current edge to edge walking time:");
+        jLabel3.setText("\u4ECE\u4E00\u8FB9\u5230\u53E6\u4E00\u8FB9\u7684\u884C\u8D70\u65F6\u95F4:");
 
         labelCurrentSize.setText("jLabel4");
 
         labelCurrentWalkingTime.setText("jLabel4");
 
         jLabel4.setLabelFor(spinnerScaleFactor);
-        jLabel4.setText("Scale factor:");
+        jLabel4.setText("\u7F29\u653E\u7CFB\u6570:");
 
         spinnerScaleFactor.setModel(new javax.swing.SpinnerNumberModel(100, 10, 1000, 1));
         spinnerScaleFactor.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -166,34 +166,34 @@ public class ScaleWorldDialog extends WorldPainterDialog {
 
         jLabel5.setText("%");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonScale.setText("Scale");
+        buttonScale.setText("\u7F29\u653E");
         buttonScale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonScaleActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("New size:");
+        jLabel6.setText("\u7F29\u653E\u540E\u5927\u5C0F:");
 
         labelNewSize.setText("jLabel7");
 
-        jLabel7.setText("New edge to edge walking time:");
+        jLabel7.setText("\u7F29\u653E\u540E\u884C\u8D70\u65F6\u95F4:");
 
         labelNewWalkingTime.setText("jLabel8");
 
-        jLabel8.setText("<html>\nNotes:\n<ul>\n<li>The terrain height and continuous layers such as trees, Custom Object layers, Frost, etc.<br>\nwill be scaled smoothly using bicubic interpolation. Artefacts are still unavoidable though,<br>\nespecially at larger scales.\n<li>Discrete layers such as Annotations and Biomes, but also the terrain type will be scaled<br>\nusing nearest neighbour interpolation. At larger scales these will become noticeably blocky.\n<li>Scaling low-resolution terrain (Imported from Minecraft, or from a low resolution height<br>\nmap) may result in blocky results.\n<li>Extra land may be added around the edges in order to meet chunk boundaries.\n<li><strong>Caution:</strong> if you are scaling up this may fail if there is not enough memory. Save your work to<br>\ndisk first!\n</ul>\n</html>");
+        jLabel8.setText("<html>\n\u6CE8\u610F:\n<ul>\n<li>\u5730\u5F62\u9AD8\u5EA6\u4EE5\u53CA\u7C7B\u4F3C\u4E8E\u6811\u3001\u81EA\u5B9A\u4E49\u5BF9\u8C61\u7B49\u7684\u8986\u76D6\u5C42<br>\n\u4F1A\u4F7F\u7528\u53CC\u4E09\u6B21\u63D2\u503C\u5E73\u6ED1\u7F29\u653E. \u7136\u800C\uFF0C\u4EBA\u5DE5\u4FEE\u590D\u4ECD\u7136\u662F\u4E0D\u53EF\u907F\u514D\u7684,<br>\n\u7279\u522B\u662F\u5728\u7F29\u653E\u7CFB\u6570\u5F88\u5927\u7684\u65F6\u5019.\n<li>\u79BB\u6563\u8986\u76D6\u5C42\uFF08\u5982\u6807\u6CE8\u548C\u751F\u7269\u7FA4\u7CFB\uFF09\u4EE5\u53CA\u65B9\u5757\u7C7B\u578B\u90FD\u5C06\u4F7F\u7528\u6700\u8FD1\u90BB\u63D2\u503C\u8FDB\u884C\u7F29\u653E\u3002<br>\n\u5728\u7F29\u653E\u7CFB\u6570\u5F88\u5927\u7684\u65F6\u5019\uFF0C\u8FD9\u4E9B\u8986\u76D6\u5C42\u4F1A\u6709\u660E\u663E\u7684\u5757\u72B6\u8FB9\u7F18.\n<li>\u7F29\u653E\u4F4E\u5206\u8FA8\u7387\u5730\u5F62\uFF08\u4ECEMinecraft\u6216\u4F4E\u5206\u8FA8\u7387\u9AD8\u5EA6\u56FE\u5BFC\u5165\uFF09\u53EF\u80FD\u4F1A\u5BFC\u81F4\u5757\u72B6\u7ED3\u679C.\n<li>\u53EF\u80FD\u4F1A\u5728\u7F29\u653E\u540E\u7684\u8FB9\u754C\u5468\u56F4\u6DFB\u52A0\u989D\u5916\u7684\u571F\u5730\uFF0C\u4EE5\u6EE1\u8DB3\u533A\u5757\u8FB9\u754C\u9700\u6C42.\n<li><strong>\u8B66\u544A:</strong> \u653E\u5927\u4E16\u754C\u65F6\u53EF\u80FD\u4F1A\u56E0\u4E3A\u5185\u5B58\u4E0D\u8DB3\u653E\u5927\u5931\u8D25. \u8BF7\u5148\u5C06\u4F60\u7684\u4E16\u754C\u4FDD\u5B58\u5230\u78C1\u76D8\u4E2D!\n</ul>\n</html>");
 
         jLabel9.setFont(jLabel9.getFont().deriveFont((jLabel9.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel9.setText("This operation cannot be undone!");
+        jLabel9.setText("\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!");
 
-        jLabel10.setText("<html><i>All associated dimension such as Ceiling Dimensions and<br> Custom Cave/Tunnel Floor Dimensions will be scaled together.</i></html>");
+        jLabel10.setText("<html><i>\u6240\u6709\u76F8\u5173\u7684\u7EF4\u5EA6\u4E5F\u4F1A\u88AB\u4E00\u8D77\u7F29\u653E\uFF0C\u4F8B\u5982\u9876\u5C42\u7EF4\u5EA6\u3001\u6D1E\u7A74/\u901A\u9053\u7EF4\u5EA6\u7B49.</i></html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

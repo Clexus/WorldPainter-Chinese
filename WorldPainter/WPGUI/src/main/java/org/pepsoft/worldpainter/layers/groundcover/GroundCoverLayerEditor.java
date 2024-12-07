@@ -80,7 +80,7 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
     
     @Override
     public GroundCoverLayer createLayer() {
-        return new GroundCoverLayer("\u6211\u7684\u5730\u9762\u8986\u76D6\u7269", MixedMaterial.create(platform, ROSE), Color.RED);
+        return new GroundCoverLayer("我的地面覆盖层", MixedMaterial.create(platform, ROSE), Color.RED);
     }
 
     @Override
@@ -176,7 +176,7 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
         setControlStates();
         context.settingsChanged();
     }
-    
+
     private void setControlStates() {
         int thickness = (Integer) spinnerThickness.getValue();
         spinnerEdgeWidth.setEnabled((thickness < -1 || thickness > 1) && (! radioButtonSheerEdge.isSelected()));
@@ -186,7 +186,7 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
         radioButtonRoundedEdge.setEnabled(thickness < -1 || thickness > 1);
         comboBoxLayerAnchor.setEnabled((mixedMaterialSelector1.getMaterial() != null) && (mixedMaterialSelector1.getMaterial().getMode() == MixedMaterial.Mode.LAYERED));
     }
-    
+
     private GroundCoverLayer saveSettings(GroundCoverLayer layer) {
         if (layer == null) {
             layer = new GroundCoverLayer(fieldName.getText(), mixedMaterialSelector1.getMaterial(), paintPicker1.getPaint());
@@ -259,14 +259,14 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
         paintPicker1 = new org.pepsoft.worldpainter.layers.renderers.PaintPicker();
 
         buttonGroup1.add(radioButtonRoundedEdge);
-        radioButtonRoundedEdge.setText("rounded");
+        radioButtonRoundedEdge.setText("圆滑");
         radioButtonRoundedEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonRoundedEdgeActionPerformed(evt);
             }
         });
 
-        jLabel13.setText("Variation:");
+        jLabel13.setText("变化:");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/edge_sheer.png"))); // NOI18N
 
@@ -278,17 +278,17 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
 
         jLabel15.setText(" ");
 
-        checkBoxSmooth.setText("Smooth:");
+        checkBoxSmooth.setText("平滑度:");
         checkBoxSmooth.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         labelWesterosCraftFeature.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         labelWesterosCraftFeature.setText("W ");
 
-        jLabel6.setText("Name:");
+        jLabel6.setText("名称:");
 
         fieldName.setColumns(15);
 
-        jLabel7.setText("Thickness:");
+        jLabel7.setText("高度:");
 
         spinnerThickness.setModel(new javax.swing.SpinnerNumberModel(1, -255, 255, 1));
         spinnerThickness.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -297,13 +297,13 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
             }
         });
 
-        jLabel9.setText("(negative values will dig down into the terrain)");
+        jLabel9.setText("(负数会向下延伸)");
 
-        jLabel10.setText("Edge ");
+        jLabel10.setText("边缘");
 
         buttonGroup1.add(radioButtonSheerEdge);
         radioButtonSheerEdge.setSelected(true);
-        radioButtonSheerEdge.setText("sheer");
+        radioButtonSheerEdge.setText("垂直");
         radioButtonSheerEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonSheerEdgeActionPerformed(evt);
@@ -311,28 +311,28 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
         });
 
         buttonGroup1.add(radioButtonLinearEdge);
-        radioButtonLinearEdge.setText("linear");
+        radioButtonLinearEdge.setText("线性");
         radioButtonLinearEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonLinearEdgeActionPerformed(evt);
             }
         });
 
-        jLabel11.setText("shape:");
+        jLabel11.setText("形状:");
 
         buttonGroup1.add(radioButtonSmoothEdge);
-        radioButtonSmoothEdge.setText("smooth");
+        radioButtonSmoothEdge.setText("平滑");
         radioButtonSmoothEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonSmoothEdgeActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Material:");
+        jLabel2.setText("材质:");
 
-        jLabel4.setText("Paint:");
+        jLabel4.setText("画笔:");
 
-        jLabel12.setText("width:");
+        jLabel12.setText("宽度:");
 
         spinnerEdgeWidth.setModel(new javax.swing.SpinnerNumberModel(1, 1, 255, 1));
         spinnerEdgeWidth.setEnabled(false);
@@ -349,7 +349,7 @@ public class GroundCoverLayerEditor extends AbstractLayerEditor<GroundCoverLayer
             }
         });
 
-        jLabel16.setText("Layers relative to:");
+        jLabel16.setText("覆盖层相对于:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

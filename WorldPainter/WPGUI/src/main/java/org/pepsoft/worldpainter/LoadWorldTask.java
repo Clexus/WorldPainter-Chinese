@@ -57,7 +57,7 @@ public class LoadWorldTask implements ProgressTask<World2> {
         for (Map.Entry<String, Object> entry: metadata.entrySet()) {
             switch (entry.getKey()) {
                 case METADATA_KEY_WP_VERSION:
-                    sb.append("Saved with WorldPainter ").append(entry.getValue());
+                    sb.append("\u4F7F\u7528 WorldPainter ").append(entry.getValue()).append(" \u4FDD\u5B58");
                     String build = (String) metadata.get(METADATA_KEY_WP_BUILD);
                     if (build != null) {
                         sb.append(" (").append(build).append(')');
@@ -65,12 +65,12 @@ public class LoadWorldTask implements ProgressTask<World2> {
                     sb.append('\n');
                     break;
                 case METADATA_KEY_TIMESTAMP:
-                    sb.append("Saved on ").append(SimpleDateFormat.getDateTimeInstance().format((Date) entry.getValue())).append('\n');
+                    sb.append("\u4FDD\u5B58\u4E8E ").append(SimpleDateFormat.getDateTimeInstance().format((Date) entry.getValue())).append('\n');
                     break;
                 case METADATA_KEY_PLUGINS:
                     String[][] plugins = (String[][]) entry.getValue();
                     for (String[] plugin: plugins) {
-                        sb.append("Plugin: ").append(plugin[0]).append(" (").append(plugin[1]).append(")\n");
+                        sb.append("\u63D2\u4EF6: ").append(plugin[0]).append(" (").append(plugin[1]).append(")\n");
                     }
                     break;
             }
@@ -78,13 +78,13 @@ public class LoadWorldTask implements ProgressTask<World2> {
     }
 
     private void logMetadataAsDebug(Map<String, Object> metadata) {
-        StringBuilder sb = new StringBuilder("Metadata from world file:\n");
+        StringBuilder sb = new StringBuilder("\u6765\u81EA\u4E8E\u4E16\u754C\u6587\u4EF6\u7684\u5143\u6570\u636E:\n");
         appendMetadata(sb, metadata);
         logger.debug(sb.toString());
     }
 
     private void logMetadataAsError(Map<String, Object> metadata) {
-        StringBuilder sb = new StringBuilder("Metadata from world file:\n");
+        StringBuilder sb = new StringBuilder("\u6765\u81EA\u4E8E\u4E16\u754C\u6587\u4EF6\u7684\u5143\u6570\u636E:\n");
         appendMetadata(sb, metadata);
         logger.error(sb.toString());
     }
@@ -93,21 +93,21 @@ public class LoadWorldTask implements ProgressTask<World2> {
         try {
             String text;
             if (e.getMetadata() != null) {
-                StringBuilder sb = new StringBuilder("WorldPainter could not load the file. The cause may be one of:\n" +
+                StringBuilder sb = new StringBuilder("WorldPainter \u65E0\u6CD5\u52A0\u8F7D\u8BE5\u6587\u4EF6\uFF0C\u53EF\u80FD\u662F\u56E0\u4E3A:\n" +
                         "\n" +
-                        "* The file is damaged or corrupted\n" +
-                        "* The file was created with a newer version of WorldPainter\n" +
-                        "* The file was created using WorldPainter plugins which you do not have\n" +
+                        "* \u8BE5\u6587\u4EF6\u5DF2\u635F\u574F\u6216\u5D29\u6E83\n" +
+                        "* \u8BE5\u6587\u4EF6\u7531\u66F4\u65B0\u7684 WorldPainter \u521B\u5EFA\n" +
+                        "* \u8BE5\u6587\u4EF6\u4F7F\u7528\u4E86\u4F60\u6CA1\u6709\u7684 WorldPainter \u63D2\u4EF6\n" +
                         "\n");
                 appendMetadata(sb, e.getMetadata());
                 text = sb.toString();
             } else {
-                text = "WorldPainter could not load the file. The cause may be one of:\n" +
+                text = "WorldPainter \u65E0\u6CD5\u52A0\u8F7D\u8BE5\u6587\u4EF6\uFF0C\u53EF\u80FD\u662F\u56E0\u4E3A:\n" +
                         "\n" +
-                        "* The file is not a WorldPainter world\n" +
-                        "* The file is damaged or corrupted\n" +
-                        "* The file was created with a newer version of WorldPainter\n" +
-                        "* The file was created using WorldPainter plugins which you do not have";
+                        "* \u8BE5\u6587\u4EF6\u4E0D\u662F WorldPainter \u4E16\u754C\n" +
+                        "* \u8BE5\u6587\u4EF6\u5DF2\u635F\u574F\u6216\u5D29\u6E83\n" +
+                        "* \u8BE5\u6587\u4EF6\u7531\u66F4\u65B0\u7684 WorldPainter \u521B\u5EFA\n" +
+                        "* \u8BE5\u6587\u4EF6\u4F7F\u7528\u4E86\u4F60\u6CA1\u6709\u7684 WorldPainter \u63D2\u4EF6\n";
             }
             SwingUtilities.invokeAndWait(() -> showMessageDialog(parent, text, strings.getString("file.damaged"), ERROR_MESSAGE));
         } catch (InterruptedException e2) {

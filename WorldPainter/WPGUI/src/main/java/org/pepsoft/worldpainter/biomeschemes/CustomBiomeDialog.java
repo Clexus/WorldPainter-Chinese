@@ -91,28 +91,28 @@ public class CustomBiomeDialog extends WorldPainterDialog {
         paintPicker1 = new org.pepsoft.worldpainter.layers.renderers.PaintPicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configure Custom Biome");
+        setTitle("\u914D\u7F6E\u81EA\u5B9A\u4E49\u751F\u7269\u7FA4\u7CFB");
 
-        jLabel1.setText("Configure the custom biome here:");
+        jLabel1.setText("\u5728\u6B64\u914D\u7F6E\u81EA\u5B9A\u4E49\u751F\u7269\u7FA4\u7CFB:");
 
         jLabel2.setText("ID:");
 
         spinnerID.setModel(new javax.swing.SpinnerNumberModel(40, 40, 255, 1));
 
-        jLabel3.setText("Name:");
+        jLabel3.setText("\u540D\u79F0:");
 
         fieldName.setColumns(20);
 
-        jLabel4.setText("Paint");
+        jLabel4.setText("\u753B\u7B14");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);

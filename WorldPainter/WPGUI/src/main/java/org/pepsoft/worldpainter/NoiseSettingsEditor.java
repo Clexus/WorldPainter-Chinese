@@ -94,28 +94,28 @@ public class NoiseSettingsEditor extends javax.swing.JPanel {
         spinnerOctaves = new javax.swing.JSpinner();
 
         jLabel1.setLabelFor(spinnerRange);
-        jLabel1.setText("range:");
-        jLabel1.setToolTipText("The vertical height difference, 0 being perfectly smooth");
+        jLabel1.setText("\u8303\u56F4:");
+        jLabel1.setToolTipText("\u5782\u76F4\u9AD8\u5EA6\u5DEE\u5F02, 0 \u8868\u793A\u5B8C\u5168\u5149\u6ED1");
 
         spinnerRange.setModel(new javax.swing.SpinnerNumberModel(0, 0, 256, 1));
-        spinnerRange.setToolTipText("The vertical height difference, 0 being perfectly smooth");
+        spinnerRange.setToolTipText("\u5782\u76F4\u9AD8\u5EA6\u5DEE\u5F02, 0 \u8868\u793A\u5B8C\u5168\u5149\u6ED1");
         spinnerRange.addChangeListener(this::spinnerRangeStateChanged);
 
         jLabel2.setLabelFor(spinnerScale);
-        jLabel2.setText(", scale:");
-        jLabel2.setToolTipText("The horizontal scale, lower percentages creating thinner peaks and troughs");
+        jLabel2.setText(", \u7F29\u653E:");
+        jLabel2.setToolTipText("\u6C34\u5E73\u65B9\u5411\u7F29\u653E, \u66F4\u4F4E\u7684\u767E\u5206\u6BD4\u521B\u5EFA\u7684\u5730\u5F62\u66F4\u5E73\u7F13");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(100), Integer.valueOf(1), null, Integer.valueOf(1)));
-        spinnerScale.setToolTipText("The horizontal scale, lower percentages creating thinner peaks and troughs");
+        spinnerScale.setToolTipText("\u6C34\u5E73\u65B9\u5411\u7F29\u653E, \u66F4\u4F4E\u7684\u767E\u5206\u6BD4\u521B\u5EFA\u7684\u5730\u5F62\u66F4\u5E73\u7F13");
         spinnerScale.setEnabled(false);
         spinnerScale.addChangeListener(this::spinnerScaleStateChanged);
 
         jLabel3.setLabelFor(spinnerOctaves);
-        jLabel3.setText("%, roughness:");
-        jLabel3.setToolTipText("How random or chaotic the variations are, 0 being the smoothest");
+        jLabel3.setText("%, \u7C97\u7CD9\u5EA6:");
+        jLabel3.setToolTipText("\u53D8\u52A8\u7684\u968F\u673A\u6027\u6216\u6DF7\u4E71\u7A0B\u5EA6\uFF0C0 \u8868\u793A\u6700\u5E73\u6ED1\u3002");
 
         spinnerOctaves.setModel(new javax.swing.SpinnerNumberModel(0, 0, 3, 1));
-        spinnerOctaves.setToolTipText("How random or chaotic the variations are, 0 being the smoothest");
+        spinnerOctaves.setToolTipText("\u53D8\u52A8\u7684\u968F\u673A\u6027\u6216\u6DF7\u4E71\u7A0B\u5EA6\uFF0C0 \u8868\u793A\u6700\u5E73\u6ED1\u3002");
         spinnerOctaves.setEnabled(false);
         spinnerOctaves.addChangeListener(this::spinnerOctavesStateChanged);
 

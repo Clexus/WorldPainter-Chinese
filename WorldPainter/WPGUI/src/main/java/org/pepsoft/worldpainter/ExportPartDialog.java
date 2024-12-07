@@ -51,26 +51,26 @@ public class ExportPartDialog extends WorldPainterDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Export part of the world to a new .world file, for you or other to work");
+        jLabel1.setText("\u5C06\u90E8\u5206\u4E16\u754C\u533A\u57DF\u5BFC\u51FA\u4E3A .world \u6587\u4EF6, \u4EE5\u4F9B\u4F60\u6216\u5176\u4ED6\u7528\u6237\u64CD\u4F5C");
 
-        jLabel2.setText("on and later import back into this world.");
+        jLabel2.setText("\u6216\u5728\u4E4B\u540E\u5BFC\u56DE\u8F6F\u4EF6\u91CD\u65B0\u64CD\u4F5C.");
 
-        jLabel3.setText("Select tiles to export as a new world part:");
+        jLabel3.setText("\u9009\u62E9\u8981\u5BFC\u51FA\u4E3A\u4E16\u754C\u533A\u57DF\u7684\u5206\u533A:");
 
-        jLabel4.setText("Name of the new world part:");
+        jLabel4.setText("\u547D\u540D\u65B0\u4E16\u754C\u533A\u57DF:");
 
         fieldName.setColumns(20);
         fieldName.setText("jTextField1");
 
-        jLabel5.setText("Directory to export the new world part to:");
+        jLabel5.setText("\u8981\u5BFC\u51FA\u81F3\u7684\u8DEF\u5F84:");
 
         fieldDirectory.setColumns(20);
         fieldDirectory.setText("jTextField2");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(this::buttonCancelActionPerformed);
 
-        buttonExport.setText("Export");
+        buttonExport.setText("\u5BFC\u51FA");
         buttonExport.addActionListener(this::buttonExportActionPerformed);
 
         jButton1.setText("...");

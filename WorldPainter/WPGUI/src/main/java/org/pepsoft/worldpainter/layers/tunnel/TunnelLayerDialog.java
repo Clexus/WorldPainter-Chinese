@@ -761,41 +761,41 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         paintPicker1 = new org.pepsoft.worldpainter.layers.renderers.PaintPicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configure Cave/Tunnel Layer");
+        setTitle("\u914D\u7F6E\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
             }
         });
 
-        buttonReset.setText("Reset");
+        buttonReset.setText("\u91CD\u7F6E");
         buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Create underground tunnels and caves with the following properties:");
+        jLabel1.setText("\u4F7F\u7528\u4EE5\u4E0B\u5C5E\u6027\u914D\u7F6E\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42:");
 
-        jLabel4.setText("Name:");
+        jLabel4.setText("\u540D\u79F0:");
 
         textFieldName.setColumns(20);
         textFieldName.setText("jTextField1");
 
-        jLabel11.setText("Paint");
+        jLabel11.setText("\u753b\u7b14");
 
         buttonGroup1.add(radioButtonFloorFixedLevel);
         radioButtonFloorFixedLevel.setSelected(true);
-        radioButtonFloorFixedLevel.setText("fixed level");
+        radioButtonFloorFixedLevel.setText("\u56FA\u5B9A\u9AD8\u5EA6");
         radioButtonFloorFixedLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFloorFixedLevelActionPerformed(evt);
@@ -809,11 +809,11 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel12.setText("Walls:");
+        jLabel12.setText("\u5899\u58C1:");
 
-        jLabel5.setText("Variation:");
+        jLabel5.setText("\u53D8\u5316:");
 
-        jLabel9.setText("Variation:");
+        jLabel9.setText("\u53D8\u5316:");
 
         spinnerFloorLevel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
         spinnerFloorLevel.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -822,10 +822,10 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel20.setText("Options:");
+        jLabel20.setText("\u9009\u9879:");
 
         buttonGroup3.add(radioButtonRoofFixedDepth);
-        radioButtonRoofFixedDepth.setText("fixed depth");
+        radioButtonRoofFixedDepth.setText("\u56FA\u5B9A\u6DF1\u5EA6");
         radioButtonRoofFixedDepth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonRoofFixedDepthActionPerformed(evt);
@@ -840,7 +840,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel17.setText(", max:");
+        jLabel17.setText(", \u6700\u9AD8\u9AD8\u5EA6:");
 
         spinnerRoofMin.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
         spinnerRoofMin.setEnabled(false);
@@ -850,9 +850,9 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel18.setText("Absolute min:");
+        jLabel18.setText("\u7EDD\u5BF9\u6700\u4F4E\u9AD8\u5EA6:");
 
-        jLabel2.setText("Floor:");
+        jLabel2.setText("\u4E0B\u8868\u9762:");
 
         spinnerFloodLevel.setModel(new javax.swing.SpinnerNumberModel(1, 1, 255, 1));
         spinnerFloodLevel.setEnabled(false);
@@ -863,16 +863,16 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         });
 
         buttonGroup1.add(radioButtonFloorFixedDepth);
-        radioButtonFloorFixedDepth.setText("fixed depth");
+        radioButtonFloorFixedDepth.setText("\u56FA\u5B9A\u6DF1\u5EA6");
         radioButtonFloorFixedDepth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFloorFixedDepthActionPerformed(evt);
             }
         });
 
-        jLabel14.setText("Material:");
+        jLabel14.setText("\u6750\u8D28:");
 
-        checkBoxFloodWithLava.setText("Flood with lava:");
+        checkBoxFloodWithLava.setText("\u4F7F\u7528\u5CA9\u6D46\u586B\u5145:");
         checkBoxFloodWithLava.setEnabled(false);
         checkBoxFloodWithLava.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxFloodWithLava.addActionListener(new java.awt.event.ActionListener() {
@@ -889,11 +889,11 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel13.setText("Bottom width:");
+        jLabel13.setText("\u5E95\u90E8\u5BBD\u5EA6:");
 
-        jLabel8.setText("Level:");
+        jLabel8.setText("\u9AD8\u5EA6:");
 
-        jLabel16.setText("Absolute min:");
+        jLabel16.setText("\u7EDD\u5BF9\u6700\u5C0F\u9AD8\u5EA6:");
 
         spinnerWallRoofDepth.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
         spinnerWallRoofDepth.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -909,7 +909,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        checkBoxRemoveWater.setText("Remove water or lava:");
+        checkBoxRemoveWater.setText("\u79FB\u9664\u6C34\u6216\u5CA9\u6D46:");
         checkBoxRemoveWater.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxRemoveWater.setMargin(new java.awt.Insets(2, 0, 2, 2));
         checkBoxRemoveWater.addActionListener(new java.awt.event.ActionListener() {
@@ -926,21 +926,21 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel19.setText(", max:");
+        jLabel19.setText(", \u6700\u5927\u9AD8\u5EA6:");
 
-        jLabel7.setText("Material:");
+        jLabel7.setText("\u6750\u8D28:");
 
-        jLabel6.setText("Ceiling:");
+        jLabel6.setText("\u4E0A\u8868\u9762:");
 
         buttonGroup1.add(radioButtonFloorInverse);
-        radioButtonFloorInverse.setText("opposite of terrain");
+        radioButtonFloorInverse.setText("\u4E0E\u5730\u8868\u76F8\u53CD");
         radioButtonFloorInverse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFloorInverseActionPerformed(evt);
             }
         });
 
-        checkBoxFlood.setText("Flood the caves/tunnels:");
+        checkBoxFlood.setText("\u4F7F\u7528\u6DB2\u4F53\u586B\u5145:");
         checkBoxFlood.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxFlood.setMargin(new java.awt.Insets(2, 0, 2, 2));
         checkBoxFlood.addActionListener(new java.awt.event.ActionListener() {
@@ -950,36 +950,36 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         });
 
         buttonGroup3.add(radioButtonRoofFixedLevel);
-        radioButtonRoofFixedLevel.setText("fixed level");
+        radioButtonRoofFixedLevel.setText("\u56FA\u5B9A\u9AD8\u5EA6");
         radioButtonRoofFixedLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonRoofFixedLevelActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Level:");
+        jLabel3.setText("\u9AD8\u5EA6:");
 
         buttonGroup3.add(radioButtonRoofInverse);
-        radioButtonRoofInverse.setText("opposite of terrain");
+        radioButtonRoofInverse.setText("\u4E0E\u5730\u8868\u76F8\u53CD");
         radioButtonRoofInverse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonRoofInverseActionPerformed(evt);
             }
         });
 
-        jLabel15.setText("Top width:");
+        jLabel15.setText("\u9876\u90E8\u5BBD\u5EA6:");
 
-        jLabel10.setText("Material:");
+        jLabel10.setText("\u6750\u8D28:");
 
         labelPreview.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel21.setLabelFor(spinnerFloodLevel);
-        jLabel21.setText("Level:");
+        jLabel21.setText("\u9AD8\u5EA6:");
 
-        jLabel23.setText("Biome:");
+        jLabel23.setText("\u751F\u7269\u7FA4\u7CFB:");
 
         buttonGroup1.add(radioButtonFloorCustomDimension);
-        radioButtonFloorCustomDimension.setText("custom dimension");
+        radioButtonFloorCustomDimension.setText("\u81EA\u5B9A\u4E49\u7EF4\u5EA6");
         radioButtonFloorCustomDimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFloorCustomDimensionActionPerformed(evt);
@@ -988,7 +988,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
 
         buttonGroup3.add(radioButtonRoofFixedHeight);
         radioButtonRoofFixedHeight.setSelected(true);
-        radioButtonRoofFixedHeight.setText("fixed height above floor");
+        radioButtonRoofFixedHeight.setText("\u56FA\u5B9A\u76F8\u5BF9\u5E95\u90E8\u9AD8\u5EA6");
         radioButtonRoofFixedHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonRoofFixedHeightActionPerformed(evt);
@@ -1013,10 +1013,10 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
             }
         });
 
-        jLabel26.setText("Fill with:");
+        jLabel26.setText("\u4F7F\u7528...\u586B\u5145:");
 
         buttonGroup2.add(radioButtonFillWithAir);
-        radioButtonFillWithAir.setText("air");
+        radioButtonFillWithAir.setText("\u7A7A\u6C14");
         radioButtonFillWithAir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFillWithAirActionPerformed(evt);
@@ -1024,7 +1024,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         });
 
         buttonGroup2.add(radioButtonFillWithLight);
-        radioButtonFillWithLight.setText("light:");
+        radioButtonFillWithLight.setText("\u5149\u6E90\u65B9\u5757:");
         radioButtonFillWithLight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFillWithLightActionPerformed(evt);
@@ -1035,7 +1035,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         spinnerFillLightLevel.setEnabled(false);
 
         buttonGroup2.add(radioButtonFillWithCustom);
-        radioButtonFillWithCustom.setText("custom:");
+        radioButtonFillWithCustom.setText("\u81EA\u5B9A\u4E49:");
         radioButtonFillWithCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFillWithCustomActionPerformed(evt);
@@ -1051,7 +1051,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
 
         buttonGroup2.add(radioButtonFillWithCaveAir);
         radioButtonFillWithCaveAir.setSelected(true);
-        radioButtonFillWithCaveAir.setText("cave air");
+        radioButtonFillWithCaveAir.setText("\u6D1E\u7A74\u7A7A\u6C14");
         radioButtonFillWithCaveAir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFillWithCaveAirActionPerformed(evt);
@@ -1266,9 +1266,9 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Caves/Tunnels Settings", jPanel1);
+        jTabbedPane1.addTab("\u6D1E\u7A74/\u901A\u9053\u8BBE\u7F6E", jPanel1);
 
-        jLabel22.setText("You can add custom layers here which will be rendered on the cave/tunnel floors:");
+        jLabel22.setText("\u4F60\u53EF\u4EE5\u5728\u6B64\u5904\u6DFB\u52A0\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42\uFF0C\u8FD9\u4E9B\u8986\u76D6\u5C42\u5C06\u5728\u6D1E\u7A74/\u96A7\u9053\u5E95\u90E8\u6E32\u67D3:");
 
         tableFloorLayers.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         tableFloorLayers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1278,28 +1278,28 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         });
         jScrollPane1.setViewportView(tableFloorLayers);
 
-        buttonNewFloorLayer.setText("Create New");
+        buttonNewFloorLayer.setText("\u65B0\u5EFA");
         buttonNewFloorLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNewFloorLayerActionPerformed(evt);
             }
         });
 
-        buttonAddFloorLayer.setText("Copy Existing");
+        buttonAddFloorLayer.setText("\u590D\u5236\u73B0\u6709");
         buttonAddFloorLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddFloorLayerActionPerformed(evt);
             }
         });
 
-        buttonEditFloorLayer.setText("Edit");
+        buttonEditFloorLayer.setText("\u7F16\u8F91");
         buttonEditFloorLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditFloorLayerActionPerformed(evt);
             }
         });
 
-        buttonRemoveFloorLayer.setText("Remove");
+        buttonRemoveFloorLayer.setText("\u79FB\u9664");
         buttonRemoveFloorLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonRemoveFloorLayerActionPerformed(evt);
@@ -1345,9 +1345,9 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Floor Layers", jPanel2);
+        jTabbedPane1.addTab("\u5E95\u90E8\u8986\u76D6\u5C42", jPanel2);
 
-        jLabel24.setText("<html>You can add custom layers here which will be rendered on the cave/tunnel roofs:<br>\n<strong>Note:</strong> these layers will be inverted! This includes Custom Objects.<br>\nA later release will make this optional.</html>");
+        jLabel24.setText("<html>\u4F60\u53EF\u4EE5\u5728\u6B64\u5904\u6DFB\u52A0\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42\uFF0C\u8FD9\u4E9B\u8986\u76D6\u5C42\u5C06\u5728\u6D1E\u7A74/\u96A7\u9053\u9876\u90E8\u6E32\u67D3:<br>\n<strong>\u6CE8\u610F:</strong> \u8FD9\u4E9B\u8986\u76D6\u5C42\u5C06\u88AB\u7FFB\u8F6C\uFF0C\u5305\u62EC\u81EA\u5B9A\u4E49\u5BF9\u8C61.<br>\n\u4E4B\u540E\u7684\u7248\u672C\u4F1A\u5C06\u5176\u53D8\u4E3A\u53EF\u9009.</html>");
 
         tableRoofLayers.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         tableRoofLayers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1357,28 +1357,28 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
         });
         jScrollPane2.setViewportView(tableRoofLayers);
 
-        buttonNewRoofLayer.setText("Create New");
+        buttonNewRoofLayer.setText("\u65B0\u5EFA");
         buttonNewRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNewRoofLayerActionPerformed(evt);
             }
         });
 
-        buttonAddRoofLayer.setText("Copy Existing");
+        buttonAddRoofLayer.setText("\u590D\u5236\u73B0\u6709");
         buttonAddRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddRoofLayerActionPerformed(evt);
             }
         });
 
-        buttonEditRoofLayer.setText("Edit");
+        buttonEditRoofLayer.setText("\u7F16\u8F91");
         buttonEditRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditRoofLayerActionPerformed(evt);
             }
         });
 
-        buttonRemoveRoofLayer.setText("Remove");
+        buttonRemoveRoofLayer.setText("\u79FB\u9664");
         buttonRemoveRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonRemoveRoofLayerActionPerformed(evt);
@@ -1424,7 +1424,7 @@ public class TunnelLayerDialog extends AbstractEditLayerDialog<TunnelLayer> impl
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Roof Layers", jPanel3);
+        jTabbedPane1.addTab("\u9876\u5C42\u8986\u76D6\u5C42", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

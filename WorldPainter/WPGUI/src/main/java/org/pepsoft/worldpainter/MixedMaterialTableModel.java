@@ -174,6 +174,6 @@ public final class MixedMaterialTableModel implements TableModel, Cloneable {
     public static final int COLUMN_COUNT    = 1;
     public static final int COLUMN_SCALE    = 2;
 
-    private static final String[] COLUMN_NAMES =   {"Material",     "Count",       "Scale (in %)"};
+    private static final String[] COLUMN_NAMES =   {"材质",     "数量",       "比例 (单位 %)"};
     private static final Class<?>[] COLUMN_TYPES = {Material.class, Integer.class, Integer.class};
 }

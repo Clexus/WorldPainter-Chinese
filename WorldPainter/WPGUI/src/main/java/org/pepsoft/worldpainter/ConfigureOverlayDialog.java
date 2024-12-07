@@ -126,11 +126,11 @@ public class ConfigureOverlayDialog extends WorldPainterDialog {
         labelFile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configure Overlay");
+        setTitle("\u914D\u7F6E\u906E\u7F69\u56FE");
 
-        jLabel2.setText("File:");
+        jLabel2.setText("\u6587\u4EF6:");
 
-        jLabel3.setText("Scale:");
+        jLabel3.setText("\u7F29\u653E:");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(100.0f), Float.valueOf(0.01f), Float.valueOf(9999.99f), Float.valueOf(0.1f)));
         spinnerScale.setEditor(new javax.swing.JSpinner.NumberEditor(spinnerScale, "0.00"));
@@ -142,15 +142,15 @@ public class ConfigureOverlayDialog extends WorldPainterDialog {
 
         jLabel4.setText("%");
 
-        buttonFitToDimension.setText("Fit to dimension");
-        buttonFitToDimension.setToolTipText("Sets the scale and offset such that the image exactly covers the current dimension (as far as possible).");
+        buttonFitToDimension.setText("\u9002\u5E94\u7EF4\u5EA6\u5927\u5C0F");
+        buttonFitToDimension.setToolTipText("\u8BBE\u7F6E\u6BD4\u4F8B\u548C\u504F\u79FB\uFF0C\u4F7F\u56FE\u50CF\u5C3D\u53EF\u80FD\u7CBE\u786E\u5730\u9002\u5E94\u7EF4\u5EA6\u5C3A\u5BF8.");
         buttonFitToDimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonFitToDimensionActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Transparency:");
+        jLabel5.setText("\u900F\u660E\u5EA6:");
 
         spinnerTransparency.setModel(new javax.swing.SpinnerNumberModel(50, 0, 99, 1));
         spinnerTransparency.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -161,7 +161,7 @@ public class ConfigureOverlayDialog extends WorldPainterDialog {
 
         jLabel6.setText("%");
 
-        jLabel7.setText("X offset:");
+        jLabel7.setText("X \u8F74\u65B9\u5411\u504F\u79FB:");
 
         spinnerXOffset.setModel(new javax.swing.SpinnerNumberModel(0, -999999, 999999, 1));
         spinnerXOffset.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -170,7 +170,7 @@ public class ConfigureOverlayDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel8.setText(", Y offset:");
+        jLabel8.setText(", Y \u8F74\u65B9\u5411\u504F\u79FB:");
 
         spinnerYOffset.setModel(new javax.swing.SpinnerNumberModel(0, -999999, 999999, 1));
         spinnerYOffset.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -179,14 +179,14 @@ public class ConfigureOverlayDialog extends WorldPainterDialog {
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
@@ -201,7 +201,7 @@ public class ConfigureOverlayDialog extends WorldPainterDialog {
         });
 
         jLabel1.setLabelFor(checkBoxImageOverlay);
-        jLabel1.setText("Enabled:");
+        jLabel1.setText("\u5F00\u542F:");
 
         labelFile.setText("jLabel9");
 

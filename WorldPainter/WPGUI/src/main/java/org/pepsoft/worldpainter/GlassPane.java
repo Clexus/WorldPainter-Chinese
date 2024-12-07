@@ -114,10 +114,10 @@ public class GlassPane extends javax.swing.JPanel {
         }
         JLabel label = new JLabel(new ImageIcon(image));
         label.setBorder(new EmptyBorder(1, 1, 1, 1));
-        label.setToolTipText(layer.getName() + " layer hidden");
+        label.setToolTipText(layer.getName() + " \u8986\u76D6\u5C42\u88AB\u9690\u85CF");
         return label;
     }
-    
+
     private JLabel createSoloLabel(Layer layer) {
         BufferedImage image = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().createCompatibleImage(Math.round(20 * getUIScale()), Math.round(20 * getUIScale()), Transparency.TRANSLUCENT);
         Graphics2D g2 = image.createGraphics();
@@ -128,7 +128,7 @@ public class GlassPane extends javax.swing.JPanel {
         }
         JLabel label = new JLabel(new ImageIcon(image));
         label.setBorder(new EmptyBorder(1, 1, 1, 1));
-        label.setToolTipText("Showing only " + layer.getName() + " layer");
+        label.setToolTipText("\u53EA\u663E\u793A " + layer.getName() + " \u8986\u76D6\u5C42");
         return label;
     }
 
@@ -202,8 +202,8 @@ public class GlassPane extends javax.swing.JPanel {
     private final Map<Layer, JLabel> hiddenLayers = new HashMap<>();
     private JLabel soloLayerLabel;
     private List<Component> panelComponentStack = new ArrayList<>();
-    
-    private static final NumberFormat SCALE_FORMAT = new DecimalFormat("#,##0.# blocks");
+
+    private static final NumberFormat SCALE_FORMAT = new DecimalFormat("#,##0.# \u683C");
     private static final BufferedImage PROHIBITED_SIGN_BACKGROUND = IconUtils.loadScaledImage("org/pepsoft/worldpainter/icons/prohibited_sign_background.png");
     private static final BufferedImage PROHIBITED_SIGN_FOREGROUND = IconUtils.loadScaledImage("org/pepsoft/worldpainter/icons/prohibited_sign_foreground.png");
     private static final long serialVersionUID = 1L;

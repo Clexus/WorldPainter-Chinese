@@ -143,8 +143,8 @@ public class CombinedLayerEditor extends AbstractLayerEditor<CombinedLayer> impl
         final ColourScheme colourScheme = context.getColourScheme();
         final Dimension dimension = context.getDimension();
         final Platform platform = dimension.getWorld().getPlatform();
-        comboBoxTerrain.setRenderer(new TerrainListCellRenderer(colourScheme, "none"));
-        comboBoxBiome.setRenderer(new BiomeListCellRenderer(colourScheme, customBiomeManager, "none", platform));
+        comboBoxTerrain.setRenderer(new TerrainListCellRenderer(colourScheme, "\u65E0"));
+        comboBoxBiome.setRenderer(new BiomeListCellRenderer(colourScheme, customBiomeManager, "\u65E0", platform));
 
         List<Terrain> allTerrains = listOf(singletonList(null), asList(Terrain.getConfiguredValues()));
         comboBoxTerrain.setModel(new DefaultComboBoxModel<>(allTerrains.toArray(new Terrain[allTerrains.size()])));
@@ -281,9 +281,9 @@ public class CombinedLayerEditor extends AbstractLayerEditor<CombinedLayer> impl
         buttonEditLayerSettings = new javax.swing.JButton();
         paintPicker1 = new org.pepsoft.worldpainter.layers.renderers.PaintPicker();
 
-        jLabel1.setText("Configure your combined layer on this screen.");
+        jLabel1.setText("\u5728\u6B64\u754C\u9762\u914D\u7F6E\u4F60\u7684\u6DF7\u5408\u8986\u76D6\u5C42.");
 
-        jLabel2.setText("Terrain:");
+        jLabel2.setText("\u65B9\u5757:");
 
         comboBoxTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -291,7 +291,7 @@ public class CombinedLayerEditor extends AbstractLayerEditor<CombinedLayer> impl
             }
         });
 
-        jLabel3.setText("Biome:");
+        jLabel3.setText("\u751F\u7269\u7FA4\u7CFB:");
 
         comboBoxBiome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,25 +299,25 @@ public class CombinedLayerEditor extends AbstractLayerEditor<CombinedLayer> impl
             }
         });
 
-        jLabel4.setText("Layers:");
+        jLabel4.setText("\u8986\u76D6\u5C42:");
 
         tableLayers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tableLayers);
 
-        buttonAddLayer.setText("Add");
+        buttonAddLayer.setText("\u6DFB\u52A0");
         buttonAddLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddLayerActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Name:");
+        jLabel5.setText("\u540D\u79F0:");
 
         fieldName.setColumns(20);
 
-        jLabel6.setText("Paint:");
+        jLabel6.setText("\u753B\u7B14:");
 
-        buttonRemoveLayer.setText("Remove");
+        buttonRemoveLayer.setText("\u79FB\u9664");
         buttonRemoveLayer.setEnabled(false);
         buttonRemoveLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,9 +325,9 @@ public class CombinedLayerEditor extends AbstractLayerEditor<CombinedLayer> impl
             }
         });
 
-        checkBoxApplyTerrainAndBiomeOnExport.setText("apply terrain and biome on Export");
+        checkBoxApplyTerrainAndBiomeOnExport.setText("\u5BFC\u51FA\u65F6\u5E94\u7528\u65B9\u5757\u4E0E\u7FA4\u7CFB");
 
-        buttonEditLayerSettings.setText("Edit...");
+        buttonEditLayerSettings.setText("\u7F16\u8F91...");
         buttonEditLayerSettings.setEnabled(false);
         buttonEditLayerSettings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

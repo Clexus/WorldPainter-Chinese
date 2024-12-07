@@ -159,15 +159,15 @@ public class TileEditor extends WorldPainterModalFrame implements TileSelector.L
             }
         } else {
             String action = (tilesToAdd.isEmpty())
-                ? ("expand " + tilesToExpand.size() + " tile(s)")
+                ? ("\u6269\u5C55 " + tilesToExpand.size() + " \u4E2A\u5206\u533A")
                     : (tilesToExpand.isEmpty()
-                        ? ("add " + tilesToAdd.size() + " new tile(s)")
-                        : ("add " + tilesToAdd.size() + " new tile(s) and expand " + tilesToExpand.size() + " tile(s)"));
-            if (JOptionPane.showConfirmDialog(this, "Do you want to " + action + "?\nNote that this cannot be undone!", "Confirm Adding/Expanding Tiles", JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
+                        ? ("\u6DFB\u52A0 " + tilesToAdd.size() + " \u4E2A\u65B0\u5206\u533A")
+                        : ("\u6DFB\u52A0 " + tilesToAdd.size() + " \u4E2A\u65B0\u5206\u533A\u5E76\u6269\u5C55 " + tilesToExpand.size() + " \u4E2A\u5206\u533A"));
+            if (JOptionPane.showConfirmDialog(this, "\u4F60\u786E\u8BA4\u8981" + action + "\u5417?\n\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!", "\u786E\u8BA4\u6DFB\u52A0/\u6269\u5C55\u5206\u533A", JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
                 return;
-            }            
+            }
         }
-        
+
         dimension.setEventsInhibited(true);
         dimension.clearUndo();
         try {
@@ -204,7 +204,7 @@ public class TileEditor extends WorldPainterModalFrame implements TileSelector.L
         tileSelector1.refresh();
         setControlStates();
     }
-    
+
     private void removeTiles() {
         Set<Point> selectedTiles = tileSelector1.getSelectedTiles();
         Set<Point> tilesToRemove = selectedTiles.stream().filter(selectedTile -> dimension.getTile(selectedTile) != null).collect(Collectors.toSet());
@@ -212,10 +212,10 @@ public class TileEditor extends WorldPainterModalFrame implements TileSelector.L
             return;
         }
         if (tilesToRemove.size() == dimension.getTileCount()) {
-            JOptionPane.showMessageDialog(this, "<html>You cannot remove <em>all</em> tiles from the dimension!</html>", "All Tiles Selected", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "<html>\u4F60\u4E0D\u80FD\u79FB\u9664\u7EF4\u5EA6\u4E2D<em>\u6240\u6709\u7684</em>\u5206\u533A!</html>", "\u9009\u4E2D\u4E86\u6240\u6709\u5206\u533A", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (JOptionPane.showConfirmDialog(this, "Do you want to remove " + tilesToRemove.size() + " tiles?\nNote that this cannot be undone!", "Confirm Removing Tiles", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, "\u4F60\u786E\u8BA4\u8981\u79FB\u9664" + tilesToRemove.size() + "\u4E2A\u5206\u533A\u5417?\n\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!", "\u786E\u8BA4\u79FB\u9664\u5206\u533A", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dimension.setEventsInhibited(true);
             dimension.clearUndo();
             try {
@@ -251,16 +251,16 @@ public class TileEditor extends WorldPainterModalFrame implements TileSelector.L
         jTextPane1 = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("WorldPainter - Add, Expand or Remove Tiles");
+        setTitle("WorldPainter - \u6DFB\u52A0, \u6269\u5C55\u6216\u79FB\u9664\u5206\u533A");
 
-        buttonClose.setText("Close");
+        buttonClose.setText("\u5173\u95ED");
         buttonClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCloseActionPerformed(evt);
             }
         });
 
-        buttonAddTiles.setText("Add or expand tiles");
+        buttonAddTiles.setText("\u6DFB\u52A0\u6216\u6269\u5C55\u5206\u533A");
         buttonAddTiles.setEnabled(false);
         buttonAddTiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +268,7 @@ public class TileEditor extends WorldPainterModalFrame implements TileSelector.L
             }
         });
 
-        buttonRemoveTiles.setText("Remove tiles");
+        buttonRemoveTiles.setText("\u79FB\u9664\u5206\u533A");
         buttonRemoveTiles.setEnabled(false);
         buttonRemoveTiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,7 +280,7 @@ public class TileEditor extends WorldPainterModalFrame implements TileSelector.L
 
         jTextPane1.setEditable(false);
         jTextPane1.setContentType("text/html"); // NOI18N
-        jTextPane1.setText("WorldPainter works in tiles of 128 by 128 blocks.\nOn this screen you can add, expand or remove tiles.<br>\n<br>\nSelect tiles to the right using the left mouse button,\nmove the map with the middle or right buttons,\nthen select an action below:<br>\n<br>\nDrag to select tiles; hold Ctrl and drag to deselect tiles.<br>\n<br>\n<b>Note:</b> this will remove all undo information!");
+        jTextPane1.setText("WorldPainter \u7684\u8FD0\u884C\u57FA\u7840\u4E3A 128 x 128 \u683C\u7684\u5206\u533A.\n\u4F60\u53EF\u4EE5\u5728\u6B64\u754C\u9762\u6DFB\u52A0, \u6269\u5C55\u6216\u79FB\u9664\u5206\u533A.<br>\n<br>\n\u4F7F\u7528\u5DE6\u952E\u9009\u62E9\u5206\u533A,\n\u4F7F\u7528\u4E2D\u952E\u6216\u53F3\u952E\u79FB\u52A8\u5730\u56FE,\n\u7136\u540E\u9009\u62E9\u4EE5\u4E0B\u64CD\u4F5C:<br>\n<br>\n\u62D6\u62FD\u6765\u9009\u4E2D\u5206\u533A; \u6309\u4F4F Ctrl \u5E76\u62D6\u62FD\u6765\u53D6\u6D88\u9009\u62E9\u5206\u533A.<br>\n<br>\n<b>\u6CE8\u610F:</b> \u8BE5\u64CD\u4F5C\u5C06\u79FB\u9664\u6240\u6709\u7684\u64A4\u9500\u8BB0\u5F55!");
         jTextPane1.setOpaque(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

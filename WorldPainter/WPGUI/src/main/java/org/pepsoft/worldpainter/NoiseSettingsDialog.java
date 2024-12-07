@@ -89,28 +89,28 @@ public class NoiseSettingsDialog extends WorldPainterDialog implements ChangeLis
         buttonClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Adjust Noise Settings");
+        setTitle("\u8C03\u6574\u566A\u58F0\u8BBE\u7F6E");
         setResizable(false);
 
-        jLabel1.setText("Adjust the noise settings:");
+        jLabel1.setText("\u8C03\u6574\u566A\u58F0\u8BBE\u7F6E:");
 
         labelPreview.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOk.setText("OK");
+        buttonOk.setText("\u786e\u8ba4");
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOkActionPerformed(evt);
             }
         });
 
-        buttonClear.setText("Clear");
+        buttonClear.setText("\u6E05\u9664");
         buttonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonClearActionPerformed(evt);

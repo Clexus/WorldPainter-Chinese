@@ -45,16 +45,16 @@ public class EditSimpleThemeDialog extends WorldPainterDialog {
         buttonOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Default Terrain and Layers");
+        setTitle("\u9ED8\u8BA4\u65B9\u5757\u548C\u8986\u76D6\u5C42");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);

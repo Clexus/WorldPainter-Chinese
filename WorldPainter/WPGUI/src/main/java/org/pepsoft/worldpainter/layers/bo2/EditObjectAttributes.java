@@ -441,19 +441,19 @@ public class EditObjectAttributes extends WorldPainterDialog {
         comboBoxWaterlogging = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Object Attributes");
+        setTitle("\u7F16\u8F91\u5BF9\u8C61\u5C5E\u6027");
 
-        jLabel1.setText("Name:");
+        jLabel1.setText("\u540D\u79F0:");
 
-        jLabel2.setText("File:");
+        jLabel2.setText("\u6587\u4EF6:");
 
         labelFile.setText("jLabel3");
 
-        jLabel3.setText("Offset:");
+        jLabel3.setText("\u504F\u79FB:");
 
         labelOffset.setForeground(new java.awt.Color(0, 0, 255));
-        labelOffset.setText("<html><u>offset</u></html>");
-        labelOffset.setToolTipText("Click to edit the offset.");
+        labelOffset.setText("<html><u>\u504F\u79FB</u></html>");
+        labelOffset.setToolTipText("\u70B9\u51FB\u7F16\u8F91\u504F\u79FB.");
         labelOffset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelOffset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -461,8 +461,8 @@ public class EditObjectAttributes extends WorldPainterDialog {
             }
         });
 
-        buttonOffsetAuto.setText("Auto");
-        buttonOffsetAuto.setToolTipText("This will try to set the offset to the base of the object.");
+        buttonOffsetAuto.setText("\u81EA\u52A8");
+        buttonOffsetAuto.setToolTipText("\u8BE5\u9009\u9879\u5C06\u5C1D\u8BD5\u5C06\u504F\u79FB\u91CF\u8BBE\u7F6E\u4E3A\u5BF9\u8C61\u7684\u5E95\u90E8\u3002");
         buttonOffsetAuto.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         buttonOffsetAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,22 +470,22 @@ public class EditObjectAttributes extends WorldPainterDialog {
             }
         });
 
-        buttonOffsetReset.setText("Zero");
-        buttonOffsetReset.setToolTipText("This will set the offset to all zeroes.");
+        buttonOffsetReset.setText("\u5F52\u96F6");
+        buttonOffsetReset.setToolTipText("\u5C06\u6240\u6709\u504F\u79FB\u91CF\u8BBE\u7F6E\u4E3A0.");
         buttonOffsetReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOffsetResetActionPerformed(evt);
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
@@ -497,48 +497,48 @@ public class EditObjectAttributes extends WorldPainterDialog {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel4.setText("Relative frequency:");
-        jLabel4.setToolTipText("The frequency of this object relative to the other objects in the layer.");
+        jLabel4.setText("\u76F8\u5BF9\u9891\u7387:");
+        jLabel4.setToolTipText("\u6B64\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76D6\u5C42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u751F\u6210\u9891\u7387.");
 
         spinnerFrequency.setModel(new javax.swing.SpinnerNumberModel(100, 1, 9999, 1));
-        spinnerFrequency.setToolTipText("The frequency of this object relative to the other objects in the layer.");
+        spinnerFrequency.setToolTipText("\u6B64\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76D6\u5C42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u751F\u6210\u9891\u7387.");
 
         jLabel5.setText("%");
 
         jLabel6.setLabelFor(comboBoxCollisionMode);
-        jLabel6.setText("Collide with:");
-        jLabel6.setToolTipText("<html>Determines which existing blocks an object will collide with (and therefore not be rendered).<br>\n<strong>Note</strong> that only above ground blocks are considered!</html>");
+        jLabel6.setText("\u4E0E...\u78B0\u649E:");
+        jLabel6.setToolTipText("<html>\u786E\u5B9A\u5BF9\u8C61\u5C06\u4E0E\u54EA\u4E9B\u73B0\u6709\u7684\u65B9\u5757\u53D1\u751F\u78B0\u649E\uFF08\u56E0\u6B64\u4E0D\u4F1A\u88AB\u6E32\u67D3\uFF09\u3002<br>\n <strong>\u6CE8\u610F</strong> \u4EC5\u8003\u8651\u5730\u8868\u4EE5\u4E0A\u65B9\u5757\uFF01</html>");
 
-        comboBoxCollisionMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "no change", "any blocks", "solid blocks", "nothing" }));
-        comboBoxCollisionMode.setToolTipText("<html>Determines which existing blocks an object will collide with (and therefore not be rendered).<br>\n<strong>Note</strong> that only above ground blocks are considered!</html>");
+        comboBoxCollisionMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u4E0D\u505A\u4FEE\u6539", "\u4EFB\u610F\u65B9\u5757", "\u56FA\u4F53\u65B9\u5757", "\u4E0D\u53D1\u751F\u78B0\u649E" }));
+        comboBoxCollisionMode.setToolTipText("<html>\u786E\u5B9A\u5BF9\u8C61\u5C06\u4E0E\u54EA\u4E9B\u73B0\u6709\u7684\u65B9\u5757\u53D1\u751F\u78B0\u649E\uFF08\u56E0\u6B64\u4E0D\u4F1A\u88AB\u6E32\u67D3\uFF09\u3002<br>\n <strong>\u6CE8\u610F</strong> \u4EC5\u8003\u8651\u5730\u8868\u4EE5\u4E0A\u65B9\u5757\uFF01</html>");
 
         jLabel7.setLabelFor(comboBoxUndergroundMode);
-        jLabel7.setText("Replace underground blocks:");
-        jLabel7.setToolTipText("Determines whether existing underground blocks should be replaced by blocks from the object.");
+        jLabel7.setText("\u66FF\u6362\u5730\u5E95\u65B9\u5757:");
+        jLabel7.setToolTipText("\u786E\u5B9A\u662F\u5426\u5E94\u5C06\u73B0\u6709\u5730\u4E0B\u65B9\u5757\u66FF\u6362\u4E3A\u5BF9\u8C61\u4E2D\u7684\u65B9\u5757.");
 
-        comboBoxUndergroundMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "no change", "always", "if object block is solid", "if existing block is air" }));
+        comboBoxUndergroundMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u4E0D\u505A\u4FEE\u6539", "\u603B\u662F\u66FF\u6362", "\u4EC5\u5728\u5BF9\u8C61\u65B9\u5757\u4E3A\u56FA\u4F53\u65B9\u5757\u65F6", "\u4EC5\u5728\u73B0\u6709\u65B9\u5757\u4E3A\u7A7A\u6C14\u65F6" }));
         comboBoxUndergroundMode.setToolTipText("Determines whether existing underground blocks should be replaced by blocks from the object.");
 
-        jLabel8.setText("Spawn:");
+        jLabel8.setText("\u751F\u6210:");
 
-        checkBoxRandomRotation.setText("random rotation");
+        checkBoxRandomRotation.setText("\u968F\u673A\u65CB\u8F6C");
 
-        checkBoxOnSolidLand.setText("on solid land");
+        checkBoxOnSolidLand.setText("\u4E8E\u56FA\u4F53\u9646\u5730\u751F\u6210");
 
-        checkBoxOnAir.setText("on air");
+        checkBoxOnAir.setText("\u4E0E\u7A7A\u4E2D\u751F\u6210");
 
-        checkBoxOnWater.setText("on water");
+        checkBoxOnWater.setText("\u4E8E\u6C34\u4E0A\u751F\u6210");
         checkBoxOnWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxOnWaterActionPerformed(evt);
             }
         });
 
-        checkBoxUnderWater.setText("under water");
+        checkBoxUnderWater.setText("\u4E8E\u6C34\u4E0B\u751F\u6210");
 
-        checkBoxUnderLava.setText("under lava");
+        checkBoxUnderLava.setText("\u4E8E\u6C34\u4E0B\u751F\u6210");
 
-        checkBoxOnLava.setText("on lava");
+        checkBoxOnLava.setText("\u4E8E\u5CA9\u6D46\u4E0A\u751F\u6210");
 
         checkBoxFrequencyActive.setSelected(true);
         checkBoxFrequencyActive.setText(" ");
@@ -550,36 +550,36 @@ public class EditObjectAttributes extends WorldPainterDialog {
         });
 
         jLabel9.setLabelFor(comboBoxLeafDecayMode);
-        jLabel9.setText("Leaf blocks should:");
+        jLabel9.setText("\u6811\u53F6\u65B9\u5757\u5E94:");
 
-        comboBoxLeafDecayMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "no change", "behave as exported", "decay", "not decay" }));
+        comboBoxLeafDecayMode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u4E0D\u505A\u4FEE\u6539", "\u4E0E\u5BFC\u51FA\u4E16\u754C\u4E00\u81F4", "\u51CB\u96F6", "\u4E0D\u51CB\u96F6" }));
 
-        checkBoxReplace.setText("replace with air:");
+        checkBoxReplace.setText("\u4F7F\u7528\u7A7A\u6C14\u66FF\u6362:");
         checkBoxReplace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxReplaceActionPerformed(evt);
             }
         });
 
-        checkBoxExtendFoundation.setText("extend foundation to ground");
+        checkBoxExtendFoundation.setText("\u5C06\u5730\u57FA\u5EF6\u4F38\u81F3\u5730\u8868");
 
         comboBoxReplacedMaterial.setEnabled(false);
 
         checkBoxCollideWithFloor.setSelected(true);
-        checkBoxCollideWithFloor.setText("collide with floor");
+        checkBoxCollideWithFloor.setText("\u4E0E\u5E95\u5C42\u78B0\u649E");
         checkBoxCollideWithFloor.setEnabled(false);
 
-        checkBoxRandomMirroring.setText("random mirroring");
+        checkBoxRandomMirroring.setText("\u968F\u673A\u955C\u50CF");
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/information.png"))); // NOI18N
         jLabel10.setLabelFor(checkBoxRandomMirroring);
         jLabel10.setText(" ");
-        jLabel10.setToolTipText("<html>Mirroring works by rotating blocks 180 degrees.<br>\nIt does not work for asymmetric mod blocks of which<br>\nthe rotated versions are not mirrors of the originals.</html>");
+        jLabel10.setToolTipText("<html>\u955C\u50CF\u7684\u5DE5\u4F5C\u65B9\u5F0F\u4E3A\u5C06\u65B9\u5757 180 \u5EA6\u65CB\u8F6C.<br>\n\u5B83\u4E0D\u9002\u7528\u4E8E\u65CB\u8F6C\u7248\u672C\u4E0D\u662F\u539F\u59CB\u7248\u672C\u955C\u50CF\u7684\u975E\u5BF9\u79F0mod\u65B9\u5757.</html>");
 
-        jLabel11.setText("Placement:");
+        jLabel11.setText("\u653E\u7F6E:");
 
         buttonGroup1.add(radioButtonPlaceOnTerrain);
-        radioButtonPlaceOnTerrain.setText("relative to terrain");
+        radioButtonPlaceOnTerrain.setText("\u4E0E\u65B9\u5757\u76F8\u5BF9");
         radioButtonPlaceOnTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonPlaceOnTerrainActionPerformed(evt);
@@ -587,7 +587,7 @@ public class EditObjectAttributes extends WorldPainterDialog {
         });
 
         buttonGroup1.add(radioButtonPlaceAtFixedHeight);
-        radioButtonPlaceAtFixedHeight.setText("fixed height");
+        radioButtonPlaceAtFixedHeight.setText("\u56FA\u5B9A\u9AD8\u5EA6");
         radioButtonPlaceAtFixedHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonPlaceAtFixedHeightActionPerformed(evt);
@@ -598,13 +598,13 @@ public class EditObjectAttributes extends WorldPainterDialog {
         spinnerVerticalOffset.setEnabled(false);
 
         jLabel12.setLabelFor(spinnerRandomVariation);
-        jLabel12.setText("Random y variation:");
+        jLabel12.setText("\u968F\u673A y \u8F74\u53D8\u5316:");
 
         spinnerRandomVariation.setModel(new javax.swing.SpinnerNumberModel(0, 0, 383, 1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/information.png"))); // NOI18N
         jLabel13.setText(" ");
-        jLabel13.setToolTipText("Distributed equally above and below the initial height.");
+        jLabel13.setToolTipText("\u5728\u521D\u59CB\u9AD8\u5EA6\u4E0A\u4E0B\u5747\u5300\u5206\u5E03.");
 
         checkBoxRandomVariationActive.setSelected(true);
         checkBoxRandomVariationActive.setText(" ");
@@ -616,11 +616,11 @@ public class EditObjectAttributes extends WorldPainterDialog {
         });
 
         labelVerticalOffset.setLabelFor(spinnerVerticalOffset);
-        labelVerticalOffset.setText("Height above terrain:");
+        labelVerticalOffset.setText("\u65B9\u5757\u4E0A\u9AD8\u5EA6:");
 
-        jLabel14.setText("Waterlogging should:");
+        jLabel14.setText("\u542B\u6C34\u72B6\u6001\u5E94:");
 
-        comboBoxWaterlogging.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "no change", "be managed by WorldPainter", "behave as exported" }));
+        comboBoxWaterlogging.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "\u4E0D\u505A\u4FEE\u6539", "\u7531 WorldPainter \u7BA1\u7406", "\u4E0E\u5BFC\u51FA\u4E16\u754C\u76F8\u540C" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

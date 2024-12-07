@@ -506,7 +506,7 @@ outer:          for (int x = 0; x < width; x++) {
                     return new PossibleMappingsResult("\u5F69\u8272\u906E\u7F69\u4EC5\u53EF\u5E94\u7528\u4E8E\u6807\u6CE8\u8986\u76d6\u5c42");
                 }
             default:
-                return new PossibleMappingsResult("\u8986\u76D6\u56FE\u7684\u4F4D\u6DF1\u5EA6\u6216\u683C\u5F0F\u4E0D\u652F\u6301");
+                return new PossibleMappingsResult("\u906e\u7f69\u56fe\u7684\u4F4D\u6DF1\u5EA6\u6216\u683C\u5F0F\u4E0D\u652F\u6301");
         }
         return new PossibleMappingsResult("\u672A\u9009\u62E9\u76EE\u6807");
     }

@@ -131,7 +131,7 @@ public class NewWorldDialog extends WorldPainterDialog {
         ((DefaultEditor) spinnerLength.getEditor()).getTextField().setColumns(4);
 
         if (! anchor.equals(NORMAL_DETAIL)) {
-            setTitle("Add " + anchor.getDefaultName());
+            setTitle("\u6DFB\u52A0 " + anchor.getDefaultName());
         }
         if (anchor.role == MASTER) {
             fieldName.setEnabled(false);
@@ -186,7 +186,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             comboBoxMaxHeight.setEnabled(false);
         }
         checkBoxMasterDimension.setEnabled((anchor.role == DETAIL) && (! anchor.invert));
-        
+
         if (tiles != null) {
             int lowestX = Integer.MAX_VALUE, highestX = Integer.MIN_VALUE;
             int lowestY = Integer.MAX_VALUE, highestY = Integer.MIN_VALUE;
@@ -213,7 +213,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             checkBoxCircular.setEnabled(false);
         }
         updateWalkingTimes();
-        
+
         TileFactory defaultTileFactory = config.getDefaultTerrainAndLayerSettings().getTileFactory();
         if ((defaultTileFactory instanceof HeightMapTileFactory) && (((HeightMapTileFactory) defaultTileFactory).getTheme() instanceof SimpleTheme)) {
             theme = (SimpleTheme) ((HeightMapTileFactory) defaultTileFactory).getTheme().clone();
@@ -241,7 +241,7 @@ public class NewWorldDialog extends WorldPainterDialog {
         labelWarning.setIcon(null);
         labelWarning.setText(" ");
         checkBoxExtendedBlockIds.setSelected(config.isDefaultExtendedBlockIds());
-        
+
         rootPane.setDefaultButton(buttonCreate);
 
         programmaticChange = false;
@@ -253,7 +253,7 @@ public class NewWorldDialog extends WorldPainterDialog {
      * Try to guestimate whether there is enough memory to create a world of the
      * configured size. If not, ask the user whether they want to continue at
      * their own risk.
-     * 
+     *
      * @param parent The parent to use for the dialog, if necessary.
      * @return {@code true} if there is enough memory, or the user
      *     indicated they want to continue at their own risk.
@@ -284,11 +284,11 @@ public class NewWorldDialog extends WorldPainterDialog {
         }
         long totalEstimatedDataSize = tileCount * ESTIMATED_TILE_DATA_SIZE;
         if (totalEstimatedDataSize > availableMemory) {
-            return JOptionPane.showConfirmDialog(parent, "There may not be enough memory to create a world of that size!\nIt may fail to be created, or cause errors later on.\nPlease consider creating a smaller world, or installing more memory.\nDo you want to continue?", "Large World", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION;
+            return JOptionPane.showConfirmDialog(parent, "\u53EF\u80FD\u6CA1\u6709\u8DB3\u591F\u7684\u5185\u5B58\u521B\u5EFA\u8BE5\u5C3A\u5BF8\u7684\u4E16\u754C!\n\u521B\u5EFA\u65F6\u53EF\u80FD\u4F1A\u5931\u8D25\u6216\u51FA\u9519.\n\u8BF7\u8003\u8651\u521B\u5EFA\u4E00\u4E2A\u66F4\u5C0F\u7684\u4E16\u754C\uFF0C\u6216\u5B89\u88C5\u66F4\u591A\u7684\u5185\u5B58.\n\u4F60\u786E\u8BA4\u8981\u7EE7\u7EED\u5417?", "\u4E16\u754C\u8FC7\u5927", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == JOptionPane.YES_OPTION;
         }
         return true;
     }
-    
+
     public World2 getSelectedWorld(ProgressReceiver progressReceiver) throws ProgressReceiver.OperationCancelled {
         final String name = fieldName.getText().trim();
         final World2 world = new World2(platform, (Integer) comboBoxMinHeight.getSelectedItem(), (Integer) comboBoxMaxHeight.getSelectedItem());
@@ -348,8 +348,8 @@ public class NewWorldDialog extends WorldPainterDialog {
         }
 
         if ("true".equals(System.getProperty("org.pepsoft.worldpainter.fancyworlds"))) {
-            world.setMixedMaterial(0, new MixedMaterial("Dirt/Gravel", new MixedMaterial.Row[] {new MixedMaterial.Row(Material.DIRT, 750, 1.0f), new MixedMaterial.Row(Material.GRAVEL, 250, 1.0f)}, Minecraft1_2BiomeScheme.BIOME_PLAINS, null, 1.0f));
-            world.setMixedMaterial(1, new MixedMaterial("Stone/Gravel", new MixedMaterial.Row[] {new MixedMaterial.Row(Material.STONE, 750, 1.0f), new MixedMaterial.Row(Material.GRAVEL, 250, 1.0f)}, Minecraft1_2BiomeScheme.BIOME_PLAINS, null, 1.0f));
+            world.setMixedMaterial(0, new MixedMaterial("\u6CE5\u571F/\u7802\u783E", new MixedMaterial.Row[] {new MixedMaterial.Row(Material.DIRT, 750, 1.0f), new MixedMaterial.Row(Material.GRAVEL, 250, 1.0f)}, Minecraft1_2BiomeScheme.BIOME_PLAINS, null, 1.0f));
+            world.setMixedMaterial(1, new MixedMaterial("\u77F3\u5934/\u7802\u783E", new MixedMaterial.Row[] {new MixedMaterial.Row(Material.STONE, 750, 1.0f), new MixedMaterial.Row(Material.GRAVEL, 250, 1.0f)}, Minecraft1_2BiomeScheme.BIOME_PLAINS, null, 1.0f));
         }
 
         if (dimension.getAnchor().role == MASTER) {
@@ -358,7 +358,7 @@ public class NewWorldDialog extends WorldPainterDialog {
 
         return world;
     }
-    
+
     public Dimension getSelectedDimension(World2 world, final ProgressReceiver progressReceiver) throws ProgressReceiver.OperationCancelled {
         final Anchor anchor;
         if (checkBoxMasterDimension.isSelected()) {
@@ -457,7 +457,7 @@ public class NewWorldDialog extends WorldPainterDialog {
                         }
                     }
                 }
-                
+
                 // Assume the user will want an endless void border by default;
                 // override the preferences
                 dimension.setBorder(Border.ENDLESS_VOID);
@@ -493,7 +493,7 @@ public class NewWorldDialog extends WorldPainterDialog {
                     }
                 }
             }
-            
+
             // Wait for all tiles to be created
             executorService.shutdown();
             try {
@@ -501,7 +501,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             } catch (InterruptedException e) {
                 throw new RuntimeException("Thread interrupted", e);
             }
-            
+
             if (cancelled.get()) {
                 // The operation was cancelled by the user
                 return null;
@@ -698,12 +698,12 @@ public class NewWorldDialog extends WorldPainterDialog {
             public Rectangle getExtent() {
                 return null; // Tile factories are endless
             }
-            
+
             @Override
             public boolean isTilePresent(int x, int y) {
                 return true; // Tile factories are endless and have no holes
             }
-            
+
             @Override
             public Tile getTile(int x, int y) {
                 Point coords = new Point(x, y);
@@ -716,13 +716,13 @@ public class NewWorldDialog extends WorldPainterDialog {
                     return tile;
                 }
             }
-            
+
             private final Map<Point, Tile> cache = new HashMap<>();
         };
         Configuration config = Configuration.getInstance();
         tiledImageViewer1.setTileProvider(new WPTileProvider(tileProvider, colourScheme, app.getCustomBiomeManager(), Collections.singleton(Biome.INSTANCE), config.isDefaultContoursEnabled(), config.getDefaultContourSeparation(), config.getDefaultLightOrigin(), null));
     }
-    
+
     private TileFactory createTileFactory(long seed, Dimension.Role role) {
         final Terrain terrain = (Terrain) comboBoxSurfaceMaterial.getSelectedItem();
         final int baseHeight = (Integer) spinnerTerrainLevel.getValue();
@@ -774,7 +774,7 @@ public class NewWorldDialog extends WorldPainterDialog {
                 theme.setTerrainRanges(terrainMap);
             }
         }
-        
+
         return tileFactory;
     }
 
@@ -789,18 +789,18 @@ public class NewWorldDialog extends WorldPainterDialog {
             if (westEastTime.equals(northSouthTime)) {
                 labelWalkingTimes.setText(westEastTime);
             } else {
-                labelWalkingTimes.setText("West to east: " + westEastTime + ", north to south: " + northSouthTime);
+                labelWalkingTimes.setText("\u7531\u897F\u81F3\u4E1C: " + westEastTime + ", \u7531\u5317\u81F3\u5357: " + northSouthTime);
             }
         }
         if (scale == 1.0f) {
             labelScaledDimensions.setText(" ");
         } else if (checkBoxCircular.isSelected()) {
-            labelScaledDimensions.setText("(Scaled: " + INT_NUMBER_FORMAT.format(width) + ")");
+            labelScaledDimensions.setText("(\u7F29\u653E\u540E: " + INT_NUMBER_FORMAT.format(width) + ")");
         } else {
-            labelScaledDimensions.setText("(Scaled: " + INT_NUMBER_FORMAT.format(width) + " x " + INT_NUMBER_FORMAT.format(length) + ")");
+            labelScaledDimensions.setText("(\u7F29\u653E\u540E: " + INT_NUMBER_FORMAT.format(width) + " x " + INT_NUMBER_FORMAT.format(length) + ")");
         }
     }
-    
+
     private void editTheme() {
         theme.setWaterHeight((Integer) spinnerWaterLevel.getValue());
         theme.setBeaches(checkBoxBeaches.isSelected());
@@ -926,10 +926,10 @@ public class NewWorldDialog extends WorldPainterDialog {
 
             if ((platform == JAVA_MCREGION) && (maxHeight != 128)) {
                 labelWarning.setIcon(ICON_WARNING);
-                labelWarning.setText("Only with mods!");
+                labelWarning.setText("\u53EA\u6709\u5728\u6709mod\u7684\u60C5\u51B5\u4E0B\u624D\u80FD\u8FBE\u5230\u6B64\u9AD8\u5EA6!");
             } else if ((platform.getAttribute(ATTRIBUTE_MC_VERSION).isAtLeast(V_1_17)) && ((maxHeight - minHeight) > 384)) {
                 labelWarning.setIcon(ICON_WARNING);
-                labelWarning.setText("May impact performance");
+                labelWarning.setText("\u53EF\u80FD\u4F1A\u5F71\u54CD\u6027\u80FD");
             } else {
                 labelWarning.setIcon(null);
                 labelWarning.setText(" ");
@@ -948,18 +948,17 @@ public class NewWorldDialog extends WorldPainterDialog {
 
     public static void showMasterDimensionInfo(Window parent) {
         showInfo(parent, "<html>" +
-                "<h1>Master Dimensions</h1>" +
-                "<p>A Master Dimension is a WorldPainter dimension type (similar to a Ceiling Dimension). It is Exported<br>" +
-                "at 1:16 scale wherever the regular Surface Dimension does not exist. Because the Master Dimension is<br>" +
-                "only scaled at Export, operations such as saving, loading and editing it are <em>much</em> faster than<br>" +
-                "creating a regular Surface Dimension of that size. Note that exporting it takes just as long though." +
-                "<p><p>Use a Master Dimension to quickly create large featureless areas of your world (oceans, continents,<br>" +
-                "deserts, etc.). When you add tiles to the surface Dimension, they will be initialised to the contents<br>" +
-                "of the Master Dimension in that location. This allows you to quickly sketch out the rough shapes of<br>" +
-                "your world in the Master Dimension, and then fill in the details where necessary in the surface Dimension." +
-                "<p><p>Master Dimensions can use all the features of regular surface Dimensions (terrain types, layers, etc.)<br>" +
-                "so large forests, cave systems, etc. are also easily created with it." +
-                "</html>", "What Is A Master Dimension");
+                "<h1>\u6269\u5C55\u533A\u7EF4\u5EA6</h1>" +
+                "<p>\u6269\u5C55\u533A\u7EF4\u5EA6\u662F\u4E00\u79CD WorldPainter \u7EF4\u5EA6\u7C7B\u578B\uFF08\u7C7B\u4F3C\u4E8E\u9876\u5C42\u7EF4\u5EA6\uFF09\u3002\u5B83\u4EE5 1:16 \u7684\u6BD4\u4F8B\u5BFC\u51FA\uFF0C<br>" +
+                "\u5177\u4F53\u529F\u80FD\u4E3A\u5728\u5E38\u89C4\u4E3B\u4E16\u754C\u4E0D\u5B58\u5728\u7684\u5730\u65B9\u751F\u6210\u5730\u5F62\u3002\u7531\u4E8E\u4E3B\u7EF4\u5EA6\u4EC5\u5728\u5BFC\u51FA\u65F6\u8FDB\u884C\u6BD4\u4F8B\u7F29\u653E\uFF0C<br>" +
+                "\u56E0\u6B64\u4FDD\u5B58\u3001\u52A0\u8F7D\u548C\u7F16\u8F91\u7B49\u64CD\u4F5C\u6BD4\u521B\u5EFA\u76F8\u540C\u5927\u5C0F\u7684\u5E38\u89C4\u4E3B\u4E16\u754C\u7EF4\u5EA6<em>\u5FEB\u5F97\u591A</em><br>" +
+                "\u4E0D\u8FC7\u9700\u8981\u6CE8\u610F\u7684\u662F\uFF0C\u5BFC\u51FA\u65F6\u6240\u9700\u7684\u65F6\u95F4\u662F\u4E00\u6837\u7684\u3002" +
+                "<p><p>\u4F7F\u7528\u6269\u5C55\u533A\u7EF4\u5EA6\u53EF\u4EE5\u5FEB\u901F\u521B\u5EFA\u4E16\u754C\u4E2D\u5927\u8303\u56F4\u65E0\u7279\u5F81\u7684\u533A\u57DF\uFF08\u5982\u6D77\u6D0B\u3001\u5927\u9646\u3001\u6C99\u6F20\u7B49\uFF09\u3002<br>" +
+                "\u5F53\u4F60\u5411\u4E3B\u4E16\u754C\u7EF4\u5EA6\u6DFB\u52A0\u5206\u533A\u65F6\uFF0C\u8FD9\u4E9B\u5206\u533A\u4F1A\u6839\u636E\u6269\u5C55\u533A\u7EF4\u5EA6\u5728\u5BF9\u5E94\u4F4D\u7F6E\u7684\u5185\u5BB9\u8FDB\u884C\u521D\u59CB\u5316\u3002<br>" +
+                "\u8FD9\u4F7F\u4F60\u80FD\u591F\u5FEB\u901F\u5728\u6269\u5C55\u533A\u7EF4\u5EA6\u4E2D\u52FE\u52D2\u51FA\u4E16\u754C\u7684\u5927\u81F4\u5F62\u72B6\uFF0C\u7136\u540E\u5728\u4E3B\u4E16\u754C\u7EF4\u5EA6\u4E2D\u6839\u636E\u9700\u8981\u586B\u5145\u7EC6\u8282\u3002<br>" +
+                "<p><p>\u6269\u5C55\u533A\u7EF4\u5EA6\u53EF\u4EE5\u4F7F\u7528\u5E38\u89C4\u4E3B\u4E16\u754C\u7EF4\u5EA6\u7684\u6240\u6709\u529F\u80FD\uFF08\u5982\u65B9\u5757\u7C7B\u578B\u3001\u56FE\u5C42\u7B49\uFF09\uFF0C<br>" +
+                "\u56E0\u6B64\u4E5F\u53EF\u4EE5\u8F7B\u677E\u521B\u5EFA\u5927\u89C4\u6A21\u7684\u68EE\u6797\u3001\u6D1E\u7A74\u7CFB\u7EDF\u7B49\u5185\u5BB9\u3002" +
+                "</html>", "\u6269\u5C55\u533A\u7EF4\u5EA6\u662F\u4EC0\u4E48");
     }
 
     /** This method is called from within the constructor to
@@ -1054,14 +1053,14 @@ public class NewWorldDialog extends WorldPainterDialog {
         jLabel20.setText("%");
 
         buttonGroup1.add(radioButtonFlat);
-        radioButtonFlat.setText("Flat");
+        radioButtonFlat.setText("\u5E73\u5766");
         radioButtonFlat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFlatActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Level:");
+        jLabel5.setText("\u9AD8\u5EA6:");
 
         comboBoxMaxHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1076,9 +1075,9 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel6.setText("Surface material:");
+        jLabel6.setText("\u8868\u5C42\u6750\u8D28:");
 
-        jLabel9.setText("Water level:");
+        jLabel9.setText("\u6C34\u5E73\u9762\u9AD8\u5EA6:");
 
         fieldSeed.setText("202961");
         fieldSeed.setEnabled(false);
@@ -1095,15 +1094,15 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxCircular.setText("Circular world");
-        checkBoxCircular.setToolTipText("<html>This will create a cirular world. The dimension indicates the diameter of the circle, and<br>\nthe origin (0,0) will be the centre. The Void layer will be used to create the circular edge of the world.</html>");
+        checkBoxCircular.setText("\u5706\u5F62\u4E16\u754C");
+        checkBoxCircular.setToolTipText("<html>\u8FD9\u5C06\u4F1A\u521B\u5EFA\u4E00\u4E2A\u5706\u5F62\u7684\u4E16\u754C. \u7EF4\u5EA6\u5C3A\u5BF8\u5C06\u8868\u793A\u8BE5\u5706\u534A\u5F84, \u5706\u5FC3\u4E3A\u4E16\u754C\u539F\u70B9 (0,0).<br>\n \u865A\u7A7A\u8986\u76D6\u5C42\u5C06\u4F5C\u4E3A\u5706\u7684\u8FB9\u754C.</html>");
         checkBoxCircular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCircularActionPerformed(evt);
             }
         });
 
-        jLabel19.setText("Horizontal hill size:");
+        jLabel19.setText("\u5C71\u4E18\u5927\u5C0F:");
 
         spinnerTerrainLevel.setModel(new javax.swing.SpinnerNumberModel(58, 1, 127, 1));
         spinnerTerrainLevel.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1112,12 +1111,12 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel8.setText("Name:");
+        jLabel8.setText("\u540D\u79F0:");
 
-        jLabel11.setText("blocks");
+        jLabel11.setText("\u683C");
 
         checkBoxBeaches.setSelected(true);
-        checkBoxBeaches.setText("Beaches:");
+        checkBoxBeaches.setText("\u6C99\u6EE9:");
         checkBoxBeaches.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxBeaches.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1134,21 +1133,21 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel7.setText("Minecraft seed:");
+        jLabel7.setText("Minecraft\u79CD\u5B50:");
 
         buttonGroup1.add(radioButtonHilly);
         radioButtonHilly.setSelected(true);
-        radioButtonHilly.setText("Hilly");
+        radioButtonHilly.setText("\u8D77\u4F0F");
         radioButtonHilly.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonHillyActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("blocks (in multiples of 128)");
+        jLabel3.setText("\u683C (128\u7684\u500D\u6570)");
 
         buttonRandomSeed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/arrow_rotate_clockwise.png"))); // NOI18N
-        buttonRandomSeed.setToolTipText("Choose a random seed");
+        buttonRandomSeed.setToolTipText("\u6307\u5B9A\u4E00\u4E2A\u968F\u673A\u7684\u79CD\u5B50");
         buttonRandomSeed.setEnabled(false);
         buttonRandomSeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1162,15 +1161,15 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel10.setText(", upper:");
+        jLabel10.setText(", \u6700\u9AD8:");
 
-        jLabel17.setText("(Minecraft default: 62)");
+        jLabel17.setText("(Minecraft \u9ED8\u8BA4\u503C: 62)");
 
-        fieldName.setText("Generated World");
+        fieldName.setText("\u751F\u6210\u7684\u4E16\u754C");
 
-        jLabel1.setText("Dimensions:");
+        jLabel1.setText("\u7EF4\u5EA6\u5C3A\u5BF8:");
 
-        checkBoxLava.setText("Lava instead of water:");
+        checkBoxLava.setText("\u7528\u5CA9\u6D46\u66FF\u6362\u6C34:");
         checkBoxLava.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxLava.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1178,9 +1177,9 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel4.setText("Topography:");
+        jLabel4.setText("\u5730\u5F62\u7C7B\u578B:");
 
-        jLabel18.setText("Hill height:");
+        jLabel18.setText("\u5C71\u4E18\u9AD8\u5EA6:");
 
         spinnerWidth.setModel(new javax.swing.SpinnerNumberModel(640, 1, null, 128));
         spinnerWidth.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1191,8 +1190,8 @@ public class NewWorldDialog extends WorldPainterDialog {
 
         buttonGroup2.add(radioButtonOceanSeed);
         radioButtonOceanSeed.setSelected(true);
-        radioButtonOceanSeed.setText("Ocean");
-        radioButtonOceanSeed.setToolTipText("A seed with a huge ocean around the origin");
+        radioButtonOceanSeed.setText("\u6D77\u6D0B");
+        radioButtonOceanSeed.setToolTipText("\u8D77\u70B9\u9644\u8FD1\u6709\u5927\u7247\u6D77\u6D0B\u7684\u79CD\u5B50");
         radioButtonOceanSeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonOceanSeedActionPerformed(evt);
@@ -1200,8 +1199,8 @@ public class NewWorldDialog extends WorldPainterDialog {
         });
 
         buttonGroup2.add(radioButtonLandSeed);
-        radioButtonLandSeed.setText("Land");
-        radioButtonLandSeed.setToolTipText("A seed with a large continent around the origin");
+        radioButtonLandSeed.setText("\u9646\u5730");
+        radioButtonLandSeed.setToolTipText("\u8D77\u70B9\u9644\u8FD1\u6709\u5927\u5757\u9646\u5730\u7684\u79CD\u5B50");
         radioButtonLandSeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonLandSeedActionPerformed(evt);
@@ -1210,7 +1209,7 @@ public class NewWorldDialog extends WorldPainterDialog {
 
         buttonGroup2.add(radioButtonCustomSeed);
         radioButtonCustomSeed.setText(" ");
-        radioButtonCustomSeed.setToolTipText("Set your own custom Minecraft seed");
+        radioButtonCustomSeed.setToolTipText("\u8BBE\u7F6E\u4E00\u4E2A\u79CD\u5B50");
         radioButtonCustomSeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonCustomSeedActionPerformed(evt);
@@ -1219,19 +1218,19 @@ public class NewWorldDialog extends WorldPainterDialog {
 
         labelWarning.setFont(labelWarning.getFont().deriveFont(labelWarning.getFont().getStyle() | java.awt.Font.BOLD));
         labelWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelWarning.setText("Only with mods!");
+        labelWarning.setText("\u53EA\u5728\u6709mod\u7684\u60C5\u51B5\u4E0B\u6709\u6548!");
 
-        checkBoxExtendedBlockIds.setText("Extended block IDs:");
-        checkBoxExtendedBlockIds.setToolTipText("Wether to support block IDs higher than 255 but lower than 4096, as used by various mods");
+        checkBoxExtendedBlockIds.setText("\u6269\u5C55\u65B9\u5757ID:");
+        checkBoxExtendedBlockIds.setToolTipText("\u662F\u5426\u652F\u6301\u9AD8\u4E8E255\u4F46\u5C0F\u4E8E4096\u7684\u65B9\u5757ID, \u901A\u5E38\u7531mod\u4F7F\u7528");
         checkBoxExtendedBlockIds.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
-        jLabel12.setText("Edge to edge walking time:");
+        jLabel12.setText("\u4ECE\u4E00\u8FB9\u5230\u53E6\u4E00\u8FB9\u8981\u82B1\u8D39\u7684\u65F6\u95F4:");
 
         labelWalkingTimes.setText("...");
 
         buttonGroup3.add(radioButtonSimpleTerrain);
         radioButtonSimpleTerrain.setSelected(true);
-        radioButtonSimpleTerrain.setText("Simple:");
+        radioButtonSimpleTerrain.setText("\u7B80\u5355:");
         radioButtonSimpleTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonSimpleTerrainActionPerformed(evt);
@@ -1239,7 +1238,7 @@ public class NewWorldDialog extends WorldPainterDialog {
         });
 
         buttonGroup3.add(radioButtonAdvancedTerrain);
-        radioButtonAdvancedTerrain.setText("Advanced:");
+        radioButtonAdvancedTerrain.setText("\u590D\u6742:");
         radioButtonAdvancedTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonAdvancedTerrainActionPerformed(evt);
@@ -1247,7 +1246,7 @@ public class NewWorldDialog extends WorldPainterDialog {
         });
 
         labelAdvancedTerrain.setForeground(new java.awt.Color(0, 51, 255));
-        labelAdvancedTerrain.setText("<html><u>configure default terrain and layers</u></html>");
+        labelAdvancedTerrain.setText("<html><u>\u914D\u7F6E\u9ED8\u8BA4\u65B9\u5757\u548C\u8986\u76D6\u5C42</u></html>");
         labelAdvancedTerrain.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelAdvancedTerrain.setEnabled(false);
         labelAdvancedTerrain.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1256,7 +1255,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel13.setText("Map format:");
+        jLabel13.setText("\u5730\u56FE\u683C\u5F0F:");
 
         comboBoxTarget.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1264,7 +1263,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxMasterDimension.setText("create as master dimension (1:16 scale)");
+        checkBoxMasterDimension.setText("\u521B\u5EFA\u4E3A\u6269\u5C55\u533A\u7EF4\u5EA6 (1:16 \u6BD4\u4F8B)");
         checkBoxMasterDimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxMasterDimensionActionPerformed(evt);
@@ -1279,9 +1278,9 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        labelScaledDimensions.setText("(Scaled: 99999 x 99999)");
+        labelScaledDimensions.setText("(\u7F29\u653E\u540E: 99999 x 99999)");
 
-        jLabel15.setText("Build limits:");
+        jLabel15.setText("\u5EFA\u7B51\u9AD8\u5EA6\u9650\u5236:");
 
         comboBoxMinHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1289,7 +1288,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel16.setText("lower:");
+        jLabel16.setText("\u6700\u4F4E:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1504,7 +1503,7 @@ public class NewWorldDialog extends WorldPainterDialog {
             .addComponent(tiledImageViewer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        buttonCreate.setText("Create");
+        buttonCreate.setText("\u521B\u5EFA");
         buttonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCreateActionPerformed(evt);
@@ -1552,15 +1551,15 @@ public class NewWorldDialog extends WorldPainterDialog {
             if (! config.isMessageDisplayedCountAtLeast(MESSAGE_KEY_MASTER_WARNING, 3)) {
                 DesktopUtils.beep();
                 if (JOptionPane.showConfirmDialog(this, /* language=HTML */ "<html>" +
-                        "<h1>About Master Dimensions</h1>" +
-                        "<p>A master dimension will be exported at 256 times the size (by area)<br>and is meant for speeding up the creation of very large maps.</p>" +
+                        "<h1>\u5173\u4E8E\u6269\u5C55\u533A\u7EF4\u5EA6</h1>" +
+                        "<p>\u6269\u5C55\u533A\u7EF4\u5EA6\u5C06\u4F1A\u4EE5 256 \u500D\u5927\u5C0F(\u4EE5\u9762\u79EF\u7B97)\u5BFC\u51FA\uFF0C\u6709\u52A9\u4E8E\u521B\u5EFA\u5927\u578B\u5730\u56FE.</p>" +
                         "<ul>" +
-                        "    <li>You <b>cannot change your mind</b> later; if you do not want this to be<br>a master dimension later you will have to start over." +
-                        "    <li>Loading, editing and saving are quicker, but Exporting is not!<br><b>Exporting takes 256 times longer</b> than a regular dimension<br>of the same pixel size in WorldPainter." +
-                        "    <li>You can detail areas of the Master Dimension at 1:1 scale by<br>switching to the Surface Dimension (" + COMMAND_KEY_NAME + "+M or View menu)<br>and then adding tiles (" + COMMAND_KEY_NAME + "+T or Edit menu)." +
+                        "    <li>\u4F60<b>\u65E0\u6CD5</b>\u64A4\u9500\u8BE5\u64CD\u4F5C; \u5982\u679C\u4F60\u4E0D\u60F3\u8981\u8FD9\u4E2A\u6269\u5C55\u533A\u7EF4\u5EA6<br>\u4F60\u9700\u8981\u5728\u4E4B\u540E\u4ECE\u5934\u5F00\u59CB." +
+                        "    <li>\u52A0\u8F7D, \u7F16\u8F91\u6216\u4FDD\u5B58\u901F\u5EA6\u53EF\u80FD\u5F88\u5FEB, \u4F46\u662F\u5BFC\u51FA\u4E0D\u4F1A!<br>\u5BFC\u51FA\u65F6\u95F4\u76F8\u5BF9\u4E8E\u540C\u7B49\u50CF\u7D20\u5927\u5C0F\u7684\u5730\u56FE\u5C06\u4F1A\u53D8\u4E3A<b>256\u500D</b>." +
+                        "    <li>\u4F60\u53EF\u4EE5\u4EE51:1\u7684\u6BD4\u4F8B\u7CBE\u8C03\u6269\u5C55\u533A\u7EF4\u5EA6\u7684\u5730\u5F62<br>\u53EA\u9700\u5207\u6362\u5230\u4E3B\u4E16\u754C\u89C6\u56FE (\u4F7F\u7528\u5FEB\u6377\u952E" + COMMAND_KEY_NAME + "+M \u6216\u4ECE\u89C6\u56FE\u83DC\u5355\u8FDB\u5165) \u540E\u6DFB\u52A0\u5206\u533A (\u4F7F\u7528\u5FEB\u6377\u952E" + COMMAND_KEY_NAME + "+T \u6216\u4F7F\u7528\u7F16\u8F91\u83DC\u5355) \u5373\u53EF." +
                         "</ul>" +
-                        "<p>Are you sure?</p>" +
-                        "</html>", "Create Master Dimension?", YES_NO_OPTION, WARNING_MESSAGE) != YES_OPTION) {
+                        "<p>\u4F60\u786E\u8BA4\u8981\u6DFB\u52A0\u6269\u5C55\u533A\u7EF4\u5EA6\u5417?</p>" +
+                        "</html>", "\u662F\u5426\u521B\u5EFA\u6269\u5C55\u533A\u7EF4\u5EA6?", YES_NO_OPTION, WARNING_MESSAGE) != YES_OPTION) {
                     return;
                 }
                 config.setMessageDisplayed(MESSAGE_KEY_MASTER_WARNING);
@@ -1639,11 +1638,11 @@ public class NewWorldDialog extends WorldPainterDialog {
     private void checkBoxCircularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkBoxCircularActionPerformed
         if (checkBoxCircular.isSelected()) {
             ((SpinnerNumberModel) spinnerWidth.getModel()).setStepSize(2);
-            jLabel3.setText("blocks (even number)");
+            jLabel3.setText("\u683C (\u5076\u6570)");
         } else {
             ((SpinnerNumberModel) spinnerWidth.getModel()).setStepSize(128);
             spinnerWidth.setValue(Math.max(Math.round((Integer) spinnerWidth.getValue() / 128f) * 128, 128));
-            jLabel3.setText("blocks (in multiples of 128)");
+            jLabel3.setText("\u683C (128\u7684\u500D\u6570)");
         }
         setControlStates();
         updateWalkingTimes();

@@ -49,7 +49,7 @@ public class WorldPainterDialog extends JDialog {
         }
 
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("cancel") {
+        actionMap.put("cancel", new AbstractAction("\u53d6\u6d88") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cancel();
@@ -63,7 +63,7 @@ public class WorldPainterDialog extends JDialog {
 
         if (enableHelpKey) {
             getRootPane().putClientProperty(App.KEY_HELP_KEY, "Dialog/" + getClass().getSimpleName());
-            actionMap.put("help", new AbstractAction("help") {
+            actionMap.put("help", new AbstractAction("\u5E2E\u52A9") {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     App.getInstance().showHelp(WorldPainterDialog.this);
@@ -84,10 +84,10 @@ public class WorldPainterDialog extends JDialog {
         StringBuilder sb = new StringBuilder();
         sb.append(title);
         if (Version.isSnapshot()) {
-            sb.append(" [SNAPSHOT]");
+            sb.append(" [\u5FEB\u7167]");
         }
         if (Configuration.getInstance().isSafeMode()) {
-            sb.append(" [SAFE MODE]");
+            sb.append(" [\u5B89\u5168\u6A21\u5F0F]");
         }
         super.setTitle(sb.toString());
     }

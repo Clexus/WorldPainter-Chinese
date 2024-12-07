@@ -323,7 +323,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
+        <Property name="text" type="java.lang.String" value="\u53D6\u6D88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -331,7 +331,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
+        <Property name="text" type="java.lang.String" value="\u786E\u8BA4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOKActionPerformed"/>
@@ -350,7 +350,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="text" type="java.lang.String" value="\u76F8\u5BF9\u9891\u7387:"/>
-        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76d6\u5c42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u9891\u7387."/>
+        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76D6\u5C42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u9891\u7387."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerFrequency">
@@ -358,7 +358,7 @@
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="100" maximum="9999" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76d6\u5c42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u9891\u7387."/>
+        <Property name="toolTipText" type="java.lang.String" value="\u8BE5\u5BF9\u8C61\u76F8\u5BF9\u4E8E\u8986\u76D6\u5C42\u4E2D\u5176\u4ED6\u5BF9\u8C61\u7684\u9891\u7387."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -568,7 +568,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="spinnerRandomVariation"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="\u968F\u673AY\u8F74\u53d8\u79cd:"/>
+        <Property name="text" type="java.lang.String" value="\u968F\u673AY\u8F74\u53D8\u79CD:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerRandomVariation">

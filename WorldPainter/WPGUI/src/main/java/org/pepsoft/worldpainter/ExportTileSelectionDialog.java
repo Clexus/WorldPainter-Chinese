@@ -56,32 +56,32 @@ public class ExportTileSelectionDialog extends WorldPainterDialog implements Win
                 if (value != null) {
                     switch ((Integer) value) {
                         case DIM_NORMAL:
-                            setText("Surface");
+                            setText("\u4E3B\u4E16\u754C");
                             break;
                         case DIM_NETHER:
-                            setText("Nether");
+                            setText("\u4E0B\u754C");
                             break;
                         case DIM_END:
-                            setText("End");
+                            setText("\u672B\u5730");
                             break;
                     }
                 }
                 return this;
             }
-            
+
             private static final long serialVersionUID = 1L;
         });
-        
+
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("cancel") {
+        actionMap.put("cancel", new AbstractAction("\u53D6\u6D88") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
-            
+
             private static final long serialVersionUID = 1L;
         });
-        
+
         tileSelector1.setColourScheme(colourScheme);
         tileSelector1.setHiddenLayers(hiddenLayers);
         tileSelector1.setContourLines(contourLines);
@@ -95,19 +95,19 @@ public class ExportTileSelectionDialog extends WorldPainterDialog implements Win
 
         InputMap inputMap = rootPane.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancel");
-        
+
         getRootPane().setDefaultButton(buttonClose);
 
         scaleWindowToUI();
         setLocationRelativeTo(parent);
-        
+
         addWindowListener(this);
     }
-    
+
     public int getSelectedDimension() {
         return (Integer) jComboBox1.getSelectedItem();
     }
-    
+
     public Set<Point> getSelectedTiles() {
         return tileSelector1.getSelectedTiles();
     }
@@ -115,7 +115,7 @@ public class ExportTileSelectionDialog extends WorldPainterDialog implements Win
     public void selectAll() {
         tileSelector1.selectAllTiles();
     }
-    
+
     // WindowListener
 
     @Override
@@ -152,19 +152,19 @@ public class ExportTileSelectionDialog extends WorldPainterDialog implements Win
         buttonSetSpawn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Select Tiles For Export");
+        setTitle("\u9009\u62E9\u8981\u5BFC\u51FA\u7684\u5206\u533A");
 
-        jLabel1.setText("Dimension to export:");
+        jLabel1.setText("\u8981\u5BFC\u51FA\u7684\u7EF4\u5EA6:");
 
         jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
 
-        jLabel2.setText("WorldPainter works in tiles of 128 by 128 blocks. Select tiles to export:");
+        jLabel2.setText("WorldPainter \u7684\u5DE5\u4F5C\u57FA\u7840\u662F 128 x 128 \u683C\u7684\u5206\u533A. \u8BF7\u9009\u62E9\u8981\u5BFC\u51FA\u7684\u5206\u533A:");
 
-        buttonClose.setText("OK");
+        buttonClose.setText("\u786E\u8BA4");
         buttonClose.addActionListener(this::buttonCloseActionPerformed);
 
-        buttonSetSpawn.setText("Set Spawn");
-        buttonSetSpawn.setToolTipText("Move the spawn point to the indicated location");
+        buttonSetSpawn.setText("\u8BBE\u7F6E\u51FA\u751F\u70B9");
+        buttonSetSpawn.setToolTipText("\u5C06\u51FA\u751F\u70B9\u79FB\u81F3\u9009\u5B9A\u4F4D\u7F6E");
         buttonSetSpawn.addActionListener(this::buttonSetSpawnActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

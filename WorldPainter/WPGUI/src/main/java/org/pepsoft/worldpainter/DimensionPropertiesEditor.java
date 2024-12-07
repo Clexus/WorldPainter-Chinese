@@ -144,7 +144,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         this.customBiomeManager = customBiomeManager;
         comboBoxSubsurfaceMaterial.setRenderer(new TerrainListCellRenderer(colourScheme));
         themeEditor.setColourScheme(colourScheme);
-        comboBoxSubsurfaceBiome.setRenderer(new BiomeListCellRenderer(colourScheme, customBiomeManager, "same as surface", dimension.getWorld().getPlatform()));
+        comboBoxSubsurfaceBiome.setRenderer(new BiomeListCellRenderer(colourScheme, customBiomeManager, "\u4E0E\u5730\u8868\u76F8\u540C", dimension.getWorld().getPlatform()));
         setDimension(dimension);
         setMode(mode);
     }
@@ -1560,7 +1560,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         buttonSelectPaint = new javax.swing.JButton();
         buttonReset = new javax.swing.JButton();
 
-        jLabel6.setText("Underground material:");
+        jLabel6.setText("\u5730\u4E0B\u90E8\u5206\u6750\u8D28:");
 
         comboBoxSubsurfaceMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1568,7 +1568,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        jLabel65.setText("Top layer minimum depth:");
+        jLabel65.setText("\u9876\u90E8\u8986\u76D6\u5C42\u6700\u5C0F\u6DF1\u5EA6:");
 
         spinnerMinSurfaceDepth.setModel(new javax.swing.SpinnerNumberModel(3, 1, 255, 1));
         spinnerMinSurfaceDepth.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1577,7 +1577,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        jLabel66.setText(", maximum depth:");
+        jLabel66.setText(", \u6700\u5927\u6DF1\u5EA6:");
 
         spinnerMaxSurfaceDepth.setModel(new javax.swing.SpinnerNumberModel(7, 1, 255, 1));
         spinnerMaxSurfaceDepth.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1586,36 +1586,36 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        checkBoxBottomless.setText("Bottomless world");
-        checkBoxBottomless.setToolTipText("<html>Generate a bottomless map:\n<ul><li>No bedrock at the bottom of the map\n<li>Caverns and chasms are open to the void</html>");
+        checkBoxBottomless.setText("\u65E0\u5E95\u4E16\u754C");
+        checkBoxBottomless.setToolTipText("<html>\u751F\u6210\u4E00\u4E2A\u65E0\u5E95\u7684\u4E16\u754C:\n<ul><li>\u5730\u56FE\u5E95\u90E8\u6CA1\u6709\u57FA\u5CA9\n<li>\u6D1E\u7A74\u548C\u5CE1\u8C37\u76F4\u901A\u865A\u7A7A</html>");
 
         jLabel67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/information.png"))); // NOI18N
         jLabel67.setText(" ");
-        jLabel67.setToolTipText("<html>Generate a bottomless map:\n<ul><li>No bedrock at the bottom of the map\n<li>Caverns and chasms are open to the void</html>");
+        jLabel67.setToolTipText("<html>\u751F\u6210\u4E00\u4E2A\u65E0\u5E95\u7684\u4E16\u754C:\n<ul><li>\u5730\u56FE\u5E95\u90E8\u6CA1\u6709\u57FA\u5CA9\n<li>\u6D1E\u7A74\u548C\u5CE1\u8C37\u76F4\u901A\u865A\u7A7A</html>");
 
-        checkBoxCoverSteepTerrain.setText("keep steep terrain covered");
-        checkBoxCoverSteepTerrain.setToolTipText("<html>Enable this to extend the top layer<br>\ndownwards on steep terrain such as cliffs <br>\nso that the underground material is never exposed.</html>");
+        checkBoxCoverSteepTerrain.setText("\u8986\u76D6\u9661\u5CED\u7684\u5730\u5F62");
+        checkBoxCoverSteepTerrain.setToolTipText("<html>\u542F\u7528\u6B64\u529F\u80FD\u53EF\u4EE5\u5728\u9661\u5CED\u7684\u5730\u5F62\uFF08\u5982\u60AC\u5D16\uFF09\u4E0A\u5411\u4E0B\u5EF6\u4F38\u9876\u90E8\u8986\u76D6\u5C42<br>\n\u8FD9\u6837\u5730\u4E0B\u90E8\u5206\u7684\u6750\u8D28\u5C31\u6C38\u8FDC\u4E0D\u4F1A\u66B4\u9732\u51FA\u6765.</html>");
 
-        jLabel78.setText("Ceiling dimension height:");
+        jLabel78.setText("\u9876\u5C42\u7EF4\u5EA6\u9AD8\u5EA6:");
 
         spinnerCeilingHeight.setModel(new javax.swing.SpinnerNumberModel(256, 1, 256, 1));
 
-        comboBoxSurfaceLayerAnchor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bedrock", "Terrain" }));
+        comboBoxSurfaceLayerAnchor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "\u57FA\u5CA9\u5C42", "\u5730\u9762" }));
 
-        jLabel83.setText("Layered materials relative to:");
+        jLabel83.setText("\u76F8\u5BF9\u4E8E:");
 
-        jLabel84.setText("Layered material relative to:");
+        jLabel84.setText("\u76F8\u5BF9\u4E8E:");
 
-        comboBoxUndergroundLayerAnchor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bedrock", "Terrain" }));
+        comboBoxUndergroundLayerAnchor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "\u57FA\u5CA9\u5C42", "\u5730\u9762" }));
         comboBoxUndergroundLayerAnchor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxUndergroundLayerAnchorActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Border:");
+        jLabel4.setText("\u8FB9\u754C:");
 
-        checkBoxWall.setText("Wall:");
+        checkBoxWall.setText("\u5899\u58C1:");
         checkBoxWall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxWallActionPerformed(evt);
@@ -1626,7 +1626,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         spinnerBorderLevel.setEnabled(false);
 
         buttonGroup1.add(radioButtonWaterBorder);
-        radioButtonWaterBorder.setText("Water");
+        radioButtonWaterBorder.setText("\u6C34");
         radioButtonWaterBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonWaterBorderActionPerformed(evt);
@@ -1634,7 +1634,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonGroup3.add(radioButtonEndlessBorder);
-        radioButtonEndlessBorder.setText("endless");
+        radioButtonEndlessBorder.setText("\u65E0\u5C3D");
         radioButtonEndlessBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonEndlessBorderActionPerformed(evt);
@@ -1642,7 +1642,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         jLabel8.setLabelFor(spinnerBorderSize);
-        jLabel8.setText("Border size:");
+        jLabel8.setText("\u8FB9\u754C\u5C3A\u5BF8:");
 
         spinnerBorderSize.setModel(new javax.swing.SpinnerNumberModel(256, 128, null, 128));
         spinnerBorderSize.setEnabled(false);
@@ -1654,7 +1654,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
         buttonGroup5.add(radioButtonBedrockRoof);
         radioButtonBedrockRoof.setSelected(true);
-        radioButtonBedrockRoof.setText("bedrock");
+        radioButtonBedrockRoof.setText("\u57FA\u5CA9");
         radioButtonBedrockRoof.setEnabled(false);
         radioButtonBedrockRoof.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1663,17 +1663,17 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonGroup1.add(radioButtonLavaBorder);
-        radioButtonLavaBorder.setText("Lava");
+        radioButtonLavaBorder.setText("\u5CA9\u6D46");
         radioButtonLavaBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonLavaBorderActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Water or lava level:");
+        jLabel5.setText("\u6C34\u6216\u5CA9\u6D46\u5E73\u9762\u9AD8\u5EA6:");
 
         buttonGroup1.add(radioButtonNoBorder);
-        radioButtonNoBorder.setText("No border");
+        radioButtonNoBorder.setText("\u4E0D\u914D\u7F6E\u8FB9\u754C\uFF0C\u5730\u56FE\u5916\u90E8\u5206\u7531Minecraft\u81EA\u884C\u751F\u6210");
         radioButtonNoBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonNoBorderActionPerformed(evt);
@@ -1681,7 +1681,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonGroup5.add(radioButtonBarrierRoof);
-        radioButtonBarrierRoof.setText("barrier");
+        radioButtonBarrierRoof.setText("\u5C4F\u969C");
         radioButtonBarrierRoof.setEnabled(false);
         radioButtonBarrierRoof.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1689,18 +1689,18 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        checkBoxRoof.setText("Roof:");
+        checkBoxRoof.setText("\u5929\u82B1\u677F:");
         checkBoxRoof.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxRoofActionPerformed(evt);
             }
         });
 
-        jLabel9.setText("blocks (in multiples of 128)");
+        jLabel9.setText("\u683C (128\u7684\u6574\u6570\u500D)");
 
         buttonGroup3.add(radioButtonFixedBorder);
         radioButtonFixedBorder.setSelected(true);
-        radioButtonFixedBorder.setText("fixed:");
+        radioButtonFixedBorder.setText("\u56FA\u5B9A:");
         radioButtonFixedBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFixedBorderActionPerformed(evt);
@@ -1709,7 +1709,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
         buttonGroup2.add(radioButtonBedrockWall);
         radioButtonBedrockWall.setSelected(true);
-        radioButtonBedrockWall.setText("bedrock");
+        radioButtonBedrockWall.setText("\u57FA\u5CA9");
         radioButtonBedrockWall.setEnabled(false);
         radioButtonBedrockWall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1717,10 +1717,10 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        jLabel44.setText("(Minecraft default: 62)");
+        jLabel44.setText("(Minecraft \u9ED8\u8BA4\u503C: 62)");
 
         buttonGroup1.add(radioButtonVoidBorder);
-        radioButtonVoidBorder.setText("Void");
+        radioButtonVoidBorder.setText("\u865A\u7A7A");
         radioButtonVoidBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonVoidBorderActionPerformed(evt);
@@ -1728,7 +1728,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonGroup2.add(radioButtonBarrierWall);
-        radioButtonBarrierWall.setText("barrier");
+        radioButtonBarrierWall.setText("\u5C4F\u969C");
         radioButtonBarrierWall.setEnabled(false);
         radioButtonBarrierWall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1737,7 +1737,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonGroup1.add(radioButtonBarrierBorder);
-        radioButtonBarrierBorder.setText("Barrier");
+        radioButtonBarrierBorder.setText("\u5C4F\u969C");
         radioButtonBarrierBorder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonBarrierBorderActionPerformed(evt);
@@ -1836,14 +1836,14 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        jLabel95.setText("seed:");
+        jLabel95.setText("\u79CD\u5B50:");
 
-        jLabel94.setText("world type:");
+        jLabel94.setText("\u4E16\u754C\u7C7B\u578B:");
 
         spinnerMinecraftSeed.setModel(new javax.swing.SpinnerNumberModel(-9223372036854775808L, null, null, 1L));
         spinnerMinecraftSeed.setEditor(new javax.swing.JSpinner.NumberEditor(spinnerMinecraftSeed, "0"));
 
-        jLabel7.setText("Minecraft settings:");
+        jLabel7.setText("Minecraft\u8BBE\u7F6E:");
 
         comboBoxGenerator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1884,7 +1884,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 .addGap(0, 0, 0))
         );
 
-        jLabel79.setText("Underground biome:");
+        jLabel79.setText("\u5730\u4E0B\u90E8\u5206\u7FA4\u7CFB:");
 
         javax.swing.GroupLayout panelGeneralLayout = new javax.swing.GroupLayout(panelGeneral);
         panelGeneral.setLayout(panelGeneralLayout);
@@ -1964,11 +1964,11 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("General", panelGeneral);
+        jTabbedPane1.addTab("\u4E00\u822C\u8BBE\u7F6E", panelGeneral);
 
-        jLabel45.setText("These are the default terrain types and layers used by the Mountain tool, and when resetting the");
+        jLabel45.setText("\u8FD9\u4E9B\u662F\u9020\u5C71\u5DE5\u5177\u4EE5\u53CA\u5DF2\u9009\u62E9\u65B9\u5757\u65F6\u53F3\u952E\u4E00\u4E2A\u65B9\u5757");
 
-        jLabel46.setText("terrain to the default by right-clicking with a terrain type selected:");
+        jLabel46.setText("\u5C06\u5176\u91CD\u7F6E\u4E3A\u9ED8\u8BA4\u503C\u65F6\u4F7F\u7528\u7684\u65B9\u5757\u548C\u8986\u76D6\u5C42\u7C7B\u578B:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1995,11 +1995,11 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Theme", jPanel5);
+        jTabbedPane1.addTab("\u4E3B\u9898", jPanel5);
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        checkBoxCavesEverywhere.setText("Caves everywhere");
+        checkBoxCavesEverywhere.setText("\u968F\u5904\u751F\u6210\u6D1E\u7A74");
         checkBoxCavesEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCavesEverywhereActionPerformed(evt);
@@ -2042,7 +2042,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel9, gridBagConstraints);
 
-        checkBoxCavernsEverywhere.setText("Caverns everywhere");
+        checkBoxCavernsEverywhere.setText("\u968F\u5904\u751F\u6210\u6D1E\u7A9F");
         checkBoxCavernsEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCavernsEverywhereActionPerformed(evt);
@@ -2085,7 +2085,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel10, gridBagConstraints);
 
-        checkBoxChasmsEverywhere.setText("Chasms everywhere");
+        checkBoxChasmsEverywhere.setText("\u968F\u5904\u751F\u6210\u5CE1\u8C37");
         checkBoxChasmsEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxChasmsEverywhereActionPerformed(evt);
@@ -2129,7 +2129,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel11, gridBagConstraints);
 
-        jLabel2.setText("Settings for the Caves, Caverns and Chasms layers. These apply also to hand-painted Caves, Caverns and Chasms:");
+        jLabel2.setText("\u6D1E\u7A74\u3001\u6D1E\u7A9F\u548C\u5CE1\u8C37\u8986\u76D6\u5C42\u7684\u8BBE\u7F6E\uFF08\u8FD9\u4E9B\u8BBE\u7F6E\u4E5F\u9002\u7528\u4E8E\u624B\u7ED8\u6D1E\u7A74\u3001\u6D1E\u7A9F\u548C\u5CE1\u8C37\uFF09:");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -2155,11 +2155,11 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel16, gridBagConstraints);
 
-        jLabel87.setText("Caves min. level:");
+        jLabel87.setText("\u6D1E\u7A74\u6700\u4F4E\u9AD8\u5EA6:");
 
         spinnerCavesMinLevel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        jLabel88.setText("Caves max. level:");
+        jLabel88.setText("\u6D1E\u7A74\u6700\u9AD8\u9AD8\u5EA6:");
 
         spinnerCavesMaxLevel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
@@ -2201,11 +2201,11 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel3.add(jPanel13, gridBagConstraints);
 
-        jLabel70.setText("Caverns min. level:");
+        jLabel70.setText("\u6D1E\u7A9F\u6700\u4F4E\u9AD8\u5EA6:");
 
         spinnerCavernsMinLevel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        jLabel71.setText("Caverns max. level:");
+        jLabel71.setText("\u6D1E\u7A9F\u6700\u9AD8\u9AD8\u5EA6:");
 
         spinnerCavernsMaxLevel.setModel(new javax.swing.SpinnerNumberModel(255, 0, 255, 1));
 
@@ -2247,11 +2247,11 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel3.add(jPanel12, gridBagConstraints);
 
-        jLabel73.setText("Chasms min. level:");
+        jLabel73.setText("\u5CE1\u8C37\u6700\u4F4E\u9AD8\u5EA6:");
 
         spinnerChasmsMinLevel.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        jLabel72.setText("Chasms max. level:");
+        jLabel72.setText("\u5CE1\u8C37\u6700\u9AD8\u9AD8\u5EA6:");
 
         spinnerChasmsMaxLevel.setModel(new javax.swing.SpinnerNumberModel(255, 0, 255, 1));
 
@@ -2295,18 +2295,18 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel3.add(jPanel14, gridBagConstraints);
 
-        checkBoxFloodCaverns.setText("Flood the caves, caverns and chasms");
+        checkBoxFloodCaverns.setText("\u6DB2\u4F53\u586B\u5145");
         checkBoxFloodCaverns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxFloodCavernsActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Level:");
+        jLabel1.setText("\u9AD8\u5EA6:");
 
         spinnerCavernsFloodLevel.setModel(new javax.swing.SpinnerNumberModel(16, 1, 127, 1));
 
-        checkBoxCavernsFloodWithLava.setText("Lava instead of water:");
+        checkBoxCavernsFloodWithLava.setText("\u7528\u5CA9\u6D46\u66FF\u6362\u6C34:");
         checkBoxCavernsFloodWithLava.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -2347,7 +2347,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel8, gridBagConstraints);
 
-        checkBoxCavesBreakSurface.setText("Caves break the surface");
+        checkBoxCavesBreakSurface.setText("\u6D1E\u7A74\u7A81\u7834\u5730\u8868");
         checkBoxCavesBreakSurface.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCavesBreakSurfaceActionPerformed(evt);
@@ -2377,7 +2377,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel17, gridBagConstraints);
 
-        checkBoxCavernsBreakSurface.setText("Caverns break the surface");
+        checkBoxCavernsBreakSurface.setText("\u6D1E\u7A9F\u7A81\u7834\u5730\u8868");
         checkBoxCavernsBreakSurface.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCavernsBreakSurfaceActionPerformed(evt);
@@ -2407,7 +2407,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel18, gridBagConstraints);
 
-        checkBoxChasmsBreakSurface.setText("Chasms break the surface");
+        checkBoxChasmsBreakSurface.setText("\u5CE1\u8C37\u7A81\u7834\u5730\u8868");
         checkBoxChasmsBreakSurface.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxChasmsBreakSurfaceActionPerformed(evt);
@@ -2439,7 +2439,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         jPanel3.add(jPanel19, gridBagConstraints);
 
         checkBoxCavernsRemoveWater.setSelected(true);
-        checkBoxCavernsRemoveWater.setText("Remove water and lava above openings");
+        checkBoxCavernsRemoveWater.setText("\u79FB\u9664\u5F00\u653E\u533A\u57DF\u4E4B\u4E0A\u7684\u6C34\u548C\u5CA9\u6D46");
         checkBoxCavernsRemoveWater.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2491,15 +2491,15 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         jPanel3.add(jPanel23, gridBagConstraints);
 
-        jLabel96.setText("Decorations:");
+        jLabel96.setText("\u88C5\u9970\u7269:");
 
-        checkBoxDecorationBrownMushrooms.setText("brown mushrooms");
+        checkBoxDecorationBrownMushrooms.setText("\u68D5\u8272\u8611\u83C7");
 
-        checkBoxDecorationGlowLichen.setText("glow lichen");
+        checkBoxDecorationGlowLichen.setText("\u53D1\u5149\u5730\u8863");
 
-        checkBoxDecorationLushCaves.setText("patches of lush cave");
+        checkBoxDecorationLushCaves.setText("\u7E41\u8302\u6D1E\u7A74\u88C5\u9970");
 
-        checkBoxDecorationDripstoneCaves.setText("patches of dripstone cave");
+        checkBoxDecorationDripstoneCaves.setText("\u6EF4\u6C34\u6D1E\u7A74\u88C5\u9970");
 
         javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
         jPanel24.setLayout(jPanel24Layout);
@@ -2539,7 +2539,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel24, gridBagConstraints);
 
-        checkBoxDecorateCaves.setText("Decorate");
+        checkBoxDecorateCaves.setText("\u88C5\u9970");
         checkBoxDecorateCaves.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxDecorateCavesActionPerformed(evt);
@@ -2569,7 +2569,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel25, gridBagConstraints);
 
-        checkBoxDecorateCaverns.setText("Decorate");
+        checkBoxDecorateCaverns.setText("\u88C5\u9970");
         checkBoxDecorateCaverns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxDecorateCavernsActionPerformed(evt);
@@ -2599,7 +2599,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel26, gridBagConstraints);
 
-        checkBoxDecorateChasms.setText("Decorate");
+        checkBoxDecorateChasms.setText("\u88C5\u9970");
         checkBoxDecorateChasms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxDecorateChasmsActionPerformed(evt);
@@ -2630,9 +2630,9 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         jPanel3.add(jPanel27, gridBagConstraints);
 
-        jTabbedPane1.addTab("Caves, Caverns and Chasms", new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/caverns.png")), jPanel3); // NOI18N
+        jTabbedPane1.addTab("\u6D1E\u7A74\u3001\u6D1E\u7A9F\u548C\u5CE1\u8C37", new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/caverns.png")), jPanel3); // NOI18N
 
-        jCheckBox8.setText("Resources everywhere");
+        jCheckBox8.setText("\u968F\u5904\u751F\u6210\u8D44\u6E90");
         jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox8ActionPerformed(evt);
@@ -2646,7 +2646,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         jSlider4.setSnapToTicks(true);
         jSlider4.setValue(8);
 
-        jLabel10.setText("Settings for the Resources layer at 50% intensity. These also apply to hand-painted Resources:");
+        jLabel10.setText("\u8D44\u6E90\u8986\u76D6\u5C42\u5728 50% \u786C\u5EA6\u4E0B\u7684\u8BBE\u7F6E(\u8FD9\u4E9B\u8BBE\u7F6E\u540C\u6837\u9002\u7528\u4E8E\u624B\u52A8\u7ED8\u5236\u7684\u8D44\u6E90\u8986\u76D6\u5C42)\uFF1A");
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -2660,7 +2660,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerIronMaxLevel, gridBagConstraints);
 
-        jLabel35.setText("blocks");
+        jLabel35.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
@@ -2692,7 +2692,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerWaterMinLevel, gridBagConstraints);
 
-        jLabel14.setText("Levels:");
+        jLabel14.setText("\u9AD8\u5EA6:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -2724,7 +2724,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerCoalChance, gridBagConstraints);
 
-        jLabel20.setText("Water:");
+        jLabel20.setText("\u6C34:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -2732,7 +2732,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel20, gridBagConstraints);
 
-        jLabel53.setText("blocks");
+        jLabel53.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
@@ -2756,7 +2756,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerCoalMinLevel, gridBagConstraints);
 
-        jLabel13.setText("Occurrence:");
+        jLabel13.setText("\u751F\u6210\u7387:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -2764,7 +2764,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel13, gridBagConstraints);
 
-        jLabel34.setText("blocks");
+        jLabel34.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
@@ -2780,7 +2780,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel55, gridBagConstraints);
 
-        jLabel37.setText("blocks");
+        jLabel37.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
@@ -2820,7 +2820,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerIronChance, gridBagConstraints);
 
-        jLabel51.setText("Emerald:");
+        jLabel51.setText("\u7EFF\u5B9D\u77F3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -2900,7 +2900,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel59, gridBagConstraints);
 
-        jLabel16.setText("Coal:");
+        jLabel16.setText("\u7164\u70AD:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -2908,7 +2908,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel16, gridBagConstraints);
 
-        jLabel15.setText("Iron:");
+        jLabel15.setText("\u94C1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -2916,7 +2916,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel15, gridBagConstraints);
 
-        jLabel17.setText("Lapis Lazuli:");
+        jLabel17.setText("\u9752\u91D1\u77F3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -2932,7 +2932,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerLapisMaxLevel, gridBagConstraints);
 
-        jLabel40.setText("blocks");
+        jLabel40.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 7;
@@ -2940,7 +2940,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel40, gridBagConstraints);
 
-        jLabel18.setText("Diamond:");
+        jLabel18.setText("\u94BB\u77F3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -2956,7 +2956,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerDiamondMaxLevel, gridBagConstraints);
 
-        jLabel21.setText("Lava:");
+        jLabel21.setText("\u5CA9\u6D46:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -2964,7 +2964,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(jLabel21, gridBagConstraints);
 
-        jLabel36.setText("blocks");
+        jLabel36.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
@@ -3068,7 +3068,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerGoldMinLevel, gridBagConstraints);
 
-        jLabel38.setText("blocks");
+        jLabel38.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 5;
@@ -3084,7 +3084,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerLavaChance, gridBagConstraints);
 
-        jLabel41.setText("blocks");
+        jLabel41.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
@@ -3100,7 +3100,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel20.add(spinnerEmeraldChance, gridBagConstraints);
 
-        jLabel12.setText("Gold:");
+        jLabel12.setText("\u91D1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -3134,7 +3134,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel92, gridBagConstraints);
 
-        jLabel3.setText("Occurrence:");
+        jLabel3.setText("\u751F\u6210\u7387:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -3174,7 +3174,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel62, gridBagConstraints);
 
-        jLabel39.setText("blocks");
+        jLabel39.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
@@ -3191,7 +3191,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel64, gridBagConstraints);
 
-        jLabel43.setText("blocks");
+        jLabel43.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
@@ -3216,7 +3216,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(spinnerDirtChance, gridBagConstraints);
 
-        jLabel32.setText("Gravel:");
+        jLabel32.setText("\u7802\u783E:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -3224,7 +3224,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel32, gridBagConstraints);
 
-        jLabel93.setText("blocks");
+        jLabel93.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
@@ -3233,7 +3233,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel93, gridBagConstraints);
 
-        jLabel30.setText("Dirt:");
+        jLabel30.setText("\u6CE5\u571F:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -3258,7 +3258,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(spinnerRedstoneChance, gridBagConstraints);
 
-        jLabel19.setText("Redstone:");
+        jLabel19.setText("\u7EA2\u77F3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -3322,7 +3322,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(spinnerDirtMaxLevel, gridBagConstraints);
 
-        jLabel11.setText("Levels:");
+        jLabel11.setText("\u9AD8\u5EA6:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -3331,7 +3331,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel11, gridBagConstraints);
 
-        jLabel91.setText("Copper:");
+        jLabel91.setText("\u94DC:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -3339,7 +3339,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel21.add(jLabel91, gridBagConstraints);
 
-        jLabel42.setText("blocks");
+        jLabel42.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
@@ -3390,7 +3390,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel22.add(spinnerQuartzChance, gridBagConstraints);
 
-        jLabel74.setText("Nether Quartz:");
+        jLabel74.setText("\u4E0B\u754C\u77F3\u82F1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -3398,7 +3398,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel22.add(jLabel74, gridBagConstraints);
 
-        jLabel76.setText("blocks");
+        jLabel76.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
@@ -3406,7 +3406,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel22.add(jLabel76, gridBagConstraints);
 
-        jLabel98.setText("blocks");
+        jLabel98.setText("\u683C");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
@@ -3446,7 +3446,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 0, 0);
         jPanel22.add(jLabel75, gridBagConstraints);
 
-        jLabel99.setText("Ancient Debris:");
+        jLabel99.setText("\u8FDC\u53E4\u6B8B\u9AB8:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -3526,17 +3526,17 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Resources", new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/resources.png")), jPanel4); // NOI18N
+        jTabbedPane1.addTab("\u8D44\u6E90", new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/resources.png")), jPanel4); // NOI18N
 
-        checkBoxPopulate.setText("Allow Minecraft to populate the entire terrain");
-        checkBoxPopulate.setToolTipText("<html>This will mark the entire terrain as unpopulated, causing Minecraft to generate trees,<br/>\nwater and lava pools, pockets of dirt, gravel, coal, ore, etc. (but not caverns) as the<br/>\nchunks are loaded. This will slow down the initial loading of each chunk, and you have<br/>\nno control over where trees, snow, etc. appear.</html>");
+        checkBoxPopulate.setText("\u5141\u8BB8Minecraft\u586B\u5145\u6574\u4E2A\u5730\u5F62");
+        checkBoxPopulate.setToolTipText("<html>\u8FD9\u5C06\u6807\u8BB0\u6574\u4E2A\u5730\u5F62\u4E3A\u672A\u88AB\u586B\u5145\uFF0C\u5BFC\u81F4 Minecraft \u5728\u52A0\u8F7D\u533A\u5757\u65F6\u751F\u6210\u6811\u6728\u3001<br/>\u6C34\u6C60\u3001\u5CA9\u6D46\u6C60\u3001\u6CE5\u571F\u3001\u783E\u77F3\u3001\u7164\u77FF\u3001\u77FF\u77F3\u7B49\uFF08\u4F46\u4E0D\u5305\u62EC\u6D1E\u7A74\uFF09\u3002<br/>\u8FD9\u5C06\u51CF\u6162\u6BCF\u4E2A\u533A\u5757\u7684\u521D\u59CB\u52A0\u8F7D\u901F\u5EA6\uFF0C\u5E76\u4E14\u4F60\u65E0\u6CD5\u63A7\u5236\u6811\u6728\u3001\u96EA\u7B49\u7684\u751F\u6210\u4F4D\u7F6E\u3002</html>");
         checkBoxPopulate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxPopulateActionPerformed(evt);
             }
         });
 
-        checkBoxDeciduousEverywhere.setText("Deciduous forest everywhere");
+        checkBoxDeciduousEverywhere.setText("\u968F\u5904\u751F\u6210\u843D\u53F6\u6797");
         checkBoxDeciduousEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxDeciduousEverywhereActionPerformed(evt);
@@ -3550,9 +3550,9 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         sliderDeciduousLevel.setSnapToTicks(true);
         sliderDeciduousLevel.setValue(8);
 
-        checkBoxFrostEverywhere.setText("Frost everywhere");
+        checkBoxFrostEverywhere.setText("\u968F\u5904\u751F\u6210\u971C\u51BB");
 
-        checkBoxPineEverywhere.setText("Pine forest everywhere");
+        checkBoxPineEverywhere.setText("\u968F\u5904\u751F\u6210\u9488\u53F6\u6797\u6797");
         checkBoxPineEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxPineEverywhereActionPerformed(evt);
@@ -3566,7 +3566,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         sliderPineLevel.setSnapToTicks(true);
         sliderPineLevel.setValue(8);
 
-        checkBoxSmoothSnow.setText("Smooth snow (also applies to hand-painted Frost layer)");
+        checkBoxSmoothSnow.setText("\u4F7F\u96EA\u66F4\u5E73\u6ED1 (\u4E5F\u9002\u7528\u4E8E\u624B\u7ED8\u7684\u971C\u51BB\u8986\u76D6\u5C42)");
 
         jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/populate.png"))); // NOI18N
 
@@ -3576,7 +3576,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
 
         jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/frost.png"))); // NOI18N
 
-        checkBoxJungleEverywhere.setText("Jungle everywhere");
+        checkBoxJungleEverywhere.setText("\u968F\u5904\u751F\u6210\u4E1B\u6797");
         checkBoxJungleEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxJungleEverywhereActionPerformed(evt);
@@ -3592,7 +3592,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         sliderJungleLevel.setSnapToTicks(true);
         sliderJungleLevel.setValue(8);
 
-        checkBoxSwamplandEverywhere.setText("Swampland everywhere");
+        checkBoxSwamplandEverywhere.setText("\u968F\u5904\u751F\u6210\u6CBC\u6CFD");
         checkBoxSwamplandEverywhere.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxSwamplandEverywhereActionPerformed(evt);
@@ -3608,9 +3608,9 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         jSlider6.setSnapToTicks(true);
         jSlider6.setValue(8);
 
-        checkBoxSnowUnderTrees.setText("Frost under trees (also applies to hand-painted Frost layer)");
+        checkBoxSnowUnderTrees.setText("\u4F7F\u6811\u4E0B\u4E5F\u80FD\u88AB\u971C\u51BB (\u4E5F\u9002\u7528\u4E8E\u624B\u7ED8\u7684\u971C\u51BB\u8986\u76D6\u5C42)");
 
-        checkBoxExportAnnotations.setText("Export the annotations (as coloured wool)");
+        checkBoxExportAnnotations.setText("\u4EE5\u67D3\u8272\u7F8A\u6BDB\u7684\u5F62\u5F0F\u5BFC\u51FA\u6807\u6CE8");
         checkBoxExportAnnotations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxExportAnnotationsActionPerformed(evt);
@@ -3718,16 +3718,16 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Other Layers", jPanel2);
+        jTabbedPane1.addTab("\u5176\u4ED6\u8986\u76D6\u5C42", jPanel2);
 
-        jLabel82.setText("<html>On this page you can configure the export order of your custom layers, as well as prevent certain layers from being exported.<br>\nHigher layers in the list are exported <em>before</em> lower layers. Layers cannot be moved between first or second pass.<br>\n<strong>Note:</strong> once you customise the order on this screen, new layers will be added to the end of the list.</html>");
+        jLabel82.setText("<html>\u5728\u6B64\u9875\u9762\u4E0A\uFF0C\u60A8\u53EF\u4EE5\u914D\u7F6E\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42\u7684\u5BFC\u51FA\u987A\u5E8F\uFF0C\u4EE5\u53CA\u963B\u6B62\u67D0\u4E9B\u8986\u76D6\u5C42\u5BFC\u51FA.<br>\n\u4F4D\u4E8E\u5217\u8868\u4E0A\u5C42\u7684\u8986\u76D6\u5C42<em>\u5148\u4E8E</em>\u4E0B\u65B9\u8986\u76D6\u5C42\u5BFC\u51FA. \u8986\u76D6\u5C42\u65E0\u6CD5\u5728\u7B2C\u4E00\u5C42\u548C\u7B2C\u4E8C\u5C42\u4E4B\u95F4\u79FB\u52A8\u3002.<br>\n<strong>\u6CE8\u610F:</strong> \u4E00\u65E6\u4F60\u5728\u6B64\u9875\u9762\u4E0A\u81EA\u5B9A\u4E49\u4E86\u8986\u76D6\u5C42\u987A\u5E8F\uFF0C\u65B0\u589E\u8986\u76D6\u5C42\u5C06\u88AB\u6DFB\u52A0\u5230\u5217\u8868\u7684\u672B\u5C3E</html>");
 
         tableCustomLayers.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(tableCustomLayers);
 
         buttonCustomLayerUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/up.png"))); // NOI18N
-        buttonCustomLayerUp.setText("Up");
-        buttonCustomLayerUp.setToolTipText("Move the selected layer(s) up");
+        buttonCustomLayerUp.setText("\u4E0A\u79FB");
+        buttonCustomLayerUp.setToolTipText("\u4E0A\u79FB\u8986\u76D6\u5C42");
         buttonCustomLayerUp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonCustomLayerUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3736,8 +3736,8 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonCustomLayerDown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/down.png"))); // NOI18N
-        buttonCustomLayerDown.setText("Down");
-        buttonCustomLayerDown.setToolTipText("Move the selected layer(s) down");
+        buttonCustomLayerDown.setText("\u4E0B\u79FB");
+        buttonCustomLayerDown.setToolTipText("\u4E0B\u79FB\u8986\u76D6\u5C42");
         buttonCustomLayerDown.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonCustomLayerDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3746,8 +3746,8 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonCustomLayerTop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/top.png"))); // NOI18N
-        buttonCustomLayerTop.setText("To Top");
-        buttonCustomLayerTop.setToolTipText("Move the selected layer(s) to the start of their pass");
+        buttonCustomLayerTop.setText("\u7F6E\u9876");
+        buttonCustomLayerTop.setToolTipText("\u5C06\u8986\u76D6\u5C42\u79FB\u81F3\u5217\u8868\u9876\u90E8");
         buttonCustomLayerTop.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonCustomLayerTop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3756,8 +3756,8 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonCustomLayerBottom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/bottom.png"))); // NOI18N
-        buttonCustomLayerBottom.setText("To Bottom");
-        buttonCustomLayerBottom.setToolTipText("Move the selected layer(s) to the end of their pass");
+        buttonCustomLayerBottom.setText("\u7F6E\u5E95");
+        buttonCustomLayerBottom.setToolTipText("\u5C06\u8986\u76D6\u5C42\u79FB\u81F3\u5217\u8868\u5E95\u90E8");
         buttonCustomLayerBottom.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonCustomLayerBottom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3765,16 +3765,16 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        buttonDisableLayers.setText("Disable");
-        buttonDisableLayers.setToolTipText("Disable the selected layer(s)");
+        buttonDisableLayers.setText("\u5173\u95ED");
+        buttonDisableLayers.setToolTipText("\u5173\u95ED\u6240\u9009\u8986\u76D6\u5C42");
         buttonDisableLayers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonDisableLayersActionPerformed(evt);
             }
         });
 
-        buttonEnableLayers.setText("Enable");
-        buttonEnableLayers.setToolTipText("Enable the selected layer(s)");
+        buttonEnableLayers.setText("\u5F00\u542F");
+        buttonEnableLayers.setToolTipText("\u5F00\u542F\u6240\u9009\u8986\u76D6\u5C42");
         buttonEnableLayers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEnableLayersActionPerformed(evt);
@@ -3782,7 +3782,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         });
 
         buttonSelectPaint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/eyedropper.png"))); // NOI18N
-        buttonSelectPaint.setText("Select");
+        buttonSelectPaint.setText("\u9009\u62E9");
         buttonSelectPaint.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonSelectPaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3790,8 +3790,8 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
             }
         });
 
-        buttonReset.setText("Reset Order");
-        buttonReset.setToolTipText("Enable the selected layer(s)");
+        buttonReset.setText("\u91CD\u7F6E\u987A\u5E8F");
+        buttonReset.setToolTipText("\u5F00\u542F\u9009\u4E2D\u7684\u8986\u76D6\u5C42");
         buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetActionPerformed(evt);
@@ -3850,7 +3850,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Custom Layers", jPanel7);
+        jTabbedPane1.addTab("\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42", jPanel7);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -3883,7 +3883,7 @@ public class DimensionPropertiesEditor extends javax.swing.JPanel {
         if (checkBoxPopulate.isSelected() && jCheckBox8.isSelected() && (! endlessBorder)) {
             jCheckBox8.setSelected(false);
             setControlStates();
-            showInfo(this, "\"\u5904\u5904\u8D44\u6E90\" \u5728\u8D44\u6E90\u6807\u7B7E\u9875\u88AB\u5173\u95ED\u4EE5\u9632\u6B62\u5237\u53D6\u8D44\u6E90. \u4F60\u53EF\u4EE5\u624B\u52A8\u5F00\u542F.", "\u5904\u5904\u8D44\u6E90\u5DF2\u5173\u95ED");
+            showInfo(this, "\u5DF2\u5173\u95ED\u4F4D\u4E8E\u8D44\u6E90\u6807\u7B7E\u9875\u7684 \"\u968F\u5904\u751F\u6210\u8D44\u6E90\" \u9009\u9879\u4EE5\u9632\u6B62\u8D44\u6E90\u91CD\u590D\u751F\u6210. \u4F60\u53EF\u4EE5\u624B\u52A8\u5F00\u542F.", "\u968F\u5904\u751F\u6210\u8D44\u6E90\u5DF2\u5173\u95ED");
         }
     }//GEN-LAST:event_checkBoxPopulateActionPerformed
 

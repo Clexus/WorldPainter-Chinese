@@ -180,7 +180,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u9009\u62E9\u8981\u5BFC\u5165\u7684\u8986\u76D6\u56FE:"/>
+        <Property name="text" type="java.lang.String" value="\u9009\u62E9\u8981\u5BFC\u5165\u7684\u906e\u7f69\u56fe:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldFilename">
@@ -388,7 +388,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelMaskRange">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u5B9E\u9645\u8986\u76D6\u56FE\u5C3A\u5BF8: -999,999 - 999,999"/>
+        <Property name="text" type="java.lang.String" value="\u5B9E\u9645\u906e\u7f69\u56fe\u5C3A\u5BF8: -999,999 - 999,999"/>
       </Properties>
     </Component>
   </SubComponents>

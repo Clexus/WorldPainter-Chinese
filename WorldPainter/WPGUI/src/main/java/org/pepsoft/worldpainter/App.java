@@ -3826,7 +3826,7 @@ public final class App extends JFrame implements RadiusControl,
             menuItem.setMnemonic('h');
             exportMenu.add(menuItem);
 
-            menuItem = new JMenuItem("Export as 1:256 (high resolution) integer height map...");
+            menuItem = new JMenuItem("\u4EE5 1:256(\u9AD8\u5206\u8FA8\u7387)\u6574\u5F62\u9AD8\u5EA6\u56FE\u5BFC\u51FA...");
             menuItem.addActionListener(event -> exportHeightMap(INTEGER_HIGH_RESOLUTION));
             exportMenu.add(menuItem);
 

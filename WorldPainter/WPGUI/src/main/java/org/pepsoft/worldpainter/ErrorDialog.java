@@ -87,7 +87,7 @@ public class ErrorDialog extends javax.swing.JDialog {
         final boolean ioException = ioExceptionMessage != null;
 
         if (exceptionTypes.contains(OutOfMemoryError.class)) {
-            setTitle("Out of Memory");
+            setTitle("\u5185\u5B58\u6EA2\u51FA");
             final Integer threadCount = getMostRecentThreadCount();
             if ((threadCount != null) && (threadCount > 1)) {
                 jTextArea1.setText("\u6CA1\u6709\u8DB3\u591F\u7684\u5185\u5B58\u6765\u8FDB\u884C\u8BE5\u64CD\u4F5C!\n\n" +
@@ -268,7 +268,7 @@ public class ErrorDialog extends javax.swing.JDialog {
         getRootPane().setDefaultButton(jButton2);
 
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("cancel") {
+        actionMap.put("cancel", new AbstractAction("\u53D6\u6D88") {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
@@ -371,16 +371,16 @@ public class ErrorDialog extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Unexpected Error");
+        setTitle("\u610F\u5916\u9519\u8BEF");
 
-        jButton1.setText("Send Report");
+        jButton1.setText("\u53D1\u9001\u62A5\u544A");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Close");
+        jButton2.setText("\u5173\u95ED");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -394,7 +394,7 @@ public class ErrorDialog extends javax.swing.JDialog {
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setOpaque(false);
 
-        jButton3.setText("Copy details to clipboard");
+        jButton3.setText("\u5C06\u7EC6\u8282\u590D\u5236\u81F3\u526A\u8D34\u677F");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

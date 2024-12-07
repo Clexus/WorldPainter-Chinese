@@ -494,15 +494,15 @@ public class TileSelector extends javax.swing.JPanel {
         buttonOrigin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/arrow_in.png"))); // NOI18N
         buttonOrigin.addActionListener(this::buttonOriginActionPerformed);
 
-        buttonSelectAll.setText("Select all tiles");
+        buttonSelectAll.setText("\u9009\u62E9\u6240\u6709\u5206\u533A");
         buttonSelectAll.setEnabled(false);
         buttonSelectAll.addActionListener(this::buttonSelectAllActionPerformed);
 
-        buttonInvertSelection.setText("Invert selection");
+        buttonInvertSelection.setText("\u53CD\u8F6C\u9009\u533A");
         buttonInvertSelection.setEnabled(false);
         buttonInvertSelection.addActionListener(this::buttonInvertSelectionActionPerformed);
 
-        buttonClearSelection.setText("Clear selection");
+        buttonClearSelection.setText("\u6E05\u7A7A\u9009\u533A");
         buttonClearSelection.setEnabled(false);
         buttonClearSelection.addActionListener(this::buttonClearSelectionActionPerformed);
 

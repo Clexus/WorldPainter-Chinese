@@ -514,7 +514,7 @@ public final class TileRenderer {
     private int contourSeparation = 10;
     private LightOrigin lightOrigin = LightOrigin.NORTHWEST;
 
-    public static final Layer TERRAIN_AS_LAYER = new Layer("org.pepsoft.synthetic.Terrain", "Terrain", "The terrain type of the surface", Layer.DataSize.NONE, false, 0) {
+    public static final Layer TERRAIN_AS_LAYER = new Layer("org.pepsoft.synthetic.Terrain", "\u65B9\u5757", "\u8868\u9762\u65B9\u5757\u7C7B\u578B", Layer.DataSize.NONE, false, 0) {
         @Override
         public BufferedImage getIcon() {
             return ICON;
@@ -522,7 +522,7 @@ public final class TileRenderer {
 
         private final BufferedImage ICON = IconUtils.scaleIcon(IconUtils.loadScaledImage("org/pepsoft/worldpainter/resources/terrain.png"), 16);
     };
-    public static final Layer FLUIDS_AS_LAYER = new Layer("org.pepsoft.synthetic.Fluids", "Water/Lava", "Areas flooded with water or lava", Layer.DataSize.NONE, false, 0) {
+    public static final Layer FLUIDS_AS_LAYER = new Layer("org.pepsoft.synthetic.Fluids", "\u6C34/\u5CA9\u6D46", "\u8986\u76D6\u6C34\u6216\u5CA9\u6D46\u7684\u533A\u57DF", Layer.DataSize.NONE, false, 0) {
         @Override
         public BufferedImage getIcon() {
             return ICON;
@@ -530,7 +530,7 @@ public final class TileRenderer {
 
         private final BufferedImage ICON = IconUtils.loadScaledImage("org/pepsoft/worldpainter/resources/fluids.png");
     };
-    public static final Layer ALL_TUNNELS_AS_LAYER = new Layer("org.pepsoft.synthetic.Tunnels", "Cave/Tunnel Layers", "All Custom Cave/Tunnel Layers", Layer.DataSize.NONE, false, 0) {
+    public static final Layer ALL_TUNNELS_AS_LAYER = new Layer("org.pepsoft.synthetic.Tunnels", "\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42", "\u6240\u6709\u7684\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42", Layer.DataSize.NONE, false, 0) {
         @Override
         public BufferedImage getIcon() {
             return ICON;

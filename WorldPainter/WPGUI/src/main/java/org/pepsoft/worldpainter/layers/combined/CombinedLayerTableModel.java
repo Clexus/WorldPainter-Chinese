@@ -149,7 +149,7 @@ public class CombinedLayerTableModel implements TableModel {
     public static final int COLUMN_FACTOR = 1;
     public static final int COLUMN_HIDE   = 2;
     
-    private static final String[] COLUMN_NAMES   = {"Layer",      "Factor",      "Hidden"};
+    private static final String[] COLUMN_NAMES   = {"\u8986\u76D6\u5C42",      "\u7CFB\u6570",      "\u9690\u85CF"};
     private static final Class<?>[] COLUMN_TYPES = {String.class, Integer.class, Boolean.class};
     
     static class Row {

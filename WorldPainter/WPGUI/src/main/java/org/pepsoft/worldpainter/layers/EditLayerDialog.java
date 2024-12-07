@@ -257,24 +257,24 @@ public class EditLayerDialog<L extends Layer> extends AbstractEditLayerDialog<L>
         buttonCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Layer Settings");
+        setTitle("\u7F16\u8F91\u8986\u76D6\u5C42\u8BBE\u7F6E");
 
         editorPanel.setLayout(new java.awt.BorderLayout());
 
         dynMapPreviewer1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u9879\u76EE 1", "\u9879\u76EE 2", "\u9879\u76EE 3", "\u9879\u76EE 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Preview pattern:");
+        jLabel1.setText("\u6837\u5F0F\u9884\u89C8:");
 
         panelButtons.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 0));
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
@@ -282,7 +282,7 @@ public class EditLayerDialog<L extends Layer> extends AbstractEditLayerDialog<L>
         });
         panelButtons.add(buttonOK);
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);

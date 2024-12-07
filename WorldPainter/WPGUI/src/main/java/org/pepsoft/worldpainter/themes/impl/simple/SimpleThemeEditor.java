@@ -216,8 +216,8 @@ public class SimpleThemeEditor extends javax.swing.JPanel implements ButtonPress
 
         jButton1.setText("jButton1");
 
-        checkBoxBeaches.setText("beaches");
-        checkBoxBeaches.setToolTipText("Whether to add beaches from two levels below the water level to two levels above.");
+        checkBoxBeaches.setText("\u6D77\u6EE9");
+        checkBoxBeaches.setToolTipText("\u662F\u5426\u5C06\u6D77\u6EE9\u9AD8\u5EA6\u4ECE\u6C34\u5E73\u9762\u4EE5\u4E0B\u4E24\u683C\u8C03\u6574\u4E3A\u5230\u6C34\u5E73\u9762\u4EE5\u4E0A\u4E24\u683C.");
         checkBoxBeaches.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxBeachesActionPerformed(evt);
@@ -227,7 +227,7 @@ public class SimpleThemeEditor extends javax.swing.JPanel implements ButtonPress
         tableTerrain.setRowHeight(25);
         jScrollPane1.setViewportView(tableTerrain);
 
-        buttonAddTerrain.setText("Add...");
+        buttonAddTerrain.setText("\u6DFB\u52A0...");
         buttonAddTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddTerrainActionPerformed(evt);
@@ -240,15 +240,15 @@ public class SimpleThemeEditor extends javax.swing.JPanel implements ButtonPress
             }
         });
 
-        checkBoxRandomise.setText("noisy edges");
-        checkBoxRandomise.setToolTipText("Whether to randomise the edges of the terrain types (except beaches).");
+        checkBoxRandomise.setText("\u566A\u58F0\u5316\u8FB9\u754C");
+        checkBoxRandomise.setToolTipText("\u662F\u5426\u968F\u673A\u5316\u5730\u5F62\u79CD\u7C7B\u7684\u8FB9\u7F18 (\u9664\u4E86\u6D77\u6EE9).");
         checkBoxRandomise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxRandomiseActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Default water level:");
+        jLabel1.setText("\u9ED8\u8BA4\u6C34\u5E73\u9762\u9AD8\u5EA6:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -280,9 +280,9 @@ public class SimpleThemeEditor extends javax.swing.JPanel implements ButtonPress
                 .addGap(0, 0, 0))
         );
 
-        jTabbedPane1.addTab("Terrain", jPanel1);
+        jTabbedPane1.addTab("\u65B9\u5757", jPanel1);
 
-        buttonAddLayer.setText("Add...");
+        buttonAddLayer.setText("\u6DFB\u52A0...");
         buttonAddLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddLayerActionPerformed(evt);
@@ -312,7 +312,7 @@ public class SimpleThemeEditor extends javax.swing.JPanel implements ButtonPress
                 .addGap(0, 0, 0))
         );
 
-        jTabbedPane1.addTab("Layers", jPanel2);
+        jTabbedPane1.addTab("\u8986\u76D6\u5C42", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

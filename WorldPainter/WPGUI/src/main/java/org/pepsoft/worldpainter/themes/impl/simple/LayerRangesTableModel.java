@@ -144,9 +144,9 @@ public class LayerRangesTableModel implements TableModel {
     private final List<Layer> layers = new ArrayList<>();
     private final int minHeight, maxHeight;
     private final List<TableModelListener> listeners = new ArrayList<>();
-    private final JButton deleteButton = new JButton("Delete");
-    
-    private static final String[] COLUMN_NAMES = {"From",        "To",          "Feather",     "Layer",     "Actions"};
+    private final JButton deleteButton = new JButton("\u5220\u9664");
+
+    private static final String[] COLUMN_NAMES = {"\u8D77\u59CB\u9AD8\u5EA6",        "\u7EC8\u6B62\u9AD8\u5EA6",          "\u7FBD\u5316",     "\u8986\u76D6\u5C42\u79CD\u7C7B",     "\u64CD\u4F5C"};
     private static final Class[]  COLUMN_TYPES = {Integer.class, Integer.class, Boolean.class, Layer.class, JButton.class};
     private static final int COLUMN_FROM    = 0;
     private static final int COLUMN_TO      = 1;

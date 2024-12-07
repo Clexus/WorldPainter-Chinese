@@ -82,25 +82,25 @@ public class AddLayerDialog extends WorldPainterDialog {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Layer Mapping");
+        setTitle("\u6DFB\u52A0\u8986\u76D6\u5C42\u5230\u8868\u4E2D");
 
-        jLabel1.setText("Configure a layer to add to the mapping:");
+        jLabel1.setText("\u914D\u7F6E\u4E00\u4E2A\u8981\u6DFB\u52A0\u5230\u8868\u4E2D\u7684\u8986\u76D6\u5C42:");
 
-        comboBoxLayer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxLayer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u9879\u76EE 1", "\u9879\u76EE 2", "\u9879\u76EE 3", "\u9879\u76EE 4" }));
         comboBoxLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxLayerActionPerformed(evt);
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.setEnabled(false);
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,19 +109,19 @@ public class AddLayerDialog extends WorldPainterDialog {
         });
 
         jLabel2.setLabelFor(spinnerFrom);
-        jLabel2.setText("From:");
+        jLabel2.setText("\u8D77\u59CB\u9AD8\u5EA6:");
 
         spinnerFrom.setModel(new javax.swing.SpinnerNumberModel(128, 0, 255, 1));
 
         jLabel3.setLabelFor(spinnerTo);
-        jLabel3.setText("To:");
+        jLabel3.setText("\u7EC8\u6B62\u9AD8\u5EA6:");
 
         spinnerTo.setModel(new javax.swing.SpinnerNumberModel(255, 0, 255, 1));
 
         jLabel4.setLabelFor(comboBoxLayer);
-        jLabel4.setText("Layer:");
+        jLabel4.setText("\u8986\u76D6\u5C42:");
 
-        checkBoxFeather.setText("Feather:");
+        checkBoxFeather.setText("\u7FBD\u5316:");
         checkBoxFeather.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

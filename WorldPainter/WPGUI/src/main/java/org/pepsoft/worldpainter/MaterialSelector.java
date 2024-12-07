@@ -78,7 +78,7 @@ public class MaterialSelector extends javax.swing.JPanel {
                 } else {
                     comboBoxBlockType.setSelectedItem(null);
                     spinnerDataValue.setValue(0);
-                    doLaterOnEventThread(() -> beepAndShowError(this, "The material (" + material.name + ") is not compatible with the current map format (" + platform.displayName + ").\nSelect a compatible material.", "Incompatible Material"));
+                    doLaterOnEventThread(() -> beepAndShowError(this, "\u6750\u8D28 (" + material.name + ") \u4E0E\u5F53\u524D\u5730\u56FE\u683C\u5F0F (" + platform.displayName + ") \u4E0D\u517C\u5BB9.\n\u8BF7\u9009\u62E9\u4E00\u4E2A\u517C\u5BB9\u7684\u6750\u8D28.", "\u4E0D\u517C\u5BB9\u7684\u6750\u8D28"));
                 }
                 updateMaterialName();
             } else if (namespace.equals(MINECRAFT)) {
@@ -95,7 +95,7 @@ public class MaterialSelector extends javax.swing.JPanel {
             programmaticChange = false;
         }
     }
-    
+
     public Material getMaterial() {
         updateMaterial();
         return material;
@@ -134,7 +134,7 @@ public class MaterialSelector extends javax.swing.JPanel {
         legacyMode = ! platform.capabilities.contains(NAME_BASED);
         if (legacyMode) {
             remove(0);
-            ((TitledBorder) jScrollPane1.getBorder()).setTitle("Modern properties");
+            ((TitledBorder) jScrollPane1.getBorder()).setTitle("\u65B0\u5C5E\u6027");
         } else {
             remove(1);
         }
@@ -354,7 +354,7 @@ public class MaterialSelector extends javax.swing.JPanel {
      * panel.
      */
     private void addProperty() {
-        final String name = JOptionPane.showInputDialog(this, "Enter the name of the property to add:", "Add Property", JOptionPane.QUESTION_MESSAGE);
+        final String name = JOptionPane.showInputDialog(this, "\u8F93\u5165\u8981\u6DFB\u52A0\u5C5E\u6027\u7684\u540D\u79F0:", "\u6DFB\u52A0\u5C5E\u6027", JOptionPane.QUESTION_MESSAGE);
         if ((name != null) && (! name.trim().isEmpty())) {
             addStringProperty(name.trim(), "", null, true);
             SwingUtilities.windowForComponent(this).validate();
@@ -487,7 +487,7 @@ public class MaterialSelector extends javax.swing.JPanel {
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.PAGE_AXIS));
 
         buttonGroup1.add(radioButtonCustom);
-        radioButtonCustom.setText("<html><em>Custom:</em></html>");
+        radioButtonCustom.setText("<html><em>\u81EA\u5B9A\u4E49:</em></html>");
         radioButtonCustom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonCustomActionPerformed(evt);
@@ -578,7 +578,7 @@ public class MaterialSelector extends javax.swing.JPanel {
 
         add(jPanel1);
 
-        jLabel3.setText("Block ID:");
+        jLabel3.setText("\u65B9\u5757 ID:");
 
         comboBoxBlockType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -586,7 +586,7 @@ public class MaterialSelector extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Data value:");
+        jLabel4.setText("\u6570\u636E\u503C:");
 
         spinnerDataValue.setModel(new javax.swing.SpinnerNumberModel(0, 0, 15, 1));
         spinnerDataValue.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -596,7 +596,7 @@ public class MaterialSelector extends javax.swing.JPanel {
         });
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel5.setText("<html><u>look up legacy block IDs and data values</u></html>");
+        jLabel5.setText("<html><u>\u67E5\u770B\u65E7\u7248\u65B9\u5757ID\u548C\u6570\u636E\u503C</u></html>");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -605,7 +605,7 @@ public class MaterialSelector extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Modern name:");
+        jLabel6.setText("\u65B0\u7248\u540D\u79F0:");
 
         labelMaterialName.setText("minecraft:grass_block");
 
@@ -651,13 +651,13 @@ public class MaterialSelector extends javax.swing.JPanel {
 
         add(jPanel2);
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Properties"));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("\u5C5E\u6027"));
 
         panelProperties.setLayout(new java.awt.GridBagLayout());
         jScrollPane1.setViewportView(panelProperties);
 
         buttonAddProperty.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_add.png"))); // NOI18N
-        buttonAddProperty.setToolTipText("Add a property");
+        buttonAddProperty.setToolTipText("\u6DFB\u52A0\u4E00\u4E2A\u5C5E\u6027");
         buttonAddProperty.setEnabled(false);
         buttonAddProperty.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonAddProperty.addActionListener(new java.awt.event.ActionListener() {

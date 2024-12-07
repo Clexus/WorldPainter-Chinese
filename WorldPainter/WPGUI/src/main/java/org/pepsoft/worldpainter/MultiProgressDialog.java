@@ -101,17 +101,17 @@ public abstract class MultiProgressDialog<T> extends javax.swing.JDialog impleme
     public void exceptionThrown(Throwable exception) {
         doLaterOnEventThread(() -> {
             if (chainContains(exception, FileInUseException.class)) {
-                beepAndShowError(MultiProgressDialog.this, "Could not " + getVerb().toLowerCase() + " the world because the existing map directory is in use.\nPlease close Minecraft and all other windows and try again.", "Map In Use");
+                beepAndShowError(MultiProgressDialog.this, "\u65E0\u6CD5" + getVerb().toLowerCase() + "\u4E16\u754C\uFF0C\u56E0\u4E3A\u73B0\u6709\u4E16\u754C\u76EE\u5F55\u88AB\u5360\u7528.\n\u8BF7\u5173\u95ED Minecraft \u548C\u5176\u4ED6\u6240\u6709\u7A97\u53E3\u518D\u8BD5.", "\u5730\u56FE\u4F7F\u7528\u4E2D");
             } else if (chainContains(exception, MissingCustomTerrainException.class)) {
-                beepAndShowError(MultiProgressDialog.this, "Custom Terrain " + (getFromChainOfType(exception, MissingCustomTerrainException.class)).getIndex() + " not configured!\n" +
-                        "Please configure it on the Custom Terrain panel.\n" +
+                beepAndShowError(MultiProgressDialog.this, "\u81EA\u5B9A\u4E49\u65B9\u5757 " + (getFromChainOfType(exception, MissingCustomTerrainException.class)).getIndex() + " \u672A\u914D\u7F6E!\n" +
+                        "\u8BF7\u5728\u81EA\u5B9A\u4E49\u65B9\u5757\u754C\u9762\u914D\u7F6E.\n" +
                         "\n" +
-                        "The partially processed map is now probably corrupted.\n" +
-                        "You should replace it from the backup, or " + getVerb().toLowerCase() + " the map again.", "Unconfigured Custom Terrain");
+                        "\u4EC5\u88AB\u90E8\u5206\u5904\u7406\u7684\u5730\u56FE\u53EF\u80FD\u5DF2\u635F\u574F.\n" +
+                        "\u4F60\u9700\u8981\u4ECE\u5907\u4EFD\u6587\u4EF6\u4E2D\u5C06\u5176\u66FF\u6362\u6216\u91CD\u65B0" + getVerb().toLowerCase() + "\u5730\u56FE.", "\u672A\u914D\u7F6E\u7684\u65B9\u5757\u7C7B\u578B");
             } else if (chainContains(exception, InvalidMapException.class)) {
-                beepAndShowError(MultiProgressDialog.this, getFromChainOfType(exception, InvalidMapException.class).getMessage(), "Invalid Map");
+                beepAndShowError(MultiProgressDialog.this, getFromChainOfType(exception, InvalidMapException.class).getMessage(), "\u65E0\u6548\u5730\u56FE");
             } else if (chainContains(exception, IncompatibleMaterialException.class)) {
-                beepAndShowError(MultiProgressDialog.this, getFromChainOfType(exception, IncompatibleMaterialException.class).getMessage(), "Incompatible Material");
+                beepAndShowError(MultiProgressDialog.this, getFromChainOfType(exception, IncompatibleMaterialException.class).getMessage(), "\u4E0D\u517C\u5BB9\u7684\u6750\u8D28");
             } else {
                 handleException(exception, MultiProgressDialog.this);
             }
@@ -125,16 +125,16 @@ public abstract class MultiProgressDialog<T> extends javax.swing.JDialog impleme
         long duration = (end - start) / 1000;
         doLaterOnEventThread(() -> {
             String resultsReport = getResultsReport(result, duration);
-            showInfo(this, resultsReport, "Success");
+            showInfo(this, resultsReport, "\u6210\u529F");
             close();
         });
     }
 
     @Override
     public void cancelled() {
-        logger.info(getVerb() + " cancelled by user");
+        logger.info(getVerb() + "\u5DF2\u88AB\u7528\u6237\u53D6\u6D88");
         doLaterOnEventThread(() -> {
-            showWarning(this, getCancellationMessage(), getVerb() + " Cancelled");
+            showWarning(this, getCancellationMessage(), getVerb() + "\u5DF2\u53D6\u6D88");
             close();
         });
     }

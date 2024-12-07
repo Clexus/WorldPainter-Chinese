@@ -106,14 +106,14 @@ public class MinecraftUtil {
     public static String blocksToWalkingTime(int blocks) {
         int mins = Math.round(blocks / 256f);
         if (mins < 60) {
-            return mins + " min.";
+            return mins + " \u5206\u949F";
         } else {
             int hours = mins / 60;
             mins -= 60 * hours;
             if (mins == 0) {
-                return hours + "hr.";
+                return hours + "\u5C0F\u65F6";
             } else {
-                return hours + "hr., " + mins + " min.";
+                return hours + "\u5C0F\u65F6, " + mins + " \u5206\u949F";
             }
         }
     }

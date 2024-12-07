@@ -417,11 +417,11 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
         simpleThemeEditor1 = new org.pepsoft.worldpainter.themes.impl.simple.SimpleThemeEditor();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Height Map Editor");
+        setTitle("\u9AD8\u5EA6\u56FE\u7F16\u8F91\u5668");
 
         jToolBar1.setRollover(true);
 
-        jButton1.setText("New Seed");
+        jButton1.setText("\u65B0\u5EFA\u79CD\u5B50");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -432,12 +432,12 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
         });
         jToolBar1.add(jButton1);
 
-        jLabel1.setText("View as:");
+        jLabel1.setText("\u4EE5...\u67E5\u770B:");
         jToolBar1.add(jLabel1);
 
         buttonGroup1.add(radioButtonViewAsHeightMap);
         radioButtonViewAsHeightMap.setSelected(true);
-        radioButtonViewAsHeightMap.setText("height map");
+        radioButtonViewAsHeightMap.setText("\u9AD8\u5EA6\u56FE");
         radioButtonViewAsHeightMap.setFocusable(false);
         radioButtonViewAsHeightMap.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         radioButtonViewAsHeightMap.addActionListener(new java.awt.event.ActionListener() {
@@ -448,7 +448,7 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
         jToolBar1.add(radioButtonViewAsHeightMap);
 
         buttonGroup1.add(radioButtonViewAsTerrain);
-        radioButtonViewAsTerrain.setText("terrain");
+        radioButtonViewAsTerrain.setText("\u65B9\u5757");
         radioButtonViewAsTerrain.setFocusable(false);
         radioButtonViewAsTerrain.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         radioButtonViewAsTerrain.addActionListener(new java.awt.event.ActionListener() {
@@ -459,7 +459,7 @@ public class HeightMapEditor extends javax.swing.JFrame implements HeightMapProp
         jToolBar1.add(radioButtonViewAsTerrain);
 
         checkBoxShowGrid.setSelected(true);
-        checkBoxShowGrid.setText("Show grid:");
+        checkBoxShowGrid.setText("\u663E\u793A\u7F51\u683C:");
         checkBoxShowGrid.setFocusable(false);
         checkBoxShowGrid.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         checkBoxShowGrid.addActionListener(new java.awt.event.ActionListener() {

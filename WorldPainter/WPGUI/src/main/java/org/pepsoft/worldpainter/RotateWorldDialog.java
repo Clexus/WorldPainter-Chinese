@@ -41,7 +41,7 @@ public class RotateWorldDialog extends WorldPainterDialog implements ProgressRec
                 .collect(toList());
 
         initComponents();
-        setTitle("Rotate " + new Anchor(anchor.dim, DETAIL, false, 0).getDefaultName() + " Dimension");
+        setTitle("\u65CB\u8F6C " + new Anchor(anchor.dim, DETAIL, false, 0).getDefaultName() + " \u7EF4\u5EA6");
 
         getRootPane().setDefaultButton(buttonRotate);
 
@@ -51,7 +51,7 @@ public class RotateWorldDialog extends WorldPainterDialog implements ProgressRec
     }
 
     // ProgressReceiver
-    
+
     @Override
     public synchronized void setProgress(final float progress) {
         doOnEventThread(() -> jProgressBar1.setValue((int) (progress * 100)));
@@ -71,9 +71,9 @@ public class RotateWorldDialog extends WorldPainterDialog implements ProgressRec
     public synchronized void done() {
         doOnEventThread(() -> {
             if (affectedDimensions.stream().flatMap(dimension -> dimension.getOverlays().stream()).anyMatch(overlay -> ! overlay.getFile().canRead())) {
-                beepAndShowWarning(this, "One or more overlay image files could not be read,\nand have therefore not been adjusted.\nYou will need to adjust these manually.", "Not All Overlays Adjusted");
+                beepAndShowWarning(this, "\u4E00\u4E2A\u6216\u591A\u4E2A\u906E\u7F69\u56FE\u65E0\u6CD5\u8BFB\u53D6,\n\u56E0\u6B64\u4E5F\u672A\u88AB\u8C03\u6574.\n\u4F60\u9700\u8981\u624B\u52A8\u8C03\u6574\u5B83\u4EEC.", "\u90E8\u5206\u906E\u7F69\u56FE\u672A\u8C03\u6574");
             } else if (affectedDimensions.stream().anyMatch(dimension -> ! dimension.getOverlays().isEmpty())) {
-                beepAndShowWarning(this, "The overlay(s) have been shifted to the correct location, but not rotated.\nYou must manually rotate the image files outside of WorldPainter.", "Overlays Not Rotated");
+                beepAndShowWarning(this, "\u906E\u7F69\u56FE\u5DF2\u88AB\u79FB\u52A8\u5230\u6B63\u786E\u4F4D\u7F6E, \u4F46\u672A\u88AB\u65CB\u8F6C.\n\u4F60\u5FC5\u987B\u5728 WorldPainter \u5916\u624B\u52A8\u65CB\u8F6C\u8FD9\u4E9B\u56FE\u7247.", "\u906E\u7F69\u56FE\u672A\u65CB\u8F6C");
             }
             ok();
         });
@@ -130,7 +130,7 @@ public class RotateWorldDialog extends WorldPainterDialog implements ProgressRec
             }
         }.start();
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -153,19 +153,19 @@ public class RotateWorldDialog extends WorldPainterDialog implements ProgressRec
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Rotate World");
+        setTitle("\u65CB\u8F6C\u4E16\u754C");
         setResizable(false);
 
-        jLabel1.setText("Choose a rotation angle and press the Rotate button to rotate the dimension:");
+        jLabel1.setText("\u9009\u62E9\u4E00\u4E2A\u65CB\u8F6C\u89D2\u5EA6\u540E\u6309\u4E0B\u6309\u94AE\u65CB\u8F6C\u4E16\u754C:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonRotate.setText("Rotate");
+        buttonRotate.setText("\u65CB\u8F6C");
         buttonRotate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonRotateActionPerformed(evt);
@@ -176,17 +176,17 @@ public class RotateWorldDialog extends WorldPainterDialog implements ProgressRec
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setSelected(true);
-        jRadioButton1.setText("90 degrees clockwise");
+        jRadioButton1.setText("90 \u5EA6\u987A\u65F6\u9488");
 
         buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("180 degrees");
+        jRadioButton2.setText("180 \u5EA6");
 
         buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("90 degrees anticlockwise");
+        jRadioButton3.setText("90 \u9006\u65F6\u9488");
 
-        jLabel2.setText("<html><em>This operation cannot be undone!</em>   </html>");
+        jLabel2.setText("<html><em>\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!</em>   </html>");
 
-        jLabel7.setText("<html><i>All associated dimension such as Ceiling Dimensions and<br> Custom Cave/Tunnel Floor Dimensions will be rotated together.</i></html>");
+        jLabel7.setText("<html><i>\u6240\u6709\u76F8\u5173\u7684\u7EF4\u5EA6\uFF0C\u6BD4\u5982\u9876\u5C42\u7EF4\u5EA6\u3001\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u7EF4\u5EA6\u7B49\u90FD\u4F1A\u4E00\u8D77\u65CB\u8F6C.</i></html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

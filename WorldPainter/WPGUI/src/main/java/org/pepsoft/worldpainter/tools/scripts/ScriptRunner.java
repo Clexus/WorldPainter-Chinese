@@ -81,7 +81,7 @@ public class ScriptRunner extends WorldPainterDialog {
     private void selectFile() {
         Set<String> extensions = new HashSet<>();
         SCRIPT_ENGINE_MANAGER.getEngineFactories().forEach(factory -> extensions.addAll(factory.getExtensions()));
-        File script = FileUtils.selectFileForOpen(this, "选择脚本", (File) jComboBox1.getSelectedItem(), new FileFilter() {
+        File script = FileUtils.selectFileForOpen(this, "\u9009\u62E9\u811A\u672C", (File) jComboBox1.getSelectedItem(), new FileFilter() {
             @Override
             public boolean accept(File f) {
                 if (f.isDirectory()) {
@@ -100,7 +100,7 @@ public class ScriptRunner extends WorldPainterDialog {
             @Override
             public String getDescription() {
                 StringBuilder sb = new StringBuilder();
-                sb.append("脚本文件 (");
+                sb.append("\u811A\u672C\u6587\u4EF6 (");
                 sb.append(extensions.stream().map(extension -> "*." + extension).collect(joining(", ")));
                 sb.append(')');
                 return sb.toString();
@@ -123,12 +123,12 @@ public class ScriptRunner extends WorldPainterDialog {
 
     private void setupScript(File script) {
         scriptDescriptor = analyseScript(script);
-        
+
         // Remove any previously added fields:
         while (panelDescriptor.getComponentCount() > 2) {
             panelDescriptor.remove(2);
         }
-        
+
         // If there is a descriptor, use it to add fields for the parameters:
         if (scriptDescriptor != null) {
             if (scriptDescriptor.name != null) {
@@ -137,7 +137,7 @@ public class ScriptRunner extends WorldPainterDialog {
                 labelName.setText(script.getName());
             }
             if (scriptDescriptor.description != null) {
-                addRegular(panelDescriptor, new JLabel("描述:"));
+                addRegular(panelDescriptor, new JLabel("\u63CF\u8FF0:"));
                 JTextArea textArea = new JTextArea(scriptDescriptor.description);
                 textArea.setEditable(false);
                 textArea.setOpaque(false);
@@ -161,7 +161,7 @@ public class ScriptRunner extends WorldPainterDialog {
                 paramDescriptor.setChangeListener(e -> setControlStates());
             }
             if (! allFieldsOptional) {
-                addlastOnLine(panelDescriptor, new JLabel("* 通配符"));
+                addlastOnLine(panelDescriptor, new JLabel("* \u901A\u914D\u7B26"));
             }
 
             jLabel2.setVisible(! scriptDescriptor.hideCmdLineParams);
@@ -176,7 +176,7 @@ public class ScriptRunner extends WorldPainterDialog {
 
         pack();
     }
-    
+
     private void addRegular(JPanel panel, JComponent component) {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.BASELINE_LEADING;
@@ -193,7 +193,7 @@ public class ScriptRunner extends WorldPainterDialog {
         constraints.gridwidth = GridBagConstraints.REMAINDER;
         panel.add(component, constraints);
     }
-    
+
     private ScriptDescriptor analyseScript(File script) {
         if (! script.isFile()) {
             return null;
@@ -509,9 +509,9 @@ public class ScriptRunner extends WorldPainterDialog {
         labelName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Run Script");
+        setTitle("\u8FD0\u884C\u811A\u672C");
 
-        jLabel1.setText("Script:");
+        jLabel1.setText("\u811A\u672C:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -527,17 +527,17 @@ public class ScriptRunner extends WorldPainterDialog {
             }
         });
 
-        jLabel2.setText("Parameters:");
+        jLabel2.setText("\u53C2\u6570:");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel3.setText("(one per line)");
+        jLabel3.setText("(\u6BCF\u884C\u4E00\u4E2A)");
 
-        jLabel4.setText("Output:");
+        jLabel4.setText("\u8F93\u51FA:");
 
-        jButton2.setText("Run");
+        jButton2.setText("\u8FD0\u884C");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -551,7 +551,7 @@ public class ScriptRunner extends WorldPainterDialog {
         jTextArea2.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jButton3.setText("Cancel");
+        jButton3.setText("\u53D6\u6D88");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -560,7 +560,7 @@ public class ScriptRunner extends WorldPainterDialog {
 
         panelDescriptor.setLayout(new java.awt.GridBagLayout());
 
-        jLabel5.setText("Name:");
+        jLabel5.setText("\u540D\u79F0:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(0, 1, 0, 2);

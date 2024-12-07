@@ -386,37 +386,37 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         jLabel26 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("[PREVIEW] Configure Floating Dimension");
+        setTitle("[\u9884\u89C8] \u914D\u7F6E\u60AC\u6D6E\u7EF4\u5EA6");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
             }
         });
 
-        buttonReset.setText("Reset");
+        buttonReset.setText("\u91CD\u7F6E");
         buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Create a floating dimension with the following properties:");
+        jLabel1.setText("\u4F7F\u7528\u4EE5\u4E0B\u5C5E\u6027\u521B\u5EFA\u60AC\u6D6E\u7EF4\u5EA6:");
 
-        jLabel4.setText("Name:");
+        jLabel4.setText("\u540D\u79F0:");
 
         textFieldName.setColumns(20);
         textFieldName.setText("jTextField1");
 
-        jLabel11.setText("Paint");
+        jLabel11.setText("\u753b\u7b14");
 
         spinnerBottomLevel.setModel(new javax.swing.SpinnerNumberModel(8, 0, 255, 1));
         spinnerBottomLevel.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -425,11 +425,11 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             }
         });
 
-        jLabel12.setText("Edges:");
+        jLabel12.setText("\u8FB9\u754C:");
 
-        jLabel9.setText("Variation:");
+        jLabel9.setText("\u53D8\u5316:");
 
-        jLabel17.setText(", max:");
+        jLabel17.setText(", \u6700\u9AD8:");
 
         spinnerBottomMin.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
         spinnerBottomMin.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -445,11 +445,11 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             }
         });
 
-        jLabel13.setText("Width:");
+        jLabel13.setText("\u5BBD\u5EA6:");
 
-        jLabel8.setText("Level:");
+        jLabel8.setText("\u9AD8\u5EA6:");
 
-        jLabel16.setText("Absolute min:");
+        jLabel16.setText("\u7EDD\u5BF9\u6700\u4F4E\u9AD8\u5EA6:");
 
         spinnerEdgeWidth.setModel(new javax.swing.SpinnerNumberModel(8, 0, 255, 1));
         spinnerEdgeWidth.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -458,23 +458,23 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             }
         });
 
-        jLabel6.setText("Bottom:");
+        jLabel6.setText("\u4E0B\u8FB9\u754C:");
 
         buttonGroup3.add(radioButtonBottomFixedLevel);
-        radioButtonBottomFixedLevel.setText("fixed level");
+        radioButtonBottomFixedLevel.setText("\u56FA\u5B9A\u9AD8\u5EA6");
         radioButtonBottomFixedLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonBottomFixedLevelActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Material:");
+        jLabel10.setText("\u6750\u8D28:");
 
         labelPreview.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         buttonGroup3.add(radioButtonBottomFixedHeight);
         radioButtonBottomFixedHeight.setSelected(true);
-        radioButtonBottomFixedHeight.setText("fixed depth below floor");
+        radioButtonBottomFixedHeight.setText("\u56FA\u5B9A\u6DF1\u5EA6");
         radioButtonBottomFixedHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonBottomFixedHeightActionPerformed(evt);
@@ -483,11 +483,11 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
 
         mixedMaterialChooserBottom.setEnabled(false);
 
-        jLabel25.setText("Biome:");
+        jLabel25.setText("\u751F\u7269\u7FA4\u7CFB:");
 
-        jLabel3.setText("Level:");
+        jLabel3.setText("\u9AD8\u5EA6:");
 
-        jLabel27.setText("Relative water level:");
+        jLabel27.setText("\u76F8\u5BF9\u6C34\u5E73\u9762\u9AD8\u5EA6:");
 
         spinnerFloorLevel.setModel(new javax.swing.SpinnerNumberModel(128, -64, 319, 1));
         spinnerFloorLevel.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -503,7 +503,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             }
         });
 
-        checkBoxFloodWithLava1.setText("Lava instead of water:");
+        checkBoxFloodWithLava1.setText("\u4F7F\u7528\u5CA9\u6D46\u66FF\u6362\u6C34:");
         checkBoxFloodWithLava1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxFloodWithLava1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -511,16 +511,16 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             }
         });
 
-        jLabel2.setText("Surface material:");
+        jLabel2.setText("\u8868\u9762\u6750\u8D28:");
 
-        jLabel28.setText("Floor defaults:");
+        jLabel28.setText("\u9ED8\u8BA4\u503C:");
 
-        jLabel7.setText("<html>These are the default settings. They can only be set when creating the<br>layer. Once created, edit the floor dimension to change height and shape.</html>");
+        jLabel7.setText("<html>\u8FD9\u4E9B\u662F\u9ED8\u8BA4\u503C. \u8FD9\u4E9B\u503C\u4EC5\u5728\u7EF4\u5EA6\u521B\u5EFA\u65F6\u624D\u80FD\u88AB\u8BBE\u7F6E.<br> \u521B\u5EFA\u4E4B\u540E, \u8BF7\u7F16\u8F91\u5E95\u4E0B\u7684\u7EF4\u5EA6\u6765\u4FEE\u6539\u9AD8\u5EA6\u548C\u5F62\u72B6.</html>");
 
-        jLabel18.setText("Shape:");
+        jLabel18.setText("\u5F62\u72B6:");
 
         buttonGroup4.add(radioButtonSheerEdge);
-        radioButtonSheerEdge.setText("sheer");
+        radioButtonSheerEdge.setText("\u5782\u76F4");
         radioButtonSheerEdge.setEnabled(false);
         radioButtonSheerEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -530,7 +530,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
 
         buttonGroup4.add(radioButtonLinearEdge);
         radioButtonLinearEdge.setSelected(true);
-        radioButtonLinearEdge.setText("linear");
+        radioButtonLinearEdge.setText("\u7EBF\u6027");
         radioButtonLinearEdge.setEnabled(false);
         radioButtonLinearEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -543,7 +543,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/edge_linear.png"))); // NOI18N
 
         buttonGroup4.add(radioButtonSmoothEdge);
-        radioButtonSmoothEdge.setText("smooth");
+        radioButtonSmoothEdge.setText("\u5E73\u6ED1");
         radioButtonSmoothEdge.setEnabled(false);
         radioButtonSmoothEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -554,7 +554,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/edge_smooth.png"))); // NOI18N
 
         buttonGroup4.add(radioButtonRoundedEdge);
-        radioButtonRoundedEdge.setText("rounded");
+        radioButtonRoundedEdge.setText("\u5706\u6ED1");
         radioButtonRoundedEdge.setEnabled(false);
         radioButtonRoundedEdge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,7 +564,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/edge_rounded.png"))); // NOI18N
 
-        jLabel21.setText("Hill height:");
+        jLabel21.setText("\u5C71\u4E18\u9AD8\u5EA6:");
 
         spinnerRange.setModel(new javax.swing.SpinnerNumberModel(20, 1, 255, 1));
         spinnerRange.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -573,7 +573,7 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
             }
         });
 
-        jLabel22.setText("Horizontal hill size:");
+        jLabel22.setText("\u5C71\u4E18\u5927\u5C0F:");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(100, 1, 999, 1));
         spinnerScale.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -754,9 +754,9 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Floating Dimension", jPanel1);
+        jTabbedPane1.addTab("悬浮维度", jPanel1);
 
-        jLabel24.setText("<html>You can add custom layers here which will be rendered on the bottom of the floating dimension:<br> <strong>Note:</strong> these layers will be inverted! This includes Custom Objects.<br> A later release will make this optional.</html>");
+        jLabel24.setText("<html>你可以在此处添加自定义覆盖层，这些覆盖层将在悬浮维度的底部渲染:<br> <strong>注意:</strong> 这些覆盖层会被翻转! 包括自定义对象.<br> 之后的版本会将其变为可选项.</html>");
 
         tableRoofLayers.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         tableRoofLayers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -766,28 +766,28 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
         });
         jScrollPane2.setViewportView(tableRoofLayers);
 
-        buttonNewRoofLayer.setText("Create New");
+        buttonNewRoofLayer.setText("新建");
         buttonNewRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNewRoofLayerActionPerformed(evt);
             }
         });
 
-        buttonAddRoofLayer.setText("Copy Existing");
+        buttonAddRoofLayer.setText("复制现有");
         buttonAddRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddRoofLayerActionPerformed(evt);
             }
         });
 
-        buttonEditRoofLayer.setText("Edit");
+        buttonEditRoofLayer.setText("编辑");
         buttonEditRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditRoofLayerActionPerformed(evt);
             }
         });
 
-        buttonRemoveRoofLayer.setText("Remove");
+        buttonRemoveRoofLayer.setText("移除");
         buttonRemoveRoofLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonRemoveRoofLayerActionPerformed(evt);
@@ -833,12 +833,12 @@ public class FloatingLayerDialog extends TunnelLayerDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Bottom Layers", jPanel3);
+        jTabbedPane1.addTab("下边界覆盖层", jPanel3);
 
         jLabel23.setFont(jLabel23.getFont().deriveFont((jLabel23.getFont().getStyle() | java.awt.Font.ITALIC) | java.awt.Font.BOLD, jLabel23.getFont().getSize()+6));
-        jLabel23.setText("LIMITED PREVIEW ");
+        jLabel23.setText("有限预览版");
 
-        jLabel26.setText("<html>This is a limited preview of the floating dimension functionality. It is not finished and<br>may not work correctly. Functionality may change. Please post feedback on the subreddit.</html>");
+        jLabel26.setText("<html>这是悬浮维度功能的有限预览。它尚未完成，且可能无法正常工作。功能可能会有所更改.<br> 请在subreddit子论坛上提供反馈.</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

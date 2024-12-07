@@ -175,6 +175,6 @@ public class TunnelLayersTableModel implements TableModel {
     public static final int COLUMN_MIN_LEVEL = 3;
     public static final int COLUMN_MAX_LEVEL = 4;
     
-    private static final String[] COLUMN_NAMES = {"\u8986\u76d6\u5c42",      "\u57FA\u7840\u786C\u5EA6 (%)", "\u53d8\u79cd (\u767E\u5206\u6BD4)", "\u6700\u4F4E\u9AD8\u5EA6", "\u6700\u5927\u9AD8\u5EA6"};
+    private static final String[] COLUMN_NAMES = {"\u8986\u76D6\u5C42",      "\u57FA\u7840\u786C\u5EA6 (%)", "\u566A\u58F0\u53D8\u5316 (\u767E\u5206\u6BD4)", "\u6700\u4F4E\u9AD8\u5EA6", "\u6700\u5927\u9AD8\u5EA6"};
     private static final Class[] COLUMN_TYPES =  {JLabel.class, Integer.class,        NoiseSettings.class,    Integer.class,   Integer.class};
 }

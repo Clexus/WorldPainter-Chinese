@@ -889,11 +889,11 @@ public class WorldPainter extends WorldPainterView implements MouseMotionListene
                     overlay.setEnabled(false);
                 }
             } else {
-                doLaterOnEventThread(() -> JOptionPane.showMessageDialog(this, "Access denied to overlay image\n" + file, "Error Enabling Overlay", JOptionPane.ERROR_MESSAGE));
+                doLaterOnEventThread(() -> JOptionPane.showMessageDialog(this, "对遮罩图:\n" + file + "\n的访问被拒绝", "开启遮罩图时出错", JOptionPane.ERROR_MESSAGE));
                 overlay.setEnabled(false);
             }
         } else {
-            doLaterOnEventThread(() -> JOptionPane.showMessageDialog(this, "Overlay image file not found\n" + file, "Error Enabling Overlay", JOptionPane.ERROR_MESSAGE));
+            doLaterOnEventThread(() -> JOptionPane.showMessageDialog(this, "无法在此路径找到遮罩图:\n" + file, "开启遮罩图时出错", JOptionPane.ERROR_MESSAGE));
             overlay.setEnabled(false);
         }
     }
@@ -927,7 +927,7 @@ public class WorldPainter extends WorldPainterView implements MouseMotionListene
             }
         } catch (RuntimeException | Error e) {
             logger.error(e.getClass().getSimpleName() + " while scaling image of size " + image.getWidth() + "x" + image.getHeight() + " and type " + image.getType() + " to " + scale + "%", e);
-            doLaterOnEventThread(() -> JOptionPane.showMessageDialog(null, "An error occurred while " + ((scale == 100) ? "optimising" : "scaling") + " the overlay image.\nThere may not be enough available memory, or the image may be too large.", "Error " + ((scale == 100) ? "Optimising" : "Scaling") + " Image", JOptionPane.ERROR_MESSAGE));
+            doLaterOnEventThread(() -> JOptionPane.showMessageDialog(null, ((scale == 100) ? "优化" : "缩放") + "遮罩图时出错.\n可能是因为内存不足或图片过大.", ((scale == 100) ? "优化" : "缩放") + "图片时出错", JOptionPane.ERROR_MESSAGE));
             return null;
         }
     }

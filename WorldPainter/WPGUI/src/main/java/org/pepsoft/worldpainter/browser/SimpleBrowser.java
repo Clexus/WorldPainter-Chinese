@@ -88,7 +88,7 @@ public class SimpleBrowser extends javax.swing.JDialog implements HyperlinkListe
         jEditorPane1 = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Simple Browser");
+        setTitle("\u7B80\u6613\u6D4F\u89C8\u5668");
 
         jEditorPane1.setEditable(false);
         jEditorPane1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N

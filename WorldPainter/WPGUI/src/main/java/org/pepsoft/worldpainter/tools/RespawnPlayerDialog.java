@@ -49,17 +49,17 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
         });
 
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("取消") {
+        actionMap.put("cancel", new AbstractAction("\u53D6\u6D88") {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
-            
+
             private static final long serialVersionUID = 1L;
         });
 
         InputMap inputMap = rootPane.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "cancel");
-        
+
         setLocationRelativeTo(parent);
     }
 
@@ -71,7 +71,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
         } else {
             mySavesDir = DesktopUtils.getDocumentsFolder();
         }
-        File levelDatFile = FileUtils.selectFileForOpen(this, "选择一个Minecraft地图的 level.dat 文件", mySavesDir, new FileFilter() {
+        File levelDatFile = FileUtils.selectFileForOpen(this, "\u9009\u62E9\u4E00\u4E2AMinecraft\u5730\u56FE\u7684 level.dat \u6587\u4EF6", mySavesDir, new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().equalsIgnoreCase("level.dat");
@@ -79,7 +79,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
 
             @Override
             public String getDescription() {
-                return "Minecraft level.dat 文件";
+                return "Minecraft level.dat \u6587\u4EF6";
             }
 
             @Override
@@ -102,7 +102,7 @@ public class RespawnPlayerDialog extends javax.swing.JDialog {
                 config.setSavesDirectory(file.getParentFile().getParentFile());
             }
 
-            JOptionPane.showMessageDialog(this, "玩家已重生");
+            JOptionPane.showMessageDialog(this, "\u73A9\u5BB6\u5DF2\u91CD\u751F");
             dispose();
         } catch (IOException e) {
             throw new RuntimeException("I/O error while reading or writing level.dat", e);

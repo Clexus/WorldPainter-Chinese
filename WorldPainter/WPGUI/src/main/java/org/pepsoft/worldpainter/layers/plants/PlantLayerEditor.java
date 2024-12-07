@@ -472,28 +472,28 @@ public class PlantLayerEditor extends AbstractLayerEditor<PlantLayer> {
         checkBoxOnlyValidBlocks = new javax.swing.JCheckBox();
         paintPicker1 = new org.pepsoft.worldpainter.layers.renderers.PaintPicker();
 
-        buttonClear.setText("Clear");
+        buttonClear.setText("\u6E05\u9664");
         buttonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonClearActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Name:");
+        jLabel1.setText("\u540D\u79F0:");
 
         panelPlantControls.setLayout(new javax.swing.BoxLayout(panelPlantControls, javax.swing.BoxLayout.LINE_AXIS));
 
         checkBoxGenerateTilledDirt.setSelected(true);
-        checkBoxGenerateTilledDirt.setText("turn grass and dirt beneath crops to tilled dirt");
+        checkBoxGenerateTilledDirt.setText("\u5C06\u519C\u4F5C\u7269\u4E0B\u7684\u6CE5\u571F\u6216\u8349\u65B9\u5757\u66FF\u6362\u4E3A\u8015\u5730");
         checkBoxGenerateTilledDirt.setEnabled(false);
 
         fieldName.setColumns(20);
         fieldName.setText("jTextField1");
 
-        jLabel2.setText("Paint:");
+        jLabel2.setText("\u753B\u7B14:");
 
         checkBoxOnlyValidBlocks.setSelected(true);
-        checkBoxOnlyValidBlocks.setText("only place on valid blocks");
+        checkBoxOnlyValidBlocks.setText("\u4EC5\u653E\u7F6E\u4E8E\u6709\u6548\u65B9\u5757\u4E0A");
         checkBoxOnlyValidBlocks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxOnlyValidBlocksActionPerformed(evt);

@@ -66,28 +66,28 @@ public class AddLayerDialog extends WorldPainterDialog {
         buttonOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Layer");
+        setTitle("添加覆盖层");
 
-        jLabel1.setText("Select the layer to add:");
+        jLabel1.setText("选择要添加的覆盖层:");
 
-        jLabel2.setText("Layer:");
+        jLabel2.setText("覆盖层:");
 
         comboBoxLayer.setModel(new DefaultComboBoxModel(allLayers.toArray()));
         comboBoxLayer.setRenderer(new LayerListCellRenderer());
 
-        jLabel3.setText("Factor:");
+        jLabel3.setText("缩放系数:");
 
         spinnerFactor.setModel(new javax.swing.SpinnerNumberModel(100, 1, 1500, 1));
 
         jLabel4.setText("%");
 
-        checkBoxHide.setText("Hide from panel:");
+        checkBoxHide.setText("从面板中隐藏:");
         checkBoxHide.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(this::buttonCancelActionPerformed);
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(this::buttonOKActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

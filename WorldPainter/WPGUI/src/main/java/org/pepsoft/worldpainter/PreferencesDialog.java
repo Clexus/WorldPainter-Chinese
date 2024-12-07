@@ -531,25 +531,25 @@ public class PreferencesDialog extends WorldPainterDialog {
                 editor.setExportSettings(platformDefaultExportSettings);
             }
             final WorldPainterDialog dialog = new WorldPainterDialog(this);
-            dialog.setTitle("Configure Default Post Processing Settings");
+            dialog.setTitle("\u914D\u7F6E\u9ED8\u8BA4\u540E\u5904\u7406\u8BBE\u7F6E");
             dialog.getContentPane().add(editor, CENTER);
             final JPanel panel = new JPanel(new FlowLayout(RIGHT));
             final boolean[] reset = { false };
-            panel.add(new JButton(new AbstractAction("Reset") {
+            panel.add(new JButton(new AbstractAction("\u91CD\u7F6E") {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     reset[0] = true;
                     dialog.ok();
                 }
             }));
-            final JButton okButton = new JButton(new AbstractAction("OK") {
+            final JButton okButton = new JButton(new AbstractAction("\u786E\u8BA4") {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     dialog.ok();
                 }
             });
             panel.add(okButton);
-            panel.add(new JButton(new AbstractAction("Cancel") {
+            panel.add(new JButton(new AbstractAction("\u53d6\u6d88") {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     dialog.cancel();
@@ -563,7 +563,7 @@ public class PreferencesDialog extends WorldPainterDialog {
             if (! dialog.isCancelled()) {
                 if (reset[0]) {
                     defaultExportSettings = null;
-                    showInfo(this, "Default post processing settings reset to default values.", "Default Post Processing Settings Reset");
+                    showInfo(this, "\u9ED8\u8BA4\u540E\u5904\u7406\u8BBE\u7F6E\u5DF2\u88AB\u91CD\u7F6E\u4E3A\u9ED8\u8BA4\u503C.", "\u9ED8\u8BA4\u540E\u5904\u7406\u8BBE\u7F6E\u91CD\u7F6E");
                 } else {
                     defaultExportSettings = editor.getExportSettings();
                 }
@@ -715,10 +715,10 @@ public class PreferencesDialog extends WorldPainterDialog {
         buttonOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Preferences");
+        setTitle("\u504F\u597D\u8BBE\u7F6E");
 
         checkBoxPing.setSelected(true);
-        checkBoxPing.setText("Send usage information to the developer");
+        checkBoxPing.setText("\u5C06\u4F7F\u7528\u4FE1\u606F\u53D1\u9001\u7ED9\u5F00\u53D1\u8005");
         checkBoxPing.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxPingActionPerformed(evt);
@@ -726,51 +726,51 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         jLabel3.setFont(jLabel3.getFont().deriveFont((jLabel3.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel3.setText("Note that the information does not include personally identifiable ");
+        jLabel3.setText("\u4FE1\u606F\u4E0D\u5305\u542B\u80FD\u8BC6\u522B\u4E2A\u4EBA\u7684\u4FE1\u606F");
 
         jLabel4.setFont(jLabel4.getFont().deriveFont((jLabel4.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel4.setText("information, and will never be sold or given to third parties. ");
+        jLabel4.setText("\u4E5F\u7EDD\u4E0D\u4F1A\u51FA\u552E\u6216\u8F6C\u8BA9\u7ED9\u7B2C\u4E09\u65B9. ");
 
         checkBoxCheckForUpdates.setSelected(true);
-        checkBoxCheckForUpdates.setText("Check for updates on startup");
+        checkBoxCheckForUpdates.setText("\u542F\u52A8\u65F6\u68C0\u67E5\u66F4\u65B0");
 
-        jLabel20.setText("No. of backups of .world files to keep:");
+        jLabel20.setText("\u8981\u4FDD\u5B58\u7684 .world \u6587\u4EF6\u6570\u91CF:");
 
         spinnerWorldBackups.setModel(new javax.swing.SpinnerNumberModel(3, 0, null, 1));
 
-        jLabel30.setText("Visual theme:");
+        jLabel30.setText("\u89C6\u89C9\u4E3B\u9898:");
 
-        comboBoxLookAndFeel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "System", "Metal", "Nimbus", "Dark Metal", "Dark Nimbus" }));
+        comboBoxLookAndFeel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u7CFB\u7EDF", "\u91D1\u5C5E", "\u5149\u73AF", "\u6697\u91D1\u5C5E", "\u6697\u5149\u73AF" }));
         comboBoxLookAndFeel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxLookAndFeelActionPerformed(evt);
             }
         });
 
-        jLabel32.setText("<html><em>Effective after restart  </em></html>");
+        jLabel32.setText("<html><em>\u4E0B\u6B21\u542F\u52A8\u751F\u6548  </em></html>");
 
         checkBoxAutoSave.setSelected(true);
-        checkBoxAutoSave.setText("Enable autosave");
+        checkBoxAutoSave.setText("\u5F00\u542F\u81EA\u52A8\u4FDD\u5B58");
         checkBoxAutoSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxAutoSaveActionPerformed(evt);
             }
         });
 
-        jLabel45.setText("Guard time:");
+        jLabel45.setText("\u4FDD\u62A4\u95F4\u9694:");
 
         spinnerAutoSaveGuardTime.setModel(new javax.swing.SpinnerNumberModel(10, 1, 999, 1));
 
-        jLabel46.setText("Autosave interval:");
+        jLabel46.setText("\u81EA\u52A8\u4FDD\u5B58\u95F4\u9694:");
 
         spinnerAutoSaveInterval.setModel(new javax.swing.SpinnerNumberModel(300, 1, 9999, 1));
 
-        jLabel47.setText("seconds");
+        jLabel47.setText("\u79D2");
 
-        jLabel48.setText("seconds");
+        jLabel48.setText("\u79D2");
 
         checkBoxUndo.setSelected(true);
-        checkBoxUndo.setText("Enable undo");
+        checkBoxUndo.setText("\u5F00\u542F\u64A4\u9500");
         checkBoxUndo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxUndoActionPerformed(evt);
@@ -778,12 +778,12 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         jLabel5.setLabelFor(spinnerUndoLevels);
-        jLabel5.setText("Undo levels:");
+        jLabel5.setText("\u53EF\u64A4\u9500\u6B21\u6570:");
 
         spinnerUndoLevels.setModel(new javax.swing.SpinnerNumberModel(25, 1, 999, 1));
 
         jLabel2.setLabelFor(sliderUIScale);
-        jLabel2.setText("UI scale:");
+        jLabel2.setText("UI\u6BD4\u4F8B:");
 
         sliderUIScale.setMajorTickSpacing(25);
         sliderUIScale.setMaximum(400);
@@ -800,7 +800,7 @@ public class PreferencesDialog extends WorldPainterDialog {
         labelUIScale.setText("100 %");
 
         buttonGroup4.add(radioButtonUIScaleAuto);
-        radioButtonUIScaleAuto.setText("auto:");
+        radioButtonUIScaleAuto.setText("\u81EA\u52A8:");
         radioButtonUIScaleAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonUIScaleAutoActionPerformed(evt);
@@ -808,7 +808,7 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         buttonGroup4.add(radioButtonUIScaleManual);
-        radioButtonUIScaleManual.setText("manual:");
+        radioButtonUIScaleManual.setText("\u624B\u52A8:");
         radioButtonUIScaleManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonUIScaleManualActionPerformed(evt);
@@ -817,24 +817,24 @@ public class PreferencesDialog extends WorldPainterDialog {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jLabel49.setText("Backup settings");
+        jLabel49.setText("\u5907\u4EFD\u8BBE\u7F6E");
 
-        jLabel50.setText("Minimum free space on drive:");
+        jLabel50.setText("\u9A71\u52A8\u5668\u4E0A\u7684\u6700\u5C0F\u53EF\u7528\u7A7A\u95F4:");
 
         spinnerFreeSpaceForMaps.setModel(new javax.swing.SpinnerNumberModel(2, 1, 999, 1));
 
         jLabel51.setText("GB");
 
         checkBoxAutoDeleteBackups.setSelected(true);
-        checkBoxAutoDeleteBackups.setText("Offer to delete old map backups on Export and Merge as necessary");
+        checkBoxAutoDeleteBackups.setText("\u6839\u636E\u9700\u8981\uFF0C\u5728\u5BFC\u51FA\u548C\u5408\u5E76\u65F6\u5220\u9664\u65E7\u5730\u56FE\u5907\u4EFD");
         checkBoxAutoDeleteBackups.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxAutoDeleteBackupsActionPerformed(evt);
             }
         });
 
-        buttonCleanUpBackupsNow.setText("Clean Up Backups Now");
-        buttonCleanUpBackupsNow.setToolTipText("Delete backups, oldest first, until there is at least the indicated amount of space free");
+        buttonCleanUpBackupsNow.setText("\u73B0\u5728\u5C31\u6E05\u9664\u5907\u4EFD\u6587\u4EF6");
+        buttonCleanUpBackupsNow.setToolTipText("\u5220\u9664\u5907\u4EFD\uFF0C\u5148\u5220\u9664\u6700\u65E7\u7684\u5907\u4EFD\uFF0C\u76F4\u5230\u81F3\u5C11\u6709\u6307\u5B9A\u7684\u53EF\u7528\u7A7A\u95F4");
         buttonCleanUpBackupsNow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCleanUpBackupsNowActionPerformed(evt);
@@ -985,53 +985,53 @@ public class PreferencesDialog extends WorldPainterDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("General", jPanel1);
+        jTabbedPane1.addTab("\u5168\u5C40\u8BBE\u7F6E", jPanel1);
 
-        jLabel1.setText("Configure your default settings on this screen:");
+        jLabel1.setText("\u5728\u6B64\u754C\u9762\u7F16\u8F91\u4F60\u7684\u9ED8\u8BA4\u8BBE\u7F6E:");
 
         jLabel18.setFont(jLabel18.getFont().deriveFont((jLabel18.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel18.setText("(Note that changes to these settings will only take effect for the next world you load or create.) ");
+        jLabel18.setText("(\u8BF7\u6CE8\u610F\u8FD9\u4E9B\u66F4\u6539\u53EA\u4F1A\u5728\u4F60\u521B\u5EFA\u4E0B\u4E00\u4E2A\u4E16\u754C\u65F6\u624D\u5F00\u59CB\u751F\u6548.) ");
 
         jLabel6.setFont(jLabel6.getFont().deriveFont((jLabel6.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel6.setText("Default view settings ");
+        jLabel6.setText("\u9ED8\u8BA4\u89C6\u56FE\u8BBE\u7F6E ");
 
-        checkBoxGrid.setText("Grid enabled");
+        checkBoxGrid.setText("\u5F00\u542F\u7F51\u683C");
 
         checkBoxContours.setSelected(true);
-        checkBoxContours.setText("Contour lines enabled");
+        checkBoxContours.setText("\u5F00\u542F\u7B49\u9AD8\u7EBF");
 
-        checkBoxViewDistance.setText("View distance enabled");
+        checkBoxViewDistance.setText("\u5F00\u542F\u89C6\u8DDD");
 
-        jLabel22.setText("Light direction:");
+        jLabel22.setText("\u5149\u7167\u65B9\u5411:");
 
         comboBoxLightDirection.setModel(new DefaultComboBoxModel(LightOrigin.values()));
         comboBoxLightDirection.setRenderer(new EnumListCellRenderer());
 
         jLabel7.setLabelFor(spinnerGrid);
-        jLabel7.setText("Grid size:");
+        jLabel7.setText("\u7F51\u683C\u5C3A\u5BF8:");
 
         spinnerGrid.setModel(new javax.swing.SpinnerNumberModel(128, 2, 999, 1));
 
-        jLabel8.setText("Separation:");
+        jLabel8.setText("\u5206\u5272\u95F4\u9694:");
 
         spinnerContours.setModel(new javax.swing.SpinnerNumberModel(10, 2, 999, 1));
 
-        checkBoxWalkingDistance.setText("Walking distance enabled");
+        checkBoxWalkingDistance.setText("\u5F00\u542F\u884C\u8D70\u8DDD\u79BB");
 
-        jLabel26.setText("Maximum brush size:");
+        jLabel26.setText("\u6700\u5927\u7B14\u5237\u5927\u5C0F:");
 
         spinnerBrushSize.setModel(new javax.swing.SpinnerNumberModel(300, 100, null, 10));
 
         jLabel21.setText(" ");
 
         jLabel27.setFont(jLabel27.getFont().deriveFont((jLabel27.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel27.setText("Warning: large brush sizes could slow your computer to a crawl! ");
+        jLabel27.setText("\u8B66\u544A: \u8FC7\u5927\u7684\u7B14\u5237\u5927\u5C0F\u53EF\u80FD\u4F1A\u8BA9\u4F60\u7684\u7535\u8111\u5361\u987F! ");
 
         jLabel9.setFont(jLabel9.getFont().deriveFont((jLabel9.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel9.setText("Default world settings ");
+        jLabel9.setText("\u9ED8\u8BA4\u4E16\u754C\u8BBE\u7F6E ");
 
         jLabel10.setLabelFor(spinnerWidth);
-        jLabel10.setText("Dimensions:");
+        jLabel10.setText("\u7EF4\u5EA6:");
 
         spinnerWidth.setModel(new javax.swing.SpinnerNumberModel(640, 128, null, 128));
         spinnerWidth.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1049,10 +1049,10 @@ public class PreferencesDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel19.setText("blocks");
+        jLabel19.setText("\u683C");
 
         jLabel12.setLabelFor(comboBoxHeight);
-        jLabel12.setText("Height:");
+        jLabel12.setText("\u9AD8\u5EA6:");
 
         comboBoxHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1060,36 +1060,36 @@ public class PreferencesDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel13.setText("Topography:");
+        jLabel13.setText("\u5730\u5F62:");
 
         buttonGroup1.add(radioButtonHilly);
         radioButtonHilly.setSelected(true);
-        radioButtonHilly.setText("Hilly");
+        radioButtonHilly.setText("\u8D77\u4F0F");
         radioButtonHilly.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonHillyActionPerformed(evt);
             }
         });
 
-        jLabel23.setText("(height:");
+        jLabel23.setText("(\u9AD8\u5EA6:");
 
         spinnerRange.setModel(new javax.swing.SpinnerNumberModel(20, 1, 255, 1));
 
-        jLabel24.setText("scale:");
+        jLabel24.setText("\u7F29\u653E:");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(100, 1, 999, 1));
 
         jLabel25.setText("%)");
 
         buttonGroup1.add(radioButtonFlat);
-        radioButtonFlat.setText("Flat");
+        radioButtonFlat.setText("\u5E73\u5766");
         radioButtonFlat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonFlatActionPerformed(evt);
             }
         });
 
-        checkBoxCircular.setText("Circular world");
+        checkBoxCircular.setText("\u5706\u5F62\u4E16\u754C");
         checkBoxCircular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxCircularActionPerformed(evt);
@@ -1097,11 +1097,11 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         jLabel14.setLabelFor(spinnerGroundLevel);
-        jLabel14.setText("Level:");
+        jLabel14.setText("\u9AD8\u5EA6:");
 
         spinnerGroundLevel.setModel(new javax.swing.SpinnerNumberModel(58, 1, 255, 1));
 
-        jLabel15.setText("Water level:");
+        jLabel15.setText("\u6C34\u5E73\u9762\u9AD8\u5EA6:");
 
         spinnerWaterLevel.setModel(new javax.swing.SpinnerNumberModel(62, 0, 255, 1));
         spinnerWaterLevel.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1110,17 +1110,17 @@ public class PreferencesDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxLava.setText("Lava instead of water");
+        checkBoxLava.setText("\u7528\u5ca9\u6d46\u66ff\u6362\u6c34");
 
         checkBoxBeaches.setSelected(true);
-        checkBoxBeaches.setText("Beaches");
+        checkBoxBeaches.setText("\u6D77\u6EE9");
         checkBoxBeaches.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxBeachesActionPerformed(evt);
             }
         });
 
-        jLabel16.setText("Surface material:");
+        jLabel16.setText("\u8868\u9762\u6750\u8D28:");
 
         comboBoxSurfaceMaterial.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBoxSurfaceMaterial.addActionListener(new java.awt.event.ActionListener() {
@@ -1129,9 +1129,9 @@ public class PreferencesDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxExtendedBlockIds.setText("Extended block ID's");
+        checkBoxExtendedBlockIds.setText("\u6269\u5C55\u65B9\u5757ID");
 
-        buttonReset.setText("Reset...");
+        buttonReset.setText("\u91CD\u7F6E...");
         buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetActionPerformed(evt);
@@ -1139,7 +1139,7 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         labelTerrainAndLayerSettings.setForeground(java.awt.Color.blue);
-        labelTerrainAndLayerSettings.setText("<html><u>Configure default border, terrain and layer settings</u></html>");
+        labelTerrainAndLayerSettings.setText("<html><u>\u914D\u7F6E\u9ED8\u8BA4\u8FB9\u754C, \u65B9\u5757\u548C\u8986\u76D6\u5C42\u8BBE\u7F6E</u></html>");
         labelTerrainAndLayerSettings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelTerrainAndLayerSettings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1148,11 +1148,11 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         jLabel17.setFont(jLabel17.getFont().deriveFont((jLabel17.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel17.setText("Default export settings");
+        jLabel17.setText("\u9ED8\u8BA4\u5BFC\u51FA\u8BBE\u7F6E");
 
-        checkBoxChestOfGoodies.setText("Include chest of goodies");
+        checkBoxChestOfGoodies.setText("\u5305\u542B\u5956\u52B1\u7BB1");
 
-        jLabel28.setText("World type:");
+        jLabel28.setText("\u4E16\u754C\u7C7B\u578B:");
 
         comboBoxWorldType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1167,9 +1167,9 @@ public class PreferencesDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxStructures.setText("Structures");
+        checkBoxStructures.setText("\u7ED3\u6784");
 
-        jLabel29.setText("Mode:");
+        jLabel29.setText("\u6E38\u620F\u6A21\u5F0F:");
 
         comboBoxMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1177,9 +1177,9 @@ public class PreferencesDialog extends WorldPainterDialog {
             }
         });
 
-        checkBoxCheats.setText("Allow Cheats");
+        checkBoxCheats.setText("\u5141\u8BB8\u4F5C\u5F0A");
 
-        jLabel52.setText("Map format:");
+        jLabel52.setText("\u5730\u56FE\u683C\u5F0F:");
 
         comboBoxPlatform.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1188,7 +1188,7 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         labelEditExportSettingsLink.setForeground(new java.awt.Color(0, 0, 255));
-        labelEditExportSettingsLink.setText("<html><u>Configure default post processing settings</u></html>");
+        labelEditExportSettingsLink.setText("<html><u>\u914D\u7F6E\u9ED8\u8BA4\u540E\u5904\u7406\u8BBE\u7F6E</u></html>");
         labelEditExportSettingsLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelEditExportSettingsLink.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1197,7 +1197,7 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         checkBoxResourcesEverywhere.setSelected(true);
-        checkBoxResourcesEverywhere.setText("Resources everywhere");
+        checkBoxResourcesEverywhere.setText("\u968F\u5904\u751F\u6210\u8D44\u6E90");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -1424,14 +1424,14 @@ public class PreferencesDialog extends WorldPainterDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Defaults", jPanel5);
+        jTabbedPane1.addTab("\u9ED8\u8BA4\u503C", jPanel5);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Hardware Acceleration"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("\u786C\u4EF6\u52A0\u901F"));
 
-        jLabel31.setText("<html>Select a method of hardware accelerated painting. Experiment with this<br>to improve the general editor performance or solve visual problems:</html>");
+        jLabel31.setText("<html>\u9009\u62E9\u4E00\u79CD\u786C\u4EF6\u52A0\u901F\u65B9\u6CD5. \u5C1D\u8BD5\u4E00\u4E0B\uFF0C\u4EE5\u63D0\u9AD8\u901A\u7528\u7F16\u8F91\u5668\u7684\u6027\u80FD\u6216\u89E3\u51B3\u89C6\u89C9\u95EE\u9898:</html>");
 
         buttonGroup2.add(radioButtonAccelDefault);
-        radioButtonAccelDefault.setText("Default");
+        radioButtonAccelDefault.setText("\u9ED8\u8BA4");
 
         buttonGroup2.add(radioButtonAccelDirect3D);
         radioButtonAccelDirect3D.setText("Direct3D");
@@ -1446,21 +1446,21 @@ public class PreferencesDialog extends WorldPainterDialog {
         radioButtonAccelXRender.setText("XRender");
 
         buttonGroup2.add(radioButtonAccelUnaccelerated);
-        radioButtonAccelUnaccelerated.setText("Unaccelerated");
+        radioButtonAccelUnaccelerated.setText("\u4E0D\u52A0\u901F");
 
-        jLabel33.setText("Disable all hardware acceleration");
+        jLabel33.setText("\u5173\u95ED\u6240\u6709\u786C\u4EF6\u52A0\u901F");
 
-        jLabel34.setText("Uses the XRender X11 extension on Linux");
+        jLabel34.setText("\u5728Linux\u4E0A\u4F7F\u7528 XRender X11 \u6269\u5C55");
 
-        jLabel36.setText("<html><em>Effective after restart  </em></html>");
+        jLabel36.setText("<html><em>\u91CD\u542F\u540E\u751F\u6548  </em></html>");
 
-        jLabel37.setText("Uses the OpenGL rendering system ");
+        jLabel37.setText("\u4F7F\u7528 OpenGL \u6E32\u67D3\u7CFB\u7EDF ");
 
-        jLabel38.setText("Uses the Direct3D rendering system on Windows");
+        jLabel38.setText("\u5728 Windows \u4F7F\u7528 Direct3D \u6E32\u67D3\u7CFB\u7EDF");
 
-        jLabel39.setText("Uses Java's default rendering settings");
+        jLabel39.setText("\u4F7F\u7528 Java \u9ED8\u8BA4\u6E32\u67D3\u8BBE\u7F6E");
 
-        jLabel35.setText("Uses Apple's Quartz rendering system on Mac OS X");
+        jLabel35.setText("\u5728 Mac OS X \u4E0A\u4F7F\u7528\u82F9\u679C\u7684 Quartz \u6E32\u67D3\u7CFB\u7EDF");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1522,27 +1522,27 @@ public class PreferencesDialog extends WorldPainterDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Overlay Scaling and Painting"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("\u906E\u7F69\u56FE\u7F29\u653E\u548C\u7ED8\u5236"));
 
-        jLabel40.setText("<html>Select a method of overlay image scaling and painting. Experiment<br>with this to improve overlay image performance:</html>");
+        jLabel40.setText("<html>\u9009\u62E9\u4E00\u79CD\u906E\u7F69\u56FE\u7F29\u653E\u548C\u7ED8\u5236\u7684\u65B9\u6CD5. \u5C1D\u8BD5\u9009\u62E9\u4EE5\u63D0\u9AD8\u906E\u7F69\u56FE\u6027\u80FD:</html>");
 
-        jLabel41.setText("<html><em>Effective after reload  </em></html>");
+        jLabel41.setText("<html><em>\u91CD\u542F\u540E\u751F\u6548  </em></html>");
 
         buttonGroup3.add(radioButtonOverlayScaleOnLoad);
-        radioButtonOverlayScaleOnLoad.setText("Scale on load");
+        radioButtonOverlayScaleOnLoad.setText("\u52A0\u8F7D\u65F6\u7F29\u653E");
 
         buttonGroup3.add(radioButtonOverlayOptimiseOnLoad);
-        radioButtonOverlayOptimiseOnLoad.setText("<html>Optimise on load,<br>scale on paint</html>");
+        radioButtonOverlayOptimiseOnLoad.setText("<html>\u52A0\u8F7D\u65F6\u4F18\u5316,<br>\u7ED8\u5236\u65F6\u7F29\u653E</html>");
         radioButtonOverlayOptimiseOnLoad.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         buttonGroup3.add(radioButtonOverlayScaleOnPaint);
-        radioButtonOverlayScaleOnPaint.setText("Scale on paint");
+        radioButtonOverlayScaleOnPaint.setText("\u7ED8\u5236\u65F6\u7F29\u653E");
 
-        jLabel42.setText("<html>Optimises the image when it is first loaded,<br>but scales it when painting. Uses less memory.</html>");
+        jLabel42.setText("<html>\u5728\u9996\u6B21\u52A0\u8F7D\u56FE\u50CF\u65F6\u5BF9\u5176\u8FDB\u884C\u4F18\u5316\uFF0C<br>\u4F46\u5728\u7ED8\u753B\u65F6\u5BF9\u5176\u7F29\u653E\u3002\u4F7F\u7528\u66F4\u5C11\u7684\u5185\u5B58.</html>");
 
-        jLabel43.setText("<html>Scales and optimises the image in memory<br>when it is first loaded. Uses a lot of memory.</html>");
+        jLabel43.setText("<html>\u9996\u6B21\u52A0\u8F7D\u65F6\uFF0C\u7F29\u653E\u548C\u4F18\u5316\u5185\u5B58\u4E2D\u7684\u56FE\u50CF<br>\u3002\u4F7F\u7528\u5927\u91CF\u5185\u5B58.</html>");
 
-        jLabel44.setText("<html>Does not optimise the image at all and<br>scales it when painting. Uses least memory.</html>");
+        jLabel44.setText("<html>\u6839\u672C\u4E0D\u4F18\u5316\u56FE\u50CF\uFF0C\u5E76\u4E14\u5728\u7ED8\u753B\u65F6\u5BF9\u5176\u8FDB\u884C\u7F29\u653E\u3002\u4F7F\u7528\u6700\u5C11\u7684\u5185\u5B58.</html>");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1587,12 +1587,12 @@ public class PreferencesDialog extends WorldPainterDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Exporting"));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("\u5BFC\u51FA"));
 
-        jLabel53.setText("Maximum thread count:");
+        jLabel53.setText("\u6700\u5927\u7EBF\u7A0B\u6570\u91CF:");
 
         buttonGroup5.add(radioButtonThreadCountAuto);
-        radioButtonThreadCountAuto.setText("manage automatically");
+        radioButtonThreadCountAuto.setText("\u81EA\u52A8\u7BA1\u7406");
         radioButtonThreadCountAuto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonThreadCountAutoActionPerformed(evt);
@@ -1600,7 +1600,7 @@ public class PreferencesDialog extends WorldPainterDialog {
         });
 
         buttonGroup5.add(radioButtonThreadCountManual);
-        radioButtonThreadCountManual.setText("manual:");
+        radioButtonThreadCountManual.setText("\u624B\u52A8\u8BBE\u7F6E:");
         radioButtonThreadCountManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonThreadCountManualActionPerformed(evt);
@@ -1609,7 +1609,7 @@ public class PreferencesDialog extends WorldPainterDialog {
 
         spinnerManualThreadCount.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
-        jLabel54.setText("<html><i>Effective on next Export </i></html>");
+        jLabel54.setText("<html><i>\u4E0B\u6B21\u5BFC\u51FA\u65F6\u751F\u6548 </i></html>");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1671,16 +1671,16 @@ public class PreferencesDialog extends WorldPainterDialog {
                 .addContainerGap(77, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Performance", jPanel2);
+        jTabbedPane1.addTab("\u6027\u80FD", jPanel2);
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);

@@ -547,35 +547,35 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Select Custom Material");
+        setTitle("\u9009\u62E9\u81EA\u5B9A\u4E49\u6750\u8D28");
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Name:");
+        jLabel2.setText("\u540D\u79F0:");
 
         fieldName.setColumns(20);
 
-        jLabel5.setText("Colour:");
+        jLabel5.setText("\u989C\u8272:");
 
         labelColour.setText("                 ");
-        labelColour.setToolTipText("Select to override actual block colours");
+        labelColour.setToolTipText("\u9009\u62E9\u4EE5\u8986\u76D6\u65B9\u5757\u771F\u5B9E\u989C\u8272");
         labelColour.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         labelColour.setOpaque(true);
 
@@ -588,7 +588,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         });
 
         checkBoxColour.setText(" ");
-        checkBoxColour.setToolTipText("Select to override actual block colours");
+        checkBoxColour.setToolTipText("\u9009\u62E9\u4EE5\u8986\u76D6\u65B9\u5757\u771F\u5B9E\u989C\u8272");
         checkBoxColour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxColourActionPerformed(evt);
@@ -609,7 +609,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         );
 
         buttonLoad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/folder_page_white.png"))); // NOI18N
-        buttonLoad.setToolTipText("Load this custom material from a file");
+        buttonLoad.setToolTipText("\u7531\u6587\u4EF6\u52A0\u8F7D\u6B64\u81EA\u5B9A\u4E49\u6750\u8D28");
         buttonLoad.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -618,7 +618,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         });
 
         buttonSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/disk.png"))); // NOI18N
-        buttonSave.setToolTipText("Save this custom material to a file");
+        buttonSave.setToolTipText("\u4FDD\u5B58\u6B64\u81EA\u5B9A\u4E49\u6750\u8D28\u81F3\u6587\u4EF6");
         buttonSave.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -645,7 +645,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
                 .addGap(0, 222, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Simple", jPanel3);
+        jTabbedPane1.addTab("\u7B80\u5355", jPanel3);
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(100, 1, 9999, 1));
         spinnerScale.setEnabled(false);
@@ -655,14 +655,14 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
             }
         });
 
-        buttonAddMaterial.setText("Add Material");
+        buttonAddMaterial.setText("\u6DFB\u52A0\u6750\u8D28");
         buttonAddMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddMaterialActionPerformed(evt);
             }
         });
 
-        buttonRemoveMaterial.setText("Remove Material");
+        buttonRemoveMaterial.setText("\u79FB\u9664\u6750\u8D28");
         buttonRemoveMaterial.setEnabled(false);
         buttonRemoveMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -670,7 +670,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
             }
         });
 
-        jLabel6.setText("Variation:");
+        jLabel6.setText("\u53D8\u5316:");
 
         spinnerLayeredXAngle.setModel(new javax.swing.SpinnerNumberModel(0, -89, 89, 1));
         spinnerLayeredXAngle.setEnabled(false);
@@ -680,7 +680,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
             }
         });
 
-        jLabel9.setText("Z-axis angle:");
+        jLabel9.setText("Z\u8F74\u89D2\u5EA6:");
 
         tableMaterialRows.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -695,9 +695,9 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         ));
         jScrollPane1.setViewportView(tableMaterialRows);
 
-        jLabel7.setText("X-axis angle:");
+        jLabel7.setText("X\u8F74\u89D2\u5EA6:");
 
-        jLabel3.setText("Scale:");
+        jLabel3.setText("\u7F29\u653E:");
 
         noiseSettingsEditorLayeredVariation.setEnabled(false);
         noiseSettingsEditorLayeredVariation.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -707,7 +707,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         });
 
         buttonGroup1.add(radioButtonLayered);
-        radioButtonLayered.setText("Layers");
+        radioButtonLayered.setText("\u8986\u76D6\u5C42");
         radioButtonLayered.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonLayeredActionPerformed(evt);
@@ -716,7 +716,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
 
         buttonGroup1.add(radioButtonNoise);
         radioButtonNoise.setSelected(true);
-        radioButtonNoise.setText("Noise");
+        radioButtonNoise.setText("\u566A\u58F0");
         radioButtonNoise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonNoiseActionPerformed(evt);
@@ -727,17 +727,17 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
         spinnerLayeredYAngle.setEnabled(false);
 
         buttonGroup1.add(radioButtonBlobs);
-        radioButtonBlobs.setText("Blobs");
+        radioButtonBlobs.setText("\u6591\u70B9");
         radioButtonBlobs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonBlobsActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Select the block ID and data value(s) for your custom material:");
+        jLabel1.setText("\u4E3A\u4F60\u7684\u81EA\u5B9A\u4E49\u6750\u8D28\u9009\u62E9\u65B9\u5757\u548C\u6570\u636E\u503C:");
 
         checkBoxLayeredRepeat.setSelected(true);
-        checkBoxLayeredRepeat.setText("Repeat:");
+        checkBoxLayeredRepeat.setText("\u91CD\u590D:");
         checkBoxLayeredRepeat.setEnabled(false);
         checkBoxLayeredRepeat.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkBoxLayeredRepeat.addActionListener(new java.awt.event.ActionListener() {
@@ -824,7 +824,7 @@ public class CustomMaterialDialog extends WorldPainterDialog implements Property
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Complex", jPanel2);
+        jTabbedPane1.addTab("\u590D\u6742", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

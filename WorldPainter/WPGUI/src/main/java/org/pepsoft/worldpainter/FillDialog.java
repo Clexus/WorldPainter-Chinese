@@ -177,27 +177,27 @@ public class FillDialog extends WPDialogWithPaintSelection implements Listener, 
                 @Override
                 public String getName() {
                     if (radioButtonTerrain.isSelected()) {
-                        return "Filling with " + ((Terrain) comboBoxTerrain.getSelectedItem()).getName();
+                        return "\u4F7F\u7528 " + ((Terrain) comboBoxTerrain.getSelectedItem()).getName() + " \u586B\u5145";
                     } else if (radioButtonSetLayer.isSelected()) {
-                        return "Filling with " + ((Layer) comboBoxSetLayer.getSelectedItem()).getName();
+                        return "\u4F7F\u7528 " + ((Layer) comboBoxSetLayer.getSelectedItem()).getName()+" \u586B\u5145";
                     } else if (radioButtonClearLayer.isSelected()) {
-                        return "Clearing " + ((Layer) comboBoxClearLayer.getSelectedItem()).getName();
+                        return "\u6E05\u9664 " + ((Layer) comboBoxClearLayer.getSelectedItem()).getName();
                     } else if (radioButtonInvertLayer.isSelected()) {
-                        return "Inverting " + ((Layer) comboBoxInvertLayer.getSelectedItem()).getName();
+                        return "\u9006\u8F6C " + ((Layer) comboBoxInvertLayer.getSelectedItem()).getName();
                     } else if (radioButtonBiome.isSelected()) {
-                        return "Filling with " + biomeHelper.getBiomeName((Integer) comboBoxBiome.getSelectedItem());
+                        return "\u4F7F\u7528 " + biomeHelper.getBiomeName((Integer) comboBoxBiome.getSelectedItem()) + " \u586B\u5145";
                     } else if (radioButtonResetBiomes.isSelected()) {
-                        return "Resetting biomes to automatic";
+                        return "\u5C06\u751F\u7269\u7FA4\u7CFB\u91CD\u7F6E\u4E3A\u81EA\u52A8";
                     } else if (radioButtonResetWater.isSelected()) {
-                        return "Resetting water or lava";
+                        return "\u91CD\u7F6E\u6C34/\u5CA9\u6D46\u72B6\u6001";
                     } else if (radioButtonResetTerrain.isSelected()) {
-                        return "Resetting terrain types";
+                        return "\u91CD\u7F6E\u65B9\u5757\u7C7B\u578B";
                     } else if (radioButtonMakeBiomesPermanent.isSelected()) {
-                        return "Making automatic biomes permanent";
+                        return "\u4F7F\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB\u6C38\u4E45\u5316";
                     } else if (radioButtonAddToSelection.isSelected()) {
-                        return "Adding to selection";
+                        return "\u6DFB\u52A0\u81F3\u9009\u533A";
                     } else if (radioButtonRemoveFromSelection.isSelected()) {
-                        return "Removing from selection";
+                        return "\u4ECE\u9009\u533A\u79FB\u9664";
                     } else {
                         throw new InternalError();
                     }
@@ -244,7 +244,7 @@ public class FillDialog extends WPDialogWithPaintSelection implements Listener, 
                 if (! checkBoxKeepOpen.isSelected()) {
                     ok();
                 } else {
-                    buttonCancel.setText("Close");
+                    buttonCancel.setText("\u5173\u95ED");
                 }
             }
         } finally {
@@ -492,7 +492,7 @@ public class FillDialog extends WPDialogWithPaintSelection implements Listener, 
             }
         }, progressReceiver);
     }
-    
+
     private void resetBiomes(ProgressReceiver progressReceiver) throws OperationCancelled {
         if (filter == null) {
             dimension.clearLayerData(Biome.INSTANCE);
@@ -536,7 +536,7 @@ public class FillDialog extends WPDialogWithPaintSelection implements Listener, 
             }
         }, progressReceiver);
     }
-    
+
     private void resetWater(ProgressReceiver progressReceiver) throws OperationCancelled, UnsupportedOperationException {
         TileFactory tileFactory = dimension.getTileFactory();
         if (tileFactory instanceof HeightMapTileFactory) {
@@ -765,7 +765,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
             }, progressReceiver);
         }
     }
-    
+
     private void selectOnMap(JComboBox<?> comboBox, PaintType... paintTypes) {
         selectFromMap(EnumSet.copyOf(Arrays.asList(paintTypes)), new SelectionListener() {
             @Override
@@ -835,18 +835,18 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Global Operations");
+        setTitle("\u5168\u5C40\u64CD\u4F5C");
 
-        jLabel1.setText("Perform a global operation:");
+        jLabel1.setText("\u6267\u884C\u5168\u5C40\u64CD\u4F5C:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonFill.setText("Go");
+        buttonFill.setText("\u786E\u8BA4");
         buttonFill.setEnabled(false);
         buttonFill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -865,7 +865,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         comboBoxBiome.setEnabled(false);
 
         buttonGroup1.add(radioButtonSetLayer);
-        radioButtonSetLayer.setText("fill with layer:");
+        radioButtonSetLayer.setText("\u4F7F\u7528\u8986\u76D6\u5C42\u586B\u5145:");
         radioButtonSetLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonSetLayerActionPerformed(evt);
@@ -873,7 +873,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonResetBiomes);
-        radioButtonResetBiomes.setText("reset biomes to automatic");
+        radioButtonResetBiomes.setText("\u5C06\u751F\u7269\u7FA4\u7CFB\u91CD\u7F6E\u4E3A\u81EA\u52A8");
         radioButtonResetBiomes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonResetBiomesActionPerformed(evt);
@@ -881,7 +881,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonClearLayer);
-        radioButtonClearLayer.setText("remove a layer:");
+        radioButtonClearLayer.setText("\u79FB\u9664\u4E00\u4E2A\u8986\u76D6\u5C42:");
         radioButtonClearLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonClearLayerActionPerformed(evt);
@@ -889,8 +889,8 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonResetTerrain);
-        radioButtonResetTerrain.setText("reset terrain and layers to theme");
-        radioButtonResetTerrain.setToolTipText("Reset the terrain type of the entire map to the altitude-dependent default");
+        radioButtonResetTerrain.setText("\u5C06\u65B9\u5757\u548C\u8986\u76D6\u5C42\u91CD\u7F6E\u4E3A\u4E3B\u9898\u9ED8\u8BA4\u503C");
+        radioButtonResetTerrain.setToolTipText("\u5C06\u6574\u4E2A\u5730\u56FE\u7684\u65B9\u5757\u7C7B\u578B\u91CD\u7F6E\u4E3A\u9AD8\u5EA6\u76F8\u5173\u7684\u9ED8\u8BA4\u503C");
         radioButtonResetTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonResetTerrainActionPerformed(evt);
@@ -898,7 +898,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonTerrain);
-        radioButtonTerrain.setText("fill with terrain type:");
+        radioButtonTerrain.setText("\u4F7F\u7528\u65B9\u5757\u7C7B\u578B\u586B\u5145:");
         radioButtonTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonTerrainActionPerformed(evt);
@@ -908,8 +908,8 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         comboBoxClearLayer.setEnabled(false);
 
         buttonGroup1.add(radioButtonResetWater);
-        radioButtonResetWater.setText("reset all water or lava");
-        radioButtonResetWater.setToolTipText("This resets the fluid level and type (water or lava) to the default everywhere");
+        radioButtonResetWater.setText("\u91CD\u7F6E\u6240\u6709\u6C34\u6216\u5CA9\u6D46");
+        radioButtonResetWater.setToolTipText("\u8FD9\u4F1A\u5C06\u5404\u5904\u7684\u6DB2\u4F53\u9AD8\u5EA6\u548C\u7C7B\u578B\uFF08\u6C34\u6216\u5CA9\u6D46\uFF09\u91CD\u7F6E\u4E3A\u9ED8\u8BA4\u503C");
         radioButtonResetWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonResetWaterActionPerformed(evt);
@@ -930,7 +930,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         comboBoxTerrain.setRenderer(new TerrainListCellRenderer(colourScheme));
 
         buttonGroup1.add(radioButtonInvertLayer);
-        radioButtonInvertLayer.setText("invert a layer:");
+        radioButtonInvertLayer.setText("\u9006\u8F6C\u4E00\u4E2A\u8986\u76D6\u5C42:");
         radioButtonInvertLayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonInvertLayerActionPerformed(evt);
@@ -938,7 +938,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonBiome);
-        radioButtonBiome.setText("fill with biome:");
+        radioButtonBiome.setText("\u4F7F\u7528\u751F\u7269\u7FA4\u7CFB\u586B\u5145:");
         radioButtonBiome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonBiomeActionPerformed(evt);
@@ -946,7 +946,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonMakeBiomesPermanent);
-        radioButtonMakeBiomesPermanent.setText("make automatic biomes permanent");
+        radioButtonMakeBiomesPermanent.setText("\u4F7F\u81EA\u52A8\u751F\u7269\u7FA4\u7CFB\u6C38\u4E45\u5316");
         radioButtonMakeBiomesPermanent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonMakeBiomesPermanentActionPerformed(evt);
@@ -954,7 +954,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonAddToSelection);
-        radioButtonAddToSelection.setText("add to selection");
+        radioButtonAddToSelection.setText("\u6DFB\u52A0\u81F3\u9009\u533A");
         radioButtonAddToSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonAddToSelectionActionPerformed(evt);
@@ -962,7 +962,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonGroup1.add(radioButtonRemoveFromSelection);
-        radioButtonRemoveFromSelection.setText("remove from selection");
+        radioButtonRemoveFromSelection.setText("\u4ECE\u9009\u533A\u79FB\u9664");
         radioButtonRemoveFromSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonRemoveFromSelectionActionPerformed(evt);
@@ -970,7 +970,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonFillTerrainSelectOnMap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/eyedropper.png"))); // NOI18N
-        buttonFillTerrainSelectOnMap.setToolTipText("Select a terrain type from the map.");
+        buttonFillTerrainSelectOnMap.setToolTipText("\u9009\u62E9\u4E00\u4E2A\u5730\u56FE\u4E2D\u7684\u65B9\u5757\u79CD\u7C7B.");
         buttonFillTerrainSelectOnMap.setEnabled(false);
         buttonFillTerrainSelectOnMap.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonFillTerrainSelectOnMap.addActionListener(new java.awt.event.ActionListener() {
@@ -980,7 +980,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonFillLayerSelectOnMap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/eyedropper.png"))); // NOI18N
-        buttonFillLayerSelectOnMap.setToolTipText("Select a layer from the map.");
+        buttonFillLayerSelectOnMap.setToolTipText("\u9009\u62E9\u4E00\u4E2A\u5730\u56FE\u4E2D\u7684\u8986\u76D6\u5C42.");
         buttonFillLayerSelectOnMap.setEnabled(false);
         buttonFillLayerSelectOnMap.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonFillLayerSelectOnMap.addActionListener(new java.awt.event.ActionListener() {
@@ -990,7 +990,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonRemoveLayerSelectOnMap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/eyedropper.png"))); // NOI18N
-        buttonRemoveLayerSelectOnMap.setToolTipText("Select a layer from the map.");
+        buttonRemoveLayerSelectOnMap.setToolTipText("\u9009\u62E9\u4E00\u4E2A\u5730\u56FE\u4E2D\u7684\u8986\u76D6\u5C42.");
         buttonRemoveLayerSelectOnMap.setEnabled(false);
         buttonRemoveLayerSelectOnMap.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonRemoveLayerSelectOnMap.addActionListener(new java.awt.event.ActionListener() {
@@ -1000,7 +1000,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonInvertLayerSelectOnMap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/eyedropper.png"))); // NOI18N
-        buttonInvertLayerSelectOnMap.setToolTipText("Select a layer from the map.");
+        buttonInvertLayerSelectOnMap.setToolTipText("\u9009\u62E9\u4E00\u4E2A\u5730\u56FE\u4E2D\u7684\u8986\u76D6\u5C42.");
         buttonInvertLayerSelectOnMap.setEnabled(false);
         buttonInvertLayerSelectOnMap.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonInvertLayerSelectOnMap.addActionListener(new java.awt.event.ActionListener() {
@@ -1010,7 +1010,7 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         });
 
         buttonFillBiomeSelectOnMap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/eyedropper.png"))); // NOI18N
-        buttonFillBiomeSelectOnMap.setToolTipText("Select a biome from the map.");
+        buttonFillBiomeSelectOnMap.setToolTipText("\u9009\u62E9\u4E00\u4E2A\u5730\u56FE\u4E2D\u7684\u751F\u7269\u7FA4\u7CFB.");
         buttonFillBiomeSelectOnMap.setEnabled(false);
         buttonFillBiomeSelectOnMap.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonFillBiomeSelectOnMap.addActionListener(new java.awt.event.ActionListener() {
@@ -1119,8 +1119,8 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         );
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel3.setText("<html><u>Change height...</u></html>");
-        jLabel3.setToolTipText("Raise or lower the entire dimension");
+        jLabel3.setText("<html><u>\u4FEE\u6539\u9AD8\u5EA6...</u></html>");
+        jLabel3.setToolTipText("\u63D0\u9AD8\u6216\u964D\u4F4E\u6574\u4E2A\u4E16\u754C\u7684\u9AD8\u5EA6");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1131,8 +1131,8 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         jLabel4.setText("-");
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel5.setText("<html><u>Rotate...</u></html>");
-        jLabel5.setToolTipText("Rotate the entire dimension in 90 degree steps");
+        jLabel5.setText("<html><u>\u65CB\u8F6C...</u></html>");
+        jLabel5.setToolTipText("\u5C06\u4E16\u754C\u65CB\u8F6C 90 \u5EA6");
         jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1143,8 +1143,8 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
         jLabel6.setText("-");
 
         jLabel7.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel7.setText("<html><u>Shift...</u></html>");
-        jLabel7.setToolTipText("Shift the entire dimension horizontally in 128 block steps");
+        jLabel7.setText("<html><u>\u79FB\u52A8...</u></html>");
+        jLabel7.setToolTipText("\u6C34\u5E73\u79FB\u52A8\u4E16\u754C\uFF0C\u6BCF\u6B21 128 \u683C");
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1152,16 +1152,16 @@ chunks:         for (int chunkX = 0; chunkX < TILE_SIZE; chunkX += 16) {
             }
         });
 
-        jLabel2.setText("Other global tools:");
+        jLabel2.setText("\u5176\u4ED6\u5168\u5C40\u5DE5\u5177:");
 
-        checkBoxKeepOpen.setText("keep this window open");
+        checkBoxKeepOpen.setText("\u4FDD\u6301\u8BE5\u7A97\u53E3\u5F00\u542F");
         checkBoxKeepOpen.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jLabel8.setText("-");
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel9.setText("<html><u>Scale...</u></html>");
-        jLabel9.setToolTipText("Scale the entire dimension up or down by an arbitrary amount");
+        jLabel9.setText("<html><u>\u7F29\u653E...</u></html>");
+        jLabel9.setToolTipText("\u4EFB\u610F\u7F29\u653E\u6574\u4E2A\u4E16\u754C");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

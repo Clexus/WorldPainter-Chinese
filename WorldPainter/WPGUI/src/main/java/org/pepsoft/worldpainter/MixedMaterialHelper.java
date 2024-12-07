@@ -38,7 +38,7 @@ public class MixedMaterialHelper {
         if ((terrainDirectory == null) || (! terrainDirectory.isDirectory())) {
             terrainDirectory = DesktopUtils.getDocumentsFolder();
         }
-        File selectedFile = FileUtils.selectFileForOpen(SwingUtilities.getWindowAncestor(parent), "Select WorldPainter custom terrain file", terrainDirectory, new FileFilter() {
+        File selectedFile = FileUtils.selectFileForOpen(SwingUtilities.getWindowAncestor(parent), "\u9009\u62E9 WorldPainter \u81EA\u5B9A\u4E49\u65B9\u5757\u6587\u4EF6", terrainDirectory, new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".terrain");
@@ -46,7 +46,7 @@ public class MixedMaterialHelper {
 
             @Override
             public String getDescription() {
-                return "WorldPainter Custom Terrains (*.terrain)";
+                return "WorldPainter \u81EA\u5B9A\u4E49\u65B9\u5757 (*.terrain)";
             }
 
             @Override
@@ -76,7 +76,7 @@ public class MixedMaterialHelper {
         if ((terrainDirectory == null) || (! terrainDirectory.isDirectory())) {
             terrainDirectory = DesktopUtils.getDocumentsFolder();
         }
-        File[] selectedFiles = FileUtils.selectFilesForOpen(SwingUtilities.getWindowAncestor(parent), "Select WorldPainter custom terrain file(s)", terrainDirectory, new FileFilter() {
+        File[] selectedFiles = FileUtils.selectFilesForOpen(SwingUtilities.getWindowAncestor(parent), "\u9009\u62E9 WorldPainter \u81EA\u5B9A\u4E49\u65B9\u5757\u6587\u4EF6", terrainDirectory, new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".terrain");
@@ -84,7 +84,7 @@ public class MixedMaterialHelper {
 
             @Override
             public String getDescription() {
-                return "WorldPainter Custom Terrains (*.terrain)";
+                return "WorldPainter \u81EA\u5B9A\u4E49\u65B9\u5757 (*.terrain)";
             }
 
             @Override
@@ -113,7 +113,7 @@ public class MixedMaterialHelper {
         }
         return null;
     }
-    
+
     public static void save(Component parent, MixedMaterial material) {
         Configuration config = Configuration.getInstance();
         File terrainDirectory = config.getTerrainDirectory();
@@ -121,7 +121,7 @@ public class MixedMaterialHelper {
             terrainDirectory = DesktopUtils.getDocumentsFolder();
         }
         File selectedFile = new File(terrainDirectory, org.pepsoft.util.FileUtils.sanitiseName(material.getName()) + ".terrain");
-        selectedFile = FileUtils.selectFileForSave(SwingUtilities.getWindowAncestor(parent), "Export as WorldPainter custom terrain file", selectedFile, new FileFilter() {
+        selectedFile = FileUtils.selectFileForSave(SwingUtilities.getWindowAncestor(parent), "\u5BFC\u51FA\u4E3A WorldPainter \u81EA\u5B9A\u4E49\u65B9\u5757\u6587\u4EF6", selectedFile, new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".terrain");
@@ -129,7 +129,7 @@ public class MixedMaterialHelper {
 
             @Override
             public String getDescription() {
-                return "WorldPainter Custom Terrains (*.terrain)";
+                return "WorldPainter \u81EA\u5B9A\u4E49\u65B9\u5757 (*.terrain)";
             }
 
             @Override
@@ -141,7 +141,7 @@ public class MixedMaterialHelper {
             if (! selectedFile.getName().toLowerCase().endsWith(".terrain")) {
                 selectedFile = new File(selectedFile.getPath() + ".terrain");
             }
-            if (selectedFile.isFile() && (JOptionPane.showConfirmDialog(parent, "The file " + selectedFile.getName() + " already exists.\nDo you want to overwrite it?", "Overwrite File", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)) {
+            if (selectedFile.isFile() && (JOptionPane.showConfirmDialog(parent, "\u6587\u4EF6 " + selectedFile.getName() + " \u5DF2\u5B58\u5728.\n\u4F60\u8981\u8986\u76D6\u5B83\u5417?", "\u8986\u76D6\u6587\u4EF6", JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION)) {
                 return;
             }
             try {
@@ -152,7 +152,7 @@ public class MixedMaterialHelper {
                 throw new RuntimeException("I/O error while trying to write " + selectedFile, e);
             }
             config.setTerrainDirectory(selectedFile.getParentFile());
-            showInfo(parent, "Custom terrain " + material.getName() + " exported successfully", "Success");
+            showInfo(parent, "\u81EA\u5B9A\u4E49\u65B9\u5757 " + material.getName() + " \u6210\u529F\u5BFC\u51FA", "\u6210\u529F");
         }
     }
 

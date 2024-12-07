@@ -73,7 +73,7 @@ abstract class Mapping {
     }
 
     Mapping ditheredActualRange() {
-        return new Mapping(aspect, description + " (\u4ECE\u5B9E\u9645\u8986\u76D6\u56FE\u8303\u56F4\u6296\u52A8\u751F\u6210)") {
+        return new Mapping(aspect, description + " (\u4ECE\u5B9E\u9645\u906e\u7f69\u56fe\u8303\u56F4\u6296\u52A8\u751F\u6210)") {
             @Override
             void applyGreyScale(int x, int y, double maskValue) {
                 if ((maskValue >= maskHighValue) || ((maskValue > maskLowValue) && (maskValue > (random.nextDouble() * (maskHighValue - maskLowValue) + maskLowValue)))) {

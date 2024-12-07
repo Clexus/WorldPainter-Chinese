@@ -60,24 +60,24 @@ public class CustomAnnotationLayerDialog extends AbstractEditLayerDialog<CustomA
         buttonOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Custom Annotation Layer");
+        setTitle("\u7F16\u8F91\u81EA\u5B9A\u4E49\u6807\u6CE8\u8986\u76D6\u5C42");
 
-        jLabel1.setText("<html>A Custom Annotations Layer is not Exported. It is solely intended for<br>creating annotations or using as a marker.</html>");
+        jLabel1.setText("<html>\u81EA\u5B9A\u4E49\u6807\u6CE8\u8986\u76D6\u5C42\u4E0D\u4F1A\u5BFC\u51FA. \u4ED6\u4EEC\u4EC5\u7528\u4E8E\u521B\u5EFA\u63D0\u793A\u7528\u7684\u6807\u6CE8.</html>");
 
-        jLabel2.setText("Name:");
+        jLabel2.setText("\u540D\u79F0:");
 
         jTextField1.setColumns(15);
 
-        jLabel3.setText("Paint:");
+        jLabel3.setText("\u753B\u7B14:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOk.setText("OK");
+        buttonOk.setText("\u786e\u8ba4");
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOkActionPerformed(evt);

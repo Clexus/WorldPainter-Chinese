@@ -369,9 +369,9 @@ public class MapImportDialog extends WorldPainterDialog {
         labelPlatform = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Import Existing Minecraft Map");
+        setTitle("导入现有Minecraft地图");
 
-        jLabel1.setText("Select an existing map:");
+        jLabel1.setText("选择一个现有地图:");
 
         buttonSelectFile.setText("...");
         buttonSelectFile.addActionListener(new java.awt.event.ActionListener() {
@@ -380,28 +380,28 @@ public class MapImportDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel2.setText("Statistics for surface:");
+        jLabel2.setText("主世界统计信息:");
 
-        jLabel3.setText("Width:");
+        jLabel3.setText("宽度:");
 
         labelWidth.setText("0");
 
-        jLabel4.setText("Length:");
+        jLabel4.setText("长度:");
 
         labelLength.setText("0");
 
-        jLabel7.setText("Area:");
+        jLabel7.setText("面积:");
 
         labelArea.setText("0");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.setEnabled(false);
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -409,32 +409,32 @@ public class MapImportDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel5.setText("Options:");
+        jLabel5.setText("选项:");
 
         buttonGroup1.add(radioButtonReadOnlyNone);
-        radioButtonReadOnlyNone.setText("do not mark any chunks read-only");
+        radioButtonReadOnlyNone.setText("不要讲区块标记为只读");
 
         buttonGroup1.add(radioButtonReadOnlyManMade);
-        radioButtonReadOnlyManMade.setText("mark chunks containing man-made blocks read-only");
+        radioButtonReadOnlyManMade.setText("将有人工建筑物的区块标记为只读");
 
         buttonGroup1.add(radioButtonReadOnlyAll);
-        radioButtonReadOnlyAll.setText("mark all chunks read-only");
+        radioButtonReadOnlyAll.setText("将所有区块标记为只读");
 
         buttonGroup1.add(radioButtonReadOnlyManMadeAboveGround);
         radioButtonReadOnlyManMadeAboveGround.setSelected(true);
-        radioButtonReadOnlyManMadeAboveGround.setText("<html>mark chunks containing man-made blocks <i>above ground</i> read-only</html>");
+        radioButtonReadOnlyManMadeAboveGround.setText("<html>将<i>地表</i>有人工建筑物的区块标记为只读</html>");
 
         checkBoxImportSurface.setSelected(true);
-        checkBoxImportSurface.setText("Import Surface");
+        checkBoxImportSurface.setText("导入主世界");
         checkBoxImportSurface.setEnabled(false);
 
-        checkBoxImportNether.setText("Import Nether");
+        checkBoxImportNether.setText("导入下界");
         checkBoxImportNether.setEnabled(false);
 
-        checkBoxImportEnd.setText("Import End");
+        checkBoxImportEnd.setText("导入末地");
         checkBoxImportEnd.setEnabled(false);
 
-        jLabel6.setText("Map format:");
+        jLabel6.setText("地图格式:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

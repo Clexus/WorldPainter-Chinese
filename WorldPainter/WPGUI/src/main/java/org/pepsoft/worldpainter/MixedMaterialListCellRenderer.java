@@ -18,7 +18,7 @@ public class MixedMaterialListCellRenderer extends DefaultListCellRenderer {
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
         if (value == null) {
-            setText("none");
+            setText("\u65E0");
         } else if (value instanceof MixedMaterial) {
             setIcon(new ImageIcon(((MixedMaterial) value).getIcon(colourScheme)));
         }

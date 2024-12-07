@@ -159,7 +159,7 @@ public class MixedMaterialChooser extends javax.swing.JPanel {
         });
 
         buttonEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_edit.png"))); // NOI18N
-        buttonEdit.setToolTipText("Edit the selected custom material");
+        buttonEdit.setToolTipText("\u7F16\u8F91\u9009\u4E2D\u7684\u81EA\u5B9A\u4E49\u6750\u8D28");
         buttonEdit.setEnabled(false);
         buttonEdit.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +169,7 @@ public class MixedMaterialChooser extends javax.swing.JPanel {
         });
 
         buttonAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_add.png"))); // NOI18N
-        buttonAdd.setToolTipText("Create a new custom material");
+        buttonAdd.setToolTipText("\u521B\u5EFA\u4E00\u4E2A\u65B0\u7684\u81EA\u5B9A\u4E49\u6750\u8D28");
         buttonAdd.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

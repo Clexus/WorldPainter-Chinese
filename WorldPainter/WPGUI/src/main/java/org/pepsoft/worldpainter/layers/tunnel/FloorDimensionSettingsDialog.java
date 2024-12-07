@@ -91,40 +91,40 @@ public class FloorDimensionSettingsDialog extends WorldPainterDialog {
         checkBoxFloodWithLava = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Floor Dimension Defaults");
+        setTitle("地面维度默认值");
         setResizable(false);
 
-        jLabel3.setText("Level:");
+        jLabel3.setText("高度:");
 
         spinnerFloorLevel.setModel(new javax.swing.SpinnerNumberModel(32, -64, 319, 1));
 
-        jLabel5.setText("Variation:");
+        jLabel5.setText("变化:");
 
-        jButton1.setText("Cancel");
+        jButton1.setText("取消");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Create");
+        jButton2.setText("创建");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Configure the default settings for the new floor dimension here:");
+        jLabel1.setText("在此处配置新地面维度的默认设置:");
 
-        jLabel2.setText("Terrain:");
+        jLabel2.setText("方块:");
 
-        jLabel23.setText("Biome:");
+        jLabel23.setText("生物群系:");
 
-        jLabel21.setText("Water level:");
+        jLabel21.setText("水平面高度:");
 
         spinnerFloodLevel.setModel(new javax.swing.SpinnerNumberModel(62, -64, 319, 1));
 
-        checkBoxFloodWithLava.setText("lava instead of water:");
+        checkBoxFloodWithLava.setText("\u7528\u5ca9\u6d46\u66ff\u6362\u6c34:");
         checkBoxFloodWithLava.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

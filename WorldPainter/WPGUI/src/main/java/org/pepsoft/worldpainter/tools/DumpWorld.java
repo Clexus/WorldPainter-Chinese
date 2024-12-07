@@ -99,7 +99,7 @@ public class DumpWorld {
         System.out.println("    \u7F51\u683C\u5927\u5C0F: " + dimension.getGridSize());
         System.out.println("    \u4E0A\u6B21\u89C6\u56FE\u4F4D\u7F6E: " + dimension.getLastViewPosition().x + "," + dimension.getLastViewPosition().y);
         for (Overlay overlay: dimension.getOverlays()) {
-            System.out.println("    \u8986\u76D6\u56FE: " + overlay.getFile());
+            System.out.println("    \u906e\u7f69\u56fe: " + overlay.getFile());
             System.out.println("        \u542F\u7528\u72B6\u6001: " + overlay.isEnabled());
             System.out.println("        \u504F\u79FB: " + overlay.getOffsetX() + "," + overlay.getOffsetY());
             System.out.println("        \u6BD4\u4F8B:" + overlay.getScale());

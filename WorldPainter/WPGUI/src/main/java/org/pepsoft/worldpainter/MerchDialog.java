@@ -52,7 +52,7 @@ public final class MerchDialog extends WorldPainterDialog {
     }
     
     private void noThanks() {
-        showInfo(this, "Alright, no problem. You can access the merch store\nlater from the Help menu.", "No Problem");
+        showInfo(this, "\u6CA1\u95EE\u9898. \u4F60\u53EF\u4EE5\u5728\u4E4B\u540E\u4ECE\u5E2E\u52A9\u83DC\u5355\u8FDB\u5165\u5468\u8FB9\u5546\u5E97.", "\u6CA1\u95EE\u9898");
         ok();
     }
     
@@ -80,7 +80,7 @@ public final class MerchDialog extends WorldPainterDialog {
         buttonMerchStore = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("WorldPainter Has A Merch Store");
+        setTitle("WorldPainter \u6709\u5468\u8FB9\u5546\u5E97");
         setResizable(false);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -91,13 +91,13 @@ public final class MerchDialog extends WorldPainterDialog {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(jTextArea1.getFont().deriveFont(jTextArea1.getFont().getSize()+6f));
         jTextArea1.setLineWrap(true);
-        jTextArea1.setText("WorldPainter has a merch store! Get your WorldPainter paraphernalia, be the envy of all your friends and support the development of WorldPainter.");
+        jTextArea1.setText("WorldPainter \u6709\u5468\u8FB9\u5546\u5E97! \u4E70\u4E00\u4E2A WorldPainter \u88C5\u5907, \u8BA9\u4F60\u7684\u670B\u53CB\u5FC3\u751F\u5AC9\u5992\u5E76\u652F\u6301 WorldPainter \u7684\u5F00\u53D1\u8005.");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setOpaque(false);
 
         buttonNoThanks.setFont(buttonNoThanks.getFont().deriveFont(buttonNoThanks.getFont().getSize()+3f));
         buttonNoThanks.setMnemonic('n');
-        buttonNoThanks.setText("No thank you");
+        buttonNoThanks.setText("\u4E0D\uFF0C\u6211\u4E0D\u60F3\u4E70");
         buttonNoThanks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNoThanksActionPerformed(evt);
@@ -105,7 +105,7 @@ public final class MerchDialog extends WorldPainterDialog {
         });
 
         buttonMerchStore.setFont(buttonMerchStore.getFont().deriveFont(buttonMerchStore.getFont().getSize()+3f));
-        buttonMerchStore.setText("Open merch store");
+        buttonMerchStore.setText("\u6253\u5F00\u5546\u5E97");
         buttonMerchStore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMerchStoreActionPerformed(evt);

@@ -324,7 +324,7 @@ public class ChangeHeightDialog extends WorldPainterDialog {
             }
         });
 
-        label.setText("\u4E2A\u65B9\u5757");
+        label.setText("\u683C");
 
         spinnerScaleAmount.setModel(new javax.swing.SpinnerNumberModel(100, 1, 9999, 1));
         spinnerScaleAmount.setEnabled(false);
@@ -337,7 +337,7 @@ public class ChangeHeightDialog extends WorldPainterDialog {
         jLabel7.setText("%");
 
         checkBoxScale.setText("\u7F29\u653E");
-        checkBoxScale.setToolTipText("<html>\u6309\u7279\u5B9A\u767E\u5206\u6BD4\u7F29\u653E\u9AD8\u5EA6;<br>\n\u8FC7\u9AD8\u6216\u8FC7\u4F4E\u7684\u9AD8\u5EA6\u4F1A\u88AB\u524A\u51CF.</html>");
+        checkBoxScale.setToolTipText("<html>\u6309\u7279\u5B9A\u767E\u5206\u6BD4\u7F29\u653E\u9AD8\u5EA6;<br>n\u8FC7\u9AD8\u6216\u8FC7\u4F4E\u7684\u9AD8\u5EA6\u4F1A\u88AB\u524A\u51CF.</html>");
         checkBoxScale.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 checkBoxScaleStateChanged(evt);
@@ -350,7 +350,7 @@ public class ChangeHeightDialog extends WorldPainterDialog {
         });
 
         checkBoxTranslate.setText("\u79FB\u52A8");
-        checkBoxTranslate.setToolTipText("<html>\u5C06\u9AD8\u5EA6\u4E0A\u4E0B\u79FB\u52A8;<br>\n\u8D1F\u6570\u5373\u4E3A\u5411\u4E0B; \u8FC7\u9AD8\u6216\u8FC7\u4F4E\u7684\u9AD8\u5EA6\u4F1A\u88AB\u524A\u51CF.</html>");
+        checkBoxTranslate.setToolTipText("<html>\u5C06\u9AD8\u5EA6\u4E0A\u4E0B\u79FB\u52A8;<br>n\u8D1F\u6570\u5373\u4E3A\u5411\u4E0B; \u8FC7\u9AD8\u6216\u8FC7\u4F4E\u7684\u90E8\u5206\u4F1A\u88AB\u88C1\u5207.</html>");
         checkBoxTranslate.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 checkBoxTranslateStateChanged(evt);
@@ -395,21 +395,21 @@ public class ChangeHeightDialog extends WorldPainterDialog {
 
         labelCutOffWarning.setFont(labelCutOffWarning.getFont().deriveFont(labelCutOffWarning.getFont().getStyle() | java.awt.Font.BOLD));
         labelCutOffWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelCutOffWarning.setText("\u9876\u5C42\u548C/\u6216\u5E95\u5C42\u88AB\u524A\u51CF\u4E86!");
+        labelCutOffWarning.setText("\u8D85\u51FA\u9650\u5236\u7684\u90E8\u5206\u5DF2\u88AB\u88C1\u5207!");
 
         jLabel11.setText("\u4F1A\u5148\u5E94\u7528\uFF0C\u7136\u540E\u518D\u79FB\u52A8.)");
 
-        jLabel4.setText("\u5F53\u524D\u4F7F\u7528\u7684\u4E0A\u4E0B\u9650:");
+        jLabel4.setText("\u5F53\u524D\u4E16\u754C\u9AD8\u5EA6\u4E0A\u4E0B\u9650:");
 
         labelOldExtents.setText("-999 - -999");
 
-        jLabel12.setText("\u65B0\u7684\u4E0A\u4E0B\u9650:");
+        jLabel12.setText("\u4FEE\u6539\u540E\u4E0A\u4E0B\u9650:");
 
         labelNewExtents.setText("<html><b>-999 - 999</b></html>");
 
         labelPlatformWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
         labelPlatformWarning.setText("<html><b>\u672A\u77E5\u683C\u5F0F; \u65E0\u6CD5\u5BFC\u51FA</b></html>");
-        labelPlatformWarning.setToolTipText("<html>\u8BE5\u5730\u56FE\u683C\u5F0F\u4F4D\u7F6E\u56E0\u6B64\u65E0\u6CD5\u5BFC\u51FA. \u5F88\u6709\u53EF\u80FD\u662F\u56E0\u4E3A\u652F\u6301\u6539\u683C\u5F0F\u7684\u63D2\u4EF6<br>\n\u672A\u5B89\u88C5\u6216\u65E0\u6CD5\u52A0\u8F7D.</html>");
+        labelPlatformWarning.setToolTipText("<html>\u8BE5\u5730\u56FE\u683C\u5F0F\u4F4D\u7F6E\u56E0\u6B64\u65E0\u6CD5\u5BFC\u51FA. \u5F88\u6709\u53EF\u80FD\u662F\u56E0\u4E3A\u652F\u6301\u6539\u683C\u5F0F\u7684\u63D2\u4EF6<br>n\u672A\u5B89\u88C5\u6216\u65E0\u6CD5\u52A0\u8F7D.</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

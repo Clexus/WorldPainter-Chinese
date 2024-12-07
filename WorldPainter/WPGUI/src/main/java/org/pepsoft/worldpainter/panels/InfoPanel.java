@@ -294,7 +294,7 @@ public class InfoPanel extends javax.swing.JPanel implements MouseMotionListener
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "\u6807\u9898 1", "\u6807\u9898 2", "\u6807\u9898 3", "\u6807\u9898 4"
             }
         ));
         jScrollPane2.setViewportView(jTable1);

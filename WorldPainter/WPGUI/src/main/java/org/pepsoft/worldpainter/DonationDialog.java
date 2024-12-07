@@ -61,35 +61,35 @@ public final class DonationDialog extends WorldPainterDialog {
             DesktopUtils.open(new URL("https://www.worldpainter.net/donate/paypal"));
             config.setDonationStatus(Configuration.DonationStatus.DONATED);
             config.setShowDonationDialogAfter(config.getLaunchCount() + 100);
-            showInfo(this, "捐赠PayPal页面已在你的浏览器打开.\n\n感谢您的捐赠!", "谢谢");
+            showInfo(this, "\u6350\u8D60PayPal\u9875\u9762\u5DF2\u5728\u4F60\u7684\u6D4F\u89C8\u5668\u6253\u5F00.\n\n\u611F\u8C22\u60A8\u7684\u6350\u8D60!", "\u8C22\u8C22");
             config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_DONATE).addTimestamp());
             ok();
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
-    
+
     private void alreadyDonated() {
         config.setDonationStatus(Configuration.DonationStatus.DONATED);
         config.setShowDonationDialogAfter(config.getLaunchCount() + 100);
-        showInfo(this, "非常感谢捐赠!", "谢谢");
+        showInfo(this, "\u975E\u5E38\u611F\u8C22\u6350\u8D60!", "\u8C22\u8C22");
         config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_ALREADY_DONATED).addTimestamp());
         ok();
     }
-    
+
     private void askLater() {
         config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_ASK_LATER).addTimestamp());
         ok();
     }
-    
+
     private void noThanks() {
         config.setDonationStatus(Configuration.DonationStatus.NO_THANK_YOU);
         config.setShowDonationDialogAfter(config.getLaunchCount() + 50);
-        showInfo(this, "行，我们会在一段时间内都不打扰您的.\n如果您改变主意了，还是可以在关于页面进行捐赠!", "没问题");
+        showInfo(this, "\u884C\uFF0C\u6211\u4EEC\u4F1A\u5728\u4E00\u6BB5\u65F6\u95F4\u5185\u90FD\u4E0D\u6253\u6270\u60A8\u7684.\n\u5982\u679C\u60A8\u6539\u53D8\u4E3B\u610F\u4E86\uFF0C\u8FD8\u662F\u53EF\u4EE5\u5728\u5173\u4E8E\u9875\u9762\u8FDB\u884C\u6350\u8D60!", "\u6CA1\u95EE\u9898");
         config.logEvent(new EventVO(Constants.EVENT_KEY_DONATION_NO_THANKS).addTimestamp());
         ok();
     }
-    
+
     private void openMerchStore() {
         try {
             DesktopUtils.open(new URL("https://www.worldpainter.store/"));
@@ -117,7 +117,7 @@ public final class DonationDialog extends WorldPainterDialog {
         buttonMerchStore = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("请支持WorldPainter");
+        setTitle("\u8BF7\u652F\u6301WorldPainter");
         setResizable(false);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -128,14 +128,14 @@ public final class DonationDialog extends WorldPainterDialog {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(jTextArea1.getFont().deriveFont(jTextArea1.getFont().getSize()+6f));
         jTextArea1.setLineWrap(true);
-        jTextArea1.setText("感谢您使用 WorldPainter!\n\nWorldPainter 的创作和维护需要花费很多精力. 请考虑通过捐赠或购买周边商品赞助本项目.");
+        jTextArea1.setText("\u611F\u8C22\u60A8\u4F7F\u7528 WorldPainter!\n\nWorldPainter \u7684\u521B\u4F5C\u548C\u7EF4\u62A4\u9700\u8981\u82B1\u8D39\u5F88\u591A\u7CBE\u529B. \u8BF7\u8003\u8651\u901A\u8FC7\u6350\u8D60\u6216\u8D2D\u4E70\u5468\u8FB9\u5546\u54C1\u8D5E\u52A9\u672C\u9879\u76EE.");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setOpaque(false);
 
         buttonDonate.setBackground(new java.awt.Color(255, 196, 58));
         buttonDonate.setFont(buttonDonate.getFont().deriveFont(buttonDonate.getFont().getStyle() | java.awt.Font.BOLD, buttonDonate.getFont().getSize()+3));
         buttonDonate.setMnemonic('d');
-        buttonDonate.setText("捐赠");
+        buttonDonate.setText("\u6350\u8D60");
         buttonDonate.setBorderPainted(false);
         buttonDonate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +145,7 @@ public final class DonationDialog extends WorldPainterDialog {
 
         buttonAlreadyDonated.setFont(buttonAlreadyDonated.getFont().deriveFont(buttonAlreadyDonated.getFont().getSize()+3f));
         buttonAlreadyDonated.setMnemonic('a');
-        buttonAlreadyDonated.setText("我已经捐赠过了");
+        buttonAlreadyDonated.setText("\u6211\u5DF2\u7ECF\u6350\u8D60\u8FC7\u4E86");
         buttonAlreadyDonated.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAlreadyDonatedActionPerformed(evt);
@@ -154,7 +154,7 @@ public final class DonationDialog extends WorldPainterDialog {
 
         buttonAskLater.setFont(buttonAskLater.getFont().deriveFont(buttonAskLater.getFont().getSize()+3f));
         buttonAskLater.setMnemonic('l');
-        buttonAskLater.setText("以后再说");
+        buttonAskLater.setText("\u4EE5\u540E\u518D\u8BF4");
         buttonAskLater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAskLaterActionPerformed(evt);
@@ -163,7 +163,7 @@ public final class DonationDialog extends WorldPainterDialog {
 
         buttonNoThanks.setFont(buttonNoThanks.getFont().deriveFont(buttonNoThanks.getFont().getSize()+3f));
         buttonNoThanks.setMnemonic('n');
-        buttonNoThanks.setText("不，我不想捐赠");
+        buttonNoThanks.setText("\u4E0D\uFF0C\u6211\u4E0D\u60F3\u6350\u8D60");
         buttonNoThanks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNoThanksActionPerformed(evt);
@@ -171,7 +171,7 @@ public final class DonationDialog extends WorldPainterDialog {
         });
 
         buttonMerchStore.setFont(buttonMerchStore.getFont().deriveFont(buttonMerchStore.getFont().getSize()+3f));
-        buttonMerchStore.setText("周边商店");
+        buttonMerchStore.setText("\u5468\u8FB9\u5546\u5E97");
         buttonMerchStore.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMerchStoreActionPerformed(evt);

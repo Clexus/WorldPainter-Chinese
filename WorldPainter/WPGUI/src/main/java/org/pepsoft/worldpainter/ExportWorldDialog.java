@@ -104,7 +104,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         createDimensionPropertiesEditors();
         checkBoxGoodies.setSelected(world.isCreateGoodiesChest());
         labelPlatform.setText("<html><u>" + platform.displayName + "</u></html>");
-        labelPlatform.setToolTipText("Click to change the map format");
+        labelPlatform.setToolTipText("\u70B9\u51FB\u4FEE\u6539\u5730\u56FE\u683C\u5F0F");
         comboBoxGameType.setModel(new DefaultComboBoxModel<>(platform.supportedGameTypes.toArray(new GameType[platform.supportedGameTypes.size()])));
         comboBoxGameType.setSelectedItem(world.getGameType());
         comboBoxGameType.setEnabled(comboBoxGameType.getItemCount() > 1);
@@ -198,21 +198,21 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
             if (! nameOnlyMaterials.isEmpty()) {
                 final StringBuilder sb = new StringBuilder();
                 sb.append("<html>");
-                sb.append("<p>The world cannot be exported in format ").append(platform.displayName).append(" because it contains the following incompatible block types:");
-                sb.append("<table><tr><th align='left'>Block Type</th><th align='left'>Source</th></tr>");
+                sb.append("<p>\u4E16\u754C\u4E0D\u80FD\u4EE5 ").append(platform.displayName).append(" \u683C\u5F0F\u5BFC\u51FA\uFF0C\u56E0\u4E3A\u5176\u5305\u542B\u4E0D\u517C\u5BB9\u7684\u65B9\u5757\u7C7B\u578B:");
+                sb.append("<table><tr><th align='left'>\u65B9\u5757\u7C7B\u578B</th><th align='left'>\u6765\u6E90</th></tr>");
                 nameOnlyMaterials.forEach((name, sources) ->
                         sb.append("<tr><td>").append(name).append("</td><td>").append(String.join(", ", sources)).append("</td></tr>"));
                 sb.append("</table>");
-                beepAndShowError(this, sb.toString(), "Map Format Not Compatible");
+                beepAndShowError(this, sb.toString(), "\u5730\u56FE\u683C\u5F0F\u4E0D\u652F\u6301");
                 return false;
             }
         }
         final String incompatibilityReason = PlatformManager.getInstance().getPlatformProvider(platform).isCompatible(platform, world);
         if (incompatibilityReason != null) {
             beepAndShowError(this, String.format(/* language=HTML */ "<html>" +
-                    "<p>The world cannot be exported in format %s because it is not compatible:</p>" +
+                    "<p>\u4E16\u754C\u4E0D\u80FD\u4EE5\u683C\u5F0F %s \u5BFC\u51FA\uFF0C\u56E0\u4E3A\u5176\u4E0D\u517C\u5BB9:</p>" +
                     "<p>%s</p>" +
-                    "</html>", platform.displayName, incompatibilityReason), "Map Format Not Compatible");
+                    "</html>", platform.displayName, incompatibilityReason), "\u5730\u56FE\u683C\u5F0F\u4E0D\u517C\u5BB9");
             return false;
         }
         return true;
@@ -229,12 +229,12 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         // Check for errors
         if (! new File(fieldDirectory.getText().trim()).isDirectory()) {
             fieldDirectory.requestFocusInWindow();
-            beepAndShowError(this, "The selected output directory does not exist or is not a directory.", "Error");
+            beepAndShowError(this, "\u9009\u62E9\u7684\u8F93\u51FA\u76EE\u5F55\u4E0D\u5B58\u5728\u6216\u4E0D\u4E3A\u76EE\u5F55.", "\u9519\u8BEF");
             return;
         }
         if (fieldName.getText().trim().isEmpty()) {
             fieldName.requestFocusInWindow();
-            beepAndShowError(this, "You have not specified a name for the map.", "Error");
+            beepAndShowError(this, "\u4F60\u8FD8\u6CA1\u6709\u7ED9\u5730\u56FE\u547D\u540D.", "\u9519\u8BEF");
             return;
         }
 
@@ -246,17 +246,17 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
             final Generator generatorType = editor.getSelectedGeneratorType();
             final Dimension dimension = editor.getDimension();
             if ((editor.isPopulateSelected() || dimension.getAllLayers(true).contains(Populate.INSTANCE)) && (! platform.capabilities.contains(POPULATE))) {
-                sb.append("<li>Population not supported for<br>map format " + platform.displayName + "; it will not have an effect");
+                sb.append("<li>\u5730\u56FE\u683C\u5F0F "+ platform.displayName +" \u4E0D\u652F\u6301\u586B\u5145\u533A\u5757\u529F\u80FD\uFF1B\u6B64\u64CD\u4F5C\u5C06\u4E0D\u4F1A\u751F\u6548\u3002");
                 showWarning = true;
             } else if (exportAllDimensions || (selectedDimension == dimension.getAnchor().dim)) {
                 // The dimension is going to be exported
                 if ((generatorType == Generator.FLAT) && (editor.isPopulateSelected() || dimension.getAllLayers(true).contains(Populate.INSTANCE))) {
-                    sb.append("<li>The Superflat world type is selected and Populate is in use.<br>Minecraft will <em>not</em> populate generated chunks for Superflat maps.");
+                    sb.append("<li>\u8D85\u5E73\u5766\u4E16\u754C\u7C7B\u578B\u548C\u751F\u6210\u9009\u9879\u540C\u65F6\u88AB\u8BBE\u7F6E.<br>Minecraft <em>\u4E0D\u4F1A</em>\u4E3A\u8D85\u5E73\u5766\u5730\u56FE\u586B\u5145\u751F\u6210\u533A\u5757.");
                     showWarning = true;
                 }
             }
             if ((generatorType != null) && (! platform.supportedGenerators.contains(generatorType))) {
-                sb.append("<li>Map format " + platform.displayName + " does not support world type " + generatorType.getDisplayName() + ".<br>The world type will be reset to " + platform.supportedGenerators.get(0).getDisplayName() + ".");
+                sb.append("<li>\u5730\u56FE\u683C\u5F0F " + platform.displayName + " \u4E0D\u652F\u6301" + generatorType.getDisplayName() + "\u4E16\u754C\u7C7B\u578B.<br>\u8BE5\u4E16\u754C\u5C06\u88AB\u91CD\u7F6E\u4E3A " + platform.supportedGenerators.get(0).getDisplayName() + ".");
                 editor.setSelectedGeneratorType(platform.supportedGenerators.get(0));
                 showWarning = true;
             }
@@ -271,7 +271,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
                 }
             }
             if (! spawnInSelection) {
-                sb.append("<li>The spawn point is not inside the selected area.<br>It will temporarily be moved to the middle of the selected area.");
+                sb.append("<li>\u51FA\u751F\u70B9\u4E0D\u5728\u9009\u4E2D\u533A\u57DF\u4E2D.<br>\u5B83\u5C06\u88AB\u79FB\u52A8\u5230\u9009\u4E2D\u533A\u57DF\u7684\u4E2D\u5FC3.");
                 showWarning = true;
             }
         }
@@ -285,22 +285,22 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         }
         if (disabledLayerCount > 0) {
             if (disabledLayerCount == 1) {
-                sb.append("<li>There are disabled custom layers!<br>One layer is not going to be exported.");
+                sb.append("<li>\u5730\u56FE\u4E2D\u6709\u88AB\u9690\u85CF\u7684\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42!<br>\u8BE5\u8986\u76D6\u5C42\u5C06\u4E0D\u4F1A\u88AB\u5BFC\u51FA.");
             } else {
-                sb.append("<li>There are disabled custom layers!<br>" + disabledLayerCount + " layers are not going to be exported.");
+                sb.append("<li>\u5730\u56FE\u4E2D\u6709"+ disabledLayerCount +"\u4E2A\u88AB\u9690\u85CF\u7684\u81EA\u5B9A\u4E49\u8986\u76D6\u5C42!<br>\u8FD9\u4E9B\u8986\u76D6\u5C42\u5C06\u4E0D\u4F1A\u88AB\u5BFC\u51FA.");
             }
             showWarning = showWarning || (! disableDisabledLayersWarning);
         }
         for (int i = 0; i < dataPacksListModel.size(); i++) {
             final File dataPackFile = dataPacksListModel.getElementAt(i);
             if (! dataPackFile.exists()) {
-                sb.append("<li>Data pack file " + dataPackFile.getName() + " cannot be found.<br>It will not be installed.");
+                sb.append("<li>\u65E0\u6CD5\u627E\u5230\u6570\u636E\u5305\u6587\u4EF6 " + dataPackFile.getName() + ".<br>\u5B83\u5C06\u4E0D\u4F1A\u88AB\u5B89\u88C5\u5230\u4E16\u754C\u4E2D.");
                 showWarning = true;
             } else if (! dataPackFile.isFile()) {
-                sb.append("<li>Data pack file " + dataPackFile.getName() + " is not a regular file.<br>It will not be installed.");
+                sb.append("<li>\u6570\u636E\u5305\u6587\u4EF6 " + dataPackFile.getName() + " \u4E0D\u6B63\u5E38.<br>\u5B83\u5C06\u4E0D\u4F1A\u88AB\u5B89\u88C5\u5230\u4E16\u754C\u4E2D.");
                 showWarning = true;
             } else if (! dataPackFile.canRead()) {
-                sb.append("<li>Data pack file " + dataPackFile.getName() + " is not accessible.<br>It will not be installed.");
+                sb.append("<li>\u65E0\u6CD5\u8BBF\u95EE\u6570\u636E\u5305\u6587\u4EF6 " + dataPackFile.getName() + ".<br>\u5B83\u5C06\u4E0D\u4F1A\u88AB\u5B89\u88C5\u5230\u4E16\u754C\u4E2D.");
                 showWarning = true;
             }
         }
@@ -311,17 +311,15 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
                 logger.warn("Skipping previously acknowledged warnings for this world: {}", previouslyAcknowledgedWarnings);
             } else {
                 DesktopUtils.beep();
-                String text = "<html>Please confirm that you want to export the world<br>" +
-                        "notwithstanding the following warnings:<br>"
+                String text = "<html>\u8BF7\u786E\u8BA4\u4F60\u8981\u5728\u51FA\u73B0\u4EE5\u4E0B\u9519\u8BEF\u7684\u60C5\u51B5\u4E0B\u7EE7\u7EED\u5BFC\u51FA\u4E16\u754C:<br>"
                         + warnings
-                        + "Do you want to continue with the export?";
+                        + "\u4F60\u786E\u8BA4\u8981\u5BFC\u51FA\u8BE5\u4E16\u754C\u5417?";
                 if (inhibitWarnings) {
                     text += "<br>" +
                             "<br>" +
-                            "<strong>Note:</strong> on the next Test Export this screen will be skipped<br>" +
-                            "if the warnings are identical.</html>";
+                            "<strong>\u6CE8\u610F:</strong> \u4E0B\u6B21\u6D4B\u8BD5\u5BFC\u51FA\u65F6\uFF0C\u82E5\u9519\u8BEF\u76F8\u540C\uFF0C\u8BE5\u754C\u9762\u5C06\u4E0D\u4F1A\u663E\u793A<br>.</html>";
                 }
-                if (JOptionPane.showConfirmDialog(this, text, "Review Warnings", YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.YES_OPTION) {
+                if (JOptionPane.showConfirmDialog(this, text, "\u67E5\u770B\u8B66\u544A", YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.YES_OPTION) {
                     previouslyAcknowledgedWarnings = null;
                     warningsForWorld = null;
                     return;
@@ -423,7 +421,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         }
         return true;
     }
-    
+
     private void testExport() {
         final TestExportDialog dialog = new TestExportDialog(this, world, colourScheme, customBiomeManager, hiddenLayers, contourLines, contourSeparation, lightOrigin);
         dialog.setVisible(true);
@@ -463,7 +461,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
             fieldDirectory.setText(fileChooser.getSelectedFile().getAbsolutePath());
         }
     }
-    
+
     private void changePlatform() {
         if (! saveDimensionSettings()) {
             return;
@@ -478,7 +476,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
     }
 
     private void addDataPack() {
-        final File dataPackFile = selectFileForOpen(this, "Select a data pack", null, new FileFilter() {
+        final File dataPackFile = selectFileForOpen(this, "\u9009\u62E9\u4E00\u4E2A\u6570\u636E\u5305", null, new FileFilter() {
             @Override
             public String getExtensions() {
                 return "*.zip";
@@ -491,21 +489,21 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
 
             @Override
             public String getDescription() {
-                return "Data packs (*.zip)";
+                return "\u6570\u636E\u5305 (*.zip)";
             }
         });
         if (dataPackFile != null) {
             if (! isDataPackFile(dataPackFile)) {
-                beepAndShowError(this, "The selected file \"" + dataPackFile.getName() + "\" is not a Minecraft data pack.", "Not A Data Pack");
+                beepAndShowError(this, "\u9009\u62E9\u7684\u6587\u4EF6 \"" + dataPackFile.getName() + "\" \u4E0D\u662F Minecraft \u6570\u636E\u5305.", "\u4E0D\u662F\u6570\u636E\u5305");
                 return;
             } else if (dataPackFile.getName().equalsIgnoreCase("worldpainter.zip")) {
-                beepAndShowError(this, "The WorldPainter data pack is managed by WorldPainter.", "Cannot Add WorldPainter Data Pack");
+                beepAndShowError(this, "WorldPainter \u6570\u636E\u5305\u7531 WorldPainter \u81EA\u52A8\u7BA1\u7406\uFF0C\u4E0D\u80FD\u624B\u52A8\u5BFC\u5165.", "\u65E0\u6CD5\u6DFB\u52A0 WorldPainter \u6570\u636E\u5305");
                 return;
             } else {
                 for (Enumeration<File> e = dataPacksListModel.elements(); e.hasMoreElements(); ) {
                     final File existingDataPack = e.nextElement();
                     if (existingDataPack.getName().equalsIgnoreCase(dataPackFile.getName())) {
-                        if (JOptionPane.showConfirmDialog(this, "There is already a data pack selected with the mame \"" + dataPackFile.getName() + "\"\nDo you want to replaced it?", "Data Pack Name Already Present", YES_NO_OPTION) == YES_OPTION) {
+                        if (JOptionPane.showConfirmDialog(this, "\u5DF2\u7ECF\u6709\u540D\u4E3A \"" + dataPackFile.getName() + "\" \u7684\u6570\u636E\u5305\u4E86\n\u4F60\u8981\u66FF\u6362\u5B83\u5417?", "\u6570\u636E\u5305\u540D\u79F0\u5DF2\u5B58\u5728", YES_NO_OPTION) == YES_OPTION) {
                             dataPacksListModel.removeElement(existingDataPack);
                             break;
                         } else {
@@ -578,16 +576,16 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         buttonTestExport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Exporting");
+        setTitle("\u5BFC\u51FA");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonExport.setText("Export");
+        buttonExport.setText("\u5BFC\u51FA");
         buttonExport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonExportActionPerformed(evt);
@@ -598,12 +596,12 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
 
         checkBoxGoodies.setSelected(true);
         checkBoxGoodies.setText(" ");
-        checkBoxGoodies.setToolTipText("Include a chest with tools and resources near spawn for you as the level designer");
+        checkBoxGoodies.setToolTipText("\u4F5C\u4E3A\u4E16\u754C\u521B\u5EFA\u8005\uFF0C\u51FA\u751F\u70B9\u9644\u8FD1\u4E3A\u4F60\u51C6\u5907\u4E00\u4E2A\u88C5\u6709\u5DE5\u5177\u548C\u8D44\u6E90\u7684\u7BB1\u5B50");
 
-        jLabel1.setText("Map format:");
+        jLabel1.setText("\u5730\u56FE\u683C\u5F0F:");
 
         labelPlatform.setForeground(new java.awt.Color(0, 0, 255));
-        labelPlatform.setText("<html><u>[EXPERIMENTAL] Minecraft 1.17</u></html>");
+        labelPlatform.setText("<html><u>[\u5B9E\u9A8C] Minecraft 1.17</u></html>");
         labelPlatform.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelPlatform.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -612,12 +610,12 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         });
 
         labelPlatformWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelPlatformWarning.setText("<html><b>unknown format</b></html>");
-        labelPlatformWarning.setToolTipText("<html>This map format is unknown and cannot be Exported. Most likely it<br>\nis supported by a plugin that is not installed or cannot be loaded.</html>");
+        labelPlatformWarning.setText("<html><b>\u672A\u77E5\u683C\u5F0F</b></html>");
+        labelPlatformWarning.setToolTipText("<html>\u8BE5\u5730\u56FE\u672A\u77E5\u4E14\u65E0\u6CD5\u5BFC\u51FA\uFF0C\u53EF\u80FD\u662F\u56E0\u4E3A\u5176<br>\n\u7531\u4E00\u4E2A\u672A\u5B89\u88C5\u6216\u65E0\u6CD5\u52A0\u8F7D\u7684\u63D2\u4EF6\u652F\u6301.</html>");
 
-        jLabel4.setText("Game settings");
+        jLabel4.setText("\u6E38\u620F\u8BBE\u7F6E");
 
-        jLabel5.setText("Game mode:");
+        jLabel5.setText("\u6E38\u620F\u6A21\u5F0F:");
 
         comboBoxGameType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -627,29 +625,29 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
 
         checkBoxAllowCheats.setSelected(true);
         checkBoxAllowCheats.setText(" ");
-        checkBoxAllowCheats.setToolTipText("Whether to allow cheats (single player commands)");
+        checkBoxAllowCheats.setToolTipText("\u662F\u5426\u5141\u8BB8\u547D\u4EE4");
 
-        jLabel6.setText("Difficulty:");
+        jLabel6.setText("\u56F0\u96BE\u5EA6:");
 
-        comboBoxDifficulty.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Peaceful", "Easy", "Normal", "Hard" }));
+        comboBoxDifficulty.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "\u548C\u5E73", "\u7B80\u5355", "\u666E\u901A", "\u56F0\u96BE" }));
 
         checkBoxMapFeatures.setSelected(true);
         checkBoxMapFeatures.setText(" ");
 
-        jLabel7.setText("General settings");
+        jLabel7.setText("\u5168\u5C40\u8BBE\u5B9A");
 
         jLabel8.setLabelFor(checkBoxAllowCheats);
-        jLabel8.setText("Allow cheats:");
+        jLabel8.setText("\u5141\u8BB8\u547D\u4EE4:");
 
         jLabel9.setLabelFor(checkBoxMapFeatures);
-        jLabel9.setText("Generate structures:");
+        jLabel9.setText("\u751F\u6210\u7ED3\u6784:");
 
         jLabel10.setLabelFor(checkBoxGoodies);
-        jLabel10.setText("Include chest of goodies:");
+        jLabel10.setText("\u751F\u6210\u5956\u52B1\u7BB1:");
 
-        jLabel2.setText("Directory:");
+        jLabel2.setText("\u76EE\u5F55:");
 
-        jLabel3.setText("Name:");
+        jLabel3.setText("\u540D\u79F0:");
 
         fieldDirectory.setText("jTextField1");
 
@@ -662,7 +660,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
             }
         });
 
-        jLabel11.setText("Data packs:");
+        jLabel11.setText("\u6570\u636E\u5305:");
 
         listDataPacks.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -672,7 +670,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         jScrollPane1.setViewportView(listDataPacks);
 
         buttonAddDataPack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_add.png"))); // NOI18N
-        buttonAddDataPack.setToolTipText("Add a data pack");
+        buttonAddDataPack.setToolTipText("\u6DFB\u52A0\u6570\u636E\u5305");
         buttonAddDataPack.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonAddDataPack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -681,7 +679,7 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
         });
 
         buttonRemoveDataPack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_delete.png"))); // NOI18N
-        buttonRemoveDataPack.setToolTipText("Remove the selected data pack(s)");
+        buttonRemoveDataPack.setToolTipText("\u79FB\u9664\u9009\u4E2D\u6570\u636E\u5305");
         buttonRemoveDataPack.setEnabled(false);
         buttonRemoveDataPack.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonRemoveDataPack.addActionListener(new java.awt.event.ActionListener() {
@@ -690,11 +688,11 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
             }
         });
 
-        jLabel12.setText("<html><i>Use at own risk. WorldPainter does</i> not <i>check the validity or version! <i></html>");
+        jLabel12.setText("<html><i>\u4F7F\u7528\u98CE\u9669\u81EA\u8D1F. WorldPainter </i>\u4E0D\u4F1A<i>\u68C0\u67E5\u7248\u672C\u6709\u6548\u6027! <i></html>");
 
-        panelMinecraftWorldBorder.setBorder(javax.swing.BorderFactory.createTitledBorder("World Border"));
+        panelMinecraftWorldBorder.setBorder(javax.swing.BorderFactory.createTitledBorder("\u4E16\u754C\u8FB9\u754C"));
 
-        jLabel79.setText("Centre:");
+        jLabel79.setText("\u4E2D\u5FC3:");
 
         spinnerMcBorderCentreX.setModel(new javax.swing.SpinnerNumberModel(0, -99999, 99999, 1));
 
@@ -702,13 +700,13 @@ public class ExportWorldDialog extends WPDialogWithPaintSelection {
 
         spinnerMcBorderCentreY.setModel(new javax.swing.SpinnerNumberModel(0, -99999, 99999, 1));
 
-        jLabel81.setText("Size:");
+        jLabel81.setText("\u5927\u5C0F:");
 
         spinnerMcBorderSize.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60000000, 1));
 
-        jLabel85.setText(" blocks");
+        jLabel85.setText("\u683C");
 
-        jLabel86.setText(" blocks");
+        jLabel86.setText("\u683C");
 
         javax.swing.GroupLayout panelMinecraftWorldBorderLayout = new javax.swing.GroupLayout(panelMinecraftWorldBorder);
         panelMinecraftWorldBorder.setLayout(panelMinecraftWorldBorderLayout);

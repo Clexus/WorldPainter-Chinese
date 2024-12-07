@@ -21,19 +21,19 @@ import java.io.ObjectInputStream;
  */
 public class GroundCoverLayer extends CustomLayer {
     public GroundCoverLayer(String name, MixedMaterial material, Object paint) {
-        super(name, "a layer of " + material.getName() + " on top of the terrain", DataSize.BIT, 30, paint);
+        super(name, "\u9876\u90E8\u4E3A\u4E00\u5C42" + material.getName(), DataSize.BIT, 30, paint);
         mixedMaterial = material;
     }
 
     @Override
     public void setName(String name) {
         super.setName(name);
-        setDescription("a " + thickness + " block layer of " + name + " on top of the terrain");
+        setDescription(thickness + "\u683C\u9AD8\u7684" + name + "\u8986\u76D6\u5C42");
     }
 
     @Override
     public String getType() {
-        return "Ground Cover";
+        return "\u5730\u8868\u8986\u76D6\u5C42";
     }
 
     public MixedMaterial getMaterial() {
@@ -50,7 +50,7 @@ public class GroundCoverLayer extends CustomLayer {
 
     public void setThickness(int thickness) {
         this.thickness = thickness;
-        setDescription("a " + thickness + " block layer of " + getName() + " on top of the terrain");
+        setDescription(thickness + "\u683C\u9AD8\u7684" + getName() + "\u8986\u76D6\u5C42");
     }
 
     public int getEdgeWidth() {

@@ -170,7 +170,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u53d8\u79cd:"/>
+        <Property name="text" type="java.lang.String" value="\u53D8\u79CD:"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.NoiseSettingsEditor" name="noiseSettingsEditor1">
@@ -343,7 +343,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42\u4E0E...\u76F8\u5BF9:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76D6\u5C42\u4E0E...\u76F8\u5BF9:"/>
       </Properties>
     </Component>
     <Component class="org.pepsoft.worldpainter.layers.renderers.PaintPicker" name="paintPicker1">

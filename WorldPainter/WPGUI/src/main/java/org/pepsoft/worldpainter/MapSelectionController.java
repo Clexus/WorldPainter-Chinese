@@ -39,44 +39,44 @@ class MapSelectionController {
         this.paintSelectionListener = paintSelectionListener;
         final String paintTypeDescription;
         if (paintTypes == null) {
-            paintTypeDescription = "paint";
+            paintTypeDescription = "\u753B\u7B14";
         } else {
             final StringBuilder sb = new StringBuilder();
             for (PaintType paintType: paintTypes) {
                 switch (paintType) {
                     case LAYER:
                         if (sb.length() > 0) {
-                            sb.append(" or ");
+                            sb.append(" \u6216 ");
                         }
-                        sb.append("layer");
+                        sb.append("\u8986\u76D6\u5C42");
                         break;
                     case TERRAIN:
                         if (sb.length() > 0) {
-                            sb.append(" or ");
+                            sb.append(" \u6216 ");
                         }
-                        sb.append("terrain type");
+                        sb.append("\u65B9\u5757\u79CD\u7C7B");
                         break;
                     case BIOME:
                         if (sb.length() > 0) {
-                            sb.append(" or ");
+                            sb.append(" \u6216 ");
                         }
-                        sb.append("biome");
+                        sb.append("\u751F\u7269\u7FA4\u7CFB");
                         break;
                     case ANNOTATION:
                         // If LAYER is also selected the user is not being asked to select a specific colour, so don't
                         // add that as it would be misleading
                         if (! paintTypes.contains(LAYER)) {
                             if (sb.length() > 0) {
-                                sb.append(" or ");
+                                sb.append(" \u6216 ");
                             }
-                            sb.append("annotation colour");
+                            sb.append("\u6807\u6CE8\u989C\u8272");
                         }
                         break;
                 }
             }
             paintTypeDescription = sb.toString();
         }
-        final JLabel label = new JLabel("<html><font size='+1'>Click on the map to select a " + paintTypeDescription + ".<br>Press Esc to cancel.</font></html>");
+        final JLabel label = new JLabel("<html><font size='+1'>\u70B9\u51FB\u5730\u56FE\u9009\u62E9\u4E00\u4E2A" + paintTypeDescription + ".<br>\u6309 Esc \u53D6\u6D88.</font></html>");
         label.setBorder(new CompoundBorder(new LineBorder(BLACK), new EmptyBorder(5, 5, 5, 5)));
         app.pushGlassPaneComponent(label);
         final Operation activeOperation = app.getActiveOperation();

@@ -191,9 +191,9 @@ public class CustomLayersTableModel implements TableModel {
     public static final int COLUMN_TYPE    = 2;
     public static final int COLUMN_EXPORT  = 3;
 
-    private static final String[]   COLUMN_NAMES = {"Layer",           "Palette",    "Type",       "Export"};
+    private static final String[]   COLUMN_NAMES = {"\u8986\u76D6\u5C42",           "\u753B\u677F",    "\u7C7B\u578B",       "\u5BFC\u51FA"};
     private static final Class<?>[] COLUMN_TYPES = {CustomLayer.class, String.class, String.class, Boolean.class};
 
-    public static final CustomLayer FIRST_PASS_HEADER = new CustomLayer("First export pass", null, null, -1, null) {};
-    public static final CustomLayer SECOND_PASS_HEADER = new CustomLayer("Second export pass", null, null, -1, null) {};
+    public static final CustomLayer FIRST_PASS_HEADER = new CustomLayer("\u7B2C\u4E00\u6B21\u5BFC\u51FA\u901A\u5F84", null, null, -1, null) {};
+    public static final CustomLayer SECOND_PASS_HEADER = new CustomLayer("\u7B2C\u4E8C\u6B21\u5BFC\u51FA\u901A\u5F84", null, null, -1, null) {};
 }

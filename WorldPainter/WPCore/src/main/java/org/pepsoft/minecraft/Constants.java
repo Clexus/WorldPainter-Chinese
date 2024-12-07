@@ -1104,8 +1104,8 @@ public final class Constants {
      * <p><strong>PLEASE NOTE:</strong> {@link Annotations} layer values do <em>not</em> correspond to indices into this
      * array!
      */
-    public static final String[] COLOUR_NAMES = {"White", "Orange", "Magenta", "Light Blue", "Yellow", "Lime", "Pink",
-        "Grey", "Light Grey", "Cyan", "Purple", "Blue", "Brown", "Green", "Red", "Black"};
+    public static final String[] COLOUR_NAMES = {"\u767D\u8272", "\u6A59\u8272", "\u54C1\u7EA2\u8272", "\u6DE1\u84DD\u8272", "\u9EC4\u8272", "\u9EC4\u7EFF\u8272", "\u7C89\u8272",
+        "\u7070\u8272", "\u6DE1\u7070\u8272", "\u9752\u8272", "\u7D2B\u8272", "\u84DD\u8272", "\u68D5\u8272", "\u7EFF\u8272", "\u7EA2\u8272", "\u9ED1\u8272"};
 
     public static final int DATA_STONE_STONE             = 0;
     public static final int DATA_STONE_GRANITE           = 1;

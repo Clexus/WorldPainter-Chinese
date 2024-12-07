@@ -41,7 +41,7 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
                 .collect(toList());
 
         initComponents();
-        setTitle("Shift " + new Anchor(anchor.dim, DETAIL, false, 0).getDefaultName() + " Dimension");
+        setTitle("\u79FB\u52A8" + new Anchor(anchor.dim, DETAIL, false, 0).getDefaultName() + "\u7EF4\u5EA6");
 
         getRootPane().setDefaultButton(buttonShift);
 
@@ -51,7 +51,7 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
     }
 
     // ProgressReceiver
-    
+
     @Override
     public synchronized void setProgress(final float progress) {
         doOnEventThread(() -> jProgressBar1.setValue((int) (progress * 100)));
@@ -71,7 +71,7 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
     public synchronized void done() {
         doOnEventThread(() -> {
             if (affectedDimensions.stream().flatMap(dimension -> dimension.getOverlays().stream()).anyMatch(overlay -> ! overlay.getFile().canRead())) {
-                beepAndShowWarning(this, "One or more overlay image files could not be read,\nand have therefore not been shifted.\nYou will need to shift these manually.", "Not All Overlays Shifted");
+                beepAndShowWarning(this, "\u4E00\u4E2A\u6216\u591A\u4E2A\u906E\u7F69\u56FE\u65E0\u6CD5\u8BFB\u53D6,\n\u56E0\u6B64\u4E5F\u672A\u88AB\u79FB\u52A8.\n\u4F60\u9700\u8981\u624B\u52A8\u79FB\u52A8\u5B83\u4EEC.", "\u90E8\u5206\u906E\u7F69\u56FE\u672A\u79FB\u52A8");
             }
             ok();
         });
@@ -118,11 +118,11 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
             }
         }.start();
     }
-    
+
     private void setControlStates() {
         buttonShift.setEnabled((((Integer) jSpinner1.getValue()) != 0) || (((Integer) jSpinner2.getValue()) != 0));
     }
-    
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -148,19 +148,19 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Shift World");
+        setTitle("\u79FB\u52A8\u4E16\u754C");
         setResizable(false);
 
-        jLabel1.setText("Choose a shift amount and press the Shift button to shift the dimension horizontally (by whole tiles):");
+        jLabel1.setText("\u9009\u62E9\u504F\u79FB\u91CF\uFF0C\u7136\u540E\u70B9\u51FB\u6309\u94AE\u4EE5\u5206\u533A\u6C34\u5E73\u79FB\u52A8\u7EF4\u5EA6:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonShift.setText("Shift");
+        buttonShift.setText("\u79FB\u52A8");
         buttonShift.setEnabled(false);
         buttonShift.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +170,7 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
 
         labelProgressMessage.setText(" ");
 
-        jLabel2.setText("X axis:");
+        jLabel2.setText("X \u8F74:");
 
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, -2147483648, 2147483647, 128));
         jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -179,7 +179,7 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
             }
         });
 
-        jLabel3.setText("Z axis:");
+        jLabel3.setText("Z \u8F74:");
 
         jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, -2147483648, 2147483647, 128));
         jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -188,13 +188,13 @@ public class ShiftWorldDialog extends WorldPainterDialog implements ProgressRece
             }
         });
 
-        jLabel4.setText("(negative values shift west; positive values shift east)");
+        jLabel4.setText("(\u8D1F\u503C\u5411\u897F; \u6B63\u503C\u5411\u4E1C)");
 
-        jLabel5.setText("(negative values shift north; positive values shift south)");
+        jLabel5.setText("(\u8D1F\u503C\u5411\u5317; \u6B63\u503C\u5411\u5357)");
 
-        jLabel6.setText("<html><em>This operation cannot be undone!</em>   </html>");
+        jLabel6.setText("<html><em>\u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!</em>   </html>");
 
-        jLabel7.setText("<html><i>All associated dimension such as Ceiling Dimensions and<br>\nCustom Cave/Tunnel Floor Dimensions will be shifted together.</i></html>");
+        jLabel7.setText("<html><i>\u6240\u6709\u76F8\u5173\u7EF4\u5EA6\u4E5F\u4F1A\u88AB\u4E00\u8D77\u79FB\u52A8\uFF0C\u4F8B\u5982\u9876\u5C42\u7EF4\u5EA6\u7B49.</i></html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

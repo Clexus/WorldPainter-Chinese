@@ -65,28 +65,28 @@ public class AddTerrainRangeDialog extends WorldPainterDialog {
         buttonOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Terrain Mapping");
+        setTitle("\u6DFB\u52A0\u65B9\u5757\u5230\u8868\u4E2D");
 
-        jLabel1.setText("Select a level and a terrain type to add to the mapping:");
+        jLabel1.setText("\u9009\u62E9\u9AD8\u5EA6\u548C\u65B9\u5757\u7C7B\u578B\u6765\u5C06\u5176\u6DFB\u52A0\u5230\u8868\u4E2D:");
 
         jLabel2.setLabelFor(spinnerLevel);
-        jLabel2.setText("Level:");
+        jLabel2.setText("\u9AD8\u5EA6:");
 
         jLabel3.setLabelFor(comboBoxTerrainType);
-        jLabel3.setText("Terrain type:");
+        jLabel3.setText("\u65B9\u5757\u7C7B\u578B:");
 
         comboBoxTerrainType.setModel(new DefaultComboBoxModel(allowCustomTerrain ? Terrain.getConfiguredValues() : Terrain.PICK_LIST));
         comboBoxTerrainType.setSelectedItem(Terrain.DIRT);
         comboBoxTerrainType.setRenderer(new TerrainListCellRenderer(colourScheme));
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786E\u8BA4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);

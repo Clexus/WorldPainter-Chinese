@@ -86,22 +86,22 @@ public class ImportCustomItemsDialog extends WorldPainterDialog implements TreeS
         treeCustomItems = new com.jidesoft.swing.CheckBoxTree();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Import Custom Items");
+        setTitle("\u5BFC\u5165\u81EA\u5B9A\u4E49\u9879\u76EE");
 
-        jLabel1.setText("Selected world:");
+        jLabel1.setText("\u9009\u4E2D\u4E16\u754C:");
 
         labelWorld.setText("jLabel2");
 
-        jLabel3.setText("Select which custom item(s) you want to import:");
+        jLabel3.setText("\u9009\u5165\u4F60\u8981\u5BFC\u5165\u7684\u9879\u76EE:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);

@@ -58,13 +58,13 @@ public class TestExportDialog extends WorldPainterDialog {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                 switch ((int) value) {
                     case DIM_NORMAL:
-                        setText("Surface");
+                        setText("\u4E3B\u4E16\u754C");
                         break;
                     case DIM_NETHER:
-                        setText("Nether");
+                        setText("\u4E0B\u754C");
                         break;
                     case DIM_END:
-                        setText("End");
+                        setText("\u672B\u5730");
                         break;
                 }
                 return this;
@@ -75,7 +75,7 @@ public class TestExportDialog extends WorldPainterDialog {
             checkBoxDimension.setSelected(false);
         }
         if ((selectedTiles != null) && (! selectedTiles.isEmpty())) {
-            checkBoxTiles.setText("export subset of tiles (" + selectedTiles.size() + " tiles selected)");
+            checkBoxTiles.setText("\u5BFC\u51FA\u5206\u533A\u7684\u5B50\u96C6 (\u5DF2\u9009\u4E2D" + selectedTiles.size()+"\u4E2A\u5206\u533A)");
             checkBoxTiles.setSelected(true);
         }
         final Set<WorldExportSettings.Step> stepsToSkip = exportSettings.getStepsToSkip();
@@ -112,7 +112,7 @@ public class TestExportDialog extends WorldPainterDialog {
                 selectedDimension = dialog.getSelectedDimension();
                 comboBoxDimension.setSelectedItem(selectedDimension);
                 selectedTiles = dialog.getSelectedTiles();
-                checkBoxTiles.setText("export subset of tiles (" + selectedTiles.size() + " tiles selected)");
+                checkBoxTiles.setText("\u5BFC\u51FA\u5206\u533A\u7684\u5B50\u96C6 (\u5DF2\u9009\u4E2D" + selectedTiles.size()+"\u4E2A\u5206\u533A)");
             }
             if ((selectedTiles == null) || selectedTiles.isEmpty()) {
                 checkBoxTiles.setSelected(false);
@@ -181,25 +181,25 @@ public class TestExportDialog extends WorldPainterDialog {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Test Export");
+        setTitle("\u6D4B\u8BD5\u5BFC\u51FA");
 
-        jButton1.setText("Cancel");
+        jButton1.setText("\u53D6\u6D88");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Export");
+        jButton3.setText("\u5BFC\u51FA");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("<html>Perform a test export with reduced area and/or features<br>for faster export:</html>");
+        jLabel1.setText("<html>\u4F7F\u7528\u4E00\u90E8\u5206\u533A\u57DF\u548C/\u6216\u5730\u7269\u6267\u884C\u6D4B\u8BD5\u5BFC\u51FA\u4EE5\u5FEB\u901F\u5BFC\u51FA:</html>");
 
-        checkBoxTiles.setText("export subset of tiles");
+        checkBoxTiles.setText("\u5BFC\u51FA\u5206\u533A\u5B50\u96C6");
         checkBoxTiles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxTilesActionPerformed(evt);
@@ -207,7 +207,7 @@ public class TestExportDialog extends WorldPainterDialog {
         });
 
         labelSelectTiles.setForeground(new java.awt.Color(0, 0, 255));
-        labelSelectTiles.setText("<html><u>select tiles</u></html>");
+        labelSelectTiles.setText("<html><u>\u9009\u62E9\u5206\u533A</u></html>");
         labelSelectTiles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelSelectTiles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -216,7 +216,7 @@ public class TestExportDialog extends WorldPainterDialog {
         });
 
         checkBoxUnderground.setSelected(true);
-        checkBoxUnderground.setText("do not export underground features");
+        checkBoxUnderground.setText("\u4E0D\u652F\u6301\u5BFC\u51FA\u5730\u5E95\u5730\u7269");
         checkBoxUnderground.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxUndergroundActionPerformed(evt);
@@ -224,21 +224,21 @@ public class TestExportDialog extends WorldPainterDialog {
         });
 
         checkBoxCaves.setSelected(true);
-        checkBoxCaves.setText("do not export caves, caverns, chasms and custom cave/tunnel layers");
+        checkBoxCaves.setText("\u4E0D\u8981\u5BFC\u51FA\u6D1E\u7A74\u3001\u6D1E\u7A9F\u3001\u5CE1\u8C37\u548C\u81EA\u5B9A\u4E49\u6D1E\u7A74/\u901A\u9053\u8986\u76D6\u5C42");
         checkBoxCaves.setEnabled(false);
 
         checkBoxResources.setSelected(true);
-        checkBoxResources.setText("do not export resources and custom underground pockets layers");
+        checkBoxResources.setText("\u4E0D\u8981\u5BFC\u51FA\u8D44\u6E90\u548C\u81EA\u5B9A\u4E49\u5730\u5E95\u8986\u76D6\u5C42");
         checkBoxResources.setEnabled(false);
 
         checkBoxLighting.setSelected(true);
-        checkBoxLighting.setText("do not perform lighting");
+        checkBoxLighting.setText("\u4E0D\u8981\u751F\u6210\u5149\u7167");
 
         checkBoxLeaves.setSelected(true);
-        checkBoxLeaves.setText("do not perform leaf decay calculations (no leaf blocks will decay)");
+        checkBoxLeaves.setText("\u4E0D\u8981\u8BA1\u7B97\u6811\u53F6\u51CB\u96F6(\u4E0D\u4F1A\u6709\u6811\u53F6\u51CB\u96F6)");
 
         checkBoxDimension.setSelected(true);
-        checkBoxDimension.setText("export only the");
+        checkBoxDimension.setText("\u4EC5\u5BFC\u51FA");
         checkBoxDimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxDimensionActionPerformed(evt);
@@ -251,7 +251,7 @@ public class TestExportDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel3.setText("dimension");
+        jLabel3.setText("\u7EF4\u5EA6");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -363,7 +363,7 @@ public class TestExportDialog extends WorldPainterDialog {
             selectedDimension = newSelectedDimension;
             selectedTiles = null;
             checkBoxTiles.setSelected(false);
-            checkBoxTiles.setText("export subset of tiles");
+            checkBoxTiles.setText("\u5BFC\u51FA\u5206\u533A\u5B50\u96C6");
         }
     }//GEN-LAST:event_comboBoxDimensionActionPerformed
 

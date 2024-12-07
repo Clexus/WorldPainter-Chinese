@@ -184,7 +184,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         World2 world = ProgressDialog.executeTask(this, new ProgressTask<World2>() {
             @Override
             public String getName() {
-                return "Importing height map";
+                return "\u5BFC\u5165\u9AD8\u5EA6\u56FE";
             }
 
             @Override
@@ -197,7 +197,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
     }
 
     // DocumentListener
-    
+
     @Override
     public void insertUpdate(DocumentEvent e) {
         setControlStates();
@@ -214,7 +214,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
     }
 
     // SimpleThemeEditor.ChangeListener
-    
+
     @Override
     public void settingsModified(SimpleThemeEditor editor) {
         if (currentDimension != null) {
@@ -229,12 +229,12 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         // TODO keep this? It shouldn't be necessary!
         if ((selectedFile == null) || (! selectedFile.exists())) {
             if (interactive) {
-                beepAndShowError(this, "Please select an image file to import.", "No File Selected");
+                beepAndShowError(this, "\u8BF7\u9009\u62E9\u4E00\u4E2A\u8981\u5BFC\u5165\u7684\u56FE\u50CF\u6587\u4EF6", "\u672A\u9009\u62E9\u6587\u4EF6");
             }
             return null;
         } else if (image == null) {
             if (interactive) {
-                beepAndShowError(this, "Please select a valid image file to import.", "No Valid Image Selected");
+                beepAndShowError(this, "\u8BF7\u9009\u62E9\u4E00\u4E2A\u6709\u6548\u7684\u56FE\u7247\u6587\u4EF6.", "\u672A\u9009\u62E9\u6709\u6548\u7684\u56FE\u7247\u6587\u4EF6");
             }
             return null;
         }
@@ -250,7 +250,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         final int offsetX = (int) spinnerOffsetX.getValue();
         final int offsetY = (int) spinnerOffsetY.getValue();
         if ((scale != 100.0f) || (offsetX != 0) || (offsetY != 0)) {
-            heightMap = new TransformingHeightMap(heightMap.getName() + " transformed", heightMap, scale / 100, scale / 100, offsetX, offsetY, 0.0f);
+            heightMap = new TransformingHeightMap(heightMap.getName() + " \u5DF2\u8F6C\u6362", heightMap, scale / 100, scale / 100, offsetX, offsetY, 0.0f);
         }
         if (checkBoxInvert.isSelected()) {
             heightMap = new DifferenceHeightMap(new ConstantHeightMap((float) (Math.pow(2, bitDepth) - 1)), heightMap);
@@ -326,17 +326,17 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             if (image == null) {
                 labelImageDimensions.setForeground(Color.RED);
                 labelImageDimensions.setIcon(ICON_WARNING);
-                labelImageDimensions.setText("Not an image file of a supported type, or damaged file!");
+                labelImageDimensions.setText("\u6587\u4EF6\u683C\u5F0F\u4E0D\u662F\u6709\u6548\u7684\u56FE\u7247\u683C\u5F0F\u6216\u6587\u4EF6\u5DF2\u635F\u574F!");
                 selectedFile = null;
             } else if ((image.getType() == BufferedImage.TYPE_BYTE_BINARY) || (image.getType() == BufferedImage.TYPE_BYTE_INDEXED)) {
                 labelImageDimensions.setForeground(Color.RED);
                 labelImageDimensions.setIcon(ICON_WARNING);
-                labelImageDimensions.setText("Indexed image not supported! Please convert to non-indexed.");
+                labelImageDimensions.setText("\u4E0D\u652F\u6301\u7D22\u5F15\u56FE! \u8BF7\u8F6C\u6362\u4E3A\u975E\u7D22\u5F15\u56FE.");
                 selectedFile = null;
             } else if (image.isAlphaPremultiplied()) {
                 labelImageDimensions.setForeground(Color.RED);
                 labelImageDimensions.setIcon(ICON_WARNING);
-                labelImageDimensions.setText("Premultiplied alpha not supported! Please convert to non-premultiplied.");
+                labelImageDimensions.setText("\u4E0D\u652F\u6301\u9884\u4E58alpha\u901A\u9053! \u8BF7\u8F6C\u6362\u4E3A\u975E\u9884\u4E58\u7684.");
                 selectedFile = null;
             } else {
                 final BitmapHeightMap heightMap = BitmapHeightMap.build().withImage(image).now();
@@ -392,9 +392,9 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
                 selectDefaultVerticalScaling(false);
 
                 if (heightMap.isFloatingPoint()) {
-                    labelImageDimensions.setText(String.format("Image size: %,d x %,d, %d bits, lowest value: %,f, highest value: %,f", width, height, bitDepth, imageLowValue, imageHighValue));
+                    labelImageDimensions.setText(String.format("\u56FE\u7247\u5927\u5C0F: %,d x %,d, %d \u4F4D, \u6700\u4F4E\u503C: %,f, \u6700\u9AD8\u503C: %,f", width, height, bitDepth, imageLowValue, imageHighValue));
                 } else {
-                    labelImageDimensions.setText(String.format("Image size: %,d x %,d, %d bits, lowest value: %,d, highest value: %,d", width, height, bitDepth, Math.round(imageLowValue), Math.round(imageHighValue)));
+                    labelImageDimensions.setText(String.format("\u56FE\u7247\u5927\u5C0F: %,d x %,d, %d \u4F4D, \u6700\u4F4E\u503C: %,d, \u6700\u9AD8\u503C: %,d", width, height, bitDepth, Math.round(imageLowValue), Math.round(imageHighValue)));
                 }
                 updateWorldDimensions();
                 updatePreview(true);
@@ -402,15 +402,15 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         } catch (IOException e) {
             logger.error("I/O error loading image " + selectedFile, e);
             labelImageDimensions.setForeground(Color.RED);
-            labelImageDimensions.setText(String.format("I/O error loading image (message: %s)!", e.getMessage()));
+            labelImageDimensions.setText(String.format("\u52A0\u8F7D\u56FE\u7247\u65F6\u51FA\u73B0I/O\u9519\u8BEF (\u9519\u8BEF\u6D88\u606F: %s)!", e.getMessage()));
             selectedFile = null;
         } catch (IllegalArgumentException e) {
             logger.error("IllegalArgumentException loading image " + selectedFile, e);
             labelImageDimensions.setForeground(Color.RED);
             if (e.getMessage().equals("Invalid scanline stride")) {
-                labelImageDimensions.setText("Image data too large to load; try reducing dimensions or bit depth");
+                labelImageDimensions.setText("\u56FE\u50CF\u6570\u636E\u592A\u5927; \u8BF7\u5C1D\u8BD5\u524A\u51CF\u7EF4\u5EA6\u6216\u4F4D\u6DF1\u5EA6");
             } else {
-                labelImageDimensions.setText("Error in image data: " + e.getMessage());
+                labelImageDimensions.setText("\u56FE\u7247\u6570\u636E\u51FA\u9519: " + e.getMessage());
             }
             selectedFile = null;
         }
@@ -448,19 +448,19 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         final float importScale = (float) spinnerScale.getValue();
         final int scaledWidth = Math.round(image.getWidth() * (importScale / 100));
         final int scaledHeight = Math.round(image.getHeight() * (importScale / 100));
-        labelWorldDimensions.setText("Scaled size: " + INT_NUMBER_FORMAT.format(scaledWidth) + " x " + INT_NUMBER_FORMAT.format(scaledHeight) + " blocks");
+        labelWorldDimensions.setText("\u7F29\u653E\u540E\u5927\u5C0F: " + INT_NUMBER_FORMAT.format(scaledWidth) + " x " + INT_NUMBER_FORMAT.format(scaledHeight) + " \u683C");
         final int exportedWidth = Math.round(scaledWidth * dimensionScale);
         final int exportedHeight = Math.round(scaledHeight * dimensionScale);
-        labelExportedSize.setText(INT_NUMBER_FORMAT.format(exportedWidth) + " x " + INT_NUMBER_FORMAT.format(exportedHeight) + " blocks");
+        labelExportedSize.setText(INT_NUMBER_FORMAT.format(exportedWidth) + " x " + INT_NUMBER_FORMAT.format(exportedHeight) + " \u683C");
         String westEastTime = blocksToWalkingTime(exportedWidth);
         String northSouthTime = blocksToWalkingTime(exportedHeight);
         if (westEastTime.equals(northSouthTime)) {
             labelWalkingTime.setText(westEastTime);
         } else {
-            labelWalkingTime.setText("West to east: " + westEastTime + ", north to south: " + northSouthTime);
+            labelWalkingTime.setText("\u7531\u897F\u81F3\u4E1C: " + westEastTime + ", \u7531\u5317\u81F3\u5357: " + northSouthTime);
         }
     }
-    
+
     private void updateImageLevelLabels() {
         if (programmaticChange) {
             return;
@@ -554,7 +554,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             Configuration.getInstance().setHeightMapDefaultTheme(null);
             loadDefaults();
             buttonSaveAsDefaults.setEnabled(false);
-            showInfo(this, "Theme reset to factory defaults.", "Default Theme Reset");
+            showInfo(this, "\u4E3B\u9898\u5DF2\u91CD\u7F6E\u4E3A\u51FA\u5382\u8BBE\u7F6E.", "\u9ED8\u8BA4\u4E3B\u9898\u5DF2\u91CD\u7F6E");
         }
     }
 
@@ -570,7 +570,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         ProgressDialog.executeTask(this, new ProgressTask<Void>() {
             @Override
             public String getName() {
-                return "Importing height map";
+                return "\u5BFC\u5165\u9AD8\u5EA6\u56FE";
             }
 
             @Override
@@ -593,15 +593,15 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             if (! config.isMessageDisplayedCountAtLeast(MESSAGE_KEY_MASTER_WARNING, 3)) {
                 DesktopUtils.beep();
                 if (JOptionPane.showConfirmDialog(this, /* language=HTML */ "<html>" +
-                        "<h1>About Master Dimensions</h1>" +
-                        "<p>A master dimension will be exported at 256 times the size (by area)<br>and is meant for speeding up the creation of very large maps.</p>" +
+                        "<h1>\u5173\u4E8E\u6269\u5C55\u533A\u7EF4\u5EA6</h1>" +
+                        "<p>\u6269\u5C55\u533A\u7EF4\u5EA6\u5C06\u4F1A\u4EE5 256 \u500D\u5927\u5C0F(\u4EE5\u9762\u79EF\u7B97)\u5BFC\u51FA\uFF0C\u6709\u52A9\u4E8E\u521B\u5EFA\u5927\u578B\u5730\u56FE.</p>" +
                         "<ul>" +
-                        "    <li>You <b>cannot change your mind</b> later; if you do not want this to be<br>a master dimension later you will have to start over." +
-                        "    <li>Loading, editing and saving are quicker, but Exporting is not!<br><b>Exporting takes 256 times longer</b> than a regular dimension<br>of the same pixel size in WorldPainter." +
-                        "    <li>You can detail areas of the Master Dimension at 1:1 scale by<br>switching to the Surface Dimension (" + COMMAND_KEY_NAME + "+M or View menu)<br>and then adding tiles (" + COMMAND_KEY_NAME + "+T or Edit menu)." +
+                        "    <li>\u4F60<b>\u65E0\u6CD5</b>\u64A4\u9500\u8BE5\u64CD\u4F5C; \u5982\u679C\u4F60\u4E0D\u60F3\u8981\u8FD9\u4E2A\u6269\u5C55\u533A\u7EF4\u5EA6<br>\u4F60\u9700\u8981\u5728\u4E4B\u540E\u4ECE\u5934\u5F00\u59CB." +
+                        "    <li>\u52A0\u8F7D, \u7F16\u8F91\u6216\u4FDD\u5B58\u901F\u5EA6\u53EF\u80FD\u5F88\u5FEB, \u4F46\u662F\u5BFC\u51FA\u4E0D\u4F1A!<br>\u5BFC\u51FA\u65F6\u95F4\u76F8\u5BF9\u4E8E\u540C\u7B49\u50CF\u7D20\u5927\u5C0F\u7684\u5730\u56FE\u5C06\u4F1A\u53D8\u4E3A<b>256\u500D</b>." +
+                        "    <li>\u4F60\u53EF\u4EE5\u4EE51:1\u7684\u6BD4\u4F8B\u7CBE\u8C03\u6269\u5C55\u533A\u7EF4\u5EA6\u7684\u5730\u5F62<br>\u53EA\u9700\u5207\u6362\u5230\u4E3B\u4E16\u754C\u89C6\u56FE (\u4F7F\u7528\u5FEB\u6377\u952E" + COMMAND_KEY_NAME + "+M \u6216\u4ECE\u89C6\u56FE\u83DC\u5355\u8FDB\u5165) \u540E\u6DFB\u52A0\u5206\u533A (\u4F7F\u7528\u5FEB\u6377\u952E" + COMMAND_KEY_NAME + "+T \u6216\u4F7F\u7528\u7F16\u8F91\u83DC\u5355) \u5373\u53EF." +
                         "</ul>" +
-                        "<p>Are you sure?</p>" +
-                        "</html>", "Create Master Dimension?", YES_NO_OPTION, WARNING_MESSAGE) != YES_OPTION) {
+                        "<p>\u4F60\u786E\u8BA4\u8981\u6DFB\u52A0\u6269\u5C55\u533A\u7EF4\u5EA6\u5417?</p>" +
+                        "</html>", "\u662F\u5426\u521B\u5EFA\u6269\u5C55\u533A\u7EF4\u5EA6?", YES_NO_OPTION, WARNING_MESSAGE) != YES_OPTION) {
                     return;
                 }
                 config.setMessageDisplayed(MESSAGE_KEY_MASTER_WARNING);
@@ -748,7 +748,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         if (myHeightMapDir == null) {
             myHeightMapDir = Configuration.getInstance().getMasksDirectory();
         }
-        final File file = ImageUtils.selectImageForOpen(this, "a height map image file", myHeightMapDir);
+        final File file = ImageUtils.selectImageForOpen(this, "\u9AD8\u5EA6\u56FE\u6587\u4EF6", myHeightMapDir);
         if (file != null) {
             heightMapDir = file.getParentFile();
             fieldFilename.setText(file.getAbsolutePath());
@@ -845,9 +845,9 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         tiledImageViewer2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Import Height Map");
+        setTitle("\u5BFC\u5165\u9AD8\u5EA6\u56FE");
 
-        jLabel1.setText("Select the image to import as a height map:");
+        jLabel1.setText("\u9009\u62E9\u8981\u5BFC\u5165\u4E3A\u9AD8\u5EA6\u56FE\u7684\u6587\u4EF6:");
 
         buttonSelectFile.setText("...");
         buttonSelectFile.addActionListener(new java.awt.event.ActionListener() {
@@ -856,16 +856,16 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        labelImageDimensions.setText("Image size: ? x ?, bit depth: ?, lowest value: ?, highest value: ?");
+        labelImageDimensions.setText("\u56FE\u50CF\u5927\u5C0F: ? x ?, \u4F4D\u6DF1\u5EA6: ?, \u6700\u4F4E\u503C: ?, \u6700\u9AD8\u503C: ?");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOk.setText("OK");
+        buttonOk.setText("\u786E\u8BA4");
         buttonOk.setEnabled(false);
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -873,7 +873,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        checkBoxInvert.setText("Invert (white is low, black is high)");
+        checkBoxInvert.setText("\u53CD\u8F6C (\u767D\u8272\u4E3A\u9AD8, \u9ED1\u8272\u4E3A\u4F4E)");
         checkBoxInvert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxInvertActionPerformed(evt);
@@ -886,7 +886,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        jLabel3.setText("Scale:");
+        jLabel3.setText("\u7F29\u653E:");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(100.0f), Float.valueOf(0.01f), Float.valueOf(999.99f), Float.valueOf(0.1f)));
         spinnerScale.setEditor(new javax.swing.JSpinner.NumberEditor(spinnerScale, "0.00"));
@@ -896,7 +896,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        labelWorldDimensions.setText("Scaled size: ? x ? blocks");
+        labelWorldDimensions.setText("\u7F29\u653E\u540E\u5927\u5C0F: ? x ? \u683C");
 
         comboBoxMaxHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -908,14 +908,14 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel5.setText("From image:");
+        jLabel5.setText("\u7531\u56FE\u50CF\u83B7\u53D6\u7684\u6570\u636E:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(jLabel5, gridBagConstraints);
 
-        jLabel6.setText("To Minecraft:");
+        jLabel6.setText("\u8F6C\u6362\u5230 Minecraft \u540E:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -924,7 +924,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(jLabel6, gridBagConstraints);
 
-        jLabel7.setText("Low mapping:");
+        jLabel7.setText("\u6700\u4F4E\u503C\u6620\u5C04:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -959,7 +959,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(spinnerWorldLow, gridBagConstraints);
 
-        jLabel8.setText("Water level:");
+        jLabel8.setText("\u6C34\u5E73\u9762\u9AD8\u5EA6:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -989,7 +989,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(spinnerWorldMiddle, gridBagConstraints);
 
-        jLabel9.setText("High mapping:");
+        jLabel9.setText("\u6700\u9AD8\u503C\u6620\u5C04:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -1024,8 +1024,8 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(spinnerWorldHigh, gridBagConstraints);
 
-        jLabel15.setText("Lowest value:");
-        jLabel15.setToolTipText("The lowest value that actually occurs on the height map.");
+        jLabel15.setText("\u6700\u4F4E\u503C:");
+        jLabel15.setToolTipText("\u9AD8\u5EA6\u56FE\u4E2D\u5B9E\u9645\u51FA\u73B0\u7684\u6700\u4F4E\u503C.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -1050,8 +1050,8 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 19);
         jPanel1.add(labelWorldLowestLevel, gridBagConstraints);
 
-        jLabel18.setText("Highest value:");
-        jLabel18.setToolTipText("The highest value that actually occurs on the height map.");
+        jLabel18.setText("\u6700\u9AD8\u503C:");
+        jLabel18.setToolTipText("\u9AD8\u5EA6\u56FE\u4E2D\u5B9E\u9645\u51FA\u73B0\u7684\u6700\u9AD8\u503C.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -1077,7 +1077,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
 
         labelWarningCutOffAbove.setFont(labelWarningCutOffAbove.getFont().deriveFont(labelWarningCutOffAbove.getFont().getStyle() | java.awt.Font.BOLD));
         labelWarningCutOffAbove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelWarningCutOffAbove.setText("Cut off above!");
+        labelWarningCutOffAbove.setText("\u66F4\u9AD8\u7684\u90E8\u5206\u5DF2\u88AB\u88C1\u5207!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
@@ -1088,7 +1088,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
 
         labelWarningCutOffBelow.setFont(labelWarningCutOffBelow.getFont().deriveFont(labelWarningCutOffBelow.getFont().getStyle() | java.awt.Font.BOLD));
         labelWarningCutOffBelow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelWarningCutOffBelow.setText("Cut off below!");
+        labelWarningCutOffBelow.setText("\u66F4\u4F4E\u7684\u90E8\u5206\u5DF2\u88AB\u88C1\u5207!!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
@@ -1096,7 +1096,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(labelWarningCutOffBelow, gridBagConstraints);
 
-        jLabel16.setText("Build limit:");
+        jLabel16.setText("\u5EFA\u7B51\u9650\u5236:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1104,7 +1104,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(jLabel16, gridBagConstraints);
 
-        jLabel17.setText("Build limit:");
+        jLabel17.setText("\u5EFA\u7B51\u9650\u5236:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -1128,11 +1128,11 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 19);
         jPanel1.add(labelMaxHeight, gridBagConstraints);
 
-        jLabel2.setText("Build limits: lower:");
+        jLabel2.setText("\u5EFA\u7B51\u9650\u5236: \u6700\u4F4E:");
 
-        jLabel10.setText("blocks");
+        jLabel10.setText("\u683C");
 
-        checkBoxVoid.setText("create Void below image value:");
+        checkBoxVoid.setText("\u4E8E\u5730\u56FE\u9AD8\u5EA6\u4F4E\u4E8E\u8BE5\u503C\u90E8\u5206\u521B\u5EFA\u865A\u7A7A:");
         checkBoxVoid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxVoidActionPerformed(evt);
@@ -1149,13 +1149,13 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
 
         labelWarning.setFont(labelWarning.getFont().deriveFont(labelWarning.getFont().getStyle() | java.awt.Font.BOLD));
         labelWarning.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
-        labelWarning.setText("Only with mods!");
+        labelWarning.setText("\u53EA\u5728\u6709mod\u65F6\u6709\u6548!");
 
-        jLabel11.setText("Offset:");
-        jLabel11.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        jLabel11.setText("\u504F\u79FB:");
+        jLabel11.setToolTipText("\u9AD8\u5EA6\u56FE\u8D77\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u5750\u6807");
 
         spinnerOffsetX.setModel(new javax.swing.SpinnerNumberModel(0, -999999, 999999, 1));
-        spinnerOffsetX.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        spinnerOffsetX.setToolTipText("\u9AD8\u5EA6\u56FE\u8D77\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u5750\u6807");
         spinnerOffsetX.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinnerOffsetXStateChanged(evt);
@@ -1163,23 +1163,23 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         });
 
         jLabel12.setText(",");
-        jLabel12.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        jLabel12.setToolTipText("\u9AD8\u5EA6\u56FE\u8D77\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u5750\u6807");
 
         spinnerOffsetY.setModel(new javax.swing.SpinnerNumberModel(0, -999999, 999999, 1));
-        spinnerOffsetY.setToolTipText("The origin of the height map will be at these coordinates in the map");
+        spinnerOffsetY.setToolTipText("\u9AD8\u5EA6\u56FE\u8D77\u70B9\u4F1A\u4F4D\u4E8E\u5730\u56FE\u7684\u8FD9\u4E9B\u5750\u6807");
         spinnerOffsetY.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinnerOffsetYStateChanged(evt);
             }
         });
 
-        jLabel14.setText("Edge to edge walking time:");
+        jLabel14.setText("\u8FB9\u7F18\u81F3\u8FB9\u7F18\u884C\u8D70\u65F6\u95F4:");
 
         labelWalkingTime.setText("...");
 
         themeButtonGroup.add(radioButtonApplyTheme);
         radioButtonApplyTheme.setSelected(true);
-        radioButtonApplyTheme.setText("apply theme");
+        radioButtonApplyTheme.setText("\u4E0E\u4E3B\u9898\u76F8\u540C");
         radioButtonApplyTheme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonApplyThemeActionPerformed(evt);
@@ -1187,7 +1187,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
         });
 
         themeButtonGroup.add(radioButtonSingleTerrain);
-        radioButtonSingleTerrain.setText("single:");
+        radioButtonSingleTerrain.setText("\u5355\u4E2A\u65B9\u5757:");
         radioButtonSingleTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonSingleTerrainActionPerformed(evt);
@@ -1201,7 +1201,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        jLabel19.setText("Preset:");
+        jLabel19.setText("\u9884\u8BBE:");
 
         comboBoxPreset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1209,11 +1209,11 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        jLabel20.setText("Exported size:");
+        jLabel20.setText("\u5230\u5904\u5927\u5C0F:");
 
-        labelExportedSize.setText("? x ? blocks");
+        labelExportedSize.setText("? x ? \u683C");
 
-        jLabel22.setText("Exported offset:");
+        jLabel22.setText("\u5BFC\u51FA\u540E\u504F\u79FB:");
 
         labelExportedOffset.setText("0, 0");
 
@@ -1223,12 +1223,12 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
             }
         });
 
-        jLabel21.setText(", upper:");
+        jLabel21.setText(", \u6700\u9AD8:");
 
-        jLabel23.setText("Terrain:");
+        jLabel23.setText("\u65B9\u5757\u7C7B\u578B:");
 
         themeButtonGroup.add(radioButtonLeaveTerrain);
-        radioButtonLeaveTerrain.setText("leave");
+        radioButtonLeaveTerrain.setText("\u7559\u7A7A");
         radioButtonLeaveTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonLeaveTerrainActionPerformed(evt);
@@ -1354,23 +1354,23 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Scaling", jPanel2);
+        jTabbedPane1.addTab("\u7F29\u653E", jPanel2);
 
-        buttonLoadDefaults.setText("Load Defaults");
+        buttonLoadDefaults.setText("\u52A0\u8F7D\u9ED8\u8BA4\u503C");
         buttonLoadDefaults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonLoadDefaultsActionPerformed(evt);
             }
         });
 
-        buttonSaveAsDefaults.setText("Save As Defaults");
+        buttonSaveAsDefaults.setText("\u4FDD\u5B58\u4E3A\u9ED8\u8BA4\u503C");
         buttonSaveAsDefaults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSaveAsDefaultsActionPerformed(evt);
             }
         });
 
-        buttonResetDefaults.setText("Reset");
+        buttonResetDefaults.setText("\u91CD\u7F6E");
         buttonResetDefaults.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetDefaultsActionPerformed(evt);
@@ -1407,21 +1407,21 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Theme", jPanel3);
+        jTabbedPane1.addTab("\u4E3B\u9898", jPanel3);
 
-        checkBoxCreateTiles.setText("Create new tiles");
+        checkBoxCreateTiles.setText("\u521B\u5EFA\u65B0\u5206\u533A");
 
-        labelNoUndo.setText("<html><b>Note:</b> this cannot be undone!</html>");
+        labelNoUndo.setText("<html><b>\u6CE8\u610F:</b> \u8BE5\u64CD\u4F5C\u4E0D\u53EF\u64A4\u9500!</html>");
 
-        checkBoxOnlyRaise.setText("Only where higher");
-        checkBoxOnlyRaise.setToolTipText("When selected, the height map will only be applied where it is higher than the existing terrain");
+        checkBoxOnlyRaise.setText("\u4EC5\u5E94\u7528\u4E8E\u9AD8\u4E8E\u5F53\u524D\u5730\u5F62\u90E8\u5206");
+        checkBoxOnlyRaise.setToolTipText("\u9009\u4E2D\u540E\uFF0C\u9AD8\u5EA6\u56FE\u5C06\u4EC5\u5E94\u7528\u4E8E\u9AD8\u4E8E\u73B0\u6709\u5730\u5F62\u7684\u4F4D\u7F6E");
         checkBoxOnlyRaise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxOnlyRaiseActionPerformed(evt);
             }
         });
 
-        jLabel13.setText("Map format:");
+        jLabel13.setText("\u5730\u56FE\u683C\u5F0F:");
 
         comboBoxPlatform.setRenderer(new PlatformListCellRenderer());
         comboBoxPlatform.addActionListener(new java.awt.event.ActionListener() {
@@ -1432,7 +1432,7 @@ public class ImportHeightMapDialog extends WorldPainterDialog implements Documen
 
         tiledImageViewerContainer1.setMinimumSize(new java.awt.Dimension(384, 22));
 
-        checkBoxMasterDimension.setText("create as master dimension (1:16 scale)");
+        checkBoxMasterDimension.setText("\u4EE5\u6269\u5C55\u533A\u7EF4\u5EA6\u521B\u5EFA (1:16 \u6BD4\u4F8B)");
         checkBoxMasterDimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxMasterDimensionActionPerformed(evt);

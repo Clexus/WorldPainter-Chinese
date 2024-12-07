@@ -204,7 +204,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
     }
 
     private void addOverlay() {
-        final File imageFile = selectImageForOpen(this, "\u8986\u76D6\u56FE\u6587\u4EF6", config.getOverlaysDirectory());
+        final File imageFile = selectImageForOpen(this, "\u906e\u7f69\u56fe\u6587\u4EF6", config.getOverlaysDirectory());
         if (imageFile != null) {
             final Overlay overlay = new Overlay(imageFile);
             final int rowIndex = overlaysTableModel.addOverlay(overlay);
@@ -273,9 +273,9 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configure View");
+        setTitle("\u914D\u7F6E\u89C6\u56FE");
 
-        checkBoxGrid.setText("Grid");
+        checkBoxGrid.setText("\u7F51\u683C");
         checkBoxGrid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxGridActionPerformed(evt);
@@ -290,34 +290,34 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
             }
         });
 
-        jLabel1.setText("Grid size:");
+        jLabel1.setText("\u7F51\u683C\u5C3A\u5BF8:");
 
         checkBoxImageOverlay.setSelected(true);
-        checkBoxImageOverlay.setText("Show image overlay(s):");
+        checkBoxImageOverlay.setText("\u663E\u793A\u906E\u7F69\u56FE");
         checkBoxImageOverlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxImageOverlayActionPerformed(evt);
             }
         });
 
-        buttonClose.setText("Close");
+        buttonClose.setText("\u5173\u95ED");
         buttonClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCloseActionPerformed(evt);
             }
         });
 
-        jLabel9.setText("blocks");
+        jLabel9.setText("\u683C");
 
         checkBoxContours.setSelected(true);
-        checkBoxContours.setText("Contour lines");
+        checkBoxContours.setText("\u7B49\u9AD8\u7EBF");
         checkBoxContours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxContoursActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Separation:");
+        jLabel10.setText("\u5206\u5272\u95F4\u9694:");
 
         spinnerContourSeparation.setModel(new javax.swing.SpinnerNumberModel(10, 2, 999, 1));
         spinnerContourSeparation.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -326,18 +326,18 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
             }
         });
 
-        jLabel11.setText("blocks");
+        jLabel11.setText("\u683C");
 
-        jLabel12.setText("Background colour:");
+        jLabel12.setText("\u80CC\u666F\u8272:");
 
-        checkBoxBackgroundImage.setText("Background image");
+        checkBoxBackgroundImage.setText("\u80CC\u666F\u56FE");
         checkBoxBackgroundImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxBackgroundImageActionPerformed(evt);
             }
         });
 
-        jLabel13.setText("Image:");
+        jLabel13.setText("\u56FE\u50CF:");
 
         fieldBackgroundImage.setEnabled(false);
 
@@ -349,7 +349,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
             }
         });
 
-        jLabel14.setText("Layout:");
+        jLabel14.setText("\u5951\u5408\u65B9\u5F0F:");
 
         comboBoxBackgroundImageMode.setEnabled(false);
         comboBoxBackgroundImageMode.addActionListener(new java.awt.event.ActionListener() {
@@ -358,21 +358,21 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
             }
         });
 
-        checkBoxShowBiomes.setText("Show Minecraft biomes (when available and applicable)");
+        checkBoxShowBiomes.setText("\u663E\u793A Minecraft \u751F\u7269\u7FA4\u7CFB (\u53EF\u7528\u65F6)");
         checkBoxShowBiomes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxShowBiomesActionPerformed(evt);
             }
         });
 
-        checkBoxShowBorders.setText("Show borders");
+        checkBoxShowBorders.setText("\u663E\u793A\u8FB9\u754C");
         checkBoxShowBorders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxShowBordersActionPerformed(evt);
             }
         });
 
-        buttonResetBackgroundColour.setText("Reset");
+        buttonResetBackgroundColour.setText("\u91CD\u7F6E");
         buttonResetBackgroundColour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonResetBackgroundColourActionPerformed(evt);
@@ -380,7 +380,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
         });
 
         buttonAddOverlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_add.png"))); // NOI18N
-        buttonAddOverlay.setToolTipText("Add an overlay");
+        buttonAddOverlay.setToolTipText("\u6DFB\u52A0\u4E00\u5F20\u906E\u7F69\u56FE");
         buttonAddOverlay.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonAddOverlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -389,7 +389,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
         });
 
         buttonDeleteOverlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_delete.png"))); // NOI18N
-        buttonDeleteOverlay.setToolTipText("Remove the selected overlay");
+        buttonDeleteOverlay.setToolTipText("\u79FB\u9664\u9009\u4E2D\u906E\u7F69\u56FE");
         buttonDeleteOverlay.setEnabled(false);
         buttonDeleteOverlay.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonDeleteOverlay.addActionListener(new java.awt.event.ActionListener() {
@@ -399,7 +399,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
         });
 
         buttonEditOverlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_edit.png"))); // NOI18N
-        buttonEditOverlay.setToolTipText("Edit the selected overlay");
+        buttonEditOverlay.setToolTipText("\u7F16\u8F91\u9009\u4E2D\u906E\u7F69\u56FE");
         buttonEditOverlay.setEnabled(false);
         buttonEditOverlay.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonEditOverlay.addActionListener(new java.awt.event.ActionListener() {
@@ -416,7 +416,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
         });
         jScrollPane2.setViewportView(tableOverlays);
 
-        jLabel2.setText("Render distance:");
+        jLabel2.setText("\u6E32\u67D3\u8DDD\u79BB:");
 
         spinnerRenderDistance.setModel(new javax.swing.SpinnerNumberModel(12, 1, 32, 1));
         spinnerRenderDistance.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -425,7 +425,7 @@ public class ConfigureViewDialog extends WorldPainterDialog implements WindowLis
             }
         });
 
-        jLabel3.setText("chunks");
+        jLabel3.setText("\u4E2A\u533A\u5757");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

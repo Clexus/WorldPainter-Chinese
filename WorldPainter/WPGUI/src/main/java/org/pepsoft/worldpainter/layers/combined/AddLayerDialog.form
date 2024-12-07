@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="\u6DFB\u52A0\u8986\u76d6\u5c42"/>
+    <Property name="title" type="java.lang.String" value="\u6DFB\u52A0\u8986\u76D6\u5C42"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -80,12 +80,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u9009\u62E9\u4E00\u4E2A\u8981\u6DFB\u52A0\u7684\u8986\u76d6\u5c42:"/>
+        <Property name="text" type="java.lang.String" value="\u9009\u62E9\u4E00\u4E2A\u8981\u6DFB\u52A0\u7684\u8986\u76D6\u5C42:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76D6\u5C42:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxLayer">
@@ -123,7 +123,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonCancel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u53d6\u6d88"/>
+        <Property name="text" type="java.lang.String" value="\u53D6\u6D88"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCancelActionPerformed"/>
@@ -131,7 +131,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonOK">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u786e\u8ba4"/>
+        <Property name="text" type="java.lang.String" value="\u786E\u8BA4"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonOKActionPerformed"/>

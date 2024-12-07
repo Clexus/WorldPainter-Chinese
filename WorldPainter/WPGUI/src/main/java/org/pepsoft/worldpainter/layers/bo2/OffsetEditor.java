@@ -41,7 +41,7 @@ public class OffsetEditor extends javax.swing.JDialog {
         spinnerZ.setValue(offset.z);
         
         ActionMap actionMap = rootPane.getActionMap();
-        actionMap.put("cancel", new AbstractAction("cancel") {
+        actionMap.put("cancel", new AbstractAction("\u53d6\u6d88") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -113,27 +113,27 @@ public class OffsetEditor extends javax.swing.JDialog {
         jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Offset");
+        setTitle("编辑偏移量");
 
-        jLabel2.setText("X axis (west to east):");
+        jLabel2.setText("X 轴 (东西):");
 
         spinnerX.setModel(new javax.swing.SpinnerNumberModel(0, -999, 999, 1));
         spinnerX.addChangeListener(this::spinnerXStateChanged);
 
-        jLabel3.setText("Z axis (north to south):");
+        jLabel3.setText("Z 轴 (南北):");
 
         spinnerY.setModel(new javax.swing.SpinnerNumberModel(0, -999, 999, 1));
         spinnerY.addChangeListener(this::spinnerYStateChanged);
 
-        jLabel4.setText("Y axis (vertical):");
+        jLabel4.setText("Y 轴 (垂直方向):");
 
         spinnerZ.setModel(new javax.swing.SpinnerNumberModel(0, -999, 999, 1));
         spinnerZ.addChangeListener(this::spinnerZStateChanged);
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(this::buttonCancelActionPerformed);
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(this::buttonOKActionPerformed);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -163,7 +163,7 @@ public class OffsetEditor extends javax.swing.JDialog {
         jTextArea1.setEditable(false);
         jTextArea1.setFont(jLabel2.getFont());
         jTextArea1.setLineWrap(true);
-        jTextArea1.setText("The dotted square indicates the \"origin\" of the object; i.e. the block that will be placed directly on the surface at the location of the object. You can change it by adjusting the offset. The dotted line indicates ground level.\n\nRotate the object by pressing L or R.");
+        jTextArea1.setText("虚线方框表示对象的“原点”; 例如直接放置在对象位置表面上的方块。你可以通过调整偏移量来更改它。虚线表示地面水平线。\n\n;通过按 L 或 R 来旋转对象.");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
         jTextArea1.setOpaque(false);

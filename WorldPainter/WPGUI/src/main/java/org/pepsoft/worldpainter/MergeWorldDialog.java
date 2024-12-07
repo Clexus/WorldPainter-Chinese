@@ -87,7 +87,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
         }
         ((SpinnerNumberModel) spinnerSurfaceThickness.getModel()).setMaximum(world.getMaxHeight());
         if (selectedTiles != null) {
-            radioButtonExportSelection.setText("merge " + selectedTiles.size() + " selected tiles");
+            radioButtonExportSelection.setText("\u5408\u5E76 " + selectedTiles.size() + " \u4E2A\u9009\u4E2D\u7684\u5206\u533A");
             radioButtonExportSelection.setSelected(true);
             checkBoxSurface.setSelected(selectedDimension == DIM_NORMAL);
             checkBoxNether.setSelected(selectedDimension == DIM_NETHER);
@@ -119,7 +119,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
             checkBoxRemoveManMadeBelowGround.setSelected(mergeSettings.clearManMadeBelowGround);
             spinnerSurfaceThickness.setValue(mergeSettings.surfaceMergeDepth);
         });
-        
+
         DocumentListener documentListener = new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -152,11 +152,11 @@ public class MergeWorldDialog extends WorldPainterDialog {
         // Check for errors
         if (mapDir == null) {
             fieldSelectedMapDir.requestFocusInWindow();
-            beepAndShowError(this, "No existing map selected.", "Error");
+            beepAndShowError(this, "\u6CA1\u6709\u9009\u4E2D\u73B0\u6709\u7684\u5730\u56FE.", "\u9519\u8BEF");
             return;
         } else if (platform == null) {
             fieldSelectedMapDir.requestFocusInWindow();
-            beepAndShowError(this, "Selected map does not have a supported format.", "Error");
+            beepAndShowError(this, "\u9009\u4E2D\u7684\u5730\u56FE\u683C\u5F0F\u4E0D\u53D7\u652F\u6301.", "\u9519\u8BEF");
             return;
         }
         if (! checkCompatibility(platform)) {
@@ -164,12 +164,12 @@ public class MergeWorldDialog extends WorldPainterDialog {
         }
         if ((! radioButtonExportEverything.isSelected()) && ((selectedTiles == null) || selectedTiles.isEmpty())) {
             radioButtonExportEverything.requestFocusInWindow();
-            beepAndShowError(this, "No tiles selected for merging.", "Error");
+            beepAndShowError(this, "\u6CA1\u6709\u9009\u62E9\u8981\u5408\u5E76\u7684\u5206\u533A.", "\u9519\u8BEF");
             return;
         }
         if ((! checkBoxSurface.isSelected()) && (! checkBoxNether.isSelected()) && (! checkBoxEnd.isSelected())) {
             checkBoxSurface.requestFocusInWindow();
-            beepAndShowError(this, "No dimension selected for merging.", "Error");
+            beepAndShowError(this, "\u6CA1\u6709\u9009\u62E9\u8981\u5408\u5E76\u7684\u7EF4\u5EA6.", "\u9519\u8BEF");
             return;
         }
 
@@ -219,35 +219,35 @@ public class MergeWorldDialog extends WorldPainterDialog {
             merger.performSanityChecks();
         } catch (IllegalArgumentException e) {
             logger.error(e.getClass().getSimpleName() + ": " + e.getMessage(), e);
-            beepAndShowError(this, e.getLocalizedMessage(), "Error");
+            beepAndShowError(this, e.getLocalizedMessage(), "\u9519\u8BEF");
             return;
         } catch (IOException e) {
             throw new RuntimeException("I/O error reading level.dat file", e);
         }
 
         // Check for warnings
-        StringBuilder sb = new StringBuilder("<html>Please confirm that you want to merge the world<br>notwithstanding the following warnings:<br><ul>");
+        StringBuilder sb = new StringBuilder("<html>\u8BF7\u786E\u8BA4\u5728\u6709\u4EE5\u4E0B\u8B66\u544A\u7684\u60C5\u51B5\u4E0B\u4ECD\u8981\u5408\u5E76\u4E16\u754C:<br><ul>");
         boolean showWarning = false;
         if ((radioButtonExportSelection.isSelected()) && (! disableTileSelectionWarning)) {
             String dim;
             switch (selectedDimension) {
                 case DIM_NORMAL:
-                    dim = "Surface";
+                    dim = "\u4E3B\u4E16\u754C";
                     break;
                 case DIM_NETHER:
-                    dim = "Nether";
+                    dim = "\u4E0B\u754C";
                     break;
                 case DIM_END:
-                    dim = "End";
+                    dim = "\u672B\u5730";
                     break;
                 default:
                     throw new InternalError();
             }
-            sb.append("<li>A tile selection is active! Only " + selectedTiles.size() + " tiles of the<br>" + dim + " dimension are going to be merged.");
+            sb.append("<li>\u4ECD\u6709\u6D3B\u8DC3\u7684\u5206\u533A\u9009\u533A! "+dim+" \u4E2D\u53EA\u6709 " + selectedTiles.size() + " \u4E2A\u5206\u533A\u4F1A\u88AB\u5408\u5E76");
             showWarning = true;
         }
-        sb.append("</ul>Do you want to continue with the merge?</html>");
-        if (showWarning && (JOptionPane.showConfirmDialog(this, sb.toString(), "Review Warnings", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.YES_OPTION)) {
+        sb.append("</ul>\u4F60\u786E\u8BA4\u8981\u7EE7\u7EED\u5408\u5E76\u5417?</html>");
+        if (showWarning && (JOptionPane.showConfirmDialog(this, sb.toString(), "\u67E5\u770B\u8B66\u544A", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) != JOptionPane.YES_OPTION)) {
             return;
         }
 
@@ -327,7 +327,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
 
             if (merger.getWarnings() != null) {
                 DesktopUtils.beep();
-                ImportWarningsDialog warningsDialog = new ImportWarningsDialog(MergeWorldDialog.this, "Merge Warnings", "<html>The merge process generated warnings! The existing map may have had pre-<br>existing damage or corruption. Not all chunks may have been merged correctly.<br>Please review the warnings below:</html>");
+                ImportWarningsDialog warningsDialog = new ImportWarningsDialog(MergeWorldDialog.this, "\u5408\u5E76\u8B66\u544A", "<html>\u5408\u5E76\u8FC7\u7A0B\u4EA7\u751F\u4E86\u4E95\u76D6! \u73B0\u6709\u5730\u56FE\u53EF\u80FD\u5B58\u5728\u635F\u574F. \u6709\u90E8\u5206\u533A\u5757\u672A\u88AB\u6B63\u786E\u5408\u5E76.<br>\u8BF7\u4E8E\u4E0B\u65B9\u67E5\u770B\u8FD9\u4E9B\u8B66\u544A:</html>");
                 warningsDialog.setWarnings(merger.getWarnings());
                 warningsDialog.setVisible(true);
             }
@@ -355,7 +355,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
                 labelPlatform.setText(platform.displayName);
                 labelPlatform.setIcon(mapInfo.icon);
             } else {
-                labelPlatform.setText("no supported format detected");
+                labelPlatform.setText("\u672A\u68C0\u6D4B\u5230\u652F\u6301\u683C\u5F0F");
                 labelPlatform.setIcon(null);
             }
         } else {
@@ -402,7 +402,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
             checkBoxNether.setSelected(selectedDimension == DIM_NETHER);
             checkBoxEnd.setSelected(selectedDimension == DIM_END);
             selectedTiles = dialog.getSelectedTiles();
-            radioButtonExportSelection.setText("merge " + selectedTiles.size() + " selected tiles");
+            radioButtonExportSelection.setText("\u5408\u5E76 " + selectedTiles.size() + " \u4E2A\u9009\u4E2D\u7684\u5206\u533A");
             pack();
             setControlStates();
             disableTileSelectionWarning = true;
@@ -423,12 +423,12 @@ public class MergeWorldDialog extends WorldPainterDialog {
             if (! nameOnlyMaterials.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("<html>");
-                sb.append("<p>The selected map's format ").append(platform.displayName).append(" is not compatible with this world because this world contains the following incompatible block types:");
-                sb.append("<table><tr><th align='left'>Block Type</th><th align='left'>Source</th></tr>");
+                sb.append("<p>\u9009\u4E2D\u5730\u56FE\u7684\u683C\u5F0F ").append(platform.displayName).append(" \u4E0D\u517C\u5BB9\uFF0C\u56E0\u4E3A\u4E16\u754C\u4E2D\u5B58\u5728\u4EE5\u4E0B\u4E0D\u517C\u5BB9\u7684\u65B9\u5757\u7C7B\u578B:");
+                sb.append("<table><tr><th align='left'>\u65B9\u5757\u7C7B\u578B</th><th align='left'>\u6765\u6E90</th></tr>");
                 nameOnlyMaterials.forEach((name, sources) ->
                         sb.append("<tr><td>").append(name).append("</td><td>").append(String.join(",", sources)).append("</td></tr>"));
                 sb.append("</table>");
-                beepAndShowError(this, sb.toString(), "Map Format Not Compatible");
+                beepAndShowError(this, sb.toString(), "\u5730\u56FE\u683C\u5F0F\u4E0D\u517C\u5BB9");
                 fieldSelectedMapDir.requestFocusInWindow();
                 return false;
             }
@@ -437,10 +437,10 @@ public class MergeWorldDialog extends WorldPainterDialog {
         if (incompatibilityReason != null) {
             DesktopUtils.beep();
             JOptionPane.showMessageDialog(this, String.format(/* language=HTML */ "<html>" +
-                    "<p>The selected map's format %s is not compatible with this world, for the following reason:" +
+                    "<p>\u9009\u4E2D\u5730\u56FE\u7684\u683C\u5F0F %s \u56E0\u4E3A\u4E0B\u65B9\u539F\u56E0\u4E0E\u8BE5\u4E16\u754C\u4E0D\u517C\u5BB9:" +
                     "<ul><li>%s" +
                     "</ul>" +
-                    "</html>", platform.displayName, incompatibilityReason), "Map Format Not Compatible", JOptionPane.ERROR_MESSAGE);
+                    "</html>", platform.displayName, incompatibilityReason), "\u5730\u56FE\u683C\u5F0F\u4E0D\u517C\u5BB9", JOptionPane.ERROR_MESSAGE);
             fieldSelectedMapDir.requestFocusInWindow();
             return false;
         }
@@ -492,9 +492,9 @@ public class MergeWorldDialog extends WorldPainterDialog {
         checkBoxBelowMergeBiomes = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Merging");
+        setTitle("\u5408\u5E76\u4E2D");
 
-        jLabel2.setText("Select the existing map to merge your changes with:");
+        jLabel2.setText("\u9009\u62E9\u4E00\u4E2A\u8981\u548C\u5F53\u524D\u4E16\u754C\u5408\u5E76\u7684\u5DF2\u6709\u4E16\u754C:");
 
         buttonSelectDirectory.setText("...");
         buttonSelectDirectory.addActionListener(new java.awt.event.ActionListener() {
@@ -503,7 +503,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
             }
         });
 
-        buttonMerge.setText("Merge");
+        buttonMerge.setText("\u5408\u5E76");
         buttonMerge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMergeActionPerformed(evt);
@@ -512,8 +512,8 @@ public class MergeWorldDialog extends WorldPainterDialog {
 
         buttonGroup1.add(radioButtonAll);
         radioButtonAll.setSelected(true);
-        radioButtonAll.setText("Merge old and new chunks");
-        radioButtonAll.setToolTipText("<html><i>Will merge everything (terrain type and height changes,<br>\nnew layers, etc.). Takes a long time.</i></html>");
+        radioButtonAll.setText("\u5408\u5E76\u65E7\u7684\u4E0E\u65B0\u7684\u533A\u5757");
+        radioButtonAll.setToolTipText("<html><i>\u5C06\u4F1A\u5408\u5E76\u6240\u6709\u5185\u5BB9 (\u65B9\u5757\u79CD\u7C7B\u548C\u9AD8\u5EA6\u53D8\u5316,<br>\n\u65B0\u7684\u8986\u76D6\u5C42\u7B49\u7B49). \u82B1\u8D39\u65F6\u95F4\u8F83\u957F.</i></html>");
         radioButtonAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonAllActionPerformed(evt);
@@ -521,8 +521,8 @@ public class MergeWorldDialog extends WorldPainterDialog {
         });
 
         buttonGroup1.add(radioButtonReplaceChunks);
-        radioButtonReplaceChunks.setText("Completely replace chunks with new chunks");
-        radioButtonReplaceChunks.setToolTipText("<html><i>This will </i>replace<i> all non-read-only chunks,<br>destroying everything that's there in the existing map! </i></html>");
+        radioButtonReplaceChunks.setText("\u5B8C\u5168\u5C06\u65E7\u533A\u5757\u66FF\u6362\u4E3A\u65B0\u533A\u5757");
+        radioButtonReplaceChunks.setToolTipText("<html><i>\u5C06\u4F1A</i>\u66FF\u6362<i>\u6240\u6709\u975E\u53EA\u8BFB\u533A\u5757,<br>\u6467\u6BC1\u5DF2\u6709\u5730\u56FE\u7684\u6240\u6709\u5185\u5BB9! </i></html>");
         radioButtonReplaceChunks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonReplaceChunksActionPerformed(evt);
@@ -531,7 +531,7 @@ public class MergeWorldDialog extends WorldPainterDialog {
 
         buttonGroup2.add(radioButtonExportEverything);
         radioButtonExportEverything.setSelected(true);
-        radioButtonExportEverything.setText("Merge all tiles");
+        radioButtonExportEverything.setText("\u5408\u5E76\u6240\u6709\u5206\u533A");
         radioButtonExportEverything.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonExportEverythingActionPerformed(evt);
@@ -539,89 +539,89 @@ public class MergeWorldDialog extends WorldPainterDialog {
         });
 
         buttonGroup2.add(radioButtonExportSelection);
-        radioButtonExportSelection.setText("merge selected tiles");
+        radioButtonExportSelection.setText("\u5408\u5E76\u9009\u4E2D\u5206\u533A");
         radioButtonExportSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonExportSelectionActionPerformed(evt);
             }
         });
 
-        labelSelectTiles.setText("<html><u>select tiles</u></html>");
+        labelSelectTiles.setText("<html><u>\u9009\u62E9\u5206\u533A</u></html>");
         labelSelectTiles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelSelectTilesMouseClicked(evt);
             }
         });
 
-        jLabel1.setText("Choose which part of the map to merge:");
+        jLabel1.setText("\u9009\u62E9\u8981\u5730\u56FE\u4E0A\u5408\u5E76\u7684\u90E8\u5206:");
 
-        jLabel4.setText("<html>Choose what kind of merge to perform (<b>non-read-only</b> chunks in <b>selected tiles</b> only):</html>");
+        jLabel4.setText("<html>\u9009\u62E9\u8981\u6267\u884C\u4EC0\u4E48\u6837\u7684\u5408\u5E76 (\u4EC5\u9650<b>\u9009\u4E2D\u5206\u533A</b>\u4E2D\u7684<b>\u975E\u53EA\u8BFB</b>\u533A\u5757):</html>");
 
-        jLabel5.setText("Options for the existing map:");
+        jLabel5.setText("\u5DF2\u6709\u5730\u56FE\u7684\u9009\u9879:");
 
-        jLabel6.setText("<html><b>Above</b> ground:</html>");
+        jLabel6.setText("<html>\u5730\u9762<b>\u4E4B\u4E0A</b>:</html>");
 
-        checkBoxRemoveTrees.setText("Remove all trees and huge mushrooms");
-        checkBoxRemoveTrees.setToolTipText("Removes all wood and leaf blocks, as wells as cocoa plants, vines and saplings.");
+        checkBoxRemoveTrees.setText("\u79FB\u9664\u6240\u6709\u6811\u548C\u5DE8\u578B\u8611\u83C7");
+        checkBoxRemoveTrees.setToolTipText("\u79FB\u9664\u6240\u6709\u6811\u548C\u5DE8\u578B\u8611\u83C7\uFF0C\u5305\u542B\u53EF\u53EF\u679C\u3001\u85E4\u8513\u548C\u6811\u82D7.");
 
-        checkBoxRemoveVegetation.setText("Remove all other vegetation and crops");
-        checkBoxRemoveVegetation.setToolTipText("Removes all tall grass, flowers, mushrooms, nether wart, pumpkins and melons, carrots and potatoes, wheat, etc.");
+        checkBoxRemoveVegetation.setText("\u79FB\u9664\u6240\u6709\u4F4E\u77EE\u690D\u7269\u548C\u519C\u4F5C\u7269");
+        checkBoxRemoveVegetation.setToolTipText("\u79FB\u9664\u6240\u6709\u9AD8\u8349\u3001\u82B1\u3001\u8611\u83C7\u3001\u5730\u72F1\u75A3\u3001\u5357\u74DC\u548C\u897F\u74DC\u3001\u80E1\u841D\u535C\u3001\u9A6C\u94C3\u85AF\u3001\u5C0F\u9EA6\u7B49\u7B49");
 
-        checkBoxRemoveManMadeAboveGround.setText("Remove all man-made structures");
-        checkBoxRemoveManMadeAboveGround.setToolTipText("Removes any block which cannot occur naturally, above ground.");
+        checkBoxRemoveManMadeAboveGround.setText("\u79FB\u9664\u6240\u6709\u4EBA\u9020\u7ED3\u6784");
+        checkBoxRemoveManMadeAboveGround.setToolTipText("\u79FB\u9664\u6240\u6709\u5730\u8868\u4EE5\u4E0A\u4E0D\u53EF\u80FD\u81EA\u7136\u51FA\u73B0\u7684\u65B9\u5757.");
 
-        checkBoxRemoveResources.setText("Remove all resources/ores");
-        checkBoxRemoveResources.setToolTipText("Replaces all resource/ore blocks with stone (or netherrack in the case of quartz).");
+        checkBoxRemoveResources.setText("\u79FB\u9664\u6240\u6709\u8D44\u6E90/\u539F\u77FF");
+        checkBoxRemoveResources.setToolTipText("\u4F7F\u7528\u77F3\u5934\u66FF\u6362\u6240\u6709\u8D44\u6E90\u7C7B\u65B9\u5757 (\u77F3\u82F1\u77FF\u5219\u662F\u4E0B\u754C\u5CA9).");
 
-        checkBoxFillCaves.setText("Fill in all caves and other hollow spaces");
-        checkBoxFillCaves.setToolTipText("<html>Replaces all air, water, lava and other insubstantial blocks with stone.<br>\nTo replace man-made blocks as well, use \"remove all man-made structures\" also.</html>");
+        checkBoxFillCaves.setText("\u586B\u5145\u6240\u6709\u6D1E\u7A74\u548C\u7A7A\u6D1E");
+        checkBoxFillCaves.setToolTipText("<html>\u5C06\u7A7A\u6C14\u3001\u6C34\u3001\u5CA9\u6D46\u548C\u5176\u4ED6\u6240\u6709\u65E0\u5B9E\u4F53\u65B9\u5757\u66FF\u6362\u4E3A\u77F3\u5934.<br>\n\u8981\u66FF\u6362\u6240\u6709\u7684\u4EBA\u9020\u65B9\u5757, \u8BF7\u540C\u65F6\u4F7F\u7528\"\u79FB\u9664\u6240\u6709\u4EBA\u9020\u7ED3\u6784\".</html>");
 
-        checkBoxRemoveManMadeBelowGround.setText("Remove all man-made structures");
-        checkBoxRemoveManMadeBelowGround.setToolTipText("Replaces any block which cannot occur naturally with stone or air, below ground.");
+        checkBoxRemoveManMadeBelowGround.setText("\u79FB\u9664\u6240\u6709\u4EBA\u9020\u7ED3\u6784");
+        checkBoxRemoveManMadeBelowGround.setToolTipText("\u4F7F\u7528\u77F3\u5934\u6216\u7A7A\u6C14\u79FB\u9664\u6240\u6709\u5730\u4E0B\u7684\u975E\u81EA\u7136\u65B9\u5757.");
 
-        jLabel7.setText("<html><b>Below</b> ground:</html>");
+        jLabel7.setText("<html>\u5730\u9762<b>\u4E4B\u4E0B</b>:</html>");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/error.png"))); // NOI18N
         jLabel3.setText(" ");
-        jLabel3.setToolTipText("<html>This removes <em>all</em> wood and leaf blocks, including man-made ones!<br>\nWorldPainter can't tell the difference between natural and man-made wood blocks.<br>\nBe sure to protect your builds with the Read-Only layer.</html>");
+        jLabel3.setToolTipText("<html>\u5C06\u4F1A\u79FB\u9664<em>\u6240\u6709\u7684</em>\u6728\u5934\u548C\u6811\u53F6, \u5305\u62EC\u4EBA\u5DE5\u653E\u7F6E\u7684!<br>\nWorldPainter \u65E0\u6CD5\u5206\u8FA8\u81EA\u7136\u751F\u6210\u548C\u4EBA\u5DE5\u653E\u7F6E\u4E4B\u95F4\u7684\u533A\u522B.<br>\n\u8BF7\u786E\u4FDD\u4F60\u5DF2\u7528\u53EA\u8BFB\u8986\u76D6\u5C42\u4FDD\u62A4\u4E86\u4F60\u7684\u5EFA\u7B51.</html>");
 
-        jLabel8.setText("Thickness of surface layer to replace:");
+        jLabel8.setText("\u8981\u66FF\u6362\u7684\u8868\u5C42\u9AD8\u5EA6:");
 
         spinnerSurfaceThickness.setModel(new javax.swing.SpinnerNumberModel(3, 1, 256, 1));
 
-        jLabel9.setText("blocks");
+        jLabel9.setText("\u683C");
 
-        checkBoxSurface.setText("Surface");
+        checkBoxSurface.setText("\u4E3B\u4E16\u754C");
         checkBoxSurface.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxSurfaceActionPerformed(evt);
             }
         });
 
-        checkBoxNether.setText("Nether");
+        checkBoxNether.setText("\u4E0B\u754C");
         checkBoxNether.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxNetherActionPerformed(evt);
             }
         });
 
-        checkBoxEnd.setText("End");
+        checkBoxEnd.setText("\u672B\u5730");
         checkBoxEnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkBoxEndActionPerformed(evt);
             }
         });
 
-        jLabel10.setText("Map format:");
+        jLabel10.setText("\u5730\u56FE\u683C\u5F0F:");
 
         checkBoxAboveMergeBlocks.setSelected(true);
-        checkBoxAboveMergeBlocks.setText("Merge blocks");
+        checkBoxAboveMergeBlocks.setText("\u5408\u5E76\u65B9\u5757");
 
-        checkBoxAboveMergeBiomes.setText("Replace biomes");
+        checkBoxAboveMergeBiomes.setText("\u66FF\u6362\u751F\u7269\u7FA4\u7CFB");
 
-        checkBoxBelowMergeBlocks.setText("Merge blocks");
+        checkBoxBelowMergeBlocks.setText("\u5408\u5E76\u65B9\u5757");
 
-        checkBoxBelowMergeBiomes.setText("Replace biomes");
+        checkBoxBelowMergeBiomes.setText("\u66FF\u6362\u751F\u7269\u7FA4\u7CFB");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

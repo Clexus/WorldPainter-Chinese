@@ -177,15 +177,15 @@ public class EditSuperflatPresetDialog extends WorldPainterDialog {
         checkBoxLakes = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Superflat Preset");
+        setTitle("\u7F16\u8F91\u8D85\u5E73\u5766\u9884\u8BBE");
 
-        jLabel1.setText("Biome:");
+        jLabel1.setText("\u7FA4\u7CFB:");
 
         tableLayers.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tableLayers);
 
         buttonLayerAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_add.png"))); // NOI18N
-        buttonLayerAdd.setToolTipText("Add a layer.");
+        buttonLayerAdd.setToolTipText("\u6DFB\u52A0\u4E00\u4E2A\u8986\u76D6\u5C42.");
         buttonLayerAdd.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonLayerAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +194,7 @@ public class EditSuperflatPresetDialog extends WorldPainterDialog {
         });
 
         buttonLayerDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/brick_delete.png"))); // NOI18N
-        buttonLayerDelete.setToolTipText("Delete the selected layer.");
+        buttonLayerDelete.setToolTipText("\u5220\u9664\u9009\u4E2D\u8986\u76D6\u5C42.");
         buttonLayerDelete.setEnabled(false);
         buttonLayerDelete.setMargin(new java.awt.Insets(2, 2, 2, 2));
         buttonLayerDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -203,16 +203,16 @@ public class EditSuperflatPresetDialog extends WorldPainterDialog {
             }
         });
 
-        jLabel2.setText("Layers:");
+        jLabel2.setText("\u8986\u76D6\u5C42:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53D6\u6D88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786E\u8BA4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
@@ -235,11 +235,11 @@ public class EditSuperflatPresetDialog extends WorldPainterDialog {
             }
         });
 
-        labelStructures.setText("Structures:");
+        labelStructures.setText("\u7ED3\u6784:");
 
-        checkBoxFeatures.setText("features");
+        checkBoxFeatures.setText("\u5730\u7269");
 
-        checkBoxLakes.setText("lakes");
+        checkBoxLakes.setText("\u6E56\u6CCA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

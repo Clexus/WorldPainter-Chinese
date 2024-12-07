@@ -24,12 +24,12 @@ import java.io.IOException;
  */
 public class MergeProgressDialog extends MultiProgressDialog<Void> implements WindowListener {
     public MergeProgressDialog(Window parent, JavaWorldMerger merger, File backupDir) {
-        super(parent, "Merging");
+        super(parent, "\u5408\u5E76\u4E2D");
         this.merger = merger;
         this.backupDir = backupDir;
         addWindowListener(this);
 
-        JButton minimiseButton = new JButton("Minimize");
+        JButton minimiseButton = new JButton("\u6700\u5C0F\u5316");
         minimiseButton.addActionListener(e -> App.getInstance().setState(Frame.ICONIFIED));
         addButton(minimiseButton);
     }
@@ -53,25 +53,25 @@ public class MergeProgressDialog extends MultiProgressDialog<Void> implements Wi
 
     @Override
     protected String getVerb() {
-        return "Merge";
+        return "\u5408\u5E76";
     }
 
     @Override
     protected String getResultsReport(Void results, long duration) {
         StringBuilder sb = new StringBuilder();
-        sb.append("World merged with ").append(merger.getMapDir());
+        sb.append("\u4E16\u754C\u4E0E ").append(merger.getMapDir()).append(" \u5408\u5E76");
         int hours = (int) (duration / 3600);
         duration = duration - hours * 3600L;
         int minutes = (int) (duration / 60);
         int seconds = (int) (duration - minutes * 60);
-        sb.append("\nMerge took ").append(hours).append(":").append((minutes < 10) ? "0" : "").append(minutes).append(":").append((seconds < 10) ? "0" : "").append(seconds);
-        sb.append("\n\nBackup of existing map created in:\n").append(backupDir);
+        sb.append("\n\u4E16\u754C\u5408\u5E76\u8017\u65F6 ").append(hours).append(":").append((minutes < 10) ? "0" : "").append(minutes).append(":").append((seconds < 10) ? "0" : "").append(seconds);
+        sb.append("\n\n\u5F53\u524D\u4E16\u754C\u5907\u4EFD\u5DF2\u5B58\u4E8E:\n").append(backupDir);
         return sb.toString();
     }
 
     @Override
     protected String getCancellationMessage() {
-        return "Merge cancelled by user.\n\nThe partially merged map is now probably corrupted!\nYou should delete it, and restore it from the backup at:\n" + backupDir;
+        return "\u5408\u5E76\u5DF2\u88AB\u7528\u6237\u53D6\u6D88.\n\n\u90E8\u5206\u5408\u5E76\u7684\u5730\u56FE\u53EF\u80FD\u5DF2\u635F\u574F!\n\u4F60\u9700\u8981\u5220\u9664\u5B83\u5E76\u4F7F\u7528\u8BE5\u6587\u4EF6\u6062\u590D\u4E16\u754C:\n" + backupDir;
     }
 
     @Override

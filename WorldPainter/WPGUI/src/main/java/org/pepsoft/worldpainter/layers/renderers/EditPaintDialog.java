@@ -207,13 +207,13 @@ public class EditPaintDialog extends WorldPainterDialog {
         buttonSelectSolidColour = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Paint");
+        setTitle("\u7F16\u8F91\u753B\u7B14");
 
         iconEditor1.setEditable(false);
 
         buttonSolidColour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/fill.png"))); // NOI18N
-        buttonSolidColour.setText("Make Solid Colour");
-        buttonSolidColour.setToolTipText("<html>Select a colour and fill canvas completely<br>\nSelected colour will become background colour</html>");
+        buttonSolidColour.setText("\u7EAF\u8272\u586B\u5145");
+        buttonSolidColour.setToolTipText("<html>\u9009\u4E00\u4E2A\u989C\u8272\u5B8C\u5168\u586B\u5145\u753B\u5E03<br>\n\u9009\u4E2D\u7684\u989C\u8272\u5C06\u6210\u4E3A\u80CC\u666F\u8272</html>");
         buttonSolidColour.setEnabled(false);
         buttonSolidColour.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonSolidColour.addActionListener(new java.awt.event.ActionListener() {
@@ -225,8 +225,8 @@ public class EditPaintDialog extends WorldPainterDialog {
         buttonGroupTools.add(toggleButtonPencil);
         toggleButtonPencil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/pencil.png"))); // NOI18N
         toggleButtonPencil.setSelected(true);
-        toggleButtonPencil.setText("Pencil");
-        toggleButtonPencil.setToolTipText("<html>Left-click to paint with selected colour<br>\nRight-click to paint with background colour</html>");
+        toggleButtonPencil.setText("\u94C5\u7B14");
+        toggleButtonPencil.setToolTipText("<html>\u5DE6\u952E\u4F7F\u7528\u9009\u4E2D\u989C\u8272\u7ED8\u753B<br>\n\u53F3\u952E\u4F7F\u7528\u80CC\u666F\u989C\u8272\u7ED8\u753B</html>");
         toggleButtonPencil.setEnabled(false);
         toggleButtonPencil.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         toggleButtonPencil.addActionListener(new java.awt.event.ActionListener() {
@@ -237,8 +237,8 @@ public class EditPaintDialog extends WorldPainterDialog {
 
         buttonGroupTools.add(toggleButtonEraser);
         toggleButtonEraser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/sponge.png"))); // NOI18N
-        toggleButtonEraser.setText("Eraser");
-        toggleButtonEraser.setToolTipText("Click to erase to transparency");
+        toggleButtonEraser.setText("\u6A61\u76AE");
+        toggleButtonEraser.setToolTipText("\u5C06\u989C\u8272\u91CD\u7F6E\u4E3A\u900F\u660E");
         toggleButtonEraser.setEnabled(false);
         toggleButtonEraser.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         toggleButtonEraser.addActionListener(new java.awt.event.ActionListener() {
@@ -247,14 +247,14 @@ public class EditPaintDialog extends WorldPainterDialog {
             }
         });
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOk.setText("OK");
+        buttonOk.setText("\u786e\u8ba4");
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOkActionPerformed(evt);
@@ -268,11 +268,11 @@ public class EditPaintDialog extends WorldPainterDialog {
         panelColours.add(jButton1);
 
         rendererPreviewer1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        rendererPreviewer1.setToolTipText("Preview of pattern");
+        rendererPreviewer1.setToolTipText("\u6837\u5F0F\u9884\u89C8");
 
         buttonClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/clear_selection.png"))); // NOI18N
-        buttonClear.setText("Clear");
-        buttonClear.setToolTipText("<html>Clear entire canvas to transparency<br>\nSet background colour to transparency</html>");
+        buttonClear.setText("\u6E05\u9664");
+        buttonClear.setToolTipText("<html>\u6E05\u9664\u753B\u5E03<br>\n\u5C06\u80CC\u666F\u8272\u8BBE\u7F6E\u4E3A\u900F\u660E</html>");
         buttonClear.setEnabled(false);
         buttonClear.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonClear.addActionListener(new java.awt.event.ActionListener() {
@@ -282,7 +282,7 @@ public class EditPaintDialog extends WorldPainterDialog {
         });
 
         jLabel1.setFont(jLabel1.getFont().deriveFont((jLabel1.getFont().getStyle() | java.awt.Font.ITALIC)));
-        jLabel1.setText("Left-click to paint with selected colour; right-click for background colour");
+        jLabel1.setText("\u5DE6\u952E\u4F7F\u7528\u9009\u62E9\u989C\u8272\u7ED8\u753B; \u53F3\u952E\u4F7F\u7528\u80CC\u666F\u989C\u8272\u7ED8\u753B");
 
         sliderOpacity.setOrientation(javax.swing.JSlider.VERTICAL);
         sliderOpacity.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -291,11 +291,11 @@ public class EditPaintDialog extends WorldPainterDialog {
             }
         });
 
-        labelOpacity.setText("Opacity");
+        labelOpacity.setText("\u4E0D\u900F\u660E\u5EA6");
 
         buttonGroupType.add(radioButtonSolidColour);
         radioButtonSolidColour.setSelected(true);
-        radioButtonSolidColour.setText("Solid colour");
+        radioButtonSolidColour.setText("\u7EAF\u8272");
         radioButtonSolidColour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonSolidColourActionPerformed(evt);
@@ -303,7 +303,7 @@ public class EditPaintDialog extends WorldPainterDialog {
         });
 
         buttonGroupType.add(radioButtonPattern);
-        radioButtonPattern.setText("Pattern:");
+        radioButtonPattern.setText("\u6837\u5F0F:");
         radioButtonPattern.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonPatternActionPerformed(evt);

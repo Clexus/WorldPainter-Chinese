@@ -219,36 +219,36 @@ public class UndergroundPocketsDialog extends AbstractEditLayerDialog<Undergroun
         paintPicker1 = new org.pepsoft.worldpainter.layers.renderers.PaintPicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Configure Underground Pockets Layer");
+        setTitle("\u914D\u7F6E\u5730\u4E0B\u8986\u76D6\u5C42");
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 formComponentResized(evt);
             }
         });
 
-        jLabel1.setText("Select your custom material or terrain type:");
+        jLabel1.setText("\u9009\u62E9\u4F60\u7684\u81EA\u5B9A\u4E49\u6750\u8D28\u6216\u65B9\u5757\u79CD\u7C7B:");
 
-        jLabel4.setText("Paint");
+        jLabel4.setText("\u753b\u7b14");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOK.setText("OK");
+        buttonOK.setText("\u786e\u8ba4");
         buttonOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOKActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Name:");
+        jLabel6.setText("\u540D\u79F0:");
 
         fieldName.setColumns(10);
 
-        jLabel7.setText("Occurrence:");
+        jLabel7.setText("\u751F\u6210\u7387:");
 
         spinnerOccurrence.setModel(new javax.swing.SpinnerNumberModel(10, 1, 1000, 1));
         spinnerOccurrence.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -257,11 +257,11 @@ public class UndergroundPocketsDialog extends AbstractEditLayerDialog<Undergroun
             }
         });
 
-        jLabel8.setText("Scale:");
+        jLabel8.setText("\u7F29\u653E:");
 
-        jLabel9.setText("Levels:");
+        jLabel9.setText("\u9AD8\u5EA6:");
 
-        jLabel10.setText("‰");
+        jLabel10.setText("\u2030");
 
         spinnerScale.setModel(new javax.swing.SpinnerNumberModel(100, 1, null, 1));
         spinnerScale.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -290,7 +290,7 @@ public class UndergroundPocketsDialog extends AbstractEditLayerDialog<Undergroun
 
         buttonGroup1.add(radioButtonCustomMaterial);
         radioButtonCustomMaterial.setSelected(true);
-        radioButtonCustomMaterial.setText("custom material:");
+        radioButtonCustomMaterial.setText("\u81EA\u5B9A\u4E49\u6750\u8D28:");
         radioButtonCustomMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonCustomMaterialActionPerformed(evt);
@@ -298,7 +298,7 @@ public class UndergroundPocketsDialog extends AbstractEditLayerDialog<Undergroun
         });
 
         buttonGroup1.add(radioButtonTerrain);
-        radioButtonTerrain.setText("terrain:");
+        radioButtonTerrain.setText("\u65B9\u5757:");
         radioButtonTerrain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radioButtonTerrainActionPerformed(evt);

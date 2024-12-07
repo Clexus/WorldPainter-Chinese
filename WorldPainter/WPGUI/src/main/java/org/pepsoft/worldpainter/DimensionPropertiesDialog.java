@@ -63,16 +63,16 @@ public class DimensionPropertiesDialog extends WorldPainterDialog {
         worldPropertiesEditor1 = new org.pepsoft.worldpainter.DimensionPropertiesEditor();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Dimension Properties");
+        setTitle("\u7F16\u8F91\u7EF4\u5EA6\u5C5E\u6027");
 
-        jButton1.setText("Cancel");
+        jButton1.setText("\u53D6\u6D88");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("OK");
+        jButton2.setText("\u786E\u8BA4");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

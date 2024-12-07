@@ -279,7 +279,7 @@ public class Main {
         }
 
         if (config.isAutosaveEnabled() && autosaveInhibited) {
-            StartupMessages.addWarning("Another instance of WorldPainter is already running.\nAutosave will therefore be disabled in this instance of WorldPainter!");
+            StartupMessages.addWarning("\u53E6\u4E00\u4E2A WorldPainter \u7A0B\u5E8F\u6B63\u5728\u8FD0\u884C.\n\u8BE5 WorldPainter \u5C06\u4E0D\u4F1A\u81EA\u52A8\u4FDD\u5B58\u4E16\u754C!");
         }
 
         // Store the acceleration type in the config object so the Preferences dialog can edit it
@@ -287,7 +287,7 @@ public class Main {
 
         // Start background scan for Minecraft jars
         BiomeSchemeManager.initialiseInBackground();
-        
+
         // Load and install trusted WorldPainter root certificate
         X509Certificate trustedCert = null;
         try {
@@ -382,7 +382,7 @@ public class Main {
                 logger.info("Shutting down WorldPainter");
             }
         });
-        
+
         // Make the "action:" URLs used in various places work:
         URL.setURLStreamHandlerFactory(protocol -> {
             switch (protocol) {
@@ -490,14 +490,14 @@ public class Main {
             // Do this later to give the app the chance to properly set itself up
             SwingUtilities.invokeLater(() -> {
                 if (Version.isSnapshot() && ! myConfig.isMessageDisplayed(SNAPSHOT_MESSAGE_KEY)) {
-                    String result = JOptionPane.showInputDialog(app, SNAPSHOT_MESSAGE, "Snapshot Release", WARNING_MESSAGE);
+                    String result = JOptionPane.showInputDialog(app, SNAPSHOT_MESSAGE, "\u5FEB\u7167\u7248", WARNING_MESSAGE);
                     if (result == null) {
                         // Cancel was pressed
                         System.exit(0);
                     }
-                    while (! result.toLowerCase().replace(" ", "").equals("iunderstand")) {
+                    while (! result.toLowerCase().replace(" ", "").equals("\u6211\u660E\u767D")) {
                         DesktopUtils.beep();
-                        result = JOptionPane.showInputDialog(app, SNAPSHOT_MESSAGE, "Snapshot Release", WARNING_MESSAGE);
+                        result = JOptionPane.showInputDialog(app, SNAPSHOT_MESSAGE, "\u5FEB\u7167\u7248", WARNING_MESSAGE);
                         if (result == null) {
                             // Cancel was pressed
                             System.exit(0);
@@ -522,18 +522,18 @@ public class Main {
                 } else if ((! autosaveInhibited) && myConfig.isAutosaveEnabled() && autosaveFile.isFile()) {
                     logger.info("Recovering autosaved world");
                     app.open(autosaveFile);
-                    StartupMessages.addWarning("WorldPainter was not shut down correctly.\nYour world has been recovered from the most recent autosave.\nMake sure to Save it if you want to keep it!");
+                    StartupMessages.addWarning("WorldPainter\u672A\u88AB\u6B63\u786E\u5173\u95ED.\n\u4F60\u7684\u4E16\u754C\u5DF2\u4ECE\u6700\u8FD1\u7684\u81EA\u52A8\u4FDD\u5B58\u6570\u636E\u6062\u590D\n\u5982\u679C\u4F60\u60F3\u4FDD\u7559\u8BE5\u6587\u4EF6\u8BF7\u4FDD\u5B58!");
                 } else {
                     app.open(file);
                 }
                 for (String error: StartupMessages.getErrors()) {
-                    beepAndShowError(app, error, "Startup Error");
+                    beepAndShowError(app, error, "\u542F\u52A8\u9519\u8BEF");
                 }
                 for (String warning: StartupMessages.getWarnings()) {
-                    beepAndShowWarning(app, warning, "Startup Warning");
+                    beepAndShowWarning(app, warning, "\u542F\u52A8\u8B66\u544A");
                 }
                 for (String message: StartupMessages.getMessages()) {
-                    showInfo(app, message, "Startup Message");
+                    showInfo(app, message, "\u542F\u52A8\u6D88\u606F");
                 }
                 if (StartupMessages.getErrors().isEmpty() && StartupMessages.getWarnings().isEmpty() && StartupMessages.getMessages().isEmpty()) {
                     // Don't bother the user with this if we've already bothered them with errors and/or warnings
@@ -559,17 +559,17 @@ public class Main {
 
         // Report the error
         logger.error("Exception while initialising configuration", e);
-        StartupMessages.addError("Could not read configuration file! Configuration was reset.\n\nException type: " + e.getClass().getSimpleName() + "\nMessage: " + e.getMessage());
+        StartupMessages.addError("\u65E0\u6CD5\u8BFB\u53D6\u914D\u7F6E\u6587\u4EF6! \u914D\u7F6E\u6587\u4EF6\u5DF2\u91CD\u7F6E.\n\n\u9519\u8BEF\u79CD\u7C7B: " + e.getClass().getSimpleName() + "\n\u9519\u8BEF\u6D88\u606F: " + e.getMessage());
     }
 
     @Language("HTML")
-    private static final String SNAPSHOT_MESSAGE = "<html><h1>Warning: Snapshot Release</h1>" +
-            "<p>This is a snapshot release of WorldPainter. It is for testing <em>only</em>!" +
-            "<p>Any worlds you edit with this version <strong>may not be loadable</strong> by the next production version<br>when that is released and <strong>will not be loadable</strong> by the current production version!" +
-            "<p><strong>Make backups</strong> of any existing worlds you wish to test with this release, in a safe location." +
-            "<p>Any or all work you do with this test release may be lost, and if you don't create backups,<br>you may lose your current worlds." +
-            "<p>Please report bugs on GitHub: https://github.com/Captain-Chaos/WorldPainter" +
-            "<p>Type \"I understand\" below to proceed with testing the next release of WorldPainter:</p></html>";
+    private static final String SNAPSHOT_MESSAGE = "<html><h1>\u8B66\u544A: \u5FEB\u7167\u7248</h1>" +
+            "<p>\u8BE5\u7248\u672C\u4E3A WorldPainter \u7684\u5FEB\u7167\u7248. \u5FEB\u7167\u7248<em>\u4EC5\u4F9B</em>\u6D4B\u8BD5!" +
+            "<p>\u8BE5\u7248\u672C\u7F16\u8F91\u7684\u4EFB\u4F55\u4E16\u754C\u90FD\u6709\u53EF\u80FD\u5728\u672A\u6765\u7248\u672C<strong>\u65E0\u6CD5\u52A0\u8F7D</strong><br>\u672A\u6765\u7248\u672C\u7684\u5730\u56FE\u4E5F\u53EF\u80FD\u5728\u8BE5\u7248\u672C<strong>\u65E0\u6CD5\u52A0\u8F7D</strong>!" +
+            "<p><strong>\u8BF7\u5907\u4EFD</strong>\u4F60\u60F3\u8981\u5728\u8BE5\u7248\u672C\u6D4B\u8BD5\u7684\u6240\u6709\u4E16\u754C\u5230\u4E00\u4E2A\u5B89\u5168\u7684\u4F4D\u7F6E." +
+            "<p>\u4F60\u4F7F\u7528\u8BE5\u7248\u672C\u8FDB\u884C\u7684\u64CD\u4F5C\u90FD\u6709\u53EF\u80FD\u4E22\u5931, \u5982\u679C\u4F60\u4E0D\u521B\u5EFA\u5907\u4EFD, \u4F60\u53EF\u80FD\u4F1A\u4E22\u5931\u4F60\u6240\u6709\u7684\u4E16\u754C." +
+            "<p>\u8BF7\u5728 GitHub \u4E0A\u53CD\u9988bug: https://github.com/Captain-Chaos/WorldPainter" +
+            "<p>\u5728\u4E0B\u65B9\u8F93\u5165 \"\u6211\u660E\u767D\" \u6765\u7EE7\u7EED\u4F7F\u7528 WorldPainter \u7684\u5FEB\u7167\u7248:</p></html>";
     private static final String SNAPSHOT_MESSAGE_KEY = "org.pepsoft.worldpainter.snapshotWarning";
 
     private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Main.class);

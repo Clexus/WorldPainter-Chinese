@@ -94,7 +94,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u5728\u6B64\u754C\u9762\u914D\u7F6E\u4F60\u7684\u6DF7\u5408\u8986\u76d6\u5c42."/>
+        <Property name="text" type="java.lang.String" value="\u5728\u6B64\u754C\u9762\u914D\u7F6E\u4F60\u7684\u6DF7\u5408\u8986\u76D6\u5C42."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -125,7 +125,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="\u8986\u76d6\u5c42:"/>
+        <Property name="text" type="java.lang.String" value="\u8986\u76D6\u5C42:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

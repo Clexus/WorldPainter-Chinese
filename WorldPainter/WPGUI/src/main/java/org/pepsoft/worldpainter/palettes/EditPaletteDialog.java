@@ -189,24 +189,24 @@ public class EditPaletteDialog extends WorldPainterDialog {
         buttonReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Edit Palette");
+        setTitle("\u7F16\u8F91\u753B\u677F");
 
         jLabel1.setLabelFor(textFieldName);
-        jLabel1.setText("Name:");
+        jLabel1.setText("\u540D\u79F0:");
 
         textFieldName.setText("jTextField1");
 
         jLabel2.setLabelFor(listLayers);
-        jLabel2.setText("Layer order:");
+        jLabel2.setText("\u8986\u76D6\u5C42\u987A\u5E8F:");
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setText("\u53d6\u6d88");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
 
-        buttonOk.setText("OK");
+        buttonOk.setText("\u786e\u8ba4");
         buttonOk.setEnabled(false);
         buttonOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,8 +218,8 @@ public class EditPaletteDialog extends WorldPainterDialog {
         jScrollPane1.setViewportView(listLayers);
 
         buttonTop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/top.png"))); // NOI18N
-        buttonTop.setText("Top");
-        buttonTop.setToolTipText("Move the selected layers to the top");
+        buttonTop.setText("\u7F6E\u9876");
+        buttonTop.setToolTipText("\u5C06\u9009\u4E2D\u8986\u76D6\u5C42\u7F6E\u9876");
         buttonTop.setEnabled(false);
         buttonTop.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonTop.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +229,8 @@ public class EditPaletteDialog extends WorldPainterDialog {
         });
 
         buttonUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/up.png"))); // NOI18N
-        buttonUp.setText("Up");
-        buttonUp.setToolTipText("Move the selected layers up one row");
+        buttonUp.setText("\u4E0A\u79FB");
+        buttonUp.setToolTipText("\u5C06\u9009\u4E2D\u8986\u76D6\u5C42\u4E0A\u79FB");
         buttonUp.setEnabled(false);
         buttonUp.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonUp.addActionListener(new java.awt.event.ActionListener() {
@@ -240,8 +240,8 @@ public class EditPaletteDialog extends WorldPainterDialog {
         });
 
         buttonDown.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/down.png"))); // NOI18N
-        buttonDown.setText("Down");
-        buttonDown.setToolTipText("Move the selected layers down one row");
+        buttonDown.setText("\u4E0B\u79FB");
+        buttonDown.setToolTipText("\u5C06\u9009\u4E2D\u8986\u76D6\u5C42\u4E0B\u79FB");
         buttonDown.setEnabled(false);
         buttonDown.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonDown.addActionListener(new java.awt.event.ActionListener() {
@@ -251,8 +251,8 @@ public class EditPaletteDialog extends WorldPainterDialog {
         });
 
         buttonBottom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/bottom.png"))); // NOI18N
-        buttonBottom.setText("Bottom");
-        buttonBottom.setToolTipText("Move the selected layers to the bottom");
+        buttonBottom.setText("\u7F6E\u5E95");
+        buttonBottom.setToolTipText("\u5C06\u9009\u4E2D\u8986\u76D6\u5C42\u7F6E\u5E95");
         buttonBottom.setEnabled(false);
         buttonBottom.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonBottom.addActionListener(new java.awt.event.ActionListener() {
@@ -262,8 +262,8 @@ public class EditPaletteDialog extends WorldPainterDialog {
         });
 
         buttonSort.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/pepsoft/worldpainter/icons/a_z.png"))); // NOI18N
-        buttonSort.setText("Sort");
-        buttonSort.setToolTipText("Sort all the layers alphabetically by name");
+        buttonSort.setText("\u6392\u5E8F");
+        buttonSort.setToolTipText("\u5C06\u8986\u76D6\u5C42\u6309\u7167\u5B57\u6BCD\u987A\u5E8F\u6392\u5217");
         buttonSort.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         buttonSort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -273,9 +273,9 @@ public class EditPaletteDialog extends WorldPainterDialog {
 
         jLabel3.setFont(jLabel3.getFont().deriveFont((jLabel3.getFont().getStyle() | java.awt.Font.ITALIC)));
         jLabel3.setLabelFor(listLayers);
-        jLabel3.setText("Hold shift to select multiple rows");
+        jLabel3.setText("\u6309shift\u9009\u62E9\u591A\u4E2A\u8986\u76D6\u5C42");
 
-        buttonReset.setText("Reset");
+        buttonReset.setText("\u91CD\u7F6E");
         buttonReset.setEnabled(false);
         buttonReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

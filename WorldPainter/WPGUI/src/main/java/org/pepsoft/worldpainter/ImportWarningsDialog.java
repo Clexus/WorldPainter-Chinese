@@ -51,14 +51,14 @@ public class ImportWarningsDialog extends WorldPainterDialog {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("OK");
+        jButton1.setText("\u786E\u8BA4");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("<html>The import process generated warnings. The map may be damaged or corrupted.<br>\nNot all chunks may have been imported correctly. Please review the warnings below:</html");
+        jLabel1.setText("<html>\u5BFC\u5165\u8FC7\u7A0B\u4EA7\u751F\u4E86\u8B66\u544A. \u8BE5\u5730\u56FE\u53EF\u80FD\u5DF2\u635F\u574F\u6216\u5D29\u6E83.<br>\n\u6709\u90E8\u5206\u533A\u5757\u672A\u88AB\u6B63\u786E\u5BFC\u5165. \u8BF7\u5728\u4E0B\u65B9\u67E5\u770B\u8B66\u544A:</html");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
