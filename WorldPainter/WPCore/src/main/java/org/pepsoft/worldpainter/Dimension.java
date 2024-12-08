@@ -1865,7 +1865,7 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
      */
     public void transform(CoordinateTransform transform, ProgressReceiver progressReceiver) throws OperationCancelled {
         if (progressReceiver != null) {
-            progressReceiver.setMessage("transforming " + getName() + "...");
+            progressReceiver.setMessage("\u8F6C\u6362" + getName() + "\u4E2D...");
         }
         eventsInhibited = true;
         try {
@@ -2442,20 +2442,20 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
             final StringBuilder sb = new StringBuilder();
             switch (anchor.dim) {
                 case 0:
-                    sb.append("Surface");
+                    sb.append("\u4E3B\u4E16\u754C");
                     break;
                 case 1:
-                    sb.append("Nether");
+                    sb.append("\u4E0B\u754C");
                     break;
                 case 2:
-                    sb.append("End");
+                    sb.append("\u672B\u5730");
                     break;
                 default:
-                    sb.append("Dimension " + anchor.dim);
+                    sb.append("\u7EF4\u5EA6 " + anchor.dim);
                     break;
             }
             if (anchor.invert) {
-                sb.append(" Ceiling");
+                sb.append("\u9876\u5C42\u7EF4\u5EA6");
             }
             name = sb.toString();
         }
@@ -2619,7 +2619,7 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
 
     public enum LayerAnchor {BEDROCK, TERRAIN}
 
-    public enum WallType { BEDROCK, BARIER /* typo, but it's in the wild, so we can't easily fix it anymore... 😔 */}
+    public enum WallType { BEDROCK, BARIER /* typo, but it's in the wild, so we can't easily fix it anymore... \uD83D\uDE14 */}
 
     public class TileVisitationBuilder {
         public TileVisitationBuilder(boolean readOnly) {
@@ -2898,32 +2898,32 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
             final StringBuilder sb = new StringBuilder();
             switch (dim) {
                 case DIM_NORMAL:
-                    sb.append("Surface");
+                    sb.append("\u4E3B\u4E16\u754C");
                     break;
                 case DIM_NETHER:
-                    sb.append("Nether");
+                    sb.append("\u4E0B\u754C");
                     break;
                 case DIM_END:
-                    sb.append("End");
+                    sb.append("\u672B\u5730");
                     break;
                 default:
-                    sb.append("Dimension ");
+                    sb.append("\u7EF4\u5EA6");
                     sb.append(dim);
                     break;
             }
             switch (role) {
                 case MASTER:
-                    sb.append(" Master");
+                    sb.append("\u6269\u5C55\u533A\u7EF4\u5EA6");
                     break;
                 case CAVE_FLOOR:
-                    sb.append(" Cave Floor");
+                    sb.append("\u6D1E\u7A74\u5C42");
                     break;
                 case FLOATING_FLOOR:
-                    sb.append(" Floating Floor");
+                    sb.append("\u60AC\u6D6E\u5C42");
                     break;
             }
             if (invert) {
-                sb.append(" Ceiling");
+                sb.append("\u9876\u5C42");
             }
             if (id != 0) {
                 sb.append(' ');
@@ -2936,7 +2936,7 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
         public String toString() {
             return dim
                     + " " + role
-                    + (invert ? " CEILING" : "")
+                    + (invert ? "\u9876\u5C42" : "")
                     + ((id != 0) ? (" " + id) : "");
         }
 

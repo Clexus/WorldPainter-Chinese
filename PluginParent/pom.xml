@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.pepsoft.worldpainter</groupId>
             <artifactId>WPGUI</artifactId>
-            <version>2.23.3-SNAPSHOT</version>
+            <version>2.23.3</version>
             <scope>system</scope>
             <systemPath>C:/Users/1111/Desktop/Development/Development/WorldPainter-Chinese/libs/WPGUI.jar</systemPath>
             <exclusions>
