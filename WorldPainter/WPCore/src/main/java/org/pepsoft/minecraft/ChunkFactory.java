@@ -101,6 +101,14 @@ public interface ChunkFactory {
          */
         FIXUPS("\u4FEE\u590D", "\u4FEE\u590D\u533A\u57DF\u8FB9\u754C");
 
+        public String getName() {
+            return name;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
         private final String name, description;
 
         Stage(String name, String description) {

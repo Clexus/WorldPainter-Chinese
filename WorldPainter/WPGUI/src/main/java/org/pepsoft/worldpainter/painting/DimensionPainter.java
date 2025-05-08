@@ -8,6 +8,9 @@ package org.pepsoft.worldpainter.painting;
 
 import org.pepsoft.worldpainter.Dimension;
 import org.pepsoft.worldpainter.Terrain;
+import org.pepsoft.worldpainter.brushes.Brush;
+import org.pepsoft.worldpainter.brushes.LineBrush;
+import org.pepsoft.worldpainter.brushes.SymmetricBrush;
 import org.pepsoft.worldpainter.layers.Layer;
 
 import java.awt.*;
@@ -18,6 +21,7 @@ import java.awt.image.BufferedImage;
 import static java.awt.RenderingHints.KEY_TEXT_ANTIALIASING;
 import static java.awt.RenderingHints.VALUE_TEXT_ANTIALIAS_OFF;
 import static org.pepsoft.worldpainter.Constants.TILE_SIZE_BITS;
+import static org.pepsoft.worldpainter.brushes.BrushShape.CIRCLE;
 
 /**
  * A utility class for painting basic shapes to dimension using any kind of {@link Paint}.
@@ -68,7 +72,9 @@ public final class DimensionPainter {
     
     /**
      * Draw a straight line between two points using the current brush and paint, by applying the brush at each point
-     * along the line.
+     * along the line. This version defaults to using slow but accurate algorithms. See
+     * {@link #drawLine(Dimension, int, int, int, int, boolean)} for a version which can use fast but possibly less
+     * accurate algorithms.
      *
      * @param x1 The x coordinate at which to start the line.
      * @param y1 The y coordinate at which to start the line.
@@ -76,43 +82,38 @@ public final class DimensionPainter {
      * @param y2 The y coordinate at which to end the line.
      */
     public void drawLine(Dimension dimension, int x1, int y1, int x2, int y2) {
-        final int dx = Math.abs(x2 - x1);
-        final int dy = Math.abs(y2 - y1);
-        if (dx < dy) {
-            // Mostly vertical; go from top to bottom
-            // Normalise the endpoints
-            if (y2 < y1) {
-                int tmp = y1;
-                y1 = y2;
-                y2 = tmp;
-                tmp = x1;
-                x1 = x2;
-                x2 = tmp;
-            }
-            float x = x1 - 0.5f;
-            final float fDx = (float) (x2 - x1) / dy;
-            for (int y = y1; y <= y2; y++) {
-                drawPoint(dimension, Math.round(x), y);
-                x += fDx;
-            }
-        } else {
-            // Mostly horizontal; go from left to right
-            // Normalise the endpoints
-            if (x2 < x1) {
-                int tmp = y1;
-                y1 = y2;
-                y2 = tmp;
-                tmp = x1;
-                x1 = x2;
-                x2 = tmp;
-            }
-            float y = y1 - 0.5f;
-            final float fDy = (float) (y2 - y1) / dx;
-            for (int x = x1; x <= x2; x++) {
-                drawPoint(dimension, x, Math.round(y));
-                y += fDy;
-            }
-        }
+        drawLine(dimension, x1, y1, x2, y2, 1.0f, false);
+    }
+
+    /**
+     * Draw a straight line between two points using the current brush and paint, by applying the brush at each point
+     * along the line.
+     *
+     * @param x1 The x coordinate at which to start the line.
+     * @param y1 The y coordinate at which to start the line.
+     * @param x2 The x coordinate at which to end the line.
+     * @param y2 The y coordinate at which to end the line.
+     * @param fast Use fast but possibly less accurate algorithms.
+     */
+    public void drawLine(Dimension dimension, int x1, int y1, int x2, int y2, boolean fast) {
+        drawLine(dimension, x1, y1, x2, y2, 1.0f, fast);
+    }
+
+    /**
+     * Draw a straight line between two points using the current brush, attenuated by a dynamic level, and paint, by
+     * applying the brush at each point along the line. This version defaults to using slow but accurate algorithms. See
+     * {@link #drawLine(Dimension, int, int, int, int, float, boolean)} for a version which can use fast but possibly
+     * less accurate algorithms.
+     *
+     * @param x1 The x coordinate at which to start the line.
+     * @param y1 The y coordinate at which to start the line.
+     * @param x2 The x coordinate at which to end the line.
+     * @param y2 The y coordinate at which to end the line.
+     * @param dynamicLevel The dynamic level between {@code 0.0f} and {@code 1.0f} (inclusive) with which to
+     *                     multiply the brush.
+     */
+    public void drawLine(Dimension dimension, int x1, int y1, int x2, int y2, float dynamicLevel) {
+        drawLine(dimension, x1, y1, x2, y2, dynamicLevel, false);
     }
 
     /**
@@ -125,8 +126,9 @@ public final class DimensionPainter {
      * @param y2 The y coordinate at which to end the line.
      * @param dynamicLevel The dynamic level between {@code 0.0f} and {@code 1.0f} (inclusive) with which to
      *                     multiply the brush.
+     * @param fast Use fast but possibly less accurate algorithms.
      */
-    public void drawLine(Dimension dimension, int x1, int y1, int x2, int y2, float dynamicLevel) {
+    public void drawLine(Dimension dimension, int x1, int y1, int x2, int y2, float dynamicLevel, boolean fast) {
         final int dx = Math.abs(x2 - x1);
         final int dy = Math.abs(y2 - y1);
         if (dx < dy) {
@@ -140,11 +142,13 @@ public final class DimensionPainter {
                 x1 = x2;
                 x2 = tmp;
             }
-            float x = x1 - 0.5f;
-            final float fDx = (float) (x2 - x1) / dy;
-            for (int y = y1; y <= y2; y++) {
-                drawPoint(dimension, Math.round(x), y, dynamicLevel);
-                x += fDx;
+            if (! fast) {
+                float x = x1 - 0.5f;
+                final float fDx = (float) (x2 - x1) / dy;
+                for (int y = y1; y <= y2; y++) {
+                    drawPoint(dimension, Math.round(x), y, dynamicLevel);
+                    x += fDx;
+                }
             }
         } else {
             // Mostly horizontal; go from left to right
@@ -157,11 +161,38 @@ public final class DimensionPainter {
                 x1 = x2;
                 x2 = tmp;
             }
-            float y = y1 - 0.5f;
-            final float fDy = (float) (y2 - y1) / dx;
-            for (int x = x1; x <= x2; x++) {
-                drawPoint(dimension, x, Math.round(y), dynamicLevel);
-                y += fDy;
+            if (! fast) {
+                float y = y1 - 0.5f;
+                final float fDy = (float) (y2 - y1) / dx;
+                for (int x = x1; x <= x2; x++) {
+                    drawPoint(dimension, x, Math.round(y), dynamicLevel);
+                    y += fDy;
+                }
+            }
+        }
+        if (fast) {
+            final Brush currentBrush = paint.getBrush();
+            if (currentBrush == null) {
+                // This happens when the null paint is selected because the user has not yet made a paint choice
+                return;
+            }
+            final Brush lineBrush;
+            if (currentBrush.getBrushShape() == CIRCLE) {
+                lineBrush = LineBrush.of(currentBrush, (x2 - x1), (y2 - y1));
+            } else {
+                MY_CONSTANT_CIRCLE.setRadius(currentBrush.getRadius());
+                MY_CONSTANT_CIRCLE.setLevel(currentBrush.getLevel());
+                lineBrush = LineBrush.of(MY_CONSTANT_CIRCLE, (x2 - x1), (y2 - y1));
+            }
+            paint.setBrush(lineBrush);
+            try {
+                if (undo) {
+                    paint.remove(dimension, x1 + ((x2 - x1) / 2), y1 + ((y2 - y1) / 2), dynamicLevel);
+                } else {
+                    paint.apply(dimension, x1 + ((x2 - x1) / 2), y1 + ((y2 - y1) / 2), dynamicLevel);
+                }
+            } finally {
+                paint.setBrush(currentBrush);
             }
         }
     }
@@ -491,6 +522,8 @@ public final class DimensionPainter {
     public static final int ANGLE_90_DEGREES  = 1;
     public static final int ANGLE_180_DEGREES = 2;
     public static final int ANGLE_270_DEGREES = 3;
+
+    private static final Brush MY_CONSTANT_CIRCLE = SymmetricBrush.CONSTANT_CIRCLE.clone();
 
     static abstract class AbstractDimensionPaintFillMethod implements GeneralQueueLinearFloodFiller.FillMethod {
         protected AbstractDimensionPaintFillMethod(String description, Dimension dimension, Paint paint) {

@@ -29,9 +29,11 @@ import org.pepsoft.worldpainter.vo.EventVO;
 
 import java.awt.*;
 import java.io.*;
-import java.util.List;
 import java.util.*;
+import java.util.List;
+import java.util.function.Consumer;
 
+import static java.util.Objects.requireNonNull;
 import static org.pepsoft.minecraft.Constants.DEFAULT_MAX_HEIGHT_ANVIL;
 import static org.pepsoft.minecraft.Constants.DEFAULT_WATER_LEVEL;
 import static org.pepsoft.minecraft.Material.DIRT;
@@ -812,11 +814,27 @@ public final class Configuration implements Serializable, EventLogger, Minecraft
 
     @Override
     public synchronized void logEvent(EventVO event) {
-        if (eventLog != null) {
+        if ((! event.isTransient()) && (eventLog != null)) {
             eventLog.add(event);
         }
+        final List<Consumer<EventVO>> eventListeners = this.eventListeners.get(event.getKey());
+        if (eventListeners != null) {
+            for (Consumer<EventVO> eventListener: eventListeners) {
+                try {
+                    eventListener.accept(event);
+                } catch (RuntimeException e) {
+                    logger.error("Event listener {} threw an exception while handling event {}", eventListener, event, e);
+                }
+            }
+        }
     }
-    
+
+    public synchronized void addEventListener(String eventKey, Consumer<EventVO> eventListener) {
+        requireNonNull(eventKey, "eventKey");
+        requireNonNull(eventListener, "eventListener");
+        eventListeners.computeIfAbsent(eventKey, key -> new LinkedList<>()).add(eventListener);
+    }
+
     public synchronized List<EventVO> getEventLog() {
         return copyOf(eventLog);
     }
@@ -851,7 +869,9 @@ public final class Configuration implements Serializable, EventLogger, Minecraft
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
 
+        // Set transient fields
         previousVersion = version;
+        eventListeners = new HashMap<>();
         
         // Legacy config
         if ((border != null) && (border2 == null)) {
@@ -1097,11 +1117,15 @@ public final class Configuration implements Serializable, EventLogger, Minecraft
                 beta118WarningDisplayed = false;
             }
         }
+        if (version < 25) {
+            upgradeDefaultPlatform();
+        }
+        version = CURRENT_VERSION;
+
         if (defaultTerrainAndLayerSettings.getLayerSettings(Resources.INSTANCE) != null) {
             defaultTerrainAndLayerSettings.setLayerSettings(Resources.INSTANCE, null);
         }
-        version = CURRENT_VERSION;
-        
+
         // Bug fix: make sure terrain ranges map conforms to surface material setting
         TileFactory tileFactory = defaultTerrainAndLayerSettings.getTileFactory();
         if ((tileFactory instanceof HeightMapTileFactory) && (((HeightMapTileFactory) tileFactory).getTheme() instanceof SimpleTheme)) {
@@ -1111,6 +1135,18 @@ public final class Configuration implements Serializable, EventLogger, Minecraft
             // default underwater material, try not to change that
             int surfaceLevel = defaultTerrainRanges.headMap(waterLevel + 3).lastKey();
             defaultTerrainRanges.put(surfaceLevel, surface);
+        }
+    }
+
+    private void upgradeDefaultPlatform() {
+        final Platform previousLatestPlatform = DEFAULT_JAVA_PLATFORMS.get(DEFAULT_JAVA_PLATFORMS.size() - 2);
+        if (defaultPlatformId.equals(previousLatestPlatform.id)) {
+            defaultPlatformId = DEFAULT_PLATFORM.id;
+            StartupMessages.addMessage(
+                    "The default map format was changed to " + DEFAULT_PLATFORM.displayName + "; if\n" +
+                    "you did not intend this you can change it back on the Defaults page\n" +
+                    "of the Preferences; note that the map format of existing worlds has\n" +
+                    "not been changed.");
         }
     }
 
@@ -1292,18 +1328,19 @@ public final class Configuration implements Serializable, EventLogger, Minecraft
      */
     private transient AccelerationType accelerationType;
 
-    // Runtime settings which aren't stored on disk
+    // Runtime settings and state which aren't stored on disk
     private transient boolean autosaveInhibited, safeMode;
     private transient int previousVersion = -1;
+    private transient Map<String, List<Consumer<EventVO>>> eventListeners = new HashMap<>();
 
     private static Configuration instance;
     private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Configuration.class);
     private static final long serialVersionUID = 2011041801L;
     private static final int CIRCULAR_WORLD = -1;
-    private static final int CURRENT_VERSION = 24;
+    private static final int CURRENT_VERSION = 25;
 
     public static final String ADVANCED_SETTING_PREFIX = "org.pepsoft.worldpainter";
-    public static final Platform DEFAULT_PLATFORM = JAVA_ANVIL_1_19;
+    public static final Platform DEFAULT_PLATFORM = JAVA_ANVIL_1_20_5;
 
     public enum DonationStatus {DONATED, NO_THANK_YOU}
     

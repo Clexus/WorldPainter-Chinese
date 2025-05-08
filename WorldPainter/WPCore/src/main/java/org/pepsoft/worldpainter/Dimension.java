@@ -40,8 +40,8 @@ import java.awt.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.*;
-import java.util.List;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -63,7 +63,7 @@ import static org.pepsoft.worldpainter.Dimension.Anchor.*;
 import static org.pepsoft.worldpainter.Dimension.Role.*;
 import static org.pepsoft.worldpainter.Dimension.WallType.BEDROCK;
 import static org.pepsoft.worldpainter.Generator.*;
-import static org.pepsoft.worldpainter.biomeschemes.Minecraft1_20Biomes.*;
+import static org.pepsoft.worldpainter.biomeschemes.Minecraft1_21Biomes.*;
 import static org.pepsoft.worldpainter.panels.DefaultFilter.buildForDimension;
 import static org.pepsoft.worldpainter.util.GeometryUtil.getDistancesToCentre;
 
@@ -1274,6 +1274,9 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
         }
     }
 
+    /**
+     * Get the <em>inclusive</em> lower bound of the terrain height range for this dimension.
+     */
     public int getMinHeight() {
         return minHeight;
     }
@@ -1287,6 +1290,9 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
         }
     }
 
+    /**
+     * Get the <em>exclusive</em> upper bound of the terrain height range for this dimension.
+     */
     public int getMaxHeight() {
         return maxHeight;
     }
@@ -2671,9 +2677,9 @@ public class Dimension extends InstanceKeeper implements TileProvider, Serializa
             int tileX1 = Integer.MIN_VALUE, tileX2 = Integer.MAX_VALUE;
             int tileY1 = Integer.MIN_VALUE, tileY2 = Integer.MAX_VALUE;
             if (brush != null) {
-                final int effectiveRadius = brush.getEffectiveRadius();
-                final int x1 = x - effectiveRadius, x2 = x + effectiveRadius;
-                final int y1 = y - effectiveRadius, y2 = y + effectiveRadius;
+                final Rectangle boundingBox = brush.getBoundingBox();
+                final int x1 = x + boundingBox.x, x2 = x1 + boundingBox.width - 1;
+                final int y1 = y + boundingBox.y, y2 = y1 + boundingBox.height - 1;
                 tileX1 = x1 >> TILE_SIZE_BITS;
                 tileX2 = x2 >> TILE_SIZE_BITS;
                 tileY1 = y1 >> TILE_SIZE_BITS;
